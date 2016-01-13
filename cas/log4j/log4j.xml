@@ -22,15 +22,13 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
-
-    <appender name="cas" class="org.apache.log4j.DailyRollingFileAppender">
-      <param name="File" value="/tmp/cas-server-webapp.log" />
-       <param name="DatePattern" value="'.'yyyy-MM-dd" />
-       <layout class="org.apache.log4j.PatternLayout">
-          <param name="ConversionPattern" value="[%p] %d %c %M - %m%n"/>
-       </layout>
-    </appender>
-    <!--
+  <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <param name="Threshold" value="ALL" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c] - %m%n" />
+    </layout>
+  </appender>
+   <!--
         WARNING: Setting the org.springframework logger to DEBUG displays debug information about
         the request parameter values being bound to the command objects.  This could expose your
         password in the logger file.  If you are sharing your logger files, it is recommend you selectively
@@ -38,22 +36,22 @@
     -->
     <logger name="org.springframework">
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </logger>
 
     <logger name="org.springframework.webflow">
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </logger>
 
     <logger name="org.jasig" additivity="true">
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </logger>
 
     <logger name="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager">
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </logger>
 
     <!--
@@ -63,7 +61,7 @@
     -->
     <logger name="org.jasig.cas.web.flow" additivity="true">
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </logger>
 
     <!--
@@ -72,6 +70,6 @@
     -->
     <root>
         <level value="WARN" />
-        <appender-ref ref="cas" />
+        <appender-ref ref="consoleAppender" />
     </root>
 </log4j:configuration>

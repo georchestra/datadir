@@ -2,11 +2,29 @@
 <beans default-lazy-init="true"
   xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:util="http://www.springframework.org/schema/util"
   xsi:schemaLocation="
   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
   <context:property-placeholder location="file:${georchestra.datadir}/geonetwork/geonetwork.properties" file-encoding="UTF-8" ignore-unresolvable="true" order="0"/>
+
+  <util:map id="jpaPropertyMap">
+    <entry key="shared-cache-mode" value="ENABLE_SELECTIVE" />
+    <entry key="javax.persistence.lock.timeout" value="30000" />
+    <entry key="org.hibernate.flushMode" value="AUTO" />
+    <entry key="access" value="PROPERTY" />
+    <entry key="hibernate.id.new_generator_mappings" value="true" />
+    <entry key="hibernate.cache.use_second_level_cache" value="true" />
+    <!--<entry key="hibernate.cache.region.factory_class" value="org.hibernate.cache.internal.NoCachingRegionFactory"/> -->
+    <entry key="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+    <entry key="hibernate.jdbc.batch_size" value="3" />
+    <entry key="hibernate.jdbc.batch_versioned_data" value="true" />
+    <entry key="hibernate.enable_lazy_load_no_trans" value="true" />
+    <entry key="hibernate.default_schema" value="${jdbc.schema}"/>
+    <entry key="hibernate.dialect" value="org.fao.geonet.dialect.CustomPostgreSQLDialect" />
+  </util:map>
 
   <!-- Default JDBC datasource -->
   <bean id="jdbcDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -43,7 +61,7 @@
   </bean>
 
   <bean id="jdbcURL" class="java.lang.String">
-    <constructor-arg value="jdbc:postgresql://${jdbc.host}:5432/${jdbc.database}"/>
+    <constructor-arg value="jdbc:postgresql://${jdbc.host}:${jdbc.port}/${jdbc.database}"/>
   </bean>
 
   <!-- Postgis related spatial index -->
@@ -60,7 +78,7 @@
         <entry key="host" value="${jdbc.host}"/>
         <entry key="port" value="${jdbc.port}"/>
         <entry key="database" value="${jdbc.database}"/>
-        <entry key="schema" value="public"/>
+        <entry key="schema" value="${jdbc.schema}"/>
         <entry key="Loose bbox" value="true"/>
         <entry key="Estimated extends" value="true"/>
         <entry key="encode functions" value="true"/>

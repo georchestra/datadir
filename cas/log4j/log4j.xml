@@ -23,9 +23,11 @@
 
 <log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-    <appender name="cas" class="org.apache.log4j.DailyRollingFileAppender">
+    <appender name="cas" class="org.apache.log4j.rolling.RollingFileAppender">
       <param name="File" value="/tmp/cas-server-webapp.log" />
-       <param name="DatePattern" value="'.'yyyy-MM-dd" />
+       <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+          <param name="FileNamePattern" value="/tmp/cas-server-webapp.%d.log.gz"/>
+       </rollingPolicy>
        <layout class="org.apache.log4j.PatternLayout">
           <param name="ConversionPattern" value="[%p] %d %c %M - %m%n"/>
        </layout>

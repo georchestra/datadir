@@ -27,7 +27,7 @@ GEOR.custom = {
      * Defaults to the first one got by mapfishapp's ContextController.java,
      * probably something like "context/default.wmc"
      */
-    //DEFAULT_WMC: "context/default.wmc",
+    DEFAULT_WMC: "context/default.wmc",
 
     /**
      * Constant: GEOSERVER_WFS_URL

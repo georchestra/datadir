@@ -3,11 +3,12 @@
   <General>
     <Window width="1373" height="659"/>
     <BoundingBox minx="-1363722.41004360002" miny="5166003.89129989967" maxx="1994613.05072530010" maxy="6777907.07312569954" SRS="EPSG:3857"/>
-    <Title>Default context (OSM Géobretagne)</Title>
-    <Abstract>This is the default context provided for geOrchestra, loading a layer kindly provided by GéoBretagne, data issued from OpenStreetMap and contributors</Abstract>
+    <Title>OpenStreetMap</Title>
+    <Abstract>Default context for geOrchestra, with a background layer kindly provided by the GéoBretagne project</Abstract>
     <KeywordList>
       <Keyword>OSM</Keyword>
-      <Keyword>Géobretagne</Keyword>
+      <Keyword>France</Keyword>
+      <Keyword>Background</Keyword>
     </KeywordList>
     <Extension>
       <ol:maxExtent xmlns:ol="http://openlayers.org/context" minx="-20037508.3399999999" miny="-20037508.3399999999" maxx="20037508.3399999999" maxy="20037508.3399999999"/>

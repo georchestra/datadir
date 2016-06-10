@@ -17,7 +17,7 @@
   <LayerList>
     <Layer queryable="0" hidden="0">
       <Server service="OGC:WMS" version="1.1.1">
-        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://osm.geobretagne.fr/service/wms"/>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://osm.geobretagne.fr/gwc01/service/wms"/>
       </Server>
       <Name>osm:google</Name>
       <Title>OpenStreetMap</Title>

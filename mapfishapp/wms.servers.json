@@ -18,11 +18,11 @@
         },
         {
             "name": "IGN Raster",
-            "url": "http://wxs.ign.fr/luvs4p9c4yq5ewfwqcqgm83f/inspire/r/wms"
+            "url": "https://wxs.ign.fr/luvs4p9c4yq5ewfwqcqgm83f/inspire/r/wms"
         },
         {
             "name": "IGN Vector",
-            "url": "http://wxs.ign.fr/luvs4p9c4yq5ewfwqcqgm83f/inspire/v/wms"
+            "url": "https://wxs.ign.fr/luvs4p9c4yq5ewfwqcqgm83f/inspire/v/wms"
         },
         {
             "name": "BRGM/géologie",

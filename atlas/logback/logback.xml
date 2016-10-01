@@ -7,22 +7,8 @@
         </encoder>
     </appender>
 
-    <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/tmp/atlas.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- daily rollover -->
-            <fileNamePattern>/tmp/atlas.%d{yyyy-MM-dd}.log</fileNamePattern>
-
-            <!-- keep 30 days' worth of history -->
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-
-        <encoder>
-            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-        </encoder>
-    </appender>
-
     <logger name="org.mapfish" level="WARN" />
+    <logger name="ch.thus.camel.retry" level="WARN" />
     <logger name="org.springframework" level="ERROR" />
     <logger name="org.hibernate" level="WARN" />
     <logger name="com.mchange" level="WARN" />
@@ -31,6 +17,5 @@
 
     <root level="ALL">
         <appender-ref ref="standardOut" />
-        <appender-ref ref="File" />
     </root>
 </configuration>

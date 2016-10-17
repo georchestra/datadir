@@ -24,7 +24,6 @@
     <logger name="org.apache.camel" level="WARN" />
 
     <root level="ALL">
-        <appender-ref ref="standardOut" />
         <appender-ref ref="File" />
     </root>
 </configuration>

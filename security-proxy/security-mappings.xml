@@ -8,6 +8,8 @@
   <intercept-url pattern="/analytics/.*" access="ROLE_MOD_ANALYTICS" />
   <intercept-url pattern="/ldapadmin/privateui/.*" access="ROLE_MOD_LDAPADMIN" />
   <intercept-url pattern="/ldapadmin/private/.*" access="ROLE_MOD_LDAPADMIN" />
+  <!-- this path is used by ws that return configuration for map that allow selection of areas (/ldapadmin/public/orgs/areaConfig.json) -->
+  <intercept-url pattern="/ldapadmin/public/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/ldapadmin/console/public/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/ldapadmin/console/.*" access="ROLE_MOD_LDAPADMIN" />
   <intercept-url pattern="/ldapadmin/account/userdetails" access="IS_AUTHENTICATED_FULLY" />

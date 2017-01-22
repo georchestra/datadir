@@ -11,7 +11,7 @@
     "description": {
         "en": "Go to a location given its coordinates",
         "es": "Ir a un lugar dado sus coordenadas",
-        "fr": "Aller à un point de coordonnées données",
+        "fr": "Aller à un point de coordonnées connues dans un système de projection donné",
         "de": "Gehen Sie zu einem Ort, der seine Koordinaten gibt"
     },
     "options": {

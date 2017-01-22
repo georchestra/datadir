@@ -10,7 +10,7 @@
     "description": {
         "en": "OpenLS recentering",
         "es": "OpenLS recentering",
-        "fr": "Recentrage OpenLS"
+        "fr": "Cet addon permet de se recentrer sur une adresse, dont le geocodage a été réalisé depuis un serveur OpenLS"
     },
     "options": {
         "serviceURL": "http://my.server.tld/openls"

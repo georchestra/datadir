@@ -8,13 +8,13 @@
         "fr": "Plein écran",
         "de": "Vollbild"
     },
-    "options": {
-        "toolbars": false
-    },
     "description": {
         "en": "Make the map go fullscreen",
         "es": "Mostrar el mapa en pantalla completa",
         "fr": "Voir la carte en plein écran",
         "de": "Siehe Vollbildkarte"
+    },
+    "options": {
+        "toolbars": false
     }
 }]

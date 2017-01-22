@@ -2,6 +2,18 @@
     "id": "quicksearch_0",
     "name": "Quicksearch",
     "enabled": false,
+    "title": {
+        "en": "Quick Search",
+        "fr": "Recherche rapide",
+        "es": "Búsqueda rápida",
+        "de": "Schnellsuche"
+    },
+    "description": {
+        "en": "Quick search your favorite objects from WFS services",
+        "fr": "Trouvez en quelques secondes vos objets publiés en WFS",
+        "de": "Finden Sie Ihre Artikel innerhalb von Sekunden",
+        "es": "Encuentra tus artículos en segundos"
+    },
     "options": {
         "field": "label",
         "tip": {
@@ -35,17 +47,5 @@
             "strokeWidth": 2,
             "fillOpacity": 0
         }
-    },
-    "title": {
-        "en": "Quick Search",
-        "fr": "Recherche rapide",
-        "es": "Búsqueda rápida",
-        "de": "Schnellsuche"
-    },
-    "description": {
-        "en": "Quick search your favorite objects",
-        "fr": "Trouvez en quelques secondes vos objets",
-        "de": "Finden Sie Ihre Artikel innerhalb von Sekunden",
-        "es": "Encuentra tus artículos en segundos"
     }
 }]

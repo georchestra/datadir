@@ -9,9 +9,9 @@
         "de": "Koordinaten"
     },
     "description": {
-        "en": "Get pixel coordinates",
+        "en": "Easily extract pixel coordinates",
         "es": "Obtener coordenadas de píxeles",
-        "fr": "Obtenir les coordonnées d'un point",
+        "fr": "Obtenir facilement les coordonnées d'un point sur la carte",
         "de": "Holen Sie sich die Koordinaten eines Punktes"
     },
     "options": {

@@ -2,11 +2,6 @@
     "id": "atlas_0",
     "name": "Atlas",
     "enabled": false,
-    "options": {
-        "maxFeatures": 50,
-        "atlasServerUrl": "/atlas/print",
-        "bboxBuffer": 0.1
-    },
     "title": {
         "fr": "Atlas",
         "en": "Atlas",
@@ -18,5 +13,10 @@
         "en": "Create an atlas with several PDF pages",
         "es": "Generar atlas consta de varias páginas PDF",
         "de": "Einen Atlas besteht aus mehreren PDF Seiten"
+    },
+    "options": {
+        "maxFeatures": 50,
+        "atlasServerUrl": "/atlas/print",
+        "bboxBuffer": 0.1
     }
 }]

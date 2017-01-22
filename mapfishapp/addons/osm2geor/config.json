@@ -8,8 +8,8 @@
         "fr": "OSM 2 geOrchestra"
     },
     "description": {
-        "en": "OSM 2 geOrchestra",
-        "es": "OSM 2 geOrchestra",
-        "fr": "OSM 2 geOrchestra"
+        "en": "This addon uses the OSM Overpass API to fetch and display features live from the OSM database",
+        "es": "This addon uses the OSM Overpass API to fetch and display features live from the OSM database",
+        "fr": "Cet addon utilise l'API Overpass pour récupérer et afficher des informations en provenance directe de la base OSM"
     }
 }]

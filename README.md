@@ -1,37 +1,17 @@
-geOrchestra default datadir
-==============================
+# geOrchestra default datadir
 
+This repository contains the default configuration files for geOrchestra modules, and can be used as a reference to build your own "geOrchestra datadir". We call this a "datadir" for the similarity with the well-known GeoServer and GeoNetwork datadirs, but this directory is not meant to host geographic data.
 
-Between 15.06 and 15.12 version of geOrchestra, several pull requests have been
-proposed and merged to allow the different web applications to be able to
-initialize themselves with an exported configuration. In other words, this work
-was meant to be able to configure once, and be able to use generic compiled
-webapps without the need of rebuilding on you own system.
+At startup, geOrchestra applications running inside a servlet container having the extra `georchestra.datadir` parameter, will initialize themselves with the configuration contained in the directory that this parameters points to.
 
-In order to do so, a concept similar to the one used in geonetwork and/or
-geoserver has been introduced: the geOrchestra datadir.
+Debian packages already come with their own version of the datadir, but the WARs we provide don't. 
+That is the reason why this directory is provided here.
 
-In the meantime, with the help of the maven-debian plugin, it was possible to
-bundle these generic webapps along with their "datadir configuration" into
-debian and yum (redhat) packages, creating a /etc/georchestra/[webapp]
-subdirectory with the exported configuration for each module.
+# Usage
 
-This repository contains the default configuration which comes along the
-packages, and can be used as a reference to build your own "geOrchestra
-datadir".
+In order to use this datadir, simply clone this repository, **checkout the branch matching your geOrchestra version**, customize the different configuration files, and launch your servlet container with an extra parameter, typically `georchestra.datadir=/etc/georchestra`. 
 
-
-Usage 
-=======
-
-
-In order to use this datadir, simply clone this repository, customize the
-different configuration files, and launch your servlet container with an extra
-parameter, `georchestra.datadir=/path/to/datadir`. E.g., for tomcat, you can
-create a `${CATALINA_HOME}bin/setenv.sh` file, containing:
-
+For instance, with tomcat, you may create a `${CATALINA_HOME}/bin/setenv.sh` file with:
 ```
-export CATALINA_OPTS="${CATALINA_OPTS} -Dgeorchestra.datadir="/path/to/datadir" ...`
+export CATALINA_OPTS="${CATALINA_OPTS} -Dgeorchestra.datadir="/etc/georchestra"
 ```
-
-

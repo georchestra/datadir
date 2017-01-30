@@ -45,4 +45,4 @@ Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and g
 Once you're done, fill in the public and private keys in the [ldapadmin/ldapadmin.properties](https://github.com/georchestra/datadir/blob/master/ldapadmin/ldapadmin.properties) file.
 
 
-Restart your tomcat or jetty services when done with datadir editing.
+**Restart your tomcat or jetty services when done with datadir editing**.

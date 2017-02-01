@@ -33,7 +33,7 @@ find ./ -type f -exec sed -i 's/georchestra.mydomain.org/my.fqdn/' {} \;
 ...where `my.fqdn` is your server's FQDN.
 
 
-Next thing to do is changing the password of the `geoserver_privileged_user`, that is internally used by several geOrchestra modules:
+Next thing to do, for security, is changing the password of the `geoserver_privileged_user`, that is internally used by several geOrchestra modules:
 ```
 cd /etc/georchestra
 find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen -1)'/' {} \;
@@ -44,5 +44,13 @@ Remember to change it in your LDAP too !
 Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
 Once you're done, fill in the public and private keys in the [ldapadmin/ldapadmin.properties](https://github.com/georchestra/datadir/blob/master/ldapadmin/ldapadmin.properties) file.
 
+
+There are plenty of other configuration options available, so feel free to browse the sub-folders of this repository and read the comments to make your mind.
+
+We do recommend that you:
+ * change your SDI logo, with [header/logo.png](header/logo.png)
+ * update the viewer config with [mapfishapp/js/GEOR_custom.js](mapfishapp/js/GEOR_custom.js)
+ * update the extractor config with [extractorapp/js/GEOR_custom.js](extractorapp/js/GEOR_custom.js)
+ * translate to your language the ldapadmin ([ldapadmin/templates](ldapadmin/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates
 
 **Restart your tomcat or jetty services when done with datadir editing**.

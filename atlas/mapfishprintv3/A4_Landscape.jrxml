@@ -46,7 +46,7 @@
 				</reportElement>
 				<subreportExpression><![CDATA[$P{mapSubReport}]]></subreportExpression>
 			</subreport>
-			<image scaleImage="RealSize" hAlign="Left" vAlign="Top">
+			<image scaleImage="RealSize" hAlign="Left" vAlign="Top" onErrorType="Blank">
 				<reportElement x="600" y="10" width="191" height="469" uuid="63273d5a-46be-4bab-bad7-46998ac21dce"/>
 				<imageExpression><![CDATA[$P{legendURL}]]></imageExpression>
 			</image>

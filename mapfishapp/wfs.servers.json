@@ -7,6 +7,10 @@
         {
             "name": "GéoBretagne",
             "url": "http://geobretagne.fr/geoserver/wfs"
+        },
+        {
+            "name": "My local geOrchestra WFS geoserver",
+            "url": "https://georchestra.mydomain.org/geoserver/wfs"
         }
     ]
 }

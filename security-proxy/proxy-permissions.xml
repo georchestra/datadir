@@ -1,0 +1,61 @@
+<!-- This file will configure security on proxy request targeted external
+     services: services not listed in targets-mapping.properties
+
+     allowByDefault: if set to true, 'allowed' list will be checked before
+                     'denied' list. If URL match an urimatcher in allowed
+                     list and an urimatcher in denied then URL will be
+                     allowed. If URL does not match any urimatcher then it
+                     will be allowed. If set to false, rules in denied
+                     part will be examined before rules in allowed part.
+                     If no rule match requested URL then it will be denied.
+
+     denied: list of urimatcher, if one urimatcher match requested URL is
+             denied. You can view denied as a list of urimatcher separated
+             by *OR* logical operator.
+     allowed: same as previous tag but if one urimatcher match requested
+              URL will be allowed.
+     urimatcher: each condition in one urimatcher must match to consider
+                 urimatcher as matching requested URL. You can view a
+                 urimatcher as a list of condition separated by a *AND*
+                 logical operator.
+     host: this rule will match all IP address of host specified. IP
+           addresses of requested URL will be compared to all IP addresses
+           of host in 'host' tag.
+     domain: case insensitive regexp to match domain part of requested URL.
+     port: match port of requested URL.
+     path: case insensitive regexp to match path part of requested URL.
+
+     Example with all tags:
+
+     <permissions>
+         <allowByDefault>true</allowByDefault>
+         <allowed>
+             <urimatcher>
+                 <domain>.*\.georchestra\.org</domain>
+             </urimatcher>
+         </allowed>
+         <denied>
+             <urimatcher>
+                 <host>localhost</host>
+             </urimatcher>
+             <urimatcher>
+                 <domain>sdi.example.org</domain>
+                 <port>443</port>
+                 <path>/geonetwork/</path>
+             </urimatcher>
+         </denied>
+     </permissions>
+
+     First urimatcher will allow all requests to domain that ends by georchestra.org.
+     Second urimatcher will deny access to all IP addresses of local host.
+     Third urimatcher will deny access to https://sdi.georchestra.org/geonetwork/
+
+-->
+<permissions>
+    <allowByDefault>true</allowByDefault>
+    <denied>
+        <urimatcher>
+            <host>localhost</host> <!-- All ips for local host irregardless of name will be checked -->
+        </urimatcher>
+    </denied>
+</permissions>

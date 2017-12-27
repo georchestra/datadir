@@ -23,7 +23,7 @@
       <Title>OpenStreetMap</Title>
       <Abstract>Layer made from regularly updated OpenStreetMap data, rendered with a GoogleMaps-inspired style.</Abstract>
       <MetadataURL>
-        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://wiki.openstreetmap.org/wiki/FR:OpenStreetMap_License"/>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.openstreetmap.org/copyright/en"/>
       </MetadataURL>
       <FormatList>
         <Format current="1">image/png</Format>

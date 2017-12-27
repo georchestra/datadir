@@ -315,9 +315,9 @@ GEOR.custom = {
     /**
      * Constant: HELP_URL
      * {String} URL of the help ressource.
-     * Defaults to "http://cms.geobretagne.fr/assistance"
+     * Defaults to "https://cms.geobretagne.fr/etiquettes/tutoriels"
      *
-    ,HELP_URL: "http://cms.geobretagne.fr/assistance"
+    ,HELP_URL: "https://cms.geobretagne.fr/etiquettes/tutoriels"
     */
 
     // No trailing comma for the last line (or IE will complain)

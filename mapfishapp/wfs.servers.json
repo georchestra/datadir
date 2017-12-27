@@ -6,7 +6,7 @@
         },
         {
             "name": "GéoBretagne",
-            "url": "http://geobretagne.fr/geoserver/wfs"
+            "url": "https://geobretagne.fr/geoserver/wfs"
         }
     ]
 }

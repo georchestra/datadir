@@ -35,7 +35,7 @@ GEOR.custom = {
      * This is required if and only if the "referentials" module is activated.
      * Defaults to /geoserver/wfs
      */
-    GEOSERVER_WFS_URL: "http://geobretagne.fr/geoserver/wfs",
+    GEOSERVER_WFS_URL: "https://geobretagne.fr/geoserver/wfs",
 
     /**
      * Constant: GEOSERVER_WMS_URL
@@ -51,7 +51,7 @@ GEOR.custom = {
      * Required for CSW Browser module.
      * Defaults to "/geonetwork"
      */
-    GEONETWORK_BASE_URL: "http://geobretagne.fr/geonetwork",
+    GEONETWORK_BASE_URL: "https://geobretagne.fr/geonetwork",
 
     /**
      * Constant: METADATA_VIEW_BASE_URL
@@ -83,7 +83,7 @@ GEOR.custom = {
      */
     CATALOGS: [
         ['https://sdi.georchestra.org/geonetwork/srv/fre/csw', 'le catalogue geOrchestra démo'],
-        ['http://geobretagne.fr/geonetwork/srv/fre/csw', 'le catalogue GeoBretagne'],
+        ['https://geobretagne.fr/geonetwork/srv/fre/csw', 'le catalogue GeoBretagne'],
         ['http://ids.pigma.org/geonetwork/srv/fre/csw', 'le catalogue PIGMA'],
         ['/geonetwork/srv/fre/csw', 'le catalogue local'],
         ['http://sandre.eaufrance.fr/geonetwork_CSW/srv/fre/csw', 'le catalogue du Sandre'],
@@ -540,7 +540,7 @@ GEOR.custom = {
      * {String} URL of the help ressource.
      * Defaults to "http://cms.geobretagne.fr/assistance"
      */
-    //HELP_URL: "http://cms.geobretagne.fr/assistance",
+    //HELP_URL: "https://cms.geobretagne.fr/etiquettes/tutoriels",
 
     /**
      * Constant: CONTEXT_LOADED_INDICATOR_DURATION

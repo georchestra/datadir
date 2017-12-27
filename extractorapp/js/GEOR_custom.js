@@ -16,13 +16,6 @@ GEOR.custom = {
     HEADER_HEIGHT: 90,
 
     /**
-     * Constant: DOWNLOAD_FORM
-     * Boolean: should the app display a form requesting user data and data usage ?
-     * Defaults to true (see shared.download_form.activated var in shared.maven.filters file)
-     */
-    DOWNLOAD_FORM: false,
-
-    /**
      * Constant: PDF_URL
      * String: the URL to the downloaded data Terms Of Use
      * Defaults to /header/cgu.pdf (see shared.download_form.pdf_url var in shared.maven.filters file)

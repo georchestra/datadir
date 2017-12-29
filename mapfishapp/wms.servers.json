@@ -1,12 +1,12 @@
 {
     "servers": [
         {
-            "name": "geOrchestra.org demo",
-            "url": "https://sdi.georchestra.org/geoserver/wms"
+            "name": "Local WMS service",
+            "url": "/geoserver/wms"
         },
         {
             "name": "GeoBretagne cadastre - regional SDI",
-            "url": "http://geobretagne.fr/geoserver/cadastre/wms"
+            "url": "https://geobretagne.fr/geoserver/cadastre/wms"
         },
         {
             "name": "Agrocampus Ouest - french research center",

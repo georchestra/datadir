@@ -6,7 +6,7 @@
         },
         {
             "name": "GeoBretagne cadastre - regional SDI",
-            "url": "http://geobretagne.fr/geoserver/cadastre/wms"
+            "url": "https://geobretagne.fr/geoserver/cadastre/wms"
         },
         {
             "name": "Agrocampus Ouest - french research center",

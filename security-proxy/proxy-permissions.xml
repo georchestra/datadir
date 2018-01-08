@@ -36,8 +36,8 @@
 
      path: case insensitive regexp to match the 'path' part of the requested URL.
 
-     network: IP address with network mask that specify a set of IP address. Both
-              IPv4 and IPv6 are supported.
+     network: IP address with a network mask to specify a range of IP addresses. 
+            Both IPv4 and IPv6 are supported.
 
 
      Example making use of all tags:
@@ -70,7 +70,7 @@
 
      The third urimatcher denies access to https://sdi.example.org/geonetwork/*
 
-     The last urimatcher denies access to all IPv4 addresses that start with 10.42
+     The last urimatcher denies access to all IPv4 addresses which start with 10.42
 
 -->
 <permissions>

@@ -92,7 +92,7 @@
     <property name="groupAttribute" value="${ldap.privilege.search.role.attribute}"/>
     <property name="groupObject" value="${ldap.privilege.search.role.object}"/>
     <property name="groupQuery" value="${ldap.privilege.search.role.query}"/>
-    <property name="groupQueryPattern" value="${ldap.privilege.search.role.pattern}"/>
+    <property name="groupQueryPattern" value="${ldap.privilege.search.privilege.pattern}"/>
     <property name="privilegeAttribute" value="${ldap.privilege.search.privilege.attribute}"/>
     <property name="privilegeObject" value="${ldap.privilege.search.privilege.object}"/>
     <property name="privilegeQuery" value="${ldap.privilege.search.privilege.query}"/>

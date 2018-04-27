@@ -1,6 +1,6 @@
 <http>
+  <intercept-url pattern="/cas/login.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern=".*\?.*login.*" access="ROLE_USER,ROLE_GN_EDITOR,ROLE_GN_REVIEWER,ROLE_GN_ADMIN,ROLE_ADMINISTRATOR" />
-  <intercept-url pattern=".*\?.*casLogin.*" access="ROLE_USER,ROLE_GN_EDITOR,ROLE_GN_REVIEWER,ROLE_GN_ADMIN,ROLE_ADMINISTRATOR" />
   <intercept-url pattern="/extractorapp/admin.*" access="ROLE_ADMINISTRATOR" />
   <intercept-url pattern="/extractorapp/jobs/.*" access="ROLE_ADMINISTRATOR" />
   <intercept-url pattern="/extractorapp/.*" access="ROLE_MOD_EXTRACTORAPP" />

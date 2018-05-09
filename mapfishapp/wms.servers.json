@@ -35,6 +35,10 @@
         {
             "name": "IFREMER/Océanographie physique",
             "url": "http://www.ifremer.fr/services/wms/oceanographie_physique"
+        },
+        {
+            "name": "my local geOrchestra WFS geoserver",
+            "url": "https://georchestra.mydomain.org/geoserver/wms"
         }
     ]
 }

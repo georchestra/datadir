@@ -1,6 +1,6 @@
 Dear admin,
 
-A new account has been created on {publicUrl} and is waiting for validation.
+A new account has been created on {publicUrl}/ and is waiting for validation.
 
 User name: {name}
 User ID: {uid}
@@ -8,4 +8,4 @@ User ID: {uid}
 Visit {publicUrl}/console/manager/#/roles/PENDING/users to review the pending users.
 
 ---
-Sent by geOrchestra ({publicUrl})
+Sent by geOrchestra ({publicUrl}/)

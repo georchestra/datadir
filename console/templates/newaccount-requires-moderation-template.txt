@@ -1,11 +1,11 @@
 Dear admin,
 
-A new account has been created on https://georchestra.mydomain.org/ and is waiting for validation.
+A new account has been created on {publicUrl}/ and is waiting for validation.
 
 User name: {name}
 User ID: {uid}
 
-Visit https://georchestra.mydomain.org/console/manager/#/roles/PENDING/users to review the pending users.
+Visit {publicUrl}/console/manager/#/roles/PENDING/users to review the pending users.
 
 ---
-Sent by geOrchestra (https://georchestra.mydomain.org)
+Sent by geOrchestra ({publicUrl}/)

@@ -142,4 +142,11 @@
     <constructor-arg index="0" type="java.lang.String" name="userDnBase" value="${ldap.base.search.base}"/>
     <constructor-arg index="1" type="java.lang.String" name="usernameAttribute" value="${ldap.sync.user.search.attribute}"/>
   </bean>
+
+  <!-- redirect to cas when need to be logged in -->
+  <bean id="authenticationEntryPoint"
+    class="jeeves.config.springutil.JeevesNodeAwareLoginUrlEntryPoint">
+    <constructor-arg index="0" value="/?login" />
+  </bean>
+
 </beans>

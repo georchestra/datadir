@@ -145,7 +145,7 @@
 
   <!-- redirect to cas when need to be logged in -->
   <bean id="authenticationEntryPoint"
-    class="jeeves.config.springutil.JeevesNodeAwareLoginUrlEntryPoint">
+    class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
     <constructor-arg index="0" value="/?login" />
   </bean>
 

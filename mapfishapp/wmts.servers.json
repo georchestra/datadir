@@ -2,7 +2,7 @@
     "servers": [
         {
             "name": "Local WMTS service",
-            "url": "/geoserver/gwc/service/wmts"
+            "url": "https://georchestra.mydomain.org/geoserver/gwc/service/wmts"
         },
         {
             "name": "GéoBretagne OSM",

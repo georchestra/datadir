@@ -2,7 +2,7 @@
     "servers": [
         {
             "name": "Local WFS service",
-            "url": "/geoserver/wfs"
+            "url": "https://georchestra.mydomain.org/geoserver/wfs"
         },
         {
             "name": "GéoBretagne",

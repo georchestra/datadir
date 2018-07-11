@@ -15,6 +15,10 @@
         {
             "name": "IGN GéoPortail",
             "url": "https://wxs.ign.fr/opbnnt8s6esy6680ptjfqmwo/geoportail/wmts"
+        },
+        {
+            "name": "My local geOrchestra WMTS geoserver",
+            "url": "https://georchestra.mydomain.org/geoserver/wmts"
         }
     ]
 }

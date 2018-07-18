@@ -1,11 +1,10 @@
-Dear Administrator,
+Dear admin,
 
-A new user sign up on {publicUrl}/ with following informations: 
+A new user signed up on {publicUrl}/ !
 
-* UID   : {uid}
-* name  : {name}
-* Email : {email}
+User name: {name}
+User email: {email}
+User ID: {uid}
 
 ---
 Sent by geOrchestra ({publicUrl}/)
-

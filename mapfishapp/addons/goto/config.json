@@ -17,12 +17,10 @@
     "options": {
         "projections": [{
             "srs": "EPSG:4326",
-            "name": "WGS84",
-            "coordinates": "lonlat"
+            "name": "WGS84"
         }, {
             "srs": "EPSG:3857",
-            "name": "Web Mercator",
-            "coordinates": "xy"
+            "name": "Web Mercator"
         }]
     }
 }]

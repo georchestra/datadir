@@ -18,11 +18,11 @@
         "projections": [{
             "srs": "EPSG:4326",
             "name": "WGS84",
-            "labels": ["Longitude", "Latitude"]
+            "coordinates": "lonlat"
         }, {
             "srs": "EPSG:3857",
             "name": "Web Mercator",
-            "labels": ["X", "Y"]
+            "coordinates": "xy"
         }]
     }
 }]

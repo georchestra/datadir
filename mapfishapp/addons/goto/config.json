@@ -22,7 +22,7 @@
         }, {
             "srs": "EPSG:3857",
             "name": "Web Mercator",
-            "decimalPrecision": 6
+            "decimalPrecision": 2
         }]
     }
 }]

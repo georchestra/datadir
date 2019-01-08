@@ -14,11 +14,11 @@ In order to use this datadir:
  * simply clone this repository (typically in `/etc/georchestra` but it might be elsewhere)
  * **checkout the branch matching your geOrchestra version**
  * customize the different configuration files (see below)
- * launch your servlet container with an extra parameter, typically `georchestra.datadir=/etc/georchestra`
+ * launch your servlet container
 
-For instance, with tomcat, you may create a `${CATALINA_HOME}/bin/setenv.sh` file with:
+Note: by default, the servlet container will look at the datadir in `/etc/georchestra/`. If you need to point to another location, say `/etc/anotherlocation/`, launch the servlet container with an extra parameter, in that case `georchestra.datadir=/etc/anotherlocation`. For instance, with tomcat, you may create a `${CATALINA_HOME}/bin/setenv.sh` file with:
 ```
-export CATALINA_OPTS="${CATALINA_OPTS} -Dgeorchestra.datadir="/etc/georchestra"
+export CATALINA_OPTS="${CATALINA_OPTS} -Dgeorchestra.datadir="/etc/anotherlocation"
 ```
 
 

@@ -21,6 +21,7 @@ For instance, with tomcat, you may create a `${CATALINA_HOME}/bin/setenv.sh` fil
 export CATALINA_OPTS="${CATALINA_OPTS} -Dgeorchestra.datadir="/etc/georchestra"
 ```
 
+Note that if you are developing, and running the servlet container with the Maven embedded Jetty server, by default, the datadir will be set to `/etc/georchestra/`, and you only need to launch `mvn jetty:run`. If you need to point to another location, say `/etc/anotherlocation/`, you will have to pass it to Jetty: `mvn -Dgeorchestra.datadir=/etc/anotherlocation jetty:run`.
 
 ## 3-steps editing
 

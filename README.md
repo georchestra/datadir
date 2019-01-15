@@ -43,7 +43,7 @@ Remember to change it in your LDAP too !
 
 
 Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
-Once you're done, fill in the public and private keys in the [console/console.properties](https://github.com/georchestra/datadir/blob/master/console/console.properties) file.
+Once you're done, fill in the public and private keys in the [console/console.properties](console/console.properties) file.
 
 **Restart your tomcat or jetty services when done with datadir editing**.
 

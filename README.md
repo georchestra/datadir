@@ -43,7 +43,7 @@ Remember to change it in your LDAP too !
 
 
 Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
-Once you're done, fill in the public and private keys in the [console/console.properties](https://github.com/georchestra/datadir/blob/master/console/console.properties) file.
+Once you're done, fill in the public and private keys in the [console/console.properties](console/console.properties) file.
 
 **Restart your tomcat or jetty services when done with datadir editing**.
 
@@ -55,5 +55,5 @@ There are plenty of other configuration options available, so feel free to brows
 We do recommend that you:
  * change your SDI logo, with [header/logo.png](header/logo.png)
  * update the viewer config with [mapfishapp/js/GEOR_custom.js](mapfishapp/js/GEOR_custom.js)
- * translate to your language the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates
+ * translate the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates to your language, and change the default language in [default.properties](./default.properties).
 

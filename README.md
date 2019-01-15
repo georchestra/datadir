@@ -55,5 +55,5 @@ There are plenty of other configuration options available, so feel free to brows
 We do recommend that you:
  * change your SDI logo, with [header/logo.png](header/logo.png)
  * update the viewer config with [mapfishapp/js/GEOR_custom.js](mapfishapp/js/GEOR_custom.js)
- * translate to your language the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates
+ * translate the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates to your language, and change the default language in [default.properties](./default.properties).
 

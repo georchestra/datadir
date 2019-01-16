@@ -8,4 +8,4 @@ User ID: {uid}
 Visit {publicUrl}/console/manager/#!/browse/PENDING/users to review the pending users.
 
 ---
-Sent by geOrchestra ({publicUrl}/)
+Sent by {instanceName} ({publicUrl}/)

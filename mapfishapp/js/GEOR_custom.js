@@ -367,20 +367,20 @@ GEOR.custom = {
     /**
      * Constant: GEONAMES_FILTERS
      * {Object} Describes the geonames search options for the searchJSON web service.
-     * (documentation here: http://www.geonames.org/export/geonames-search.html)
+     * (documentation here: https://www.geonames.org/export/geonames-search.html)
      *
      * Defaults to France/populated places
      *
      * Note that it is possible to restrict search to an admin area
      * by specifying either an adminCode1 or adminCode2 or adminCode3
-     * See http://download.geonames.org/export/dump/admin1CodesASCII.txt for adminCode1
+     * See https://download.geonames.org/export/dump/admin1CodesASCII.txt for adminCode1
      * Aquitaine-Limousin-Poitou-Charentes matches '75' while Bretagne (Brittany) matches '53'
      */
     GEONAMES_FILTERS: {
         username: 'georchestra', // please replace this username by yours !
-        // You can create a geonames account here: http://www.geonames.org/login
+        // You can create a geonames account here: https://www.geonames.org/login
         // It is then required to enable your account to query the free web services
-        // by visiting http://www.geonames.org/manageaccount
+        // by visiting https://www.geonames.org/manageaccount
         country: 'FR',         // France
         //adminCode1: '75',    // Region
         style: 'short',        // verbosity of results

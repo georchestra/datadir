@@ -80,7 +80,8 @@ GEOR.custom = {
         ['http://ids.pigma.org/geonetwork/srv/fre/csw', 'le catalogue PIGMA'],
         ['http://sandre.eaufrance.fr/geonetwork_CSW/srv/fre/csw', 'le catalogue du Sandre'],
         ['http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw', 'le catalogue de webservice-energy'],
-        ['http://www.ifremer.fr/geonetwork/srv/fre/csw', "le catalogue de l'Ifremer"]
+        ['http://www.ifremer.fr/geonetwork/srv/fre/csw', "le catalogue de l'Ifremer"],
+        ['https://www.geograndest.fr/geonetwork/srv/fre/csw', "le catalogue de GéoGrandEst"]
     ],
 
     /**

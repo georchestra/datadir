@@ -77,8 +77,8 @@ GEOR.custom = {
     CATALOGS: [
         ['/geonetwork/srv/fre/csw', 'le catalogue local'],
         ['https://geobretagne.fr/geonetwork/srv/fre/csw', 'le catalogue GeoBretagne'],
-        ['http://ids.pigma.org/geonetwork/srv/fre/csw', 'le catalogue PIGMA'],
-        ['http://sandre.eaufrance.fr/geonetwork_CSW/srv/fre/csw', 'le catalogue du Sandre'],
+        ['https://www.pigma.org/geonetwork/srv/fre/csw', 'le catalogue PIGMA'],
+        ['http://www.sandre.eaufrance.fr/atlas/srv/fre/csw', 'le catalogue du Sandre'],
         ['http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw', 'le catalogue de webservice-energy'],
         ['http://www.ifremer.fr/geonetwork/srv/fre/csw', "le catalogue de l'Ifremer"]
     ],

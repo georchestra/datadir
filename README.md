@@ -12,7 +12,7 @@ That is the reason why this directory is provided here.
 
 In order to use this datadir:
  * simply clone this repository (typically in `/etc/georchestra` but it might be elsewhere)
- * **checkout the branch matching your geOrchestra version**
+ * **checkout the branch matching your geOrchestra version** (eventually prefixed with `docker-` if you use [official docker images](https://hub.docker.com/u/georchestra))
  * customize the different configuration files (see below)
  * launch your servlet container with an extra parameter, typically `georchestra.datadir=/etc/georchestra`
 

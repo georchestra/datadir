@@ -1,0 +1,26 @@
+<!-- Cache configuration for the s3-geotiff geoserver extension. -->
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+	<diskStore path="java.io.tmpdir" />
+
+	<!-- This cache contains a maximum in memory of 200MB elements, and will 
+		expire an element if it is idle for more than 5 minutes and lives for more 
+		than 10 minutes. 
+		If there are more than 200MB on the heap cache it will overflow to 
+		the disk cache, which in this configuration will go to wherever java.io.tmp 
+		is defined on your system. On a standard Linux system this will be /tmp.
+		See http://www.ehcache.org/ehcache.xml for more information on properties.
+	-->
+	<cache 	name="default_cache" 
+			maxBytesLocalHeap="200M"
+			maxBytesLocalDisk="2G" 
+			eternal="false" 
+			diskSpoolBufferSizeMB="20"
+			timeToIdleSeconds="300" 
+			timeToLiveSeconds="600"
+			memoryStoreEvictionPolicy="LFU" 
+			transactionalMode="off">
+		<persistence strategy="localTempSwap" />
+	</cache>
+</ehcache>

@@ -1,7 +1,7 @@
 Dear {name}, 
 
 This message is intended to let you know that your identifier on the
-geOrchestra platform has been modified.
+{instanceName} platform has been modified.
 
 Your new login is now: {uid}
 

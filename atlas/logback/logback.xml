@@ -3,7 +3,7 @@
 
     <appender name="standardOut" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+            <Pattern>JEANMICH %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
         </encoder>
     </appender>
 
@@ -15,7 +15,7 @@
     <logger name="org.apache" level="WARN" />
     <logger name="org.apache.camel" level="WARN" />
 
-    <root level="ALL">
+    <root level="WARN">
         <appender-ref ref="standardOut" />
     </root>
 </configuration>

@@ -15,7 +15,7 @@
     <logger name="org.apache" level="WARN" />
     <logger name="org.apache.camel" level="WARN" />
 
-    <root level="ALL">
+    <root level="WARN">
         <appender-ref ref="standardOut" />
     </root>
 </configuration>

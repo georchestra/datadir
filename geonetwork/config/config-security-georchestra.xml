@@ -89,9 +89,9 @@
     <property name="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.roles}"/>
     <property name="createNonExistingLdapUser" value="${ldap.privilege.create.nonexisting.users}"/>
     <property name="ldapManager" ref="ldapUserDetailsService"/>
-    <property name="groupAttribute" value="${ldap.privilege.search.role.attribute}"/>
-    <property name="groupObject" value="${ldap.privilege.search.role.object}"/>
-    <property name="groupQuery" value="${ldap.privilege.search.role.query}"/>
+    <property name="groupAttribute" value="${ldap.privilege.search.group.attribute}"/>
+    <property name="groupObject" value="${ldap.privilege.search.group.object}"/>
+    <property name="groupQuery" value="${ldap.privilege.search.group.query}"/>
     <property name="groupQueryPattern" value="${ldap.privilege.search.privilege.pattern}"/>
     <property name="privilegeAttribute" value="${ldap.privilege.search.privilege.attribute}"/>
     <property name="privilegeObject" value="${ldap.privilege.search.privilege.object}"/>
@@ -132,9 +132,9 @@
   </bean>
   <bean id="ldapUserDetailsService" class="org.fao.geonet.kernel.security.ldap.LdapUserDetailsManager">
     <constructor-arg ref="contextSource"/>
-    <constructor-arg name="groupMemberAttributeName" value="${ldap.privilege.search.role.queryprop}"/>
-    <constructor-arg name="query" value="${ldap.privilege.search.role.query}"/>
-    <property name="groupSearchBase" value="${ldap.privilege.search.role.object}"/>
+    <constructor-arg name="groupMemberAttributeName" value="${ldap.privilege.search.group.queryprop}"/>
+    <constructor-arg name="query" value="${ldap.privilege.search.group.query}"/>
+    <property name="groupSearchBase" value="${ldap.privilege.search.group.object}"/>
     <property name="usernameMapper" ref="usernameMapper"/>
     <property name="userDetailsMapper" ref="ldapUserContextMapper"/>
   </bean>

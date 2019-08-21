@@ -50,7 +50,7 @@
 
   <bean id="ldapUtils" class="org.fao.geonet.kernel.security.ldap.LDAPUtils"/>
 
-  <!-- LDAP configuration-->
+  <!-- LDAP configuration -->
   <bean id="contextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
     <constructor-arg value="${ldap.base.provider.url}/${ldap.base.dn}"/>
     <!-- For non anonymous binding -->
@@ -88,17 +88,20 @@
       </map>
     </property>
     <property name="importPrivilegesFromLdap" value="${ldap.privilege.import}"/>
-    <property name="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.roles}"/>
+    <property name="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.groups}"/>
     <property name="createNonExistingLdapUser" value="${ldap.privilege.create.nonexisting.users}"/>
     <property name="ldapManager" ref="ldapUserDetailsService"/>
+
     <property name="groupAttribute" value="${ldap.privilege.search.group.attribute}"/>
     <property name="groupObject" value="${ldap.privilege.search.group.object}"/>
     <property name="groupQuery" value="${ldap.privilege.search.group.query}"/>
-    <property name="groupQueryPattern" value="${ldap.privilege.search.privilege.pattern}"/>
+    <property name="groupQueryPattern" value="${ldap.privilege.search.group.pattern}"/>
+
     <property name="privilegeAttribute" value="${ldap.privilege.search.privilege.attribute}"/>
     <property name="privilegeObject" value="${ldap.privilege.search.privilege.object}"/>
     <property name="privilegeQuery" value="${ldap.privilege.search.privilege.query}"/>
     <property name="privilegeQueryPattern" value="${ldap.privilege.search.privilege.pattern}"/>
+
     <property name="contextSource" ref="contextSource"/>
   </bean>
 
@@ -110,11 +113,12 @@
         <entry key="ldapUserSearchBase" value="${ldap.sync.user.search.base}"/>
         <entry key="ldapUserSearchFilter" value="${ldap.sync.user.search.filter}"/>
         <entry key="ldapUserSearchAttribute" value="${ldap.sync.user.search.attribute}"/>
-        <entry key="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.roles}"/>
-        <entry key="ldapGroupSearchBase" value="${ldap.sync.role.search.base}"/>
-        <entry key="ldapGroupSearchFilter" value="${ldap.sync.role.search.filter}"/>
-        <entry key="ldapGroupSearchAttribute" value="${ldap.sync.role.search.attribute}"/>
-        <entry key="ldapGroupSearchPattern" value="${ldap.sync.role.search.pattern}"/>
+
+        <entry key="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.groups}"/>
+        <entry key="ldapGroupSearchBase" value="${ldap.sync.group.search.base}"/>
+        <entry key="ldapGroupSearchFilter" value="${ldap.sync.group.search.filter}"/>
+        <entry key="ldapGroupSearchAttribute" value="${ldap.sync.group.search.attribute}"/>
+        <entry key="ldapGroupSearchPattern" value="${ldap.sync.group.search.pattern}"/>
       </map>
     </property>
   </bean>

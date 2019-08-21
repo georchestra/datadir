@@ -122,7 +122,7 @@
   <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
     <property name="jobDetail" ref="ldapSynchronizer"/>
     <property name="cronExpression" value="${ldap.sync.cron}"/>
-    <property name="startDelay" value="${ldap.sync.startDelay}"/>
+    <property name="startDelay" value="60000"/>
   </bean>
 
   <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

@@ -119,6 +119,7 @@
         <entry key="ldapGroupSearchFilter" value="${ldap.sync.group.search.filter}"/>
         <entry key="ldapGroupSearchAttribute" value="${ldap.sync.group.search.attribute}"/>
         <entry key="ldapGroupSearchPattern" value="${ldap.sync.group.search.pattern}"/>
+        <entry key="ldapGroupLabelAttribute" value="${ldap.sync.group.label.attribute}"/>
       </map>
     </property>
   </bean>

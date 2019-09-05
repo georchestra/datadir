@@ -129,6 +129,13 @@ GEOR.custom = {
     //NO_THUMBNAIL_IMAGE_URL: 'app/img/nopreview.png',
 
     /**
+     * Constant: ALLOW_LAYER_DOWNLOAD
+     * Boolean - If set to false, deactivate layer download via WFS.
+     * Defaults to true
+     */
+    //ALLOW_LAYER_DOWNLOAD: true,
+    
+    /**
      * Constant: THESAURUS_SEARCH
      * Whether to display the thesaurus tab or not in the layer finder.
      * Defaults to true.

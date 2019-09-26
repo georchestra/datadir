@@ -4,6 +4,7 @@ A new account has been created on {publicUrl}/ and is waiting for validation.
 
 User name: {name}
 User ID: {uid}
+User Organization: {org}
 
 Visit {publicUrl}/console/manager/#!/browse/pending/users to review the pending users.
 

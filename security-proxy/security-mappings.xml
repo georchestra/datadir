@@ -12,12 +12,13 @@
   <intercept-url pattern="/console/manager/public/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/manager/.*" access="ROLE_SUPERUSER,ROLE_ORGADMIN" />
   <!-- /console/account ressources are private except account/new and account/passwordRecovery -->
-  <intercept-url pattern="/console/account/.*" access="IS_AUTHENTICATED_FULLY" />
   <intercept-url pattern="/console/account/new" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-  <intercept-url pattern="/console/account/newPassword\?token=.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/console/account/newPassword.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/passwordRecovery" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/js/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/css/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/console/account/fonts/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/console/account/.*" access="IS_AUTHENTICATED_FULLY" />
   <!-- /console/sendEmail features are reserved to SUPERUSER & delegated admins -->
   <intercept-url pattern="/console/.*/emails" access="ROLE_SUPERUSER,ROLE_ORGADMIN" />
   <intercept-url pattern="/console/.*/sendEmail" access="ROLE_SUPERUSER,ROLE_ORGADMIN" />

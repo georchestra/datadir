@@ -37,7 +37,7 @@ find ./ -type f -exec sed -i 's/georchestra.mydomain.org/my.fqdn/' {} \;
 Next thing to do, for security, is changing the password of the `geoserver_privileged_user`, that is internally used by several geOrchestra modules:
 ```
 cd /etc/georchestra
-find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen -y 16 -1)'/' {} \;
+find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen 16 1)'/' {} \;
 ```
 Remember to change it in your LDAP too !
 

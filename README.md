@@ -41,6 +41,9 @@ find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen -y 16 -1)'/' {} \;
 ```
 Remember to change it in your LDAP too !
 
+Caution : pwgen might generate a password containing a special character (e.g. : character "}" ).
+That character might not respect .yaml file syntax and you won't be able to use the main print tool of mapfishapp : you'll get a error pop-up telling you the tool is unavailable and you'll most probably get a 500 error during mapfishapp loading.
+To remedy simply put the password between double-quotes in /etc/georchestra/mapfishapp/print.config.yaml file and restart tomcat-georchestra.
 
 Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
 Once you're done, fill in the public and private keys in the [console/console.properties](console/console.properties) file.

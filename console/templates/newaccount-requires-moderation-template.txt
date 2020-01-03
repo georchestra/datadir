@@ -6,7 +6,7 @@ User name: {name}
 User ID: {uid}
 User Organization: {org}
 
-Visit {publicUrl}/console/manager/#!/browse/pending/users to review the pending users.
+Visit {publicUrl}/console/manager/browse/pending/users to review the pending users.
 
 ---
 Sent by {instanceName} ({publicUrl}/)

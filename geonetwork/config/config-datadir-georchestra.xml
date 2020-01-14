@@ -11,7 +11,6 @@
   <bean id="GeonetworkDataDirectory" class="org.fao.geonet.kernel.GeonetworkDataDirectory" lazy-init="true">
     <property name="systemDataDir" ref="GNSystemDataDir"/>
     <property name="schemaPluginsDir" ref="GNSchemaPluginsDir"/>
-    <property name="spatialIndexPath" ref="GNSpatialIndexPath"/>
     <property name="configDir" ref="GNConfigDir"/>
     <property name="luceneDir" ref="GNLuceneDir"/>
     <property name="thesauriDir" ref="GNThesauriDir"/>
@@ -28,10 +27,6 @@
   </bean>
   <bean id="GNSchemaPluginsDir" class="java.nio.file.Paths" factory-method="get">
     <constructor-arg index="0" value="${geonetwork.schema.dir}"/>
-    <constructor-arg index="1"><array /></constructor-arg>
-  </bean>
-  <bean id="GNSpatialIndexPath" class="java.nio.file.Paths" factory-method="get">
-    <constructor-arg index="0" value="${geonetwork.spatial.dir}"/>
     <constructor-arg index="1"><array /></constructor-arg>
   </bean>
   <bean id="GNConfigDir" class="java.nio.file.Paths" factory-method="get">

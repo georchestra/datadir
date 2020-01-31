@@ -36,6 +36,7 @@
     <property name="removeAbandonedTimeout" value="${jdbc.basic.removeAbandonedTimeout}" />
     <property name="logAbandoned" value="${jdbc.basic.logAbandoned}" />
     <property name="maxActive" value="${jdbc.basic.maxActive}" />
+    <property name="minIdle" value="${jdbc.basic.minIdle}" />
     <property name="maxIdle" value="${jdbc.basic.maxIdle}" />
     <property name="maxWait" value="${jdbc.basic.maxWait}" />
     <property name="testOnBorrow" value="${jdbc.basic.testOnBorrow}" />
@@ -94,4 +95,3 @@
   </bean>
 
 </beans>
-

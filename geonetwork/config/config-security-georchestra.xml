@@ -32,8 +32,8 @@
   </bean>
 
   <bean id="ldapUserSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-    <constructor-arg index="0" value="${ldap.base.search.base}"/>
-    <constructor-arg index="1" value="${ldap.base.dn.pattern}"/>
+    <constructor-arg index="0" value="${ldap.users.search.base}"/>
+    <constructor-arg index="1" value="uid={0}"/>
     <constructor-arg index="2" ref="contextSource" />
   </bean>
 
@@ -52,7 +52,7 @@
 
   <!-- LDAP configuration -->
   <bean id="contextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-    <constructor-arg value="${ldap.base.provider.url}/${ldap.base.dn}"/>
+    <constructor-arg value="${ldap.url}/${ldap.base.dn}"/>
     <!-- For non anonymous binding -->
     <property name="userDn" value="${ldap.security.principal}"/>
     <property name="password" value="${ldap.security.credentials}"/>
@@ -64,7 +64,7 @@
         <constructor-arg ref="contextSource"/>
         <property name="userDnPatterns">
           <list>
-            <value>${ldap.base.dn.pattern}</value>
+            <value>uid={0}</value>
           </list>
         </property>
       </bean>
@@ -87,20 +87,20 @@
         <entry key="USER"      value="RegisteredUser" />
       </map>
     </property>
-    <property name="importPrivilegesFromLdap" value="${ldap.privilege.import}"/>
-    <property name="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.groups}"/>
-    <property name="createNonExistingLdapUser" value="${ldap.privilege.create.nonexisting.users}"/>
+    <property name="importPrivilegesFromLdap" value="true"/>
+    <property name="createNonExistingLdapGroup" value="true"/>
+    <property name="createNonExistingLdapUser" value="true"/>
     <property name="ldapManager" ref="ldapUserDetailsService"/>
 
-    <property name="groupAttribute" value="${ldap.privilege.search.group.attribute}"/>
-    <property name="groupObject" value="${ldap.privilege.search.group.object}"/>
-    <property name="groupQuery" value="${ldap.privilege.search.group.query}"/>
-    <property name="groupQueryPattern" value="${ldap.privilege.search.group.pattern}"/>
+    <property name="groupAttribute" value="cn"/>
+    <property name="groupObject" value="${ldap.groups.search.base}"/>
+    <property name="groupQuery" value="(&amp;(objectClass=groupOfMembers)(member=uid={0},${ldap.users.search.base},${ldap.base.dn}))"/>
+    <property name="groupQueryPattern" value="(.*)"/>
 
-    <property name="privilegeAttribute" value="${ldap.privilege.search.privilege.attribute}"/>
-    <property name="privilegeObject" value="${ldap.privilege.search.privilege.object}"/>
-    <property name="privilegeQuery" value="${ldap.privilege.search.privilege.query}"/>
-    <property name="privilegeQueryPattern" value="${ldap.privilege.search.privilege.pattern}"/>
+    <property name="privilegeAttribute" value="cn"/>
+    <property name="privilegeObject" value="${ldap.roles.search.base}"/>
+    <property name="privilegeQuery" value="(&amp;(objectClass=groupOfMembers)(member=uid={0},${ldap.users.search.base},${ldap.base.dn}))"/>
+    <property name="privilegeQueryPattern" value="GN_(.*)"/>
 
     <property name="contextSource" ref="contextSource"/>
   </bean>
@@ -110,16 +110,15 @@
     <property name="jobDataAsMap">
       <map>
         <entry key="contextSource" value-ref="contextSource"/>
-        <entry key="ldapUserSearchBase" value="${ldap.sync.user.search.base}"/>
-        <entry key="ldapUserSearchFilter" value="${ldap.sync.user.search.filter}"/>
-        <entry key="ldapUserSearchAttribute" value="${ldap.sync.user.search.attribute}"/>
-
-        <entry key="createNonExistingLdapGroup" value="${ldap.privilege.create.nonexisting.groups}"/>
-        <entry key="ldapGroupSearchBase" value="${ldap.sync.group.search.base}"/>
-        <entry key="ldapGroupSearchFilter" value="${ldap.sync.group.search.filter}"/>
-        <entry key="ldapGroupSearchAttribute" value="${ldap.sync.group.search.attribute}"/>
-        <entry key="ldapGroupSearchPattern" value="${ldap.sync.group.search.pattern}"/>
-        <entry key="ldapGroupLabelAttribute" value="${ldap.sync.group.label.attribute}"/>
+        <entry key="ldapUserSearchBase" value="${ldap.users.search.base}"/>
+        <entry key="ldapUserSearchFilter" value="(&amp;(objectClass=*)(mail=*@*)(givenName=*))"/>
+        <entry key="ldapUserSearchAttribute" value="uid"/>
+        <entry key="createNonExistingLdapGroup" value="true"/>
+        <entry key="ldapGroupSearchBase" value="${ldap.groups.search.base}"/>
+        <entry key="ldapGroupSearchFilter" value="(objectClass=groupOfMembers)"/>
+        <entry key="ldapGroupSearchAttribute" value="cn"/>
+        <entry key="ldapGroupSearchPattern" value="(.*)"/>
+        <entry key="ldapGroupLabelAttribute" value="o"/>
       </map>
     </property>
   </bean>
@@ -143,16 +142,16 @@
 
   <bean id="ldapUserDetailsService" class="org.fao.geonet.kernel.security.ldap.LdapUserDetailsManager">
     <constructor-arg ref="contextSource"/>
-    <constructor-arg name="groupMemberAttributeName" value="${ldap.privilege.search.group.queryprop}"/>
-    <constructor-arg name="query" value="${ldap.privilege.search.group.query}"/>
-    <property name="groupSearchBase" value="${ldap.privilege.search.group.object}"/>
+    <constructor-arg name="groupMemberAttributeName" value="member"/>
+    <constructor-arg name="query" value="(&amp;(objectClass=groupOfMembers)(member=uid={0},${ldap.users.search.base},${ldap.base.dn}))"/>
+    <property name="groupSearchBase" value="${ldap.groups.search.base}"/>
     <property name="usernameMapper" ref="usernameMapper"/>
     <property name="userDetailsMapper" ref="ldapUserContextMapper"/>
   </bean>
 
   <bean id="usernameMapper" class="org.springframework.security.ldap.DefaultLdapUsernameToDnMapper">
-    <constructor-arg index="0" type="java.lang.String" name="userDnBase" value="${ldap.base.search.base}"/>
-    <constructor-arg index="1" type="java.lang.String" name="usernameAttribute" value="${ldap.sync.user.search.attribute}"/>
+    <constructor-arg index="0" type="java.lang.String" name="userDnBase" value="${ldap.users.search.base}"/>
+    <constructor-arg index="1" type="java.lang.String" name="usernameAttribute" value="uid"/>
   </bean>
 
   <!-- redirect to cas when need to be logged in -->

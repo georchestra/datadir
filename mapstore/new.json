@@ -17,7 +17,7 @@
     "layers": [
       {
         "type": "osm",
-        "title": "Open Street Map",
+        "title": "OpenStreetMap",
         "name": "mapnik",
         "source": "osm",
         "group": "background",

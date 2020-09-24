@@ -30,6 +30,9 @@ scales:
   - 10000000
   - 25000000
   - 50000000
+  - 100000000
+  - 250000000
+  - 500000000
 
 # see https://github.com/georchestra/georchestra/issues/362
 brokenUrlPlaceholder: file:///etc/georchestra/mapfishapp/print/transparent.gif

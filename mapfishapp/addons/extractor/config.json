@@ -24,5 +24,22 @@
         "defaultVectorFormat": "shp",
         "defaultRasterFormat": "geotiff",
         "defaultRasterResolution": 50
+    },
+    "i18n": {
+        "en": {
+            "addon_extractor_help": "For more information regarding the use of the extraction module, please have a look at the <a href=\"https://github.com/georchestra/georchestra/blob/master/extractorapp/README.md\" target=\"_blank\">documentation</a>"
+        },
+        "es": {
+            "addon_extractor_help": "Para obtener más información sobre el uso del módulo de extracción, consulte la <a href=\"https://github.com/georchestra/georchestra/blob/master/extractorapp/README.md\" target=\"_blank\">documentación</a>"
+        },
+        "fr": {
+            "addon_extractor_help": "Pour plus d'information sur l'utilisation du module d'extraction, veuillez consulter la <a href=\"https://github.com/georchestra/georchestra/blob/master/extractorapp/README.md\" target=\"_blank\">documentation</a>"
+        },
+         "de": {
+            "addon_extractor_help": "Weitere Informationen zur Verwendung des Extraktionsmoduls finden Sie in der <a href=\"https://github.com/georchestra/georchestra/blob/master/extractorapp/README.md\" target=\"_blank\">Dokumentation</a>"
+        },
+         "nl": {
+            "addon_extractor_help": "Raadpleeg de <a href=\"https://github.com/georchestra/georchestra/blob/master/extractorapp/README.md\" target=\"_blank\">documentatie</a> voor meer informatie over het gebruik van de extractiemodule"
+        }
     }
 }]

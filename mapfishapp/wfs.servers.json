@@ -1,9 +1,12 @@
 {
     "servers": [
         {
-            "name": "PSK WFS Server",
-            "url": "https://go.sk.pigeosolutions.fr/geoserver/wfs"
+            "name": "Local WFS service",
+            "url": "https://georchestra.mydomain.org/geoserver/wfs"
+        },
+        {
+            "name": "GéoBretagne",
+            "url": "https://geobretagne.fr/geoserver/wfs"
         }
     ]
-
 }

@@ -43,7 +43,7 @@ brokenUrlPlaceholder: file:///etc/georchestra/mapfishapp/print/transparent.gif
 security:
   - !basicAuth
     matcher: !dnsMatch
-      host: geopresovregion.sk
+      host: georchestra.mydomain.org
     username: geoserver_privileged_user
     password: gerlsSnFd6SmM
     preemptive: true
@@ -191,7 +191,7 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               condition: showNorth
               rotation: '${rotation}'
-
+        
         # Sources
         - !columns
           absoluteX: 35
@@ -273,7 +273,7 @@ layouts:
       condition: showLegend
       pageSize: A4
       landscape: false
-      items:
+      items: 
          # Map Title Border
          - !columns
           # columns can have an absolute position. In that case, they need a width.
@@ -309,8 +309,8 @@ layouts:
               classIndentation: 3
               classSpace: 5
               backgroundColor: white
-              layerFontSize: 9
-
+              layerFontSize: 9   
+        
   #===========================================================================
   A4 landscape:
   #===========================================================================
@@ -431,7 +431,7 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               condition: showNorth
               rotation: '${rotation}'
-
+              
        # Sources
         - !columns
           absoluteX: 473
@@ -513,7 +513,7 @@ layouts:
       landscape: true
       condition: showLegend
       backgroundPdf: 'file://${configDir}/background_A4_landscape.pdf'
-      items:
+      items: 
          # Map Title Border
          - !columns
           # columns can have an absolute position. In that case, they need a width.
@@ -549,8 +549,8 @@ layouts:
               classIndentation: 3
               classSpace: 5
               backgroundColor: white
-              layerFontSize: 9
-
+              layerFontSize: 9    
+              
   #===========================================================================
   A3 landscape:
   #===========================================================================
@@ -752,7 +752,7 @@ layouts:
       landscape: true
       condition: showLegend
       backgroundPdf: 'file://${configDir}/background_A3_landscape.pdf'
-      items:
+      items: 
          # Map Title Border
          - !columns
           # columns can have an absolute position. In that case, they need a width.
@@ -858,7 +858,7 @@ layouts:
         # Map overview
         - !columns
           absoluteX: 692
-          absoluteY: 237
+          absoluteY: 237 
           width: 100
           config:
               borderWidth: 1
@@ -910,7 +910,7 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               condition: showNorth
               rotation: '${rotation}'
-
+        
         # Sources
         - !columns
           absoluteX: 50
@@ -992,7 +992,7 @@ layouts:
       pageSize: A3
       landscape: false
       condition: showLegend
-      items:
+      items: 
          # Map Title Border
          - !columns
           # columns can have an absolute position. In that case, they need a width.
@@ -1029,3 +1029,4 @@ layouts:
               classSpace: 5
               backgroundColor: white
               layerFontSize: 9
+

@@ -1,33 +1,24 @@
 {
-     "servers": [
+    "servers": [
         {
-            "name": "PSK WMTS service",
-            "url": "https://geopresovregion.sk/geoserver/gwc/service/wmts"
+            "name": "Local WMTS service",
+            "url": "https://georchestra.mydomain.org/geoserver/gwc/service/wmts"
         },
         {
-            "name": "ZB GIS basemap",
-            "url": "https://zbgisws.skgeodesy.sk/zbgis_wmts_new/service.svc/get?"
+            "name": "GéoBretagne OSM",
+            "url": "https://osm.geobretagne.fr/gwc01/service/wmts"
         },
         {
-            "name": "Cadaster",
-            "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_norm_sjtsk/MapServer/WMTS"
+            "name": "GéoBretagne rasters",
+            "url": "https://tile.geobretagne.fr/gwc02/service/wmts"
         },
         {
-            "name": "Katastrálna mapa WMTS (WebMercator)",
-            "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_norm_wm/MapServer/WMTS"
+            "name": "GéoPicardie OSM",
+            "url": "https://osm.geopicardie.fr/mapproxy/service"
         },
         {
-            "name": "Katastrálna mapa WMTS - inverzná (WebMercator)",
-            "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_orto_wm/MapServer/WMTS"
-        },
-        {
-            "name": "Mapa určeného operátu WMTS (WebMercator)",
-            "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/uo_wmts_norm_wm/MapServer/WMTS"
-        },
-        {
-            "name": "Mapa určeného operátu WMTS - inverzná (WebMercator)",
-            "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/uo_wmts_orto_wm/MapServer/WMTS"
+            "name": "IGN GéoPortail",
+            "url": "https://wxs.ign.fr/opbnnt8s6esy6680ptjfqmwo/geoportail/wmts"
         }
     ]
-
 }

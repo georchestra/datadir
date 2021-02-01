@@ -2,7 +2,7 @@
     "servers": [
         {
             "name": "PSK WFS Server",
-            "url": "https://geopresovregion.sk/geoserver/wfs"
+            "url": "https://go.sk.pigeosolutions.fr/geoserver/wfs"
         }
     ]
 

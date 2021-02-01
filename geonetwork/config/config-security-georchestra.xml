@@ -115,10 +115,10 @@
         <entry key="ldapUserSearchAttribute" value="uid"/>
         <entry key="createNonExistingLdapGroup" value="true"/>
         <entry key="ldapGroupSearchBase" value="${ldap.groups.search.base}"/>
-        <entry key="ldapGroupSearchFilter" value="(&amp;(objectClass=groupOfMembers)(cn=EL_*))"/>
+        <entry key="ldapGroupSearchFilter" value="(objectClass=groupOfMembers)"/>
         <entry key="ldapGroupSearchAttribute" value="cn"/>
-        <entry key="ldapGroupSearchPattern" value="EL_(.*)"/>
-        <entry key="ldapGroupLabelAttribute" value="description"/>
+        <entry key="ldapGroupSearchPattern" value="(.*)"/>
+        <entry key="ldapGroupLabelAttribute" value="o"/>
       </map>
     </property>
   </bean>

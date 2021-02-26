@@ -38,7 +38,7 @@ brokenUrlPlaceholder: file:///etc/georchestra/mapfishapp/print/transparent.gif
 security:
   - !basicAuth
     matcher: !dnsMatch
-      host: georchestra.mydomain.org
+      host: georchestra-127-0-1-1.traefik.me
     username: geoserver_privileged_user
     password: gerlsSnFd6SmM
     preemptive: true

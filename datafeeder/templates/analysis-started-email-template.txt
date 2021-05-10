@@ -2,7 +2,7 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject: Analysis process started for your ${dataset.name} dataset
 body:
 

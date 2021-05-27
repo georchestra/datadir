@@ -2,23 +2,18 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject: Your ${dataset.name} dataset has been published
 body:
 
-Dear ${user.name}, 
+Dear ${user.name},
 
 We're pleased to inform you that your ${dataset.name} dataset
 has been published.
 
-user.name: ${user.name}
-user.lastName: ${user.lastName}
-user.email: ${user.email}
+
 job.id: ${job.id}
 job.createdAt: ${job.createdAt}
-job.error: ${job.error}
-job.analizeStatus: ${job.analizeStatus}
-job.publishStatus: ${job.publishStatus}
 dataset.name: ${dataset.name}
 dataset.featureCount: ${dataset.featureCount}
 dataset.encoding: ${dataset.encoding}

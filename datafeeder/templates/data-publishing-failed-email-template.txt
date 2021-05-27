@@ -2,13 +2,13 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject: Publishing process failed for your ${dataset.name} dataset
 body:
 
-Dear ${user.name}, 
+Dear ${user.name},
 
-We're sorry to inform you that the publcation process for your
+We're sorry to inform you that the publication process for your
 ${dataset.name} dataset failed.
 
 Here's the full information:

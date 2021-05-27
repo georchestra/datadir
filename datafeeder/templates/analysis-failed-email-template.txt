@@ -2,11 +2,11 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject: Problem analyzing your ${dataset.name} dataset
 body:
 
-Dear ${user.name}, 
+Dear ${user.name},
 
 We're sorry to inform you that a problem occurred during the
 analysis phase for the ${dataset.name} you've uploaded.

@@ -2,7 +2,7 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject: Your ${dataset.name} dataset has been published
 body:
 
@@ -12,13 +12,10 @@ We're pleased to inform you that your ${dataset.name} dataset
 submitted on ${job.createdAt} has been correctly processed and published.
 
 Browse to the following URL to access a map preview of the published layer:
-
 ${publicUrl}/geoserver/${publish.workspace}/wms/reflect?format=application/openlayers&LAYERS=${publish.layerName}
 
 And to this URL to access its published metadata:
-
 ${publicUrl}/geonetwork/srv/eng/catalog.search#/metadata/${metadata.id}
 
 ---
 Sent by ${instanceName}
-

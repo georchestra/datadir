@@ -1,6 +1,6 @@
 # Email message templates
 
-Message template locations are to be configured in `datafeeder.propeties` using the following properties:
+Message template locations are to be configured in `datafeeder.properties` using the following properties:
 
 ```
 datafeeder.email.ackTemplate=file:${georchestra.datadir}/datafeeder/templates/analysis-started-email-template.txt
@@ -18,7 +18,7 @@ to: ${user.email}
 cc: ${administratorEmail}
 bcc:
 sender: ${administratorEmail}
-from: Georchestra Importer Application
+from: geOrchestra Importer Application
 subject:
 body:
 

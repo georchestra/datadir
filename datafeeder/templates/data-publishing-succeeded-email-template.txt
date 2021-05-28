@@ -9,28 +9,13 @@ body:
 Dear ${user.name},
 
 We're pleased to inform you that your ${dataset.name} dataset
-has been published.
+submitted on ${job.createdAt} has been correctly processed and published.
 
+Browse to the following URL to access a map preview of the published layer:
+${publicUrl}/geoserver/${publish.workspace}/wms/reflect?format=application/openlayers&LAYERS=${publish.layerName}
 
-job.id: ${job.id}
-job.createdAt: ${job.createdAt}
-dataset.name: ${dataset.name}
-dataset.featureCount: ${dataset.featureCount}
-dataset.encoding: ${dataset.encoding}
-dataset.nativeBounds: ${dataset.nativeBounds}
-publish.tableName: ${publish.tableName}
-publish.layerName: ${publish.layerName}
-publish.workspace: ${publish.workspace}
-publish.srs: ${publish.srs}
-publish.encoding: ${publish.encoding}
-metadata.id: ${metadata.id}
-metadata.title: ${metadata.title}
-metadata.abstract: ${metadata.abstract}
-metadata.creationDate: ${metadata.creationDate}
-metadata.lineage: ${metadata.lineage}
-metadata.latLonBoundingBox: ${metadata.latLonBoundingBox}
-metadata.keywords: ${metadata.keywords}
-metadata.scale: ${metadata.scale}
+And to this URL to access its published metadata:
+${publicUrl}/geonetwork/srv/eng/catalog.search#/metadata/${metadata.id}
 
 ---
 Sent by ${instanceName}

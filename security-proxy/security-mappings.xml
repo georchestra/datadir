@@ -32,5 +32,4 @@
   <intercept-url pattern="/datafeeder/.*" access="IS_AUTHENTICATED_FULLY" />
   <intercept-url pattern="/import/.*" access="IS_AUTHENTICATED_FULLY" />
   <intercept-url pattern=".*" access="IS_AUTHENTICATED_ANONYMOUSLY,ROLE_USER,ROLE_GN_EDITOR,ROLE_GN_REVIEWER,ROLE_GN_ADMIN,ROLE_ADMINISTRATOR,ROLE_SUPERUSER,ROLE_ORGADMIN" />
-  <intercept-url pattern="/datafeeder/.*" access="IS_AUTHENTICATED_FULLY" />
 </http>

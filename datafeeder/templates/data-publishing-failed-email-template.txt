@@ -6,7 +6,7 @@ from: geOrchestra Importer Application
 subject: Publishing process failed for your ${dataset.name} dataset
 body:
 
-Dear ${user.name}, 
+Dear ${user.name},
 
 We're sorry to inform you that the publication process for your
 ${dataset.name} dataset submitted on ${job.createdAt}

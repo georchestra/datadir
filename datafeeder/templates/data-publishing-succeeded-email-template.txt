@@ -6,7 +6,7 @@ from: geOrchestra Importer Application
 subject: Your ${dataset.name} dataset has been published
 body:
 
-Dear ${user.name}, 
+Dear ${user.name},
 
 We're pleased to inform you that your ${dataset.name} dataset
 submitted on ${job.createdAt} has been correctly processed and published.

@@ -10,7 +10,7 @@ Dear ${user.name},
 
 We're sorry to inform you that the publication process for your
 ${dataset.name} dataset submitted on ${job.createdAt}
-has encountered an error and could not finish correctly. 
+has encountered an error and could not finish correctly.
 
 The platform administrator has been notified too.
 

@@ -1,15 +1,23 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:exsl="http://exslt.org/common" extension-element-prefixes="exsl" xmlns:gmd="http://www.isotc211.org/2005/gmd"
-  xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv"
-  xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts"
-  xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gmi="http://www.isotc211.org/2005/gmi"
-  xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd"
-  exclude-result-prefixes="gmd srv gco">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:exslt="http://exslt.org/common" 
+                xmlns:geonet="http://www.fao.org/geonetwork"
+                xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:dcterms="http://purl.org/dc/terms/"
+                xmlns:gco="http://www.isotc211.org/2005/gco"
+                xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                xmlns:srv="http://www.isotc211.org/2005/srv"
+                xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:util="java:org.fao.geonet.util.XslUtil"
+                version="2.0" 
+                exclude-result-prefixes="#all">
+
 <!-- 
 Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
  -->
+
   <xsl:strip-space elements="*" xmlns="http://www.isotc211.org/2005/gmd" />
   <xsl:output indent="yes" standalone="yes" />
 
@@ -28,7 +36,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
     </gco:CharacterString>
   </xsl:template>
 
-  <xsl:template match="gmd:language/gmd:LanguageCode/@codeListValue">
+  <xsl:template match="gmd:MD_Metadata/gmd:language/gmd:LanguageCode/@codeListValue">
     <xsl:attribute name="codeListValue">
       <xsl:value-of select="$props//metadataLanguage" />
     </xsl:attribute>
@@ -337,4 +345,20 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       </gmd:description>
     </gmd:CI_OnlineResource>
   </xsl:template>
+
+  <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language/gmd:LanguageCode/@codeListValue">
+    <xsl:attribute name="codeListValue">
+      <xsl:value-of select="$props//datasetLanguage" />
+    </xsl:attribute>
+  </xsl:template>
+
+  <!-- 
+    Generate one gmd:topicCategory/gmd:MD_TopicCategoryCode for each gmd:keyword/gco:CharacterString
+    that matches an entry in rdf:Description rdf:about="<id>"/skos:prefLabel[text()] in inspire/themes.rdf
+  -->
+  <xsl:import href="inspire/topic_category.xsl"/>
+  <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory">
+    <xsl:call-template name="inspire_topic_category"/>
+  </xsl:template>
+  
 </xsl:stylesheet>

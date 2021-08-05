@@ -14,6 +14,10 @@
     "ignoreMobileCss": false,
     "useAuthenticationRules": true,
     "loadAfterTheme": true,
+    "userSessions": {
+      "enabled": true,
+      "contextOnly": true
+    },
     "header": {
       "height": 90,
       "url": "/header/"
@@ -38,7 +42,8 @@
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
       {"name": "geostorymode", "path": "geostory.mode"},
-      {"name": "featuregridmode", "path": "featuregrid.mode"}],
+      {"name": "featuregridmode", "path": "featuregrid.mode"},
+      {"name": "printEnabled","path": "print.capabilities"}],
     "projectionDefs": [{
       "code": "EPSG:2154",
       "def": "+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
@@ -230,8 +235,7 @@
                           "altShiftDragRotate": false
                         }
                       }
-                    },
-                    "tools": ["locate"]
+                    }
                 }
             }, "Version", "DrawerMenu",
             {
@@ -321,13 +325,14 @@
             "OmniBar", "BurgerMenu", "Expander", {
               "name": "Cookie",
               "cfg": {
-                "externalCookieUrl" : "",
-                "declineUrl" : "http://www.google.com"
+                "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
+                "declineUrl": "https://www.georchestra.org/"
               }
             },
             "FeedbackMask"
         ],
-        "desktop": ["Header",
+        "desktop": [
+          "Header",
           "Details",
           {
             "name": "Map",
@@ -359,10 +364,16 @@
               "cfg": {
                 "docsUrl": "https://georchestra.readthedocs.io/"
               }
-            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+              "name": "Annotations",
+              "cfg": {
+                "symbolsPath": "assets/symbols/"
+              }
+            },
             {
               "name": "Share",
               "cfg": {
+                "showAPI": false,
                 "advancedSettings": {
                   "bbox": true
                 }
@@ -371,6 +382,7 @@
             {
                 "name": "Identify",
                 "cfg": {
+                    "showEdit": true,
                     "showHighlightFeatureButton": true,
                     "viewerOptions": {
                         "container": "{context.ReactSwipe}"
@@ -389,8 +401,9 @@
                         "alwaysVisible": true
                     }
                 }
-            }, "FeatureEditor",
-            "WFSDownload",
+            },
+            "FeatureEditor",
+            "LayerDownload",
             {
               "name": "QueryPanel",
               "cfg": {
@@ -410,7 +423,49 @@
             }, {
                 "name": "TOC",
                 "cfg": {
-                    "activateMetedataTool": false
+                    "activateMetedataTool": true,
+                    "metadataOptions": {
+                        "xmlNamespaces": {
+                            "gmd": "http://www.isotc211.org/2005/gmd",
+                            "srv": "http://www.isotc211.org/2005/srv",
+                            "gco": "http://www.isotc211.org/2005/gco",
+                            "gmx": "http://www.isotc211.org/2005/gmx",
+                            "gfc": "http://www.isotc211.org/2005/gfc",
+                            "gts": "http://www.isotc211.org/2005/gts",
+                            "gml": "http://www.opengis.net/gml"
+                        },
+                        "extractors": [{
+                            "properties": {
+                                "title": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString",
+                                "abstract": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString",
+                                "purpose": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:purpose/gco:CharacterString",
+                                "source": "/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:statement/gco:CharacterString",
+                                "createdDate": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date[../../gmd:dateType/gmd:CI_DateTypeCode[@codeListValue='creation']]",
+                                "lastRevisionDate": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date[../../gmd:dateType/gmd:CI_DateTypeCode[@codeListValue='revision']]",
+                                "pointsOfContact": {
+                                    "xpath": "/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact/gmd:CI_ResponsibleParty",
+                                    "properties": {
+                                        "individualName": "gmd:individualName/gco:CharacterString",
+                                        "organisationName": "gmd:organisationName/gco:CharacterString",
+                                        "contactInfo": {
+                                            "xpath": "gmd:contactInfo/gmd:CI_Contact",
+                                            "properties": {
+                                                "phone": "gmd:phone/gmd:CI_Telephone/gmd:voice/gco:CharacterString",
+                                                "deliveryPoints": "gmd:address/gmd:CI_Address/gmd:deliveryPoint/gco:CharacterString",
+                                                "city": "gmd:address/gmd:CI_Address/gmd:city/gco:CharacterString",
+                                                "postalCode": "gmd:address/gmd:CI_Address/gmd:postalCode/gco:CharacterString",
+                                                "country": "gmd:address/gmd:CI_Address/gmd:country/gco:CharacterString",
+                                                "electronicMailAddress": "gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString",
+                                                "URL": "gmd:onlineResource/gmd:CI_OnlineResource/gmd:linkage/gmd:URL",
+                                                "hoursOfService": "gmd:hoursOfService/gco:CharacterString"
+                                            }
+                                        },
+                                        "role": "gmd:role/gmd:CI_RoleCode/@codeListValue"
+                                    }
+                                }
+                            }
+                        }]
+                    }
                 }
             },
             "FilterLayer",
@@ -423,7 +478,15 @@
                     "showAddAsAnnotation": true
                   }
                 }
-            }, "Print", "MapImport", "MapExport", {
+            }, {
+              "name": "Print",
+              "cfg": {
+                "useFixedScales": true,
+                "mapPreviewOptions": {
+                  "enableScalebox": true
+                }
+              }
+            }, "MapImport", "MapExport", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
@@ -514,16 +577,152 @@
             }, {
               "name": "Cookie",
               "cfg": {
-                "externalCookieUrl" : "",
-                "declineUrl" : "http://www.google.com"
+                "externalCookieUrl" : "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
+                "declineUrl" : "https://www.georchestra.org/"
                 }
             },
-            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
             "Timeline",
             "Playback",
             "FeedbackMask",
-            "StyleEditor"
+            "StyleEditor",
+            "Save",
+            "SaveAs",
+            "MapCatalog"
+        ],
+        "embedded": ["Details",
+          {
+            "name": "Map",
+            "cfg": {
+              "mapOptions": {
+                "openlayers": {
+                  "interactions": {
+                    "pinchRotate": false,
+                    "altShiftDragRotate": false
+                  },
+                  "attribution": {
+                    "container": "#footer-attribution-container"
+                  }
+                },
+                "leaflet": {
+                  "attribution": {
+                    "container": "#footer-attribution-container"
+                  }
+                }
+              },
+              "toolsOptions": {
+                "scalebar": {
+                  "container": "#footer-scalebar-container"
+                }
+              }
+            }
+          },
+          {
+            "name": "DrawerMenu",
+            "hide": "{!(request.query && request.query.forceDrawer)}"
+          },
+          {
+            "name": "BackgroundSelector",
+            "cfg": {
+              "bottom": 40,
+              "dimensions": {
+                "side": 65,
+                "sidePreview": 65,
+                "frame": 3,
+                "margin": 5,
+                "label": false,
+                "vertical": true
+              }
+            }
+          },
+          {
+            "name": "Identify",
+            "cfg": {
+              "showFullscreen": true,
+              "position": "bottom",
+              "size": 0.5,
+              "fluid": true,
+              "viewerOptions": {
+                "container": "{context.ReactSwipe}"
+              }
+            }
+          },
+          {
+            "name": "ZoomAll",
+            "override": {
+              "Toolbar": {
+                "alwaysVisible": true
+              }
+            }
+          },
+          {
+            "name": "Locate",
+            "override": {
+              "Toolbar": {
+                "alwaysVisible": true
+              }
+            }
+          },
+          {
+            "name": "TOC",
+            "cfg": {
+              "activateMapTitle": false,
+              "activateSettingsTool": false,
+              "activateMetedataTool": false,
+              "activateRemoveLayer": false
+            }
+          },
+          "AddGroup",
+          "MapFooter",
+          {
+            "name": "Settings",
+            "cfg": {
+              "wrap": true
+            }
+          },
+          {
+            "name": "Search",
+            "cfg": {
+              "showOptions": false,
+              "withToggle": [
+                "max-width: 768px",
+                "min-width: 768px"
+              ]
+            }
+          },
+          {
+            "name": "Toolbar",
+            "id": "NavigationBar",
+            "cfg": {
+              "id": "navigationBar"
+            }
+          },
+          {
+            "name": "MapLoading",
+            "override": {
+              "Toolbar": {
+                "alwaysVisible": true
+              }
+            }
+          },
+          {
+            "name": "Cookie",
+            "cfg": {
+              "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
+              "declineUrl": "https://www.georchestra.org/"
+            }
+          },
+          "OmniBar",
+          {
+            "name": "GoFull",
+            "override": {
+              "Toolbar": {
+                "alwaysVisible": true
+              }
+            }
+          },
+          "FeedbackMask"
         ],
         "common": [],
         "maps": [
@@ -586,6 +785,8 @@
             }
           },
           "Login",
+          "Tutorial",
+
           {
             "name": "ContextCreator",
             "cfg": {

@@ -1,12 +1,12 @@
 {
     "servers": [
         {
-            "name": "Local WFS service",
+            "name": "KSK WFS service",
             "url": "https://georchestra.mydomain.org/geoserver/wfs"
         },
         {
-            "name": "GéoBretagne",
-            "url": "https://geobretagne.fr/geoserver/wfs"
+            "name": "GeoPresovRegion",
+            "url": "https://geopresovregion.sk/geoserver/wfs"
         }
     ]
 }

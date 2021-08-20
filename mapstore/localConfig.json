@@ -19,7 +19,7 @@
       "contextOnly": true
     },
     "header": {
-      "height": 90,
+      "height": 70,
       "url": "/header/"
     },
     "defaultMapOptions": {
@@ -122,52 +122,64 @@
               "local": {
                 "url": "/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue local",
+                "title": "local catalog",
                 "autoload": true
               },
               "localgs": {
                 "url": "/geoserver/ows",
                 "type": "wms",
-                "title": "le geoserver local",
+                "title": "local map server",
                 "autoload": true
               },
-              "geobretagne": {
-                "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue GeoBretagne",
-                "autoload": true
+              "psk_wmts": {
+                "url": "https://geopresovregion.sk/geoserver/gwc/service/wmts",
+                "type": "wmts",
+                "title": "PSK WMTS service",
+                "autoload": false
               },
-              "PIGMA": {
-                "url": "https://www.pigma.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue PIGMA",
-                "autoload": true
+              "zbgis_bsemap": {
+                "url": "https://zbgisws.skgeodesy.sk/zbgis_wmts_new/service.svc/get?",
+                "type": "wmts",
+                "title": "ZB GIS basemap",
+                "autoload": false
               },
-              "sadre": {
-                "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue du Sandre",
-                "autoload": true
+              "cadaster": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_norm_sjtsk/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Cadaster",
+                "autoload": false
               },
-              "webservice_energy": {
-                "url": "http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de webservice-energy",
-                "autoload": true
+              "kat_webmercator": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_norm_wm/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Katastrálna mapa WMTS (WebMercator)",
+                "autoload": false
               },
-              "ifremer": {
-                "NOTE": "NOT WORKING, requires login. This is configured on the current viewer but do not provide any response",
-                "url": "http://www.ifremer.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de l'Ifremer",
-                "autoload": true
+              "kat_webmercatorinverzna": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_orto_wm/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Katastrálna mapa WMTS - inverzná (WebMercator)",
+                "autoload": false
               },
-              "geograndest": {
-                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de GéoGrandEst",
-                "autoload": true
+              "kat_webmercatorinverzna": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/kn_wmts_orto_wm/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Katastrálna mapa WMTS - inverzná (WebMercator)",
+                "autoload": false
+              },
+              "urc_operatu_webmercator": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/uo_wmts_norm_wm/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Mapa určeného operátu WMTS (WebMercator)",
+                "autoload": false
+              },
+              "urc_operatu_inv_webmercator": {
+                "url": "https://kataster.skgeodesy.sk/eskn/rest/services/NR/uo_wmts_orto_wm/MapServer/WMTS",
+                "type": "wmts",
+                "title": "Mapa určeného operátu WMTS - inverzná (WebMercator)",
+                "autoload": false
               }
+
             },
             "staticServices": {
               "default_map_backgrounds": {
@@ -215,6 +227,10 @@
             "it": {
               "code": "it-IT",
               "description": "Italiano"
+            },
+            "sk": {
+              "code": "sk-SK",
+              "description": "Slovenčina"
             },
             "fr": {
               "code": "fr-FR",

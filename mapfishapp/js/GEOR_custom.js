@@ -28,7 +28,7 @@ GEOR.custom = {
      * This is required if and only if the "referentials" module is activated.
      * Defaults to /geoserver/wfs
      */
-    GEOSERVER_WFS_URL: "https://geobretagne.fr/geoserver/wfs",
+    // GEOSERVER_WFS_URL: "https://geobretagne.fr/geoserver/wfs",
 
     /**
      * Constant: GEOSERVER_WMS_URL
@@ -36,7 +36,7 @@ GEOR.custom = {
      * This is required if and only if OSM_AS_OVMAP is set to false.
      * Defaults to /geoserver/wms
      */
-    //GEOSERVER_WMS_URL: "/geoserver/wms",
+    GEOSERVER_WMS_URL: "/geoserver/wms",
 
     /**
      * Constant: GEONETWORK_BASE_URL
@@ -44,7 +44,7 @@ GEOR.custom = {
      * Required for CSW Browser module.
      * Defaults to "/geonetwork"
      */
-    GEONETWORK_BASE_URL: "https://geobretagne.fr/geonetwork",
+    GEONETWORK_BASE_URL: "/geonetwork",
 
     /**
      * Constant: METADATA_VIEW_BASE_URL
@@ -75,13 +75,14 @@ GEOR.custom = {
      * List of catalogs for freetext search
      */
     CATALOGS: [
-        ['/geonetwork/srv/fre/csw', 'le catalogue local'],
-        ['https://geobretagne.fr/geonetwork/srv/fre/csw', 'le catalogue GeoBretagne'],
-        ['https://www.pigma.org/geonetwork/srv/fre/csw', 'le catalogue PIGMA'],
-        ['http://www.sandre.eaufrance.fr/atlas/srv/fre/csw', 'le catalogue du Sandre'],
-        ['http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw', 'le catalogue de webservice-energy'],
-        ['http://www.ifremer.fr/geonetwork/srv/fre/csw', "le catalogue de l'Ifremer"],
-        ['https://www.geograndest.fr/geonetwork/srv/fre/csw', "le catalogue de GéoGrandEst"]
+        ['/geonetwork/srv/eng/csw', 'local catalog'],
+        ['https://geopresovregion.sk/geonetwork/srv/eng/csw', 'PSK\'s catalog']
+        // ['https://geobretagne.fr/geonetwork/srv/eng/csw', 'le catalogue GeoBretagne'],
+        // ['https://www.pigma.org/geonetwork/srv/eng/csw', 'le catalogue PIGMA'],
+        // ['http://www.sandre.eaufrance.fr/atlas/srv/eng/csw', 'le catalogue du Sandre'],
+        // ['http://geocatalog.webservice-energy.org/geonetwork/srv/eng/csw', 'le catalogue de webservice-energy'],
+        // ['http://www.ifremer.fr/geonetwork/srv/eng/csw', "le catalogue de l'Ifremer"],
+        // ['https://www.geograndest.fr/geonetwork/srv/eng/csw', "le catalogue de GéoGrandEst"]
     ],
 
     /**
@@ -89,7 +90,7 @@ GEOR.custom = {
      * CSW URL which should be used by default for freetext search
      * Note: must be one of the URLs in the above CATALOGS config option
      */
-    DEFAULT_CSW_URL: '/geonetwork/srv/fre/csw',
+    DEFAULT_CSW_URL: '/geonetwork/srv/eng/csw',
 
     /**
      * Constant: MAX_CSW_RECORDS
@@ -134,7 +135,7 @@ GEOR.custom = {
      * Defaults to true
      */
     //ALLOW_LAYER_DOWNLOAD: true,
-    
+
     /**
      * Constant: THESAURUS_SEARCH
      * Whether to display the thesaurus tab or not in the layer finder.
@@ -144,7 +145,7 @@ GEOR.custom = {
 
     /**
      * Constant: DEFAULT_THESAURUS_KEY
-     * Key (as the one in the response from /geonetwork/srv/fre/xml.thesaurus.getList)
+     * Key (as the one in the response from /geonetwork/srv/eng/xml.thesaurus.getList)
      * of the thesaurus to use as the default (selected) one.
      *
      */
@@ -389,10 +390,10 @@ GEOR.custom = {
         // You can create a geonames account here: https://www.geonames.org/login
         // It is then required to enable your account to query the free web services
         // by visiting https://www.geonames.org/manageaccount
-        country: 'FR',         // France
+        country: 'SK',         // France
         //adminCode1: '75',    // Region
         style: 'short',        // verbosity of results
-        lang: 'fr',
+        lang: 'sk',
         featureClass: 'P',     // class category: populated places
         maxRows: 20            // maximal number of results
     },

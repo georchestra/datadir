@@ -1,6 +1,6 @@
 GEOR = {
   config: {
-    HEADER_HEIGHT: 70,
+    HEADER_HEIGHT: 90,
     OGC_STATISTICS: true
   }
 };

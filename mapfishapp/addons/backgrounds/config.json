@@ -15,19 +15,22 @@
     "options": {
         "target": "tbar_12",
         "layers_groups": [{
-            "title": "OpenStreetMap",
-            "layers": [
-              {
-                "name": "Classic"
-              }
-            ]
-        },{
-            "title": "Ortho",
+            "title": "OpenStreetMap - GeoBretagne",
             "layers": [{
-                "name": "2019",
-                "url": "https://geopresovregion.sk/geoserver/gwc/service/wmts",
-                "layer": "geo-psk:zbgis_ortho_wms"
-            }
+                    "name": "Google",
+                    "url": "https://osm.geobretagne.fr/gwc01/service/wmts",
+                    "layer": "osm:google"
+                },
+                {
+                    "name": "Bing",
+                    "url": "https://osm.geobretagne.fr/gwc01/service/wmts",
+                    "layer": "osm:bing"
+                },
+                {
+                    "name": "Default",
+                    "url": "https://osm.geobretagne.fr/gwc01/service/wmts",
+                    "layer": "osm:map"
+                }
             ]
         }]
     },

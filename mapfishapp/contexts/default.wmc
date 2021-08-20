@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ViewContext xmlns="http://www.opengis.net/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" id="c1f055ed8be2c8" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.1.0/context.xsd">
+<ViewContext xmlns="http://www.opengis.net/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" id="default_3857" xsi:schemaLocation="http://www.opengis.net/context http://schemas.opengis.net/context/1.1.0/context.xsd">
   <General>
-    <Window width="2253" height="844" />
-    <BoundingBox minx="2212011.18664810015" miny="6157270.13286670018" maxx="2556436.43610109994" maxy="6286295.83661209978" SRS="EPSG:3857" />
-    <Title>kosice default</Title>
+    <Window width="1373" height="659"/>
+    <BoundingBox minx="-1363722.41004360002" miny="5166003.89129989967" maxx="1994613.05072530010" maxy="6777907.07312569954" SRS="EPSG:3857"/>
+    <Title>OpenStreetMap</Title>
+    <Abstract>Default context for geOrchestra, with a background layer kindly provided by the GéoBretagne project</Abstract>
+    <KeywordList>
+      <Keyword>OSM</Keyword>
+      <Keyword>France</Keyword>
+      <Keyword>Background</Keyword>
+    </KeywordList>
     <Extension>
-      <ol:maxExtent xmlns:ol="http://openlayers.org/context" minx="-20037508.3399999999" miny="-20037508.3399999999" maxx="20037508.3399999999" maxy="20037508.3399999999" />
+      <ol:maxExtent xmlns:ol="http://openlayers.org/context" minx="-20037508.3399999999" miny="-20037508.3399999999" maxx="20037508.3399999999" maxy="20037508.3399999999"/>
     </Extension>
   </General>
   <LayerList>
-    <Layer queryable="0" hidden="1">
+    <Layer queryable="0" hidden="0">
       <Server service="OGC:WMS" version="1.1.1">
-        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://osm.geobretagne.fr/gwc01/service/wms" />
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://osm.geobretagne.fr/gwc01/service/wms"/>
       </Server>
       <Name>osm:google</Name>
       <Title>OpenStreetMap</Title>
       <Abstract>Layer made from regularly updated OpenStreetMap data, rendered with a GoogleMaps-inspired style.</Abstract>
       <MetadataURL>
-        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.openstreetmap.org/copyright/en" />
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.openstreetmap.org/copyright/en"/>
       </MetadataURL>
-      <sld:MinScaleDenominator xmlns:sld="http://www.opengis.net/sld">266.5911979812228</sld:MinScaleDenominator>
-      <sld:MaxScaleDenominator xmlns:sld="http://www.opengis.net/sld">559082264.0287180</sld:MaxScaleDenominator>
       <FormatList>
         <Format current="1">image/png</Format>
       </FormatList>
       <StyleList>
         <Style>
-          <Name />
+          <Name/>
           <Title>Default</Title>
         </Style>
       </StyleList>
       <Extension>
-        <ol:maxExtent xmlns:ol="http://openlayers.org/context" minx="-20037508.3399999999" miny="-20037508.3399999999" maxx="20037508.3399999999" maxy="20037508.3399999999" />
-        <ol:tileSize xmlns:ol="http://openlayers.org/context" width="256" height="256" />
+        <ol:maxExtent xmlns:ol="http://openlayers.org/context" minx="-20037508.3399999999" miny="-20037508.3399999999" maxx="20037508.3399999999" maxy="20037508.3399999999"/>
+        <ol:tileSize xmlns:ol="http://openlayers.org/context" width="256" height="256"/>
         <ol:numZoomLevels xmlns:ol="http://openlayers.org/context">22</ol:numZoomLevels>
         <ol:units xmlns:ol="http://openlayers.org/context">m</ol:units>
         <ol:isBaseLayer xmlns:ol="http://openlayers.org/context">false</ol:isBaseLayer>
@@ -41,9 +45,9 @@
         <ol:transitionEffect xmlns:ol="http://openlayers.org/context">resize</ol:transitionEffect>
         <ol:attribution xmlns:ol="http://openlayers.org/context">
           <Title>GéoBretagne / OSM</Title>
-          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.openstreetmap.org/" />
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.openstreetmap.org/"/>
           <LogoURL width="100" height="100" format="image/png">
-            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/100px-Openstreetmap_logo.svg.png" />
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/100px-Openstreetmap_logo.svg.png"/>
           </LogoURL>
         </ol:attribution>
       </Extension>

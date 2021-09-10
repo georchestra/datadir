@@ -14,6 +14,10 @@
             <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c] - %m%n" />
         </layout>
     </appender>
+    <logger name="org.georchestra">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
    <!-- Geonetwork module (and submodule) logging -->
     <logger name="geonetwork" additivity="false">
         <level value="WARN" />

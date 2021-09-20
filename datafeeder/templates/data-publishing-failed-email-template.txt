@@ -47,4 +47,4 @@ metadata.creationDate: ${metadata.creationDate}
 metadata.lineage: ${metadata.lineage}
 metadata.latLonBoundingBox: ${metadata.latLonBoundingBox}
 metadata.keywords: ${metadata.keywords}
-metadata.scale: ${metadata.scale
+metadata.scale: ${metadata.scale}

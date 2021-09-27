@@ -14,7 +14,11 @@
             <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c] - %m%n" />
         </layout>
     </appender>
-    <logger name="org.georchestra">
+    <logger name="org.geonetwork.security.external">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
+    <logger name="org.georchestra.geonetwork.security">
         <level value="DEBUG" />
         <appender-ref ref="consoleAppender" />
     </logger>

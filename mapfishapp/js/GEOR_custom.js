@@ -224,11 +224,11 @@ GEOR.custom = {
     //NS_LOC: "geor_loc",
 
     /**
-     * Constant: CSW_GETDOMAIN_PROPERTY
-     * {String} the property used to query the CSW for keywords.
-     * Defaults to "subject"
+     * Constant: GN4_INDEX_KEYWORD_FIELD
+     * {String} the field in GeoNetwork4 index which stores the keywords.
+     * Defaults to "tag.default"
      */
-    //CSW_GETDOMAIN_PROPERTY: "subject",
+    //GN4_INDEX_KEYWORD_FIELD: "tag.default",
 
     /**
      * Constant: MAP_SCALES

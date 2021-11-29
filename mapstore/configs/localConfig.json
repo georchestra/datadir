@@ -131,6 +131,30 @@
                 "title": "le geoserver local",
                 "autoload": true
               },
+              "ignrasterwms": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/r/wms",
+                "type": "wms",
+                "title": "IGN essentiels RASTER",
+                "autoload": true
+              },
+              "ignvectorwms": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/v/wms",
+                "type": "wms",
+                "title": "IGN essentiels VECTOR",
+                "autoload": true
+              },
+              "ignwmts": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
+                "type": "wmts",
+                "title": "IGN essentiels WMTS",
+                "autoload": true
+              },
+              "igndecouvertewmts": {
+                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "type": "wmts",
+                "title": "IGN decouverte WMTS",
+                "autoload": true
+              },
               "geobretagne": {
                 "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
                 "type": "csw",

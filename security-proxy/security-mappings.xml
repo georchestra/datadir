@@ -27,6 +27,8 @@
   <intercept-url pattern="/console/emailTemplates" access="ROLE_SUPERUSER,ROLE_ORGADMIN" />
   <!-- /console/emailProxy is activated for members having the EMAILPROXY role -->
   <intercept-url pattern="/console/emailProxy" access="ROLE_EMAILPROXY" />
+  <!-- /console/internal is meant to be accessed only by other services behind the proxy -->
+  <intercept-url pattern="/console/internal/.*" access="ROLE_SUPERUSER" />
   <intercept-url pattern="/testPage" access="IS_AUTHENTICATED_FULLY" />
   <intercept-url pattern=".*/ogcproxy/.*" access="ROLE_NO_ONE" />
   <intercept-url pattern="/datafeeder/.*" access="IS_AUTHENTICATED_FULLY" />

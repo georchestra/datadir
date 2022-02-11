@@ -131,6 +131,60 @@
                 "title": "le geoserver local",
                 "autoload": true
               },
+              "ignrasterwms": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/r/wms",
+                "type": "wms",
+                "title": "IGN essentiels RASTER",
+                "autoload": true
+              },
+              "ignvectorwms": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/v/wms",
+                "type": "wms",
+                "title": "IGN essentiels VECTOR",
+                "autoload": true
+              },
+              "ignwmts": {
+                "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
+                "type": "wmts",
+                "title": "IGN essentiels WMTS",
+                "autoload": true
+              },
+              "igndecouvertewmts": {
+                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+                "type": "wmts",
+                "title": "IGN decouverte WMTS",
+                "autoload": true
+              },
+              "igncartovectowms": {
+                "url": "https://wxs.ign.fr/cartovecto/geoportail/v/wms",
+                "type": "wms",
+                "title": "IGN carto vectorielle",
+                "autoload": true
+              },
+              "ignadministratifwms": {
+                "url": "https://wxs.ign.fr/administratif/geoportail/r/wms",
+                "type": "wms",
+                "title": "IGN administratif",
+                "autoload": true
+              },
+              "ignadressewms": {
+                "url": "https://wxs.ign.fr/adresse/geoportail/v/wms",
+                "type": "wms",
+                "title": "IGN adresse",
+                "autoload": true
+              },
+              "ignagriculturewms": {
+                "url": "https://wxs.ign.fr/agriculture/geoportail/r/wms",
+                "type": "wms",
+                "title": "IGN agriculture",
+                "autoload": true
+              },
+              "ignaltimetriewmts": {
+                "url": "https://wxs.ign.fr/altimetrie/geoportail/wmts",
+                "type": "wmts",
+                "title": "IGN altimetrie WMTS",
+                "autoload": true
+              },
               "geobretagne": {
                 "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
                 "type": "csw",

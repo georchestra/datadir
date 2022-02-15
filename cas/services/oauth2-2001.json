@@ -1,0 +1,8 @@
+{
+  "@class" : "org.apereo.cas.support.oauth.services.OAuthRegisteredService",
+  "clientId": "external-oauth2",
+  "clientSecret": "aaaa",
+  "serviceId" : "^(https|http)://.*",
+  "name" : "oauth2",
+  "id" : 2001
+}

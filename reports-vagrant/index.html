@@ -1,0 +1,312 @@
+<!--
+Copyright 2017-2019 Tilman Ginzel, AOE GmbH
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="chartist.min.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="summary.css" />
+    
+</head>
+<body>
+
+<h1>Specification run results</h1>
+<hr>
+<span class="date-test-ran">
+Created on Fri Feb 18 10:52:29 CET 2022 by pmauduit, <strong>Project: </strong> geOrchestra functional tests, <strong>Version: </strong>Unknown, <strong>Base URL: </strong>https://georchestra.example.org, <strong>Using a proxy: </strong>true
+</span>
+
+<div>
+    <div class="header-wrapper">
+        <div class="header-left">
+            <h2>Summary</h2>
+            <table class="summary-table">
+                <thead>
+                <tr>
+                    <th>Total</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                    <th>Feature failures</th>
+                    <th>Feature errors</th>
+                    <th>Success rate</th>
+                    <th>Total time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>12</td>
+                    <td>9</td>
+                    <td class="">0</td>
+                    <td class="">0</td>
+                    <td class="">0</td>
+                    <td class="">100.0%</td>
+                    <td>1 minutes, 12.048 seconds</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="header-right">
+            <div class="ct-chart ct-square"></div>
+        </div>
+    </div>
+</div>
+
+<div id="specs">
+    <h2 class="specifications">Specifications</h2>
+
+    <div class="filter">
+        <input class="search" placeholder="Search" />
+
+        <input type="radio" id="filter-all" name="filter" class="table-filter" data-status="ALL" checked />
+        <label for="filter-all">Show All</label>
+
+        <input type="radio" id="filter-passed" name="filter" class="table-filter" data-status="PASSED" />
+        <label for="filter-passed">Passed</label>
+
+        <input type="radio" id="filter-failed" name="filter" class="table-filter" data-status="FAILED" />
+        <label for="filter-failed">Failed</label>
+
+        <input type="radio" id="filter-skipped" name="filter" class="table-filter" data-status="SKIPPED" />
+        <label for="filter-skipped">Skipped</label>
+    </div>
+
+    <table class="summary-table table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Features</th>
+            <th>Failed</th>
+            <th>Errors</th>
+            <th>Skipped</th>
+            <th>Success rate</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody class="list">
+        
+        <tr class="  ">
+            <td><a class="name" href="GeoserverSpec.html">GeoserverSpec</a></td>
+            <td class=" ">2</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">6.879 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="ConsoleSpec.html">ConsoleSpec</a></td>
+            <td class=" ">3</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">4.838 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="HeaderSpec.html">HeaderSpec</a></td>
+            <td class=" ">2</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">1.751 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="GeonetworkSpec.html">GeonetworkSpec</a></td>
+            <td class=" ">2</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">10.104 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="MapstoreSpec.html">MapstoreSpec</a></td>
+            <td class=" ">1</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">2.790 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  skipped">
+            <td><a class="name" href="Oauth2Cas6ProviderSpec.html">Oauth2Cas6ProviderSpec</a></td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">1</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">0.097 sec</td>
+            <td class="status   " data-status="SKIPPED">SKIPPED</td>
+        </tr>
+        
+        <tr class="  skipped">
+            <td><a class="name" href="CkanSpec.html">CkanSpec</a></td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">6</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">0.002 sec</td>
+            <td class="status   " data-status="SKIPPED">SKIPPED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="MapfishappSpec.html">MapfishappSpec</a></td>
+            <td class=" ">4</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">16.775 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="DatafeederSpec.html">DatafeederSpec</a></td>
+            <td class=" ">3</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">24.830 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  skipped">
+            <td><a class="name" href="HeaderMapstoreTransitionSpec.html">HeaderMapstoreTransitionSpec</a></td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">1</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">0.000 sec</td>
+            <td class="status   " data-status="SKIPPED">SKIPPED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="AnalyticsSpec.html">AnalyticsSpec</a></td>
+            <td class=" ">1</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">3.079 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        <tr class="  ">
+            <td><a class="name" href="Cas6Spec.html">Cas6Spec</a></td>
+            <td class=" ">2</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">0</td>
+            <td class=" ">100.0%</td>
+            <td class=" ">0.903 sec</td>
+            <td class="status   passed" data-status="PASSED">PASSED</td>
+        </tr>
+        
+        </tbody>
+    </table>
+
+    <ul class="pagination"></ul>
+</div>
+
+</body>
+</html>
+
+<script src="list.min.js"></script>
+<script>
+    (function(document) {
+        var options = undefined;
+        var paginationEnabled = false;
+
+        if (paginationEnabled) {
+            options = {
+                valueNames: [ 'name', 'status' ],
+                page: 20,
+                pagination: {
+                    outerWindow: 1,
+                    innerWindow: 3
+                }
+            };
+        } else {
+            options = {
+                valueNames: [ 'name', 'status' ]
+            }
+        }
+
+        var specsList = new List('specs', options);
+
+        function update_filter() {
+            var checkbox = this;
+            if (this.checked) {
+                specsList.filter(function(item) {
+                    return item.values().status === checkbox.dataset.status
+                });
+            }
+        }
+
+        function show_all() {
+            if (this.checked) {
+                specsList.filter(function() { return true; })
+            }
+        }
+
+        document.getElementById('filter-all').onchange = show_all;
+        document.getElementById('filter-passed').onchange = update_filter;
+        document.getElementById('filter-failed').onchange = update_filter;
+        document.getElementById('filter-skipped').onchange = update_filter;
+    })(document);
+</script>
+
+<script src="chartist.min.js"></script>
+<script>
+    (function(document) {
+        var data = {
+            series: [
+                {value: 9, className: 'ct-series-passed'},
+                {value: 0, className: 'ct-series-failed'}
+            ].filter(function(v) { return v.value > 0 })
+        };
+
+        var sum = 12;
+
+        new Chartist.Pie('.ct-chart', data, {
+            labelInterpolationFnc: function (value) {
+                return Math.round(value / sum * 100) + '%';
+            },
+            startAngle: 0,
+            showLabel: true
+        });
+    })(document);
+</script>

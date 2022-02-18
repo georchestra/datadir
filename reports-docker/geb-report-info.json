@@ -1,0 +1,167 @@
+{
+  "specs": [
+    {
+      "label": "MapfishappSpec",
+      "features": [
+        {
+          "number": 1,
+          "label": "Being on Mapfishapp, I can use the query features (\u0027Catalogue\u0027 tab)-layer-catalogue-tab",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1645176139407,
+              "label": "Being on Mapfishapp, I can use the query features (\u0027Catalogue\u0027 tab)-layer-catalogue-tab",
+              "pageObject": "MapfishappPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/mapfishapp/",
+              "files": [
+                "MapfishappSpec/001-001-Being_on_Mapfishapp__I_can_use_the_query_features___Catalogue__tab_-layer-catalogue-tab.html",
+                "MapfishappSpec/001-001-Being_on_Mapfishapp__I_can_use_the_query_features___Catalogue__tab_-layer-catalogue-tab.png"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "label": "Being on Mapfishapp, I can use the query features (\u0027Thesaurus\u0027 tab)-layer-thesaurus-tab",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1645176142051,
+              "label": "Being on Mapfishapp, I can use the query features (\u0027Thesaurus\u0027 tab)-layer-thesaurus-tab",
+              "pageObject": "MapfishappPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/mapfishapp/",
+              "files": [
+                "MapfishappSpec/002-001-Being_on_Mapfishapp__I_can_use_the_query_features___Thesaurus__tab_-layer-thesaurus-tab.html",
+                "MapfishappSpec/002-001-Being_on_Mapfishapp__I_can_use_the_query_features___Thesaurus__tab_-layer-thesaurus-tab.png"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "label": "Some Mapfishapp addons are available-addons",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1645176150497,
+              "label": "Some Mapfishapp addons are available-addons",
+              "pageObject": "MapfishappPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/mapfishapp/",
+              "files": [
+                "MapfishappSpec/004-001-Some_Mapfishapp_addons_are_available-addons.html",
+                "MapfishappSpec/004-001-Some_Mapfishapp_addons_are_available-addons.png"
+              ]
+            }
+          ]
+        }
+      ],
+      "unassignedArtifacts": []
+    },
+    {
+      "label": "DatafeederSpec",
+      "features": [
+        {
+          "number": 2,
+          "label": "Can import a dataset with no SRS defined (no PRJ)-BeginWizardImportPage-nosrs",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1645176157030,
+              "label": "Can import a dataset with no SRS defined (no PRJ)-BeginWizardImportPage-nosrs",
+              "pageObject": "BeginImportWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/b641678a-c636-44c5-85a1-d65e7bf06275/validation",
+              "files": [
+                "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.html",
+                "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.png"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "label": "Can import a basic shapefile dataset-BeginWizardImportPage",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1645176161060,
+              "label": "Can import a basic shapefile dataset-BeginWizardImportPage",
+              "pageObject": "BeginImportWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/validation",
+              "files": [
+                "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.html",
+                "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.png"
+              ]
+            },
+            {
+              "number": 2,
+              "timestamp": 1645176163066,
+              "label": "Can import a basic shapefile dataset-DataDescriptionWizardPage",
+              "pageObject": "DataDescriptionWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/step/1",
+              "files": [
+                "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.html",
+                "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.png"
+              ]
+            },
+            {
+              "number": 3,
+              "timestamp": 1645176163692,
+              "label": "Can import a basic shapefile dataset-TagSelectionWizardPage",
+              "pageObject": "TagSelectionWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/step/2",
+              "files": [
+                "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.html",
+                "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.png"
+              ]
+            },
+            {
+              "number": 4,
+              "timestamp": 1645176166273,
+              "label": "Can import a basic shapefile dataset-CreationDateAndScaleWizardPage",
+              "pageObject": "CreationDateAndScaleWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/step/3",
+              "files": [
+                "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.html",
+                "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png"
+              ]
+            },
+            {
+              "number": 5,
+              "timestamp": 1645176167703,
+              "label": "Can import a basic shapefile dataset-ProcessDescriptionWizardPage",
+              "pageObject": "ProcessDescriptionWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/step/4",
+              "files": [
+                "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.html",
+                "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png"
+              ]
+            },
+            {
+              "number": 6,
+              "timestamp": 1645176169161,
+              "label": "Can import a basic shapefile dataset-ConfirmationWizardPage",
+              "pageObject": "ConfirmationWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/confirm",
+              "files": [
+                "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.html",
+                "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png"
+              ]
+            },
+            {
+              "number": 7,
+              "timestamp": 1645176177573,
+              "label": "Can import a basic shapefile dataset-DataSetLoadedSuccessfullyWizardPage",
+              "pageObject": "DataSetLoadedSuccessfullyWizardPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/ad7987e1-0fe7-4da6-a9e7-48678ffcc29a/publishok",
+              "files": [
+                "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.html",
+                "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png"
+              ]
+            }
+          ]
+        }
+      ],
+      "unassignedArtifacts": []
+    }
+  ]
+}

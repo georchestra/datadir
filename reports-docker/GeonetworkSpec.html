@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeonetworkSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Feb 18 10:22:08 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Mar 21 17:09:02 CET 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>2</td>
+            <td>4</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>14.878 seconds</td>
+            <td>26.993 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -72,6 +72,10 @@ limitations under the License.
     <li><a href="#1409636902" class="feature-toc-pass">I can access the 'geonetwork' webapp</a></li>
     
     <li><a href="#-883342262" class="feature-toc-pass">Being onto the 'geonetwork' catalogue, I can trigger a search</a></li>
+    
+    <li><a href="#1609321075" class="feature-toc-pass">Being connected onto the catalogue, I have access to contribute & admin menu</a></li>
+    
+    <li><a href="#1480136461" class="feature-toc-pass">Being connected onto the catalogue, I can create a metadata using the editor</a></li>
     
 </ul>
 
@@ -179,6 +183,7 @@ limitations under the License.
                 <p></p>
                 <pre class="code">at GeonetworkPage
 "some results are displayed"()
+report "GnSearchResults"
 </pre>
             </td>
         </tr>
@@ -189,6 +194,282 @@ limitations under the License.
     
 
     <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>GnSearchResults</td>
+            <td>
+                <a href="./GeonetworkSpec/002-001-Being_onto_the__geonetwork__catalogue__I_can_trigger_a_search-GnSearchResults.png" target="_blank"><img src="./GeonetworkSpec/002-001-Being_onto_the__geonetwork__catalogue__I_can_trigger_a_search-GnSearchResults.png" alt="./GeonetworkSpec/002-001-Being_onto_the__geonetwork__catalogue__I_can_trigger_a_search-GnSearchResults.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="1609321075">
+        <span class="feature-name feature-name-">Being connected onto the catalogue, I have access to contribute & admin menu</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">loginAsAdmin()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at GeonetworkPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"'contribute' and 'admin' menus are available"()
+report "GnMainPageLoggedIn"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>GnMainPageLoggedIn</td>
+            <td>
+                <a href="./GeonetworkSpec/003-001-Being_connected_onto_the_catalogue__I_have_access_to_contribute___admin_menu-GnMainPageLoggedIn.png" target="_blank"><img src="./GeonetworkSpec/003-001-Being_connected_onto_the_catalogue__I_have_access_to_contribute___admin_menu-GnMainPageLoggedIn.png" alt="./GeonetworkSpec/003-001-Being_connected_onto_the_catalogue__I_have_access_to_contribute___admin_menu-GnMainPageLoggedIn.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="1480136461">
+        <span class="feature-name feature-name-">Being connected onto the catalogue, I can create a metadata using the editor</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">loginAsAdmin()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at GeonetworkPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"click on contribute and add new record"()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at GeonetworkCatalogEditAddNewRecordPage
+report "GnAtCreateNewRecord"
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"click on 'Create'"()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at GeonetworkCatalogEditForm
+report "GnAtEditForm"
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"edit the title and description"("Automated test MD creation", """This Metadata has been created using an automated process.
+It can safely be deleted""")
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"click on 'save and close'"()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at GeonetworkCatalogEditBoard
+report "GnAtEditBoard"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>GnAtCreateNewRecord</td>
+            <td>
+                <a href="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" target="_blank"><img src="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" alt="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>GnAtEditForm</td>
+            <td>
+                <a href="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" target="_blank"><img src="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" alt="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>GnAtEditBoard</td>
+            <td>
+                <a href="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" target="_blank"><img src="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" alt="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
     
 
     <!-- print problems -->

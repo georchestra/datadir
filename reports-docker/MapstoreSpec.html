@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for MapstoreSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Feb 18 10:22:11 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Mar 21 17:09:18 CET 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>1</td>
+            <td>2</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>2.705 seconds</td>
+            <td>15.629 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -70,6 +70,8 @@ limitations under the License.
 <ul id="toc">
     
     <li><a href="#998452161" class="feature-toc-pass">I can visit mapstore</a></li>
+    
+    <li><a href="#-1667457457" class="feature-toc-pass">Being logged in as admin, I can go to the mapstore viewer, visit its administration page, then go back to the viewer</a></li>
     
 </ul>
 
@@ -112,6 +114,7 @@ limitations under the License.
             <td class="code-block-text" colspan="9">
                 <p></p>
                 <pre class="code">at MapstorePage
+report "MapstoreMainPage"
 </pre>
             </td>
         </tr>
@@ -122,6 +125,155 @@ limitations under the License.
     
 
     <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>MapstoreMainPage</td>
+            <td>
+                <a href="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" target="_blank"><img src="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" alt="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-1667457457">
+        <span class="feature-name feature-name-">Being logged in as admin, I can go to the mapstore viewer, visit its administration page, then go back to the viewer</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">loginAsAdmin()
+to MapstorePage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">waitFor{ $('div#viewer').displayed && $('div.cookie-message').displayed }
+browser.withFrame("georchestra-header") {
+    $("a[href='#admin']").click()
+    // wait for the CSS transition to finish.
+    Thread.sleep(800)
+    $("a[href='/mapstore/#/admin']").click()
+}
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstoreAdminPage
+report "MapstoreAdminPage"
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">browser.withFrame("georchestra-header") {
+    $("a[href='/mapstore/']").click()
+}
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">waitFor({ $('div#viewer').displayed })
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstorePage
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>MapstoreAdminPage</td>
+            <td>
+                <a href="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" target="_blank"><img src="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" alt="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
     
 
     <!-- print problems -->

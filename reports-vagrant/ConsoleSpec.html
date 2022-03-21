@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for ConsoleSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Feb 18 10:51:28 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Mar 21 16:30:24 CET 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>3</td>
+            <td>5</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>4.838 seconds</td>
+            <td>7.620 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -70,6 +70,10 @@ limitations under the License.
 <ul id="toc">
     
     <li><a href="#1284785471" class="feature-toc-pass">I can visit the page to create an account</a></li>
+    
+    <li><a href="#-280515081" class="feature-toc-pass">I can create an account</a></li>
+    
+    <li><a href="#-1886279643" class="feature-toc-pass">I can use the console's 'recover my password' feature</a></li>
     
     <li><a href="#1662865496" class="feature-toc-pass">Being connected as an administrator, I can visit the console admin page</a></li>
     
@@ -128,6 +132,152 @@ limitations under the License.
                 <p></p>
                 <pre class="code">at ConsoleNewAccountPage
 </pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-280515081">
+        <span class="feature-name feature-name-">I can create an account</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Given:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am not connected to the platform</p>
+                <pre class="code">browser.clearCookies("/", "/cas")
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">to ConsoleNewAccountPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">$('input#firstName') << "newUser"
+$('input#surname') << "newUser"
+$('input#email') << "newUser@example.org"
+$('input#phone') << "+331234567890"
+$("span[aria-labelledby='select2-org-container']").click()
+$('li').find {it.attr('id').startsWith("select2-org-result") &&
+        it.attr('id').endsWith("C2C")
+}.click()
+$('input#password') << "123456789"
+$('input#confirmPassword') << "123456789"
+$("button[type='submit']").click()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"Form has been successfully posted"()  || "From reports that the 'User already exists'"()
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-1886279643">
+        <span class="feature-name feature-name-">I can use the console's 'recover my password' feature</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Given:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am not connected to the platform</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>----</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>----</p>
+                
             </td>
         </tr>
         

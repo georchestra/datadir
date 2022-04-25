@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeonetworkSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Mar 22 16:58:20 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Apr 25 15:42:35 CEST 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -57,7 +57,7 @@ limitations under the License.
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>25.691 seconds</td>
+            <td>36.267 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -106,7 +106,13 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">to GeonetworkPage
+                <pre class="code">go GeonetworkPage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to GeonetworkPage
+} else {
+    to GeonetworkPage
+}
 </pre>
             </td>
         </tr>
@@ -181,7 +187,13 @@ report "GnHomePage"
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">to GeonetworkPage
+                <pre class="code">go GeonetworkPage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to GeonetworkPage
+} else {
+    to GeonetworkPage
+}
 </pre>
             </td>
         </tr>

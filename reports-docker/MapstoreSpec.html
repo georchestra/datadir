@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for MapstoreSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Mar 22 16:58:38 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Apr 25 15:43:00 CEST 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>2</td>
+            <td>3</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>17.051 seconds</td>
+            <td>24.909 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -69,9 +69,11 @@ limitations under the License.
 <h2>Features</h2>
 <ul id="toc">
     
-    <li><a href="#998452161" class="feature-toc-pass">I can visit mapstore</a></li>
+    <li><a href="#904538341" class="feature-toc-pass">I can visit mapstore's viewer</a></li>
     
-    <li><a href="#-1667457457" class="feature-toc-pass">Being logged in as admin, I can go to the mapstore viewer, visit its administration page, then go back to the viewer</a></li>
+    <li><a href="#-190528131" class="feature-toc-pass">I can visit mapstore's home page</a></li>
+    
+    <li><a href="#-96094338" class="feature-toc-pass">Being logged in as admin, I can visit the admin page</a></li>
     
 </ul>
 
@@ -80,8 +82,8 @@ limitations under the License.
 
 
 <div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="998452161">
-        <span class="feature-name feature-name-">I can visit mapstore</span>
+    <div class="feature-heading feature-heading-" id="904538341">
+        <span class="feature-name feature-name-">I can visit mapstore's viewer</span>
 
         
     </div>
@@ -102,7 +104,11 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">to MapstorePage
+                <pre class="code">go MapstoreViewerPage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to MapstoreViewerPage
+}
 </pre>
             </td>
         </tr>
@@ -113,8 +119,8 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">at MapstorePage
-report "MapstoreMainPage"
+                <pre class="code">at MapstoreViewerPage
+report "MapstoreViewerPage"
 </pre>
             </td>
         </tr>
@@ -138,9 +144,9 @@ report "MapstoreMainPage"
         <tbody>
         
         <tr class="">
-            <td>MapstoreMainPage</td>
+            <td>MapstoreViewerPage</td>
             <td>
-                <a href="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" target="_blank"><img src="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" alt="./MapstoreSpec/001-001-I_can_visit_mapstore-MapstoreMainPage.png" style="max-width: 120px;" /></a>
+                <a href="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" target="_blank"><img src="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" alt="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -155,8 +161,87 @@ report "MapstoreMainPage"
 
 
 <div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-1667457457">
-        <span class="feature-name feature-name-">Being logged in as admin, I can go to the mapstore viewer, visit its administration page, then go back to the viewer</span>
+    <div class="feature-heading feature-heading-" id="-190528131">
+        <span class="feature-name feature-name-">I can visit mapstore's home page</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">go MapstoreHomePage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to MapstoreHomePage
+}
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstoreHomePage
+report "MapstoreHomePage"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>MapstoreHomePage</td>
+            <td>
+                <a href="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-MapstoreHomePage.png" target="_blank"><img src="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-MapstoreHomePage.png" alt="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-MapstoreHomePage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-96094338">
+        <span class="feature-name feature-name-">Being logged in as admin, I can visit the admin page</span>
 
         
     </div>
@@ -178,7 +263,6 @@ report "MapstoreMainPage"
             <td class="code-block-text" colspan="9">
                 <p></p>
                 <pre class="code">loginAsAdmin()
-to MapstorePage
 </pre>
             </td>
         </tr>
@@ -189,13 +273,7 @@ to MapstorePage
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">waitFor{ $('div#viewer').displayed && $('div.cookie-message').displayed }
-browser.withFrame("georchestra-header") {
-    $("a[href='#admin']").click()
-    // wait for the CSS transition to finish.
-    Thread.sleep(800)
-    $("a[href='/mapstore/#/admin']").click()
-}
+                <pre class="code">to MapstoreAdminPage
 </pre>
             </td>
         </tr>
@@ -208,42 +286,6 @@ browser.withFrame("georchestra-header") {
                 <p></p>
                 <pre class="code">at MapstoreAdminPage
 report "MapstoreAdminPage"
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">browser.withFrame("georchestra-header") {
-    $("a[href='/mapstore/#/']").click()
-}
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>And:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">waitFor({ $('div#viewer').displayed })
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at MapstorePage
-report "MapstoreHomePage"
 </pre>
             </td>
         </tr>
@@ -269,14 +311,7 @@ report "MapstoreHomePage"
         <tr class="">
             <td>MapstoreAdminPage</td>
             <td>
-                <a href="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" target="_blank"><img src="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" alt="./MapstoreSpec/002-001-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreAdminPage.png" style="max-width: 120px;" /></a>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td>MapstoreHomePage</td>
-            <td>
-                <a href="./MapstoreSpec/002-002-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreHomePage.png" target="_blank"><img src="./MapstoreSpec/002-002-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreHomePage.png" alt="./MapstoreSpec/002-002-Being_logged_in_as_admin__I_can_go_to_the_mapstore_viewer__visit_its_administration_page__then_go_back_to_the_viewer-MapstoreHomePage.png" style="max-width: 120px;" /></a>
+                <a href="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" target="_blank"><img src="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" alt="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         

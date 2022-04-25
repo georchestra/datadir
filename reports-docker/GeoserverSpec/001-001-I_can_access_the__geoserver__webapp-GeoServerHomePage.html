@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="./wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-1.12.4-ver-ADBA03E22274074BEE5842FCD9720FBD.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="./wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
       
       
-	  <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-B9CCC9D7214862A34B858E0020C4F849.css" type="text/css" media="screen, projection">
+	  <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-9C5C02B6FDAE19EBCFF9C00129FA3C56.css" type="text/css" media="screen, projection">
 	  
       <!--[if IE]>
       
@@ -26,10 +26,38 @@
     
 	<script type="text/javascript" src="./wicket/resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
 </head>
-<body>  
-  <div id="go_head">
-    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/"></iframe>
-  </div>
+<body>
+  <div id="header">
+    <div class="wrap">
+      <h2><a class="pngfix" href="./"><span>GeoServer 2.20.4-georchestra</span></a></h2>
+      <div class="button-group selfclear">
+	      <span>
+	      	<form style="display: inline-block;" method="post" action="https://georchestra-127-0-1-1.traefik.me/geoserver/j_spring_security_check">
+	      		<span><label class="noshow" for="username"><wicket:message key="username">Username</wicket:message></label>
+<input autocomplete="on" id="username" type="text" name="username" value="" title="username" placeholder="username" wicket:message="title:username,placeholder:username">
+<label class="noshow" for="password"><wicket:message key="password">Password</wicket:message></label>
+<input autocomplete="on" id="password" type="password" name="password" value="" title="password" placeholder="password" wicket:message="title:password,placeholder:passwordGeoServer">
+<label class="shown" for="_spring_security_remember_me"><wicket:message key="rememberMe">Remember me</wicket:message></label>
+<input id="_spring_security_remember_me" type="checkbox" name="_spring_security_remember_me">
+</span>
+	      		<button class="positive icon" type="submit">
+	      			<div><img src="./wicket/resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/door-in-ver-4871EA9656EEBF15C2F83BF4E25B0EBB.png" alt="Login"><span>Login</span></div>
+	      		</button>
+		        <script type="text/javascript">
+/*<![CDATA[*/
+
+		            $('input, textarea').placeholder();
+		        
+/*]]>*/
+</script>	      		
+	      	</form>
+	      </span>
+	      
+	      
+            		      
+      </div>
+    </div><!-- /.wrap -->
+  </div><!-- /#header -->
   <div id="main">
     <div class="wrap selfclear">
     <div id="sidebar">
@@ -93,7 +121,7 @@ This GeoServer belongs to <a><span></span></a>.
 </div>
 <p></p>
 <p>
-  <span>This GeoServer instance is running version <strong>2.18.3-georchestra</strong>. For more information please contact the <a href="mailto:geoserver@example.org">administrator</a>.</span>
+  <span>This GeoServer instance is running version <strong>2.20.4-georchestra</strong>. For more information please contact the <a href="mailto:geoserver@example.org">administrator</a>.</span>
 </p>
 </div>
 <div id="capabilities">

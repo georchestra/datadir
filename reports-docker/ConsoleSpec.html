@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for ConsoleSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Mar 22 16:57:53 CET 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Mon Apr 25 15:41:57 CEST 2022 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -57,7 +57,7 @@ limitations under the License.
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>7.888 seconds</td>
+            <td>12.984 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -221,11 +221,15 @@ $('input#surname') << "newUser"
 $('input#email') << "newUser@example.org"
 $('input#phone') << "+331234567890"
 $("span[aria-labelledby='select2-org-container']").click()
-$('li').find {it.attr('id').startsWith("select2-org-result") &&
-        it.attr('id').endsWith("C2C")
+$("li").find {
+    it.attr('id').startsWith("select2-org-result")  &&
+            ! it.attr('id').endsWith("--")
 }.click()
 $('input#password') << "123456789"
 $('input#confirmPassword') << "123456789"
+if ($('input#privacyPolicyAgreed').displayed) {
+    $('input#privacyPolicyAgreed').click()
+}
 $("button[type='submit']").click()
 </pre>
             </td>
@@ -237,7 +241,7 @@ $("button[type='submit']").click()
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">"Form has been successfully posted"()  || "From reports that the 'User already exists'"()
+                <pre class="code">"Form has been successfully posted"()  || "Form reports that the 'User already exists'"()
 report "ConsoleAccountCreation"
 </pre>
             </td>

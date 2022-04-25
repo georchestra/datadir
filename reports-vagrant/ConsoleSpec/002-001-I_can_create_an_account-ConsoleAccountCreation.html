@@ -440,7 +440,7 @@
         <select ng-change="area.selectBy()" ng-model="area.group" class="btn btn-default btn-sm ng-untouched ng-valid ng-empty ng-dirty ng-valid-parse">
           <option value="" disabled="" class="glyphicon glyphicon-ok-circle ng-scope" translate="" selected="selected">Selection</option>
           <option value="all" class="alternate ng-binding">— All —</option>
-          <!-- ngRepeat: group in area.groups -->
+          <!-- ngRepeat: group in area.groups --><option value="2B" ng-repeat="group in area.groups" class="ng-binding ng-scope">2B</option><!-- end ngRepeat: group in area.groups --><option value="2A" ng-repeat="group in area.groups" class="ng-binding ng-scope">2A</option><!-- end ngRepeat: group in area.groups -->
           <option value="none" class="alternate ng-binding">— None —</option>
         </select>
         <button class="btn btn-default btn-sm ol-bbox ng-scope" title="Select by Bounding Box" ng-click="area.selectBBOX()" ng-class="{active: area.draw}" type="button" translate="">Select by Bounding Box</button>
@@ -477,7 +477,7 @@
 
   </div><!-- end ngIf: !area.maponly -->
 
-  <div class="loading" ng-show="area.loading">
+  <div class="loading ng-hide" ng-show="area.loading">
     <i class="glyphicon glyphicon-map-marker glyphicon-spin"></i>
   </div>
 

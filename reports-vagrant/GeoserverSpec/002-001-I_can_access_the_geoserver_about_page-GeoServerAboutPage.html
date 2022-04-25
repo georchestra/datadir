@@ -26,38 +26,10 @@
     
 	<script type="text/javascript" src="../resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
 </head>
-<body>
-  <div id="header">
-    <div class="wrap">
-      <h2><a class="pngfix" href="../../"><span>GeoServer 2.20.4-georchestra</span></a></h2>
-      <div class="button-group selfclear">
-	      <span>
-	      	<form style="display: inline-block;" method="post" action="http://localhost:8380/geoserver/j_spring_security_check">
-	      		<span><label class="noshow" for="username"><wicket:message key="username">Username</wicket:message></label>
-<input autocomplete="on" id="username" type="text" name="username" value="" title="username" placeholder="username" wicket:message="title:username,placeholder:username">
-<label class="noshow" for="password"><wicket:message key="password">Password</wicket:message></label>
-<input autocomplete="on" id="password" type="password" name="password" value="" title="password" placeholder="password" wicket:message="title:password,placeholder:passwordGeoServer">
-<label class="shown" for="_spring_security_remember_me"><wicket:message key="rememberMe">Remember me</wicket:message></label>
-<input id="_spring_security_remember_me" type="checkbox" name="_spring_security_remember_me">
-</span>
-	      		<button class="positive icon" type="submit">
-	      			<div><img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/door-in-ver-4871EA9656EEBF15C2F83BF4E25B0EBB.png" alt="Login"><span>Login</span></div>
-	      		</button>
-		        <script type="text/javascript">
-/*<![CDATA[*/
-
-		            $('input, textarea').placeholder();
-		        
-/*]]>*/
-</script>	      		
-	      	</form>
-	      </span>
-	      
-	      
-            		      
-      </div>
-    </div><!-- /.wrap -->
-  </div><!-- /#header -->
+<body>  
+  <div id="go_head">
+    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/"></iframe>
+  </div>
   <div id="main">
     <div class="wrap selfclear">
     <div id="sidebar">
@@ -121,11 +93,11 @@
              </li>
              <li>
                <label for="buildRevision">Git Revision</label>
-               <span id="buildRevision">3b2edd724b8e5690c3fdbd59e2c1b7d0457c9de7</span>
+               <span id="buildRevision">1a1868e93f5bd36de68cadad6260862be185e7f3</span>
              </li>
              <li>
                <label for="buildDate">Build Date</label>
-               <span id="buildDate">25-Apr-2022 13:20</span>
+               <span id="buildDate">25-Apr-2022 14:33</span>
              </li>
              <li>
                <label for="geotoolsInfo">GeoTools Version</label>

@@ -9,7 +9,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899789854,
+              "timestamp": 1650903265147,
               "label": "I can access the \u0027geoserver\u0027 webapp-GeoServerHomePage",
               "pageObject": "GeoserverPage",
               "url": "https://georchestra.example.org/geoserver/web/?0",
@@ -26,7 +26,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899790723,
+              "timestamp": 1650903265955,
               "label": "I can access the geoserver about page-GeoServerAboutPage",
               "pageObject": "GeoServerAboutPage",
               "url": "https://georchestra.example.org/geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage?0",
@@ -43,7 +43,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899792448,
+              "timestamp": 1650903269045,
               "label": "Being connected as an administrator, I have access to the GeoServer administration menu-GeoServerGlobalSettingsPage",
               "pageObject": "GeoServerGlobalSettingsPage",
               "url": "https://georchestra.example.org/geoserver/web/wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsPage?8\u0026filter\u003dfalse",
@@ -66,7 +66,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899794269,
+              "timestamp": 1650903271877,
               "label": "I can visit the page to create an account-ConsoleNewAccountPage",
               "pageObject": "ConsoleNewAccountPage",
               "url": "https://georchestra.example.org/console/account/new",
@@ -83,7 +83,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899796687,
+              "timestamp": 1650903274587,
               "label": "I can create an account-ConsoleAccountCreation",
               "pageObject": "ConsoleNewAccountPage",
               "url": "https://georchestra.example.org/console/account/new",
@@ -100,7 +100,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899797723,
+              "timestamp": 1650903276069,
               "label": "I can use the console\u0027s \u0027recover my password\u0027 feature-ConsoleRecoveryPage",
               "pageObject": "RecoverMyPasswordPage",
               "url": "https://georchestra.example.org/console/account/passwordRecovery",
@@ -117,7 +117,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899799173,
+              "timestamp": 1650903277987,
               "label": "Being connected as an administrator, I can visit the console admin page-ConsoleAdminPage",
               "pageObject": "ConsoleAdminPage",
               "url": "https://georchestra.example.org/console/manager/home",
@@ -134,7 +134,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899800762,
+              "timestamp": 1650903280062,
               "label": "Being connected on the platform, I can visit my userdetails page-ConsoleUserDetailsPage",
               "pageObject": "ConsoleUserDetailsPage",
               "url": "https://georchestra.example.org/console/account/userdetails",
@@ -157,7 +157,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899807203,
+              "timestamp": 1650903288939,
               "label": "I can access the \u0027geonetwork\u0027 webapp-GnHomePage",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.search#/home",
@@ -174,7 +174,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899821526,
+              "timestamp": 1650903307526,
               "label": "Being onto the \u0027geonetwork\u0027 catalogue, I can trigger a search-GnSearchResults",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.search#/search?any\u003d",
@@ -191,7 +191,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899823998,
+              "timestamp": 1650903310250,
               "label": "Being connected onto the catalogue, I have access to contribute \u0026 admin menu-GnMainPageLoggedIn",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.search#/home",
@@ -208,7 +208,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899827143,
+              "timestamp": 1650903313597,
               "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtCreateNewRecord",
               "pageObject": "GeonetworkCatalogEditAddNewRecordPage",
               "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.edit#/create",
@@ -219,10 +219,10 @@
             },
             {
               "number": 2,
-              "timestamp": 1650899830042,
+              "timestamp": 1650903317136,
               "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtEditForm",
               "pageObject": "GeonetworkCatalogEditForm",
-              "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.edit#/metadata/7838?justcreated\u0026redirectUrl\u003dcatalog.edit",
+              "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.edit#/metadata/10149?justcreated\u0026redirectUrl\u003dcatalog.edit",
               "files": [
                 "GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.html",
                 "GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png"
@@ -230,7 +230,7 @@
             },
             {
               "number": 3,
-              "timestamp": 1650899832302,
+              "timestamp": 1650903321808,
               "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtEditBoard",
               "pageObject": "GeonetworkCatalogEditBoard",
               "url": "https://georchestra.example.org/geonetwork/srv/eng/catalog.edit#/board?from\u003d1\u0026to\u003d20",
@@ -253,7 +253,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899839382,
+              "timestamp": 1650903327925,
               "label": "I can visit mapstore\u0027s viewer-MapstoreViewerPage",
               "pageObject": "MapstoreViewerPage",
               "url": "https://georchestra.example.org/mapstore/#/",
@@ -270,7 +270,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899843369,
+              "timestamp": 1650903331270,
               "label": "I can visit mapstore\u0027s home page-MapstoreHomePage",
               "pageObject": "MapstoreHomePage",
               "url": "https://georchestra.example.org/mapstore/#/home",
@@ -287,7 +287,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899847919,
+              "timestamp": 1650903335769,
               "label": "Being logged in as admin, I can visit the admin page-MapstoreAdminPage",
               "pageObject": "MapstoreAdminPage",
               "url": "https://georchestra.example.org/mapstore/#/admin",
@@ -310,7 +310,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899854899,
+              "timestamp": 1650903342024,
               "label": "Being on Mapfishapp, I can use the query features (\u0027Catalogue\u0027 tab)-layer-catalogue-tab",
               "pageObject": "MapfishappPage",
               "url": "https://georchestra.example.org/mapfishapp/",
@@ -327,7 +327,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899856808,
+              "timestamp": 1650903343885,
               "label": "Being on Mapfishapp, I can use the query features (\u0027Thesaurus\u0027 tab)-layer-thesaurus-tab",
               "pageObject": "MapfishappPage",
               "url": "https://georchestra.example.org/mapfishapp/",
@@ -344,7 +344,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899858078,
+              "timestamp": 1650903345573,
               "label": "Can go to the Mapfishapp Page-MapfishappHomePage",
               "pageObject": "MapfishappPage",
               "url": "https://georchestra.example.org/mapfishapp/",
@@ -361,7 +361,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899864962,
+              "timestamp": 1650903352259,
               "label": "Some Mapfishapp addons are available-addons",
               "pageObject": "MapfishappPage",
               "url": "https://georchestra.example.org/mapfishapp/",
@@ -384,10 +384,10 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899873747,
+              "timestamp": 1650903359006,
               "label": "Can import a dataset with no SRS defined (no PRJ)-BeginWizardImportPage-nosrs",
               "pageObject": "BeginImportWizardPage",
-              "url": "https://georchestra.example.org/import/48833652-4a46-4402-a369-6d6787fc7af7/validation",
+              "url": "https://georchestra.example.org/import/f97feabd-1d6e-4324-a22b-421408f96fe8/validation",
               "files": [
                 "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.html",
                 "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.png"
@@ -401,10 +401,10 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899878423,
+              "timestamp": 1650903362957,
               "label": "Can import a basic shapefile dataset-BeginWizardImportPage",
               "pageObject": "BeginImportWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/validation",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/validation",
               "files": [
                 "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.html",
                 "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.png"
@@ -412,10 +412,10 @@
             },
             {
               "number": 2,
-              "timestamp": 1650899880233,
+              "timestamp": 1650903364812,
               "label": "Can import a basic shapefile dataset-DataDescriptionWizardPage",
               "pageObject": "DataDescriptionWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/step/1",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/step/1",
               "files": [
                 "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.html",
                 "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.png"
@@ -423,10 +423,10 @@
             },
             {
               "number": 3,
-              "timestamp": 1650899880799,
+              "timestamp": 1650903366396,
               "label": "Can import a basic shapefile dataset-TagSelectionWizardPage",
               "pageObject": "TagSelectionWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/step/2",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/step/2",
               "files": [
                 "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.html",
                 "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.png"
@@ -434,10 +434,10 @@
             },
             {
               "number": 4,
-              "timestamp": 1650899883494,
+              "timestamp": 1650903368904,
               "label": "Can import a basic shapefile dataset-CreationDateAndScaleWizardPage",
               "pageObject": "CreationDateAndScaleWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/step/3",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/step/3",
               "files": [
                 "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.html",
                 "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png"
@@ -445,10 +445,10 @@
             },
             {
               "number": 5,
-              "timestamp": 1650899884899,
+              "timestamp": 1650903370287,
               "label": "Can import a basic shapefile dataset-ProcessDescriptionWizardPage",
               "pageObject": "ProcessDescriptionWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/step/4",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/step/4",
               "files": [
                 "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.html",
                 "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png"
@@ -456,10 +456,10 @@
             },
             {
               "number": 6,
-              "timestamp": 1650899886364,
+              "timestamp": 1650903371740,
               "label": "Can import a basic shapefile dataset-ConfirmationWizardPage",
               "pageObject": "ConfirmationWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/confirm",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/confirm",
               "files": [
                 "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.html",
                 "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png"
@@ -467,10 +467,10 @@
             },
             {
               "number": 7,
-              "timestamp": 1650899894747,
+              "timestamp": 1650903380130,
               "label": "Can import a basic shapefile dataset-DataSetLoadedSuccessfullyWizardPage",
               "pageObject": "DataSetLoadedSuccessfullyWizardPage",
-              "url": "https://georchestra.example.org/import/0a10508e-db33-46c1-ae8a-acd397dea1db/publishok",
+              "url": "https://georchestra.example.org/import/e29b523c-d4bf-444d-a1e8-c76b515e74be/publishok",
               "files": [
                 "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.html",
                 "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png"
@@ -490,7 +490,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899898760,
+              "timestamp": 1650903384161,
               "label": "Being connected as an administrator, I can access the \u0027analytics\u0027 webapp-AnalyticsHomePage",
               "pageObject": "AnalyticsPage",
               "url": "https://georchestra.example.org/analytics/",
@@ -513,7 +513,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899899501,
+              "timestamp": 1650903384950,
               "label": "I am able to connect as GEORCHESTRA_USERNAME on CAS6-Cas6LoginSuccessfull",
               "pageObject": "Cas6LoginSuccessFullPage",
               "url": "https://georchestra.example.org/cas/login",
@@ -530,7 +530,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1650899900015,
+              "timestamp": 1650903385482,
               "label": "Using invalid credentials, I should not be able to connect onto CAS6-Cas6InvalidCredentials",
               "pageObject": "Cas6LoginPage",
               "url": "https://georchestra.example.org/cas/login",

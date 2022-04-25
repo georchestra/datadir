@@ -63,13 +63,7 @@
         <i class="glyphicon glyphicon-user pull-right"></i>
         <a ng-link="users({id: 'all'})" translate="" class="ng-scope" href="./browse/all/users">Manage users</a>
       </div>
-      <!-- ngIf: home.pendingCount > 0 --><div class="alert alert-danger ng-scope" ng-if="home.pendingCount > 0">
-        <a ng-link="users({id: 'pending'})" href="./browse/pending/users">
-          <span><ng-pluralize count="home.pendingCount" when="{'1': '{} waiting user',
-                               'other': '{} waiting users'}">2 waiting users</ng-pluralize></span><br>
-          <span class="manage ng-scope" translate="">View &amp; manage</span>
-        </a>
-      </div><!-- end ngIf: home.pendingCount > 0 -->
+      <!-- ngIf: home.pendingCount > 0 -->
       <!-- ngIf: home.expired && home.expired.users.length > 0 -->
     </div>
 
@@ -77,7 +71,7 @@
       <!-- ngIf: home.connected && home.connected.results.length > 0 -->
       <p><ng-pluralize count="home.connected.results.length" when="{'0': 'No registered user of services today !',
                               '1': 'user of services today',
-                              'other': 'users of services today'}">No registered user of services today !</ng-pluralize></p>
+                              'other': 'users of services today'}"></ng-pluralize></p>
       <!-- ngIf: home.connected.results && home.connected.results.length > 0 -->
     </div>
 
@@ -88,7 +82,7 @@
     <stats data="home.requests" type="'line'" config="['date', 'count']" title="'analytics.requests'" class="ng-isolate-scope"><div class="stats">
 
   <div class="btn-group pull-right" role="role">
-    <button ng-click="stats.switchView()" type="button" class="btn btn-default active" ng-class="{'active': stats.view =='graph'}" title="View as graph">
+    <button ng-click="stats.switchView()" type="button" class="btn btn-default" ng-class="{'active': stats.view =='graph'}" title="View as graph">
       <i class="glyphicon glyphicon-stats"></i>
     </button>
     <button ng-click="stats.switchView()" type="button" class="btn btn-default" ng-class="{'active': stats.view =='table'}" title="View as table">
@@ -98,22 +92,20 @@
 
   <h4 class="ng-binding">
     Number of requests
-    <!-- ngIf: stats.data.granularity --><span ng-if="stats.data.granularity" class="ng-binding ng-scope">
-      per day
-    </span><!-- end ngIf: stats.data.granularity -->
+    <!-- ngIf: stats.data.granularity -->
   </h4>
 
-  <div ng-show="stats.nodata &amp;&amp; stats.data.$resolved" class="alert alert-warning">
+  <div ng-show="stats.nodata &amp;&amp; stats.data.$resolved" class="alert alert-warning ng-hide">
     <i class="glyphicon glyphicon-alert"></i>&nbsp;
     <span translate="" class="ng-scope">No data for this period</span>
   </div>
 
-  <div ng-show="!stats.data.$resolved" class="progress ng-hide">
+  <div ng-show="!stats.data.$resolved" class="progress">
     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
     </div>
   </div>
 
-  <div class="chartist ng-hide" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata" title="Number of requests"></div>
+  <div class="chartist ng-hide" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata"></div>
 
   <table class="table table-bordered table-striped ng-hide" ng-show="stats.view=='table'">
     <tbody><!-- ngRepeat: value in stats.serie track by $index -->
@@ -151,169 +143,7 @@
             </tr>
         </thead><!-- end ngIf: !logger.filter -->
     <tbody>
-        <!-- ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 5:16 PM">a few seconds ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 5:04 PM">13 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 4:56 PM">20 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 4:42 PM">34 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 4:36 PM">40 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 25, 2022 4:36 PM">40 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/nnewuser/infos">
-              nnewuser
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Pending user created" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-plus"></i>
-                Pending user created
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage -->
+        <!-- ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage -->
     </tbody>
     </table><!-- end ngIf: !logger.log -->
 

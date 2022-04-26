@@ -1,0 +1,179 @@
+/**
+ * Copyright 2017-2019 Tilman Ginzel, AOE GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ---
+ *
+ * Parts of this file are copied from spock-reports by Renato Athaydes, licensed under ASF2 license:
+ * https://github.com/renatoathaydes/spock-reports/blob/master/src/main/resources/spock-feature-report.css
+ */
+
+span.back-link {
+    font-size: 13px;
+    float: right;
+}
+
+a.feature-toc-error {
+    color: #FFC107;
+}
+
+a.feature-toc-failure {
+    color: #E53935;
+}
+
+a.feature-toc-ignored {
+    color: lightgray;
+}
+
+a.feature-toc-pass {
+    color: #2E7D32;
+}
+
+div.feature {
+    border-left: 4px #81C784 solid;
+    margin-top: 38px;
+    padding-left: 8px;
+}
+
+div.feature-error {
+    border-left: 4px #FFC107 solid;
+}
+
+div.feature-failure {
+    border-left: 4px #E53935 solid;
+}
+
+div.feature-ignored {
+    border-left: 4px #DDDDDD solid;
+}
+
+div.feature-heading {
+    margin-bottom: 0;
+    padding: 12px 0 12px 8px;
+    margin-left: -8px;
+    background-color: #FAFAFA;
+}
+
+span.feature-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+span.feature-name-ignored {
+    color: #AAAAAA;
+}
+
+td.code-block-kind {
+    vertical-align: top;
+}
+
+td.code-block-kind > p {
+    padding-top: 5px;
+}
+
+td.code-block-text {
+    width: 100%;
+}
+
+td.code-block-text > p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+pre.code {
+    overflow-y: scroll;
+    white-space: pre;
+    margin-top: 0;
+}
+
+pre {
+    line-height: 1em;
+    white-space: pre-wrap;
+}
+
+pre.stacktrace {
+    line-height: 1.4em;
+    overflow-y: scroll;
+    white-space: pre;
+}
+
+pre.narrative {
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+    color: #444;
+    margin-top: 4px;
+}
+
+tr.ex-pass {
+    color: #388E3C;
+}
+
+tr.ex-fail {
+    color: #E53935;
+    font-weight: bold;
+}
+
+div.geb-artifacts {
+    margin-top: 12px;
+}
+
+p.ignore-reason {
+    margin-top: 8px;
+    color: gray;
+}
+
+tr.geb-failure > td {
+    background-color: #FF8080;
+}
+
+div.problem-description {
+    padding: 10px;
+    background: #FFCDD2;
+    margin: 12px 2px 0 2px;
+}
+
+div.problem-header {
+    font-weight: bold;
+    color: #E53935;
+}
+
+.margin-bottom-16 {
+    margin-bottom: 16px;
+}
+
+input.toggle-stacktrace-checkbox {
+    display: none;
+}
+
+input.toggle-stacktrace-checkbox:checked + label + div {
+    display: none;
+}
+
+input.toggle-stacktrace-checkbox + label:before {
+    content: "Hide "
+}
+
+input.toggle-stacktrace-checkbox:checked + label:before {
+    content:" Show "
+}
+
+label.toggle-stacktrace-label {
+    border-radius: 4px;
+    border: 1px solid black;
+    font-size: 10px;
+    display: inline-block;
+    padding: 2px 5px;
+    cursor: pointer;
+}

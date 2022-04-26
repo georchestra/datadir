@@ -1,0 +1,621 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="../resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
+<script type="text/javascript" src="../resource/org.wicketstuff.select2.ApplicationSettings/res/js/select2.full-ver-0C1C8BE2790B7DF692432656FBF4BC9A.js"></script>
+<link rel="stylesheet" type="text/css" href="../resource/org.wicketstuff.select2.ApplicationSettings/res/css/select2-ver-3805311D5FC135A34B316E3F1A7ED1E2.css">
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.Select2DropDownChoice/js/select2/select2-keyboard-ver-96A0E3802007C5F34BB0BE2B9D344312.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsPage?8&amp;filter=false";
+/*]]>*/
+</script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>GeoServer: Global Settings</title>
+    <link href="../resource/org.geoserver.web.GeoServerBasePage/favicon-ver-CD7C91844A87FE589C62DFE238A2ACA7.ico" rel="shortcut icon">
+	
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/screen-ver-5E7BA86A4C3BEA6B457AC3C7F9ADF9B4.css" type="text/css" media="screen, projection">
+      
+      
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
+      
+      
+	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-B9CCC9D7214862A34B858E0020C4F849.css" type="text/css" media="screen, projection">
+	  
+      <!--[if IE]>
+      
+        <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/ie-ver-830652BCF971CCAF4FB29B4A140F9430.css" type="text/css" media="screen, projection"/>
+        
+      <![endif]-->
+      
+      <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.placeholder-ver-6E6E735FF3A1792243C593D1E48D6AE1.js"></script>
+      
+    
+        <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.fullscreen-ver-A1341414A7D106EAE077E0332CD01573.js"></script>
+    
+	<script type="text/javascript" src="../resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+$('#charset').select2({});;
+$('#charset').select2({});;
+$('#lockProvider').select2({});;
+$('#webUIMode').select2({});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.admin.GlobalSettingsPage?8-1.IBehaviorListener.0-form-apply&filter=false","m":"POST","c":"id2","f":"id1","sc":"apply","i":"ajaxFeedback","e":"click"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "load", function(event) { 
+enableSelect2Keyboard('charset');;
+enableSelect2Keyboard('lockProvider');;
+enableSelect2Keyboard('webUIMode');;
+;});
+/*]]>*/
+</script>
+</head>
+<body>  
+  <div id="go_head">
+    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/"></iframe>
+  </div>
+  <div id="main">
+    <div class="wrap selfclear">
+    <div id="sidebar">
+      
+      <ul id="navigation">
+        <li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>About &amp; Status</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.StatusPage?filter=false" title="Summary of server configuration and status">
+                <img src="../resource/org.geoserver.web.admin.StatusPage/::/img/icons/silk/server_error-ver-102A2CF17440C6924EFAD1B6540701CB.png" alt="Server Status"><span>Server Status</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.LogPage?filter=false" title="Show the GeoServer log file contents">
+                <img src="../resource/org.geoserver.web.admin.LogPage/::/img/icons/silk/page_white_text-ver-0DA66BDB013F9A9D12CE7219E642BC25.png" alt="GeoServer Logs"><span>GeoServer Logs</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.ContactPage?filter=false" title="Set the contact information for this server.">
+                <img src="../resource/org.geoserver.web.admin.ContactPage/::/img/icons/silk/vcard-ver-151823B90AD370105DB8FFDBAAABF39F.png" alt="Contact Information"><span>Contact Information</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.AboutGeoServerPage?filter=false" title="General information about GeoServer">
+                <img src="../resource/org.geoserver.web.AboutGeoServerPage/img/icons/silk/help-ver-C3812C74BC524179F4CCF5D2DB7B3CBF.png" alt="About GeoServer"><span>About GeoServer</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.ProcessStatusPage?filter=false" title="Lists all running and recently completed processes">
+                <img src="../resource/org.geoserver.wps.web.ProcessStatusPage/::/::/web/img/icons/silk/cog-ver-30A18063EF42B090194A7E936086960F.png" alt="Process status"><span>Process status</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Data</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.demo.MapPreviewPage?filter=false" title="List of all layers configured in GeoServer and provides previews in various formats for each.">
+                <img src="../resource/org.geoserver.web.demo.MapPreviewPage/::/img/icons/geosilk/map-ver-3085230CE03A9A93A074669E4C194432.png" alt="Layer Preview"><span>Layer Preview</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.workspace.WorkspacePage?filter=false" title="Manage GeoServer workspaces">
+                <img src="../resource/org.geoserver.web.data.workspace.WorkspacePage/::/::/img/icons/silk/folder-ver-FBD3929A893B147AE0940D48D533E023.png" alt="Workspaces"><span>Workspaces</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.store.StorePage?filter=false" title="Manage the stores providing data to GeoServer">
+                <img src="../resource/org.geoserver.web.data.store.StorePage/::/::/img/icons/silk/database-ver-D698A5E9A755A97B51E657256881BBDE.png" alt="Stores"><span>Stores</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.layer.LayerPage?filter=false" title="Manage the layers being published by GeoServer">
+                <img src="../resource/org.geoserver.web.data.layer.LayerPage/::/::/img/icons/silk/picture_empty-ver-7C42DAE5239115350CA4F2557CF0F015.png" alt="Layers"><span>Layers</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.layergroup.LayerGroupPage?filter=false" title="Define and manage layer groupings">
+                <img src="../resource/org.geoserver.web.data.layergroup.LayerGroupPage/::/::/img/icons/silk/layers-ver-A13DE972B638EC78F2A83894515FF4E7.png" alt="Layer Groups"><span>Layer Groups</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wms.web.data.StylePage?filter=false" title="Manage the Styles published by GeoServer">
+                <img src="../resource/org.geoserver.wms.web.data.StylePage/palette-ver-184B77B5020909BED079C417E8F6BB9F.png" alt="Styles"><span>Styles</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Services</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.wcs.web.WCSAdminPage?filter=false" title="Web Coverage Service">
+                <img src="../resource/org.geoserver.wcs.web.WCSAdminPage/server_raster-ver-24A0B07B2E1CE3A44AAB292B4AA5567B.png" alt="WCS"><span>WCS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wfs.web.WFSAdminPage?filter=false" title="Web Feature Service">
+                <img src="../resource/org.geoserver.wfs.web.WFSAdminPage/server_vector-ver-ABCFC9BDF3237F2799FED1B0E4679A21.png" alt="WFS"><span>WFS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.wmts.WMTSAdminPage?filter=false" title="Web Map Tile Service">
+                <img src="../resource/org.geoserver.gwc.web.wmts.WMTSAdminPage/server_tile_map-ver-23B59D4EE5EADA27CD2BDE0F7B292392.png" alt="WMTS"><span>WMTS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wms.web.WMSAdminPage?filter=false" title="Web Map Service">
+                <img src="../resource/org.geoserver.wms.web.WMSAdminPage/server_map-ver-BD9F5588DF2CAD48A10C7D90BD6C9DE7.png" alt="WMS"><span>WMS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.WPSAdminPage?filter=false" title="Web Processing Service">
+                <img src="../resource/org.geoserver.wps.web.WPSAdminPage/server_gear-ver-D3E4E668C526960F9BBB166F1C758467.png" alt="WPS"><span>WPS</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Settings</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.GlobalSettingsPage?filter=false" title="Settings that apply to all OGC services and control the internal behavior of GeoServer.">
+                <img src="../resource/org.geoserver.web.admin.GlobalSettingsPage/::/img/icons/silk/server-ver-B0B38DC2E3593F7363DE77ED20FD7897.png" alt="Global"><span>Global</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.JAIPage?filter=false" title="Administer settings for Java Advanced Imaging image processing and raster encoding.">
+                <img src="../resource/org.geoserver.web.admin.JAIPage/::/img/icons/silk/cog_photo-ver-717DE401B9156ECAC0DDE3752F8C5095.png" alt="Image Processing"><span>Image Processing</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.CoverageAccessPage?filter=false" title="Administer settings related to accessing raster data.">
+                <img src="../resource/org.geoserver.web.admin.CoverageAccessPage/::/img/icons/silk/cog_photo-ver-717DE401B9156ECAC0DDE3752F8C5095.png" alt="Raster Access"><span>Raster Access</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Tile Caching</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.layer.CachedLayersPage?filter=false" title="Manage the cached layers published by the integrated GeoWebCache">
+                <img src="../resource/org.geoserver.gwc.web.layer.CachedLayersPage/::/tilelayer-ver-A4E41E9A105008CEA7F89E5529A5CC04.png" alt="Tile Layers"><span>Tile Layers</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.GWCSettingsPage?filter=false" title="Configure the global settings for the embedded GeoWebCache">
+                <img src="../resource/org.geoserver.gwc.web.GWCSettingsPage/geowebcache-16-ver-A2CC77BEC866639F3454064AE0E3AE2C.png" alt="Caching Defaults"><span>Caching Defaults</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.gridset.GridSetsPage?filter=false" title="Manage the available gridsets or create a new one">
+                <img src="../resource/org.geoserver.gwc.web.gridset.GridSetsPage/::/gridset-ver-618E101D6EA16710A07144904F301F58.png" alt="Gridsets"><span>Gridsets</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.diskquota.DiskQuotaSettingsPage?filter=false" title="Configure the disk quota limits and expiration policy for the tile cache">
+                <img src="../resource/org.geoserver.gwc.web.diskquota.DiskQuotaSettingsPage/::/diskquota-ver-952051985214488BB370ECD21DB44C74.png" alt="Disk Quota"><span>Disk Quota</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.blob.BlobStoresPage?filter=false" title="Configure different BlobStores for the embedded GeoWebCache.">
+                <img src="../resource/org.geoserver.gwc.web.blob.BlobStoresPage/::/blobstores-ver-D698A5E9A755A97B51E657256881BBDE.png" alt="BlobStores"><span>BlobStores</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Security</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.SecuritySettingsPage?filter=false" title="Configure global security settings">
+                <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/wrench-ver-A137EB4441860564CE1655357AF26DE8.png" alt="Settings"><span>Settings</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.auth.AuthenticationPage?filter=false" title="Authentication providers and settings">
+                <img src="../resource/org.geoserver.security.web.auth.AuthenticationPage/::/img/icons/silk/shield-ver-807CDFB63D846A7E57F43CBDD59317CE.png" alt="Authentication"><span>Authentication</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.passwd.PasswordPage?filter=false" title="Password settings">
+                <img src="../resource/org.geoserver.security.web.passwd.PasswordPage/::/img/icons/silk/lock-ver-B508411BB915ECF32B1A995644F67FD1.png" alt="Passwords"><span>Passwords</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.UserGroupRoleServicesPage?filter=false" title="Manage users, groups, and roles">
+                <img src="../resource/org.geoserver.security.web.UserGroupRoleServicesPage/img/icons/silk/group-ver-3AFBBB77C13A366898F9088F7AE086A0.png" alt="Users, Groups, Roles"><span>Users, Groups, Roles</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.data.DataSecurityPage?filter=false" title="Edit data access rules">
+                <img src="../resource/org.geoserver.security.web.data.DataSecurityPage/::/img/icons/silk/database_key-ver-B5213A0964C48368586607D76A55A83B.png" alt="Data"><span>Data</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.service.ServiceAccessRulePage?filter=false" title="Edit service access rules">
+                <img src="../resource/org.geoserver.security.web.service.ServiceAccessRulePage/::/img/icons/silk/shape_square_key-ver-48019BBC44223E249D1E0B48DD79E1FD.png" alt="Services"><span>Services</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.WPSAccessRulePage?filter=false" title="Web Processing Service security">
+                <img src="../resource/org.geoserver.wps.web.WPSAccessRulePage/server_key-ver-D3E4E668C526960F9BBB166F1C758467.png" alt="WPS security"><span>WPS security</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Monitor</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.monitor.web.ActivityPage?filter=false" title="Recent Server Activity">
+                <img src="../resource/org.geoserver.monitor.web.ActivityPage/img/chart_bar-ver-8D60518C6D18AF693CFEEA9C066026C1.png" alt="Activity"><span>Activity</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.monitor.web.ReportPage?filter=false" title="Monitoring Reports">
+                <img src="../resource/org.geoserver.monitor.web.ReportPage/img/table-ver-FEE040A77B0766093B56268370E24AFF.png" alt="Reports"><span>Reports</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./org.geoserver.web.DemoPage" title="GeoServer Demonstrations"><span>Demos</span></a>
+          </div>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./org.geoserver.web.ToolPage" title="GeoServer Tools"><span>Tools</span></a>
+          </div>
+        </li>
+      </ul>
+      
+    </div><!-- /#sidebar -->
+    <div id="page" class="selfclear">
+      <div class="page-header">
+        <div id="topFeedback">
+  
+</div>
+        <h1 id="header-title">Global Settings</h1>
+        <p id="header-description">Settings that apply to all OGC services and control the internal behavior of GeoServer.</p>
+        <div class="header-panel"></div>
+      </div>
+
+      <div class="page-pane selfclear" id="page-pane">
+        
+<form id="id1" method="post" action="./org.geoserver.web.admin.GlobalSettingsPage?8-1.IFormSubmitListener-form&amp;filter=false"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="id1_hf_0" id="id1_hf_0"></div>
+  <h3><span>OGC Services</span></h3>
+  <fieldset>
+    <legend><span>Service Settings</span></legend>
+    <ul>
+      <li>
+        <label for="proxyBaseUrl">Proxy Base URL</label>
+        <input id="proxyBaseUrl" class="field text" type="text" value="${X-Forwarded-Proto}://${X-Forwarded-Host}/geoserver" name="proxyBaseUrl">
+      </li>
+      <li class="choiceItem">
+        <input id="useHeadersProxyURL" type="checkbox" checked="checked" name="useHeadersProxyURL">
+        <label for="useHeadersProxyURL">Use headers for Proxy URL </label>
+      </li>
+      <li class="choiceItem">
+        <input id="globalServices" type="checkbox" checked="checked" name="globalServices">
+        <label for="globalServices">Enable global services</label>
+      </li>
+      <li class="choiceItem">
+      	<input type="checkbox" id="allowStoredQueriesPerWorkspace" checked="checked" name="allowStoredQueriesPerWorkspace">
+        <label>Allow Per-Workspace Stored Queries</label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend><span>Service Request Settings</span></legend>
+    <ul>
+      <li class="choiceItem">
+        <input id="xmlExternalEntitiesEnabled" type="checkbox" name="xmlExternalEntitiesEnabled">
+        <label for="xmlExternalEntitiesEnabled">Evaluate XML entities from remote servers (security risk)</label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend><span>Service Response Settings</span></legend>
+    <ul>
+      <li>
+        <label for="charset">Character set</label>
+        <select id="charset" class="field select2-hidden-accessible" name="charset" tabindex="-1" aria-hidden="true">
+<option value="0">Big5</option>
+<option value="1">Big5-HKSCS</option>
+<option value="2">CESU-8</option>
+<option value="3">EUC-JP</option>
+<option value="4">EUC-KR</option>
+<option value="5">GB18030</option>
+<option value="6">GB2312</option>
+<option value="7">GBK</option>
+<option value="8">IBM-Thai</option>
+<option value="9">IBM00858</option>
+<option value="10">IBM01140</option>
+<option value="11">IBM01141</option>
+<option value="12">IBM01142</option>
+<option value="13">IBM01143</option>
+<option value="14">IBM01144</option>
+<option value="15">IBM01145</option>
+<option value="16">IBM01146</option>
+<option value="17">IBM01147</option>
+<option value="18">IBM01148</option>
+<option value="19">IBM01149</option>
+<option value="20">IBM037</option>
+<option value="21">IBM1026</option>
+<option value="22">IBM1047</option>
+<option value="23">IBM273</option>
+<option value="24">IBM277</option>
+<option value="25">IBM278</option>
+<option value="26">IBM280</option>
+<option value="27">IBM284</option>
+<option value="28">IBM285</option>
+<option value="29">IBM290</option>
+<option value="30">IBM297</option>
+<option value="31">IBM420</option>
+<option value="32">IBM424</option>
+<option value="33">IBM437</option>
+<option value="34">IBM500</option>
+<option value="35">IBM775</option>
+<option value="36">IBM850</option>
+<option value="37">IBM852</option>
+<option value="38">IBM855</option>
+<option value="39">IBM857</option>
+<option value="40">IBM860</option>
+<option value="41">IBM861</option>
+<option value="42">IBM862</option>
+<option value="43">IBM863</option>
+<option value="44">IBM864</option>
+<option value="45">IBM865</option>
+<option value="46">IBM866</option>
+<option value="47">IBM868</option>
+<option value="48">IBM869</option>
+<option value="49">IBM870</option>
+<option value="50">IBM871</option>
+<option value="51">IBM918</option>
+<option value="52">ISO-2022-CN</option>
+<option value="53">ISO-2022-JP</option>
+<option value="54">ISO-2022-JP-2</option>
+<option value="55">ISO-2022-KR</option>
+<option value="56">ISO-8859-1</option>
+<option value="57">ISO-8859-13</option>
+<option value="58">ISO-8859-15</option>
+<option value="59">ISO-8859-16</option>
+<option value="60">ISO-8859-2</option>
+<option value="61">ISO-8859-3</option>
+<option value="62">ISO-8859-4</option>
+<option value="63">ISO-8859-5</option>
+<option value="64">ISO-8859-6</option>
+<option value="65">ISO-8859-7</option>
+<option value="66">ISO-8859-8</option>
+<option value="67">ISO-8859-9</option>
+<option value="68">JIS_X0201</option>
+<option value="69">JIS_X0212-1990</option>
+<option value="70">KOI8-R</option>
+<option value="71">KOI8-U</option>
+<option value="72">Shift_JIS</option>
+<option value="73">TIS-620</option>
+<option value="74">US-ASCII</option>
+<option value="75">UTF-16</option>
+<option value="76">UTF-16BE</option>
+<option value="77">UTF-16LE</option>
+<option value="78">UTF-32</option>
+<option value="79">UTF-32BE</option>
+<option value="80">UTF-32LE</option>
+<option selected="selected" value="81">UTF-8</option>
+<option value="82">windows-1250</option>
+<option value="83">windows-1251</option>
+<option value="84">windows-1252</option>
+<option value="85">windows-1253</option>
+<option value="86">windows-1254</option>
+<option value="87">windows-1255</option>
+<option value="88">windows-1256</option>
+<option value="89">windows-1257</option>
+<option value="90">windows-1258</option>
+<option value="91">windows-31j</option>
+<option value="92">x-Big5-HKSCS-2001</option>
+<option value="93">x-Big5-Solaris</option>
+<option value="94">x-euc-jp-linux</option>
+<option value="95">x-EUC-TW</option>
+<option value="96">x-eucJP-Open</option>
+<option value="97">x-IBM1006</option>
+<option value="98">x-IBM1025</option>
+<option value="99">x-IBM1046</option>
+<option value="100">x-IBM1097</option>
+<option value="101">x-IBM1098</option>
+<option value="102">x-IBM1112</option>
+<option value="103">x-IBM1122</option>
+<option value="104">x-IBM1123</option>
+<option value="105">x-IBM1124</option>
+<option value="106">x-IBM1129</option>
+<option value="107">x-IBM1166</option>
+<option value="108">x-IBM1364</option>
+<option value="109">x-IBM1381</option>
+<option value="110">x-IBM1383</option>
+<option value="111">x-IBM29626C</option>
+<option value="112">x-IBM300</option>
+<option value="113">x-IBM33722</option>
+<option value="114">x-IBM737</option>
+<option value="115">x-IBM833</option>
+<option value="116">x-IBM834</option>
+<option value="117">x-IBM856</option>
+<option value="118">x-IBM874</option>
+<option value="119">x-IBM875</option>
+<option value="120">x-IBM921</option>
+<option value="121">x-IBM922</option>
+<option value="122">x-IBM930</option>
+<option value="123">x-IBM933</option>
+<option value="124">x-IBM935</option>
+<option value="125">x-IBM937</option>
+<option value="126">x-IBM939</option>
+<option value="127">x-IBM942</option>
+<option value="128">x-IBM942C</option>
+<option value="129">x-IBM943</option>
+<option value="130">x-IBM943C</option>
+<option value="131">x-IBM948</option>
+<option value="132">x-IBM949</option>
+<option value="133">x-IBM949C</option>
+<option value="134">x-IBM950</option>
+<option value="135">x-IBM964</option>
+<option value="136">x-IBM970</option>
+<option value="137">x-ISCII91</option>
+<option value="138">x-ISO-2022-CN-CNS</option>
+<option value="139">x-ISO-2022-CN-GB</option>
+<option value="140">x-iso-8859-11</option>
+<option value="141">x-JIS0208</option>
+<option value="142">x-JISAutoDetect</option>
+<option value="143">x-Johab</option>
+<option value="144">x-MacArabic</option>
+<option value="145">x-MacCentralEurope</option>
+<option value="146">x-MacCroatian</option>
+<option value="147">x-MacCyrillic</option>
+<option value="148">x-MacDingbat</option>
+<option value="149">x-MacGreek</option>
+<option value="150">x-MacHebrew</option>
+<option value="151">x-MacIceland</option>
+<option value="152">x-MacRoman</option>
+<option value="153">x-MacRomania</option>
+<option value="154">x-MacSymbol</option>
+<option value="155">x-MacThai</option>
+<option value="156">x-MacTurkish</option>
+<option value="157">x-MacUkraine</option>
+<option value="158">x-MS932_0213</option>
+<option value="159">x-MS950-HKSCS</option>
+<option value="160">x-MS950-HKSCS-XP</option>
+<option value="161">x-mswin-936</option>
+<option value="162">x-PCK</option>
+<option value="163">x-SJIS_0213</option>
+<option value="164">x-UTF-16LE-BOM</option>
+<option value="165">X-UTF-32BE-BOM</option>
+<option value="166">X-UTF-32LE-BOM</option>
+<option value="167">x-windows-50220</option>
+<option value="168">x-windows-50221</option>
+<option value="169">x-windows-874</option>
+<option value="170">x-windows-949</option>
+<option value="171">x-windows-950</option>
+<option value="172">x-windows-iso2022jp</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 148px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-charset-container"><span class="select2-selection__rendered" id="select2-charset-container" title="UTF-8">UTF-8</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+      </li>
+      <li>
+        <label for="numDecimals">Number of decimals (GML and GeoJSON output)</label>
+        <input id="numDecimals" class="field text" type="text" value="6" name="numDecimals">
+      </li>
+      <li class="choiceItem">
+        <input id="verbose" type="checkbox" name="verbose">
+        <label for="verbose">Verbose XML output (pretty print) </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend><span>Service Error Settings</span></legend>
+    <ul>
+      <li>
+        <label for="charset">How to handle data and configuration problems</label>
+        <select id="charset" class="field" name="resourceErrorHandling">
+<option value="OGC_EXCEPTION_REPORT">Return service exception document </option>
+<option selected="selected" value="SKIP_MISCONFIGURED_LAYERS">Skipping misconfigured layers</option>
+</select>
+      </li>
+      <li class="choiceItem">
+        <input id="verboseExceptions" type="checkbox" name="verboseExceptions">
+        <label for="verboseExceptions">Include stack trace in service exception</label>
+      </li>
+    </ul>
+  </fieldset>
+  <h3><span>Internal Settings</span></h3>
+  <fieldset>
+    <legend><span>Logging Settings</span></legend>
+    <ul>
+      <li>
+        <label for="loggingLocation">Log location</label>
+        <input id="loggingLocation" class="field text" type="text" value="/srv/log/geoserver.log" name="loggingLocation">
+      </li>
+      <li>
+        <label for="log4jConfigFile">Logging profile</label>
+        <select id="log4jConfigFile" class="field select" name="log4jConfigFile" size="8">
+<option selected="selected" value="0">DEFAULT_LOGGING.properties</option>
+<option value="1">GEOSERVER_DEVELOPER_LOGGING.properties</option>
+<option value="2">GEOTOOLS_DEVELOPER_LOGGING.properties</option>
+<option value="3">PRODUCTION_LOGGING.properties</option>
+<option value="4">VERBOSE_LOGGING.properties</option>
+</select>
+      </li>
+      <li class="choiceItem">
+        <input id="stdOutLogging" type="checkbox" checked="checked" name="stdOutLogging">
+        <label for="stdOutLogging">Log to StdOut</label>
+      </li>
+      <li>
+        <label for="xmlPostRequestLogBufferSize">Number of characters to log for incoming POST requests (0 to disable)</label>
+        <input id="xmlPostRequestLogBufferSize" class="field text" type="text" value="1024" name="xmlPostRequestLogBufferSize">
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend><span>Catalog Settings</span></legend>
+    <ul>
+      <li>
+        <label for="featureTypeCacheSize">Feature type cache size</label>
+        <input id="featureTypeCacheSize" class="field text" type="text" value="0" name="featureTypeCacheSize">
+      </li>
+      <li>
+       <label>File locking</label>
+       <select class="select select2-hidden-accessible" id="lockProvider" name="lockProvider" tabindex="-1" aria-hidden="true">
+<option selected="selected" value="">Choose One</option>
+<option value="fileLockProvider">NIO file locking (interprocess locking)</option>
+<option value="memoryLockProvider">In-process locking</option>
+<option value="nullLockProvider">Disable locking</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 221px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-lockProvider-container"><span class="select2-selection__rendered" id="select2-lockProvider-container" title="Choose One">Choose One</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+      </li>
+    </ul>
+  </fieldset>
+   <fieldset>
+    <legend><span>WebUI Settings</span></legend>
+    <ul>
+      <li>
+       <label>WebUI Mode</label>
+       <select class="select select2-hidden-accessible" id="webUIMode" name="webUIMode" tabindex="-1" aria-hidden="true">
+<option selected="selected" value="0">DEFAULT</option>
+<option value="1">REDIRECT</option>
+<option value="2">DO_NOT_REDIRECT</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 141px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-webUIMode-container"><span class="select2-selection__rendered" id="select2-webUIMode-container" title="DEFAULT">DEFAULT</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+      </li>
+    </ul>
+  </fieldset>
+  <h3><span>Other Settings</span></h3>
+  <ul>
+    <li>
+      <fieldset>
+    <ul>
+        <li>
+   		  <label for="quiet" class="field checkbox">REST Disable Resource not found Logging</label>
+          <input id="quiet" class="field checkbox" type="checkbox" checked="checked" name="extensions:0:content:quiet">
+        </li>
+    	<li>
+   		  <label for="rootdir" class="text">REST PathMapper Root directory path</label>
+          <input id="rootdir" class="field text" type="text" value="" name="extensions:0:content:rootdir">
+        </li>
+    </ul>
+  </fieldset>
+    </li>
+  </ul>
+  <ul>
+      <li class="choiceItem">
+        <input id="showCreatedTimeCols" type="checkbox" name="showCreatedTimeCols">
+        <label>Display creation timestamps on administration lists</label>
+      </li>
+      <li class="choiceItem">
+        <input id="showModifiedTimeCols" type="checkbox" name="showModifiedTimeCols">
+        <label>Display modification timestamps on administration lists</label>
+      </li>
+  </ul>
+  <div class="button-group toolbar-sticky selfclear">
+    <button type="submit" class="form-button-save" name="p::submit" id="id3">Save</button>
+    <a href="javascript:;" class="form-button-apply" id="id2">Apply</a>
+    <button type="submit" class="form-button-cancel" name="cancel" id="id4">Cancel</button>
+  </div>
+</form>
+
+      </div>
+      <div class="page-footer">
+        <div id="bottomFeedback">
+  
+</div>
+      </div>
+    </div><!-- /#page -->
+    </div><!-- /.wrap> -->
+  </div><!-- /#main -->
+  <div id="ajaxFeedback" style="display: none">
+    <img alt="Loading..." src="../resource/org.geoserver.web.GeoServerBasePage/img/ajax-loader-ver-A51C5608D01ACF32DF728F299767F82B.gif">
+  </div>
+
+
+</body></html>

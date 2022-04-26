@@ -1,0 +1,231 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <base href="/console/manager/">
+
+  <link rel="stylesheet" href="public/libraries.css">
+  <link rel="stylesheet" href="public/app.css">
+  <link rel="stylesheet" href="public/svg.css" class="svg-styles">
+
+  <title>Admin Console</title>
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body ng-app="manager" ng-strict-di="" ng-controller="AppController" class="ng-scope">
+
+  <iframe src="/header/?active=console" scrolling="no" frameborder="0"></iframe>
+
+  <div flash-message="2000"><div role="alert" ng-show="hasFlash" class="alert  alert- alert-dismissible ng-hide alertIn alertOut "> <span dynamic="flash.text"></span> <button type="button" class="close" close-flash=""><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div></div>
+
+  <div class="container">
+
+    <div class="profile label pull-right label-info" title="Your role allows you to manage all accounts">
+      Administrator
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-class="{'active': isActive(['home'])}" class="active">
+        <a ng-link="home" translate="" class="ng-scope" href="./home">Dashboard</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['users','browse'])}">
+        <a ng-link="users({'id': 'all'})" translate="" class="ng-scope" href="./browse/all/users">Users</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['orgs','org'])}">
+        <a ng-link="orgs({'org': 'all'})" translate="" class="ng-scope" href="./orgs/all">Organizations</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['roles','role'])}">
+        <a ng-link="roles({'role': 'all'})" translate="" class="ng-scope" href="./roles/all">Roles</a>
+      </li>
+      <!-- ngIf: profile === 'SUPERUSER' --><li role="presentation" ng-class="{'active': isActive(['delegations'])}" ng-if="profile === 'SUPERUSER'" class="ng-scope">
+        <a ng-link="delegations({})" translate="" class="ng-scope" href="./delegations">Delegations</a>
+      </li><!-- end ngIf: profile === 'SUPERUSER' -->
+      <li role="presentation" ng-class="{'active': isActive(['analytics'])}">
+        <a ng-link="analytics({'role': 'all'})" translate="" class="ng-scope" href="./analytics/all">Analytics</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['logs'])}">
+        <a ng-link="logs" translate="" class="ng-scope" href="./logs">Logs</a>
+      </li>
+    </ul>
+
+    <!-- ngViewport: --><ng-viewport class="ng-scope"><section class="home row ng-scope">
+
+  <div class="col-md-4">
+    <div class="alerts">
+      <div class="alert alert-info">
+        <i class="glyphicon glyphicon-user pull-right"></i>
+        <i class="glyphicon glyphicon-user pull-right"></i>
+        <a ng-link="users({id: 'all'})" translate="" class="ng-scope" href="./browse/all/users">Manage users</a>
+      </div>
+      <!-- ngIf: home.pendingCount > 0 --><div class="alert alert-danger ng-scope" ng-if="home.pendingCount > 0">
+        <a ng-link="users({id: 'pending'})" href="./browse/pending/users">
+          <span><ng-pluralize count="home.pendingCount" when="{'1': '{} waiting user',
+                               'other': '{} waiting users'}">2 waiting users</ng-pluralize></span><br>
+          <span class="manage ng-scope" translate="">View &amp; manage</span>
+        </a>
+      </div><!-- end ngIf: home.pendingCount > 0 -->
+      <!-- ngIf: home.expired && home.expired.users.length > 0 -->
+    </div>
+
+    <div class="jumbotron">
+      <!-- ngIf: home.connected && home.connected.results.length > 0 -->
+      <p><ng-pluralize count="home.connected.results.length" when="{'0': 'No registered user of services today !',
+                              '1': 'user of services today',
+                              'other': 'users of services today'}"></ng-pluralize></p>
+      <!-- ngIf: home.connected.results && home.connected.results.length > 0 -->
+    </div>
+
+  </div>
+
+  <div class="col-md-8">
+
+    <stats data="home.requests" type="'line'" config="['date', 'count']" title="'analytics.requests'" class="ng-isolate-scope"><div class="stats">
+
+  <div class="btn-group pull-right" role="role">
+    <button ng-click="stats.switchView()" type="button" class="btn btn-default" ng-class="{'active': stats.view =='graph'}" title="View as graph">
+      <i class="glyphicon glyphicon-stats"></i>
+    </button>
+    <button ng-click="stats.switchView()" type="button" class="btn btn-default" ng-class="{'active': stats.view =='table'}" title="View as table">
+      <i class="glyphicon glyphicon-th-list"></i>
+    </button>
+  </div>
+
+  <h4 class="ng-binding">
+    Number of requests
+    <!-- ngIf: stats.data.granularity -->
+  </h4>
+
+  <div ng-show="stats.nodata &amp;&amp; stats.data.$resolved" class="alert alert-warning ng-hide">
+    <i class="glyphicon glyphicon-alert"></i>&nbsp;
+    <span translate="" class="ng-scope">No data for this period</span>
+  </div>
+
+  <div ng-show="!stats.data.$resolved" class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    </div>
+  </div>
+
+  <div class="chartist ng-hide" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata"></div>
+
+  <table class="table table-bordered table-striped ng-hide" ng-show="stats.view=='table'">
+    <tbody><!-- ngRepeat: value in stats.serie track by $index -->
+  </tbody></table>
+
+  <!-- Download graph as PNG -->
+  <button ng-click="stats.exportPNG()" class="btn btn-default btn-sm center-block ng-hide" title="Save as PNG" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata">
+    <i class="glyphicon glyphicon-save"></i>
+  </button>
+
+  <!-- Export data as CSV -->
+  <button ng-click="stats.exportCSV()" class="btn btn-default btn-sm center-block ng-hide" title="Save as CSV" ng-show="stats.view=='table' &amp;&amp; stats.csvConfig &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata">
+    <i class="glyphicon glyphicon-save"></i>
+  </button>
+
+</div>
+
+</stats>
+    <logger filter="false" title="true" class="ng-isolate-scope"><section class="logger">
+    <button ng-show="logger.isFiltered()" class="reset btn btn-default pull-right ng-hide" ng-click="logger.reset()">
+    <i class="glyphicon glyphicon-repeat"></i>
+    Reset filters
+    </button>
+    <!-- ngIf: logger.getTitle() -->
+    <hr>
+    <!-- ngIf: logger.log -->
+    <!-- ngIf: !logger.log --><table class="table table-condensed ng-scope" ng-if="!logger.log">
+        <!-- ngIf: logger.filter -->
+        <!-- ngIf: !logger.filter --><thead ng-if="!logger.filter" class="ng-scope">
+            <tr>
+                <th translate="" class="ng-scope">Date</th>
+                <th translate="" class="ng-scope">Author</th>
+                <th translate="" class="ng-scope">Modification of</th>
+                <th translate="" class="ng-scope">Action</th>
+            </tr>
+        </thead><!-- end ngIf: !logger.filter -->
+    <tbody>
+        <!-- ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 26, 2022 11:44 AM">a few seconds ago</span></abbr></td>
+          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td>
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Apr 26, 2022 11:44 AM">a few seconds ago</span></abbr></td>
+          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td>
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/nnewuser/infos">
+              nnewuser
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Pending user created" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-plus"></i>
+                Pending user created
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage -->
+    </tbody>
+    </table><!-- end ngIf: !logger.log -->
+
+    <!-- ngIf: !logger.log.changed && !logger.log.trusted --><dir-pagination-controls ng-if="!logger.log.changed &amp;&amp; !logger.log.trusted" class="ng-scope ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide -->
+
+</dir-pagination-controls><!-- end ngIf: !logger.log.changed && !logger.log.trusted -->
+</section>
+
+</logger>
+  </div>
+
+</section>
+
+</ng-viewport>
+
+  </div>
+
+  <script src="public/libraries.js"></script>
+  <script src="public/templates.js"></script>
+  <script src="public/app.js"></script>
+  <script>require('app')</script>
+
+
+
+</body></html>

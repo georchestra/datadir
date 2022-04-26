@@ -1,0 +1,388 @@
+<!--
+Copyright 2017-2019 Tilman Ginzel, AOE GmbH
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="spec.css" />
+    
+</head>
+<body id="top">
+
+
+
+<h1>Report for MapstoreSpec</h1>
+<hr>
+<span class="date-test-ran">Created on Tue Apr 26 11:46:01 CEST 2022 by pmauduit</span>
+<span class="back-link"><a href="index.html">Back to index</a></span>
+
+
+
+<div>
+    <h2>Summary</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Executed features</th>
+            <th>Failures</th>
+            <th>Errors</th>
+            <th>Skipped</th>
+            <th>Success rate</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="failure">66.67%</td>
+            <td>50.106 seconds</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<h2>Features</h2>
+<ul id="toc">
+    
+    <li><a href="#904538341" class="feature-toc-pass">I can visit mapstore's viewer</a></li>
+    
+    <li><a href="#-190528131" class="feature-toc-failure">I can visit mapstore's home page</a></li>
+    
+    <li><a href="#-96094338" class="feature-toc-pass">Being logged in as admin, I can visit the admin page</a></li>
+    
+</ul>
+
+<hr>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="904538341">
+        <span class="feature-name feature-name-">I can visit mapstore's viewer</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">go MapstoreViewerPage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to MapstoreViewerPage
+}
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstoreViewerPage
+report "MapstoreViewerPage"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>MapstoreViewerPage</td>
+            <td>
+                <a href="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" target="_blank"><img src="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" alt="./MapstoreSpec/001-001-I_can_visit_mapstore_s_viewer-MapstoreViewerPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-failure">
+    <div class="feature-heading feature-heading-failure" id="-190528131">
+        <span class="feature-name feature-name-failure">I can visit mapstore's home page</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">go MapstoreHomePage.url
+if (loginRequired()) {
+    loginAsAdmin()
+    to MapstoreHomePage
+}
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstoreHomePage
+report "MapstoreHomePage"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>failure</td>
+            <td>
+                <a href="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-failure.png" target="_blank"><img src="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-failure.png" alt="./MapstoreSpec/002-001-I_can_visit_mapstore_s_home_page-failure.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>Condition failed with Exception:
+
+at MapstoreHomePage
+|
+geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)
+</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox--190528131-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox--190528131-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">Condition failed with Exception:
+
+at MapstoreHomePage
+|
+geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)
+
+	at MapstoreSpec.I can visit mapstore's home page(MapstoreSpec.groovy:67)
+Caused by: geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at geb.waiting.Wait.waitFor(Wait.groovy:124)
+	at geb.waiting.PotentiallyWaitingExecutor.execute(PotentiallyWaitingExecutor.groovy:28)
+	at geb.Page.verifyThisPageAtOnly(Page.groovy:420)
+	at geb.Page.getAtVerificationResult(Page.groovy:213)
+	at geb.Page.verifyAt(Page.groovy:184)
+	at geb.Browser.doAt(Browser.groovy:1161)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.Browser.at(Browser.groovy:371)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	... 1 more
+Caused by: Assertion failed: 
+
+title == ("geOrchestra Viewer") && $('div#page-maps').displayed
+|     |                         |  |                  |
+|     true                      |  []                 false
+'geOrchestra Viewer'            false
+
+	at MapstoreHomePage._clinit__closure1(MapstoreSpec.groovy:11)
+	at MapstoreHomePage._clinit__closure1(MapstoreSpec.groovy)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.waiting.Wait.waitFor(Wait.groovy:113)
+	... 11 more
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-96094338">
+        <span class="feature-name feature-name-">Being logged in as admin, I can visit the admin page</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">loginAsAdmin()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">to MapstoreAdminPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapstoreAdminPage
+report "MapstoreAdminPage"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>MapstoreAdminPage</td>
+            <td>
+                <a href="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" target="_blank"><img src="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" alt="./MapstoreSpec/003-001-Being_logged_in_as_admin__I_can_visit_the_admin_page-MapstoreAdminPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+
+
+</body>
+</html>

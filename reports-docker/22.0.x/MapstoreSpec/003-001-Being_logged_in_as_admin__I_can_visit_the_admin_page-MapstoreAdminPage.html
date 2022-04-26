@@ -1,0 +1,3913 @@
+<html><head><link rel="stylesheet" id="theme_stylesheet" data-ms-state="mounted" data-ms-theme="default" data-ms-path="dist/themes" data-ms-version="2021.02.xx" href="dist/themes/default.css?2021.02.xx"><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>geOrchestra Viewer</title><style>body {
+        margin: 0;
+      }
+      ._ms2_init_center {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: show;
+        margin: auto;
+        display: flex;
+        align-items: center;
+      }
+      ._ms2_init_center::before {
+          content: 'Loading';
+          position: absolute;
+          left: 50%;
+          height: 0.5em;
+          text-align: center;
+          transform: translateX(-50%) translateY(-50%);
+          -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          color: #6F6F6f;
+          font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+          width: 6em;
+          text-align: center;
+          margin: auto;
+      }
+      ._ms2_init_spinner {
+        height: 176px;
+        width: 176px;
+      }
+      ._ms2_init_spinner > div,
+      ._ms2_init_spinner > div:after {
+        border-radius: 50%;
+        width: 176px;
+        height: 176px;
+      }
+      ._ms2_init_spinner > div {
+        box-sizing: border-box;
+        text-indent: -9999em;
+        border: 16px solid rgba(119,119,119, 0.2);
+        border-left: 16px solid #777777;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: _ms2_init_anim 1.1s infinite linear;
+        animation: _ms2_init_anim 1.1s infinite linear;
+      }
+      @-webkit-keyframes _ms2_init_anim {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes _ms2_init_anim {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      ._ms2_init_text {
+        -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+        animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+        color: #6F6F6f;
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        height: 0.75em;
+        width:  6em;
+        text-align: center;
+        margin: auto;
+        z-index: 1000;
+        display: none;
+      }
+      @keyframes _ms2_init_text_anim {
+        0%  {opacity: 0}
+        20% {opacity: 0}
+        50% {opacity: 1}
+        70% {opacity: .75}
+        100%{opacity: 0}
+      }
+      #georchestra-header {
+          width: 100%;
+          height: 90px;
+          border: none;
+          overflow: hidden;
+          position: absolute;
+      }
+      #container {
+          position: absolute;
+          top: 90px;
+          bottom: 0;
+          height: unset !important;
+          width: 100%;
+      }</style><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="shortcut icon" type="image/png" href="https://cdn.jslibs.mapstore2.geo-solutions.it/leaflet/favicon.ico"><script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script><script src="https://cesium.com/downloads/cesiumjs/releases/1.17/Build/Cesium/Cesium.js"></script><link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.17/Build/Cesium/Widgets/widgets.css"><script src="MapStore2/web/client/libs/cesium-navigation/cesium-navigation.js"></script><link rel="stylesheet" href="MapStore2/web/client/libs/cesium-navigation/cesium-navigation.css"><style>.geOrchestra html, .geOrchestra body, .geOrchestra #container, .geOrchestra .fill {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.geOrchestra .viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEE;
+}
+
+.geOrchestra #map {
+    position:absolute;
+    width: 100%;
+    top: 0;
+    bottom: 28px;
+    height: auto;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.geOrchestra #home-button {
+    float: left;
+}
+.geOrchestra #navigationBar #home-button {
+    float: none;
+}
+
+.geOrchestra .leaflet-control-attribution > a:first-child{
+    display: none;
+    visibility: hidden;
+}
+
+.geOrchestra .map-logo{
+	position:absolute;
+	width:90px;
+	height:27px;
+	bottom:36px;
+	left:5px;
+	background-image:url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore2_logo.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+    cursor: pointer;
+}
+
+.geOrchestra .map-logo > img{
+    width: 90px;
+    height: 27px;
+    opacity: 0;
+}
+
+.geOrchestra .with-love {
+    position:absolute;
+	width:90px;
+	height:27px;
+	bottom:35px;
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+    background-image:url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/made-in-italy-logo.png);
+	background-size:contain;
+}
+
+.geOrchestra .modal-dialog-container {
+    z-index: 2000;
+}
+
+.geOrchestra #mapstore-scalebox-container {
+    bottom: -36px !important;
+    right: 323px !important;
+}
+
+.geOrchestra #mapstore-mouseposition {
+    width: auto !important;
+    right: 5px !important;
+    background-color: transparent !important;
+    height: 25px !important;
+}
+
+.geOrchestra #mapstore-mouseposition .mouseposition-separator {
+    display: inline !important;
+}
+
+.geOrchestra #mapstore-mouseposition .label {
+    font-size: 90% !important;
+}
+
+
+.geOrchestra #mapstore-mouseposition .mouseposition-crs {
+    font-size: 90%;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.geOrchestra #mapstore-getfeatureinfo.mapstore-right-panel {
+    position: absolute;
+    height: calc(100% - 30px);
+    right: 0;
+    left: auto;
+    top: 0;
+    margin-top: 0;
+    border: none;
+}
+
+.geOrchestra .mapstore-right-panel .info-wrap {
+    position: absolute;
+    bottom: 0;
+    top: 51px;
+    width: 100%;
+    padding: 0;
+}
+
+.geOrchestra .mapstore-right-panel .mapstore-identify-viewer {
+    position: absolute;
+    top: 60px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+.geOrchestra .mapstore-right-panel div[role=body], .geOrchestra .mapstore-right-panel .react-swipeable-view-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.geOrchestra .mapstore-right-panel .swipeable-view {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    position: absolute;
+}
+
+.geOrchestra .mapstore-right-panel .alert-info {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.geOrchestra .mapstore-right-panel #mapstore-identify-revgeocoder {
+    padding: 15px;
+}
+</style><style>.geOrchestra .manager .mapstore-header {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/manager-header.jpg);
+    height: 200px;
+    z-index: -100;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+.geOrchestra .manager .MapSearchBar.user-search {
+    top: -100px;
+    height: 0;
+    overflow: visible;
+}
+.geOrchestra .manager .MapSearchBar.user-search .input-group {
+    box-shadow: -1px 1px 5px 1px rgba(94,94,94,1);
+}
+.geOrchestra .manager .Manager-Container {
+    margin: 0;
+}
+
+.geOrchestra .manager #home-button {
+    float: right;
+}
+</style><style>@-webkit-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-ms-keyframes sk-fade-in {
+  .geOrchestra 0% {
+      opacity: 0;
+  }
+  .geOrchestra 50% {
+      opacity: 0;
+  }
+  .geOrchestra 100% {
+      opacity: 1;
+  }
+}
+
+@keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.geOrchestra .sk-fade-in {
+  -webkit-animation: sk-fade-in 2s;
+  -moz-animation: sk-fade-in 2s;
+  -o-animation: sk-fade-in 2s;
+  -ms-animation: sk-fade-in 2s;
+}
+</style><style>.geOrchestra .sk-chasing-dots {
+  width: 27px;
+  height: 27px;
+  position: relative;
+
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.geOrchestra .sk-dot1, .geOrchestra .sk-dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.geOrchestra .sk-dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-circle-wrapper {
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.geOrchestra .sk-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.geOrchestra .sk-circle:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 20%;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.geOrchestra .sk-circle2  { -webkit-transform: rotate(30deg);  transform: rotate(30deg)  }
+.geOrchestra .sk-circle3  { -webkit-transform: rotate(60deg);  transform: rotate(60deg)  }
+.geOrchestra .sk-circle4  { -webkit-transform: rotate(90deg);  transform: rotate(90deg)  }
+.geOrchestra .sk-circle5  { -webkit-transform: rotate(120deg); transform: rotate(120deg) }
+.geOrchestra .sk-circle6  { -webkit-transform: rotate(150deg); transform: rotate(150deg) }
+.geOrchestra .sk-circle7  { -webkit-transform: rotate(180deg); transform: rotate(180deg) }
+.geOrchestra .sk-circle8  { -webkit-transform: rotate(210deg); transform: rotate(210deg) }
+.geOrchestra .sk-circle9  { -webkit-transform: rotate(240deg); transform: rotate(240deg) }
+.geOrchestra .sk-circle10 { -webkit-transform: rotate(270deg); transform: rotate(270deg) }
+.geOrchestra .sk-circle11 { -webkit-transform: rotate(300deg); transform: rotate(300deg) }
+.geOrchestra .sk-circle12 { -webkit-transform: rotate(330deg); transform: rotate(330deg) }
+
+.geOrchestra .sk-circle2:before  { -webkit-animation-delay: -1.1s; animation-delay: -1.1s }
+.geOrchestra .sk-circle3:before  { -webkit-animation-delay: -1.0s; animation-delay: -1.0s }
+.geOrchestra .sk-circle4:before  { -webkit-animation-delay: -0.9s; animation-delay: -0.9s }
+.geOrchestra .sk-circle5:before  { -webkit-animation-delay: -0.8s; animation-delay: -0.8s }
+.geOrchestra .sk-circle6:before  { -webkit-animation-delay: -0.7s; animation-delay: -0.7s }
+.geOrchestra .sk-circle7:before  { -webkit-animation-delay: -0.6s; animation-delay: -0.6s }
+.geOrchestra .sk-circle8:before  { -webkit-animation-delay: -0.5s; animation-delay: -0.5s }
+.geOrchestra .sk-circle9:before  { -webkit-animation-delay: -0.4s; animation-delay: -0.4s }
+.geOrchestra .sk-circle10:before { -webkit-animation-delay: -0.3s; animation-delay: -0.3s }
+.geOrchestra .sk-circle11:before { -webkit-animation-delay: -0.2s; animation-delay: -0.2s }
+.geOrchestra .sk-circle12:before { -webkit-animation-delay: -0.1s; animation-delay: -0.1s }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0);
+    transform: scale(0.0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-cube-grid {
+  width:27px;
+  height:27px;
+}
+
+.geOrchestra .sk-cube {
+  width:33%;
+  height:33%;
+  background:#333;
+  float:left;
+  -webkit-animation: sk-scaleDelay 1.3s infinite ease-in-out;
+  animation: sk-scaleDelay 1.3s infinite ease-in-out;
+}
+
+/*
+ * Spinner positions
+ * 1 2 3
+ * 4 5 6
+ * 7 8 9
+ */
+
+.geOrchestra .sk-spinner .sk-cube:nth-child(1) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(2) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(3) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(4) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(5) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(6) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(7) { -webkit-animation-delay: 0.0s; animation-delay: 0.0s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(8) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(9) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+
+@-webkit-keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+@keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+</style><style>.geOrchestra .sk-double-bounce {
+  width: 27px;
+  height: 27px;
+
+  position: relative;
+}
+
+.geOrchestra .sk-double-bounce1, .geOrchestra .sk-double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.geOrchestra .sk-double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-folding-cube {
+  width: 27px;
+  height: 27px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.geOrchestra .sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); 
+}
+.geOrchestra .sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.geOrchestra .sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.geOrchestra .sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s; 
+}
+.geOrchestra .sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  } 
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  }
+}
+</style><style>.geOrchestra .sk-pulse {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+</style><style>.geOrchestra .sk-rotating-plane {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+</style><style>.geOrchestra .sk-three-bounce > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.geOrchestra .sk-three-bounce .sk-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.geOrchestra .sk-three-bounce .sk-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+</style><style>.geOrchestra .sk-wandering-cubes {
+  width: 27px;
+  height: 27px;
+  position: relative;
+}
+
+.geOrchestra .sk-cube1, .geOrchestra .sk-cube2 {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.geOrchestra .sk-cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(22px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(22px) translateY(22px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(22px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% {
+    /* Hack to make FF rotate in the right direction */
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  } 50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  } 75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  } 100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+</style><style>.geOrchestra .sk-wave {
+  width: 50px;
+  height: 27px;
+}
+
+.geOrchestra .sk-wave > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.geOrchestra .sk-wave .sk-rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.geOrchestra .sk-wave .sk-rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.geOrchestra .sk-wave .sk-rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.geOrchestra .sk-wave .sk-rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  } 20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-wordpress {
+  background: #333;
+  width: 27px;
+  height: 27px;
+  display: inline-block;
+  border-radius: 27px;
+  position: relative;
+  -webkit-animation: sk-inner-circle 1s linear infinite;
+  animation: sk-inner-circle 1s linear infinite;
+}
+
+.geOrchestra .sk-inner-circle {
+  display: block;
+  background: #fff;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 8px;
+  top: 5px;
+  left: 5px;
+}
+
+@-webkit-keyframes sk-inner-circle {
+  0% { -webkit-transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes sk-inner-circle {
+  0% { transform: rotate(0); -webkit-transform:rotate(0); }
+  100% { transform: rotate(360deg); -webkit-transform:rotate(360deg); }
+}
+
+</style><style>.geOrchestra .mapstore-filter input::-ms-clear,
+.geOrchestra .mapstore-filter input::-ms-reveal {
+  display: none;
+}
+</style><style>.geOrchestra .form-control-intl {
+    background-color: unset !important;
+}
+</style><style>.geOrchestra .overlay-spinner-container  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.geOrchestra .overlay-spinner-container > div {
+    width: 80%;
+}
+
+.geOrchestra .overlay-spinner-label {
+    color: #fff;
+}
+
+.geOrchestra .overlay-spinner-container .spinner {
+    float: none;
+    clear: both;
+    margin: auto;
+    width: 52px;
+    height: 52px;
+}
+
+.geOrchestra .overlay-spinner-container .spinner .sk-circle:before {
+    background-color: #fff;
+}
+</style><style>
+.geOrchestra .background-preview-button-label {
+    position: absolute;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    -webkit-transition: all 0.0s;
+    -moz-transition: all 0.0s;
+    -o-transition: all 0.0s;
+    transition: all 0.0s;
+
+}
+
+.geOrchestra .background-preview-button-label div {
+    overflow: hidden;
+    opacity: 0.8;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -webkit-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -moz-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+}
+
+.geOrchestra .background-preview-button-container {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-button-frame {
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.geOrchestra .background-preview-button-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.geOrchestra .background-preview-button-container:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.geOrchestra .background-preview-button-container:active {
+    opacity: 0.6;
+}
+</style><style>
+.geOrchestra .background-preview-icon-frame {
+    overflow: hidden;
+}
+
+.geOrchestra .background-preview-icon-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal {
+    cursor: pointer;
+    float: left;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-horizontal:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal:active {
+    opacity: 0.6;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal.disabled-icon {
+    cursor: not-allowed;
+    float: left;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-vertical {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-vertical:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.geOrchestra .background-preview-icon-container-vertical:active {
+    opacity: 0.6;
+}
+
+.geOrchestra .background-preview-icon-container-vertical.disabled-icon {
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+</style><style>.geOrchestra #mapstore-burger-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.geOrchestra .burger-menu-submenu {
+    display: none;
+    position: absolute;
+    left: -160px;
+    top: 0px;
+    width: 160px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.geOrchestra .burger-menu-submenu li a {
+    display: block;
+    padding: 10px 15px;
+}
+
+.geOrchestra .burger-menu-submenu li a:hover {
+    text-decoration: none;
+}
+
+.geOrchestra #mapstore-burger-menu .dropdown-menu>li>a:hover>span>.burger-menu-submenu,
+.geOrchestra .burger-menu-submenu>li>a:hover>span>.burger-menu-submenu {
+    display: block;
+}
+
+.geOrchestra .burger-menu-submenu span {
+    overflow: hidden;
+}
+
+.geOrchestra #mapstore-navbar #mapstore-burger-menu {
+    position: relative;
+    float: right;
+    left: 0;
+}
+</style><style>/* BASICS */
+
+.geOrchestra .CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 300px;
+  color: black;
+}
+
+/* PADDING */
+
+.geOrchestra .CodeMirror-lines {
+  padding: 4px 0; /* Vertical padding around content */
+}
+.geOrchestra .CodeMirror pre {
+  padding: 0 4px; /* Horizontal padding of content */
+}
+
+.geOrchestra .CodeMirror-scrollbar-filler, .geOrchestra .CodeMirror-gutter-filler {
+  background-color: white; /* The little square between H and V scrollbars */
+}
+
+/* GUTTER */
+
+.geOrchestra .CodeMirror-gutters {
+  border-right: 1px solid #ddd;
+  background-color: #f7f7f7;
+  white-space: nowrap;
+}
+.geOrchestra .CodeMirror-linenumbers {}
+.geOrchestra .CodeMirror-linenumber {
+  padding: 0 3px 0 5px;
+  min-width: 20px;
+  text-align: right;
+  color: #999;
+  white-space: nowrap;
+}
+
+.geOrchestra .CodeMirror-guttermarker { color: black; }
+.geOrchestra .CodeMirror-guttermarker-subtle { color: #999; }
+
+/* CURSOR */
+
+.geOrchestra .CodeMirror-cursor {
+  border-left: 1px solid black;
+  border-right: none;
+  width: 0;
+}
+/* Shown when moving in bi-directional text */
+.geOrchestra .CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver;
+}
+.geOrchestra .cm-fat-cursor .CodeMirror-cursor {
+  width: auto;
+  border: 0 !important;
+  background: #7e7;
+}
+.geOrchestra .cm-fat-cursor div.CodeMirror-cursors {
+  z-index: 1;
+}
+
+.geOrchestra .cm-animate-fat-cursor {
+  width: auto;
+  border: 0;
+  -webkit-animation: blink 1.06s steps(1) infinite;
+  -moz-animation: blink 1.06s steps(1) infinite;
+  animation: blink 1.06s steps(1) infinite;
+  background-color: #7e7;
+}
+@-moz-keyframes blink {
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
+}
+@-webkit-keyframes blink {
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
+}
+@keyframes blink {
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
+}
+
+/* Can style cursor different in overwrite (non-insert) mode */
+.geOrchestra .CodeMirror-overwrite .CodeMirror-cursor {}
+
+.geOrchestra .cm-tab { display: inline-block; text-decoration: inherit; }
+
+.geOrchestra .CodeMirror-rulers {
+  position: absolute;
+  left: 0; right: 0; top: -50px; bottom: -20px;
+  overflow: hidden;
+}
+.geOrchestra .CodeMirror-ruler {
+  border-left: 1px solid #ccc;
+  top: 0; bottom: 0;
+  position: absolute;
+}
+
+/* DEFAULT THEME */
+
+.geOrchestra .cm-s-default .cm-header {color: blue;}
+.geOrchestra .cm-s-default .cm-quote {color: #090;}
+.geOrchestra .cm-negative {color: #d44;}
+.geOrchestra .cm-positive {color: #292;}
+.geOrchestra .cm-header, .geOrchestra .cm-strong {font-weight: bold;}
+.geOrchestra .cm-em {font-style: italic;}
+.geOrchestra .cm-link {text-decoration: underline;}
+.geOrchestra .cm-strikethrough {text-decoration: line-through;}
+
+.geOrchestra .cm-s-default .cm-keyword {color: #708;}
+.geOrchestra .cm-s-default .cm-atom {color: #219;}
+.geOrchestra .cm-s-default .cm-number {color: #164;}
+.geOrchestra .cm-s-default .cm-def {color: #00f;}
+.geOrchestra .cm-s-default .cm-variable,
+.geOrchestra .cm-s-default .cm-punctuation,
+.geOrchestra .cm-s-default .cm-property,
+.geOrchestra .cm-s-default .cm-operator {}
+.geOrchestra .cm-s-default .cm-variable-2 {color: #05a;}
+.geOrchestra .cm-s-default .cm-variable-3 {color: #085;}
+.geOrchestra .cm-s-default .cm-comment {color: #a50;}
+.geOrchestra .cm-s-default .cm-string {color: #a11;}
+.geOrchestra .cm-s-default .cm-string-2 {color: #f50;}
+.geOrchestra .cm-s-default .cm-meta {color: #555;}
+.geOrchestra .cm-s-default .cm-qualifier {color: #555;}
+.geOrchestra .cm-s-default .cm-builtin {color: #30a;}
+.geOrchestra .cm-s-default .cm-bracket {color: #997;}
+.geOrchestra .cm-s-default .cm-tag {color: #170;}
+.geOrchestra .cm-s-default .cm-attribute {color: #00c;}
+.geOrchestra .cm-s-default .cm-hr {color: #999;}
+.geOrchestra .cm-s-default .cm-link {color: #00c;}
+
+.geOrchestra .cm-s-default .cm-error {color: #f00;}
+.geOrchestra .cm-invalidchar {color: #f00;}
+
+.geOrchestra .CodeMirror-composing { border-bottom: 2px solid; }
+
+/* Default styles for common addons */
+
+.geOrchestra div.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}
+.geOrchestra div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
+.geOrchestra .CodeMirror-matchingtag { background: rgba(255, 150, 0, .3); }
+.geOrchestra .CodeMirror-activeline-background {background: #e8f2ff;}
+
+/* STOP */
+
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+
+.geOrchestra .CodeMirror {
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.geOrchestra .CodeMirror-scroll {
+  overflow: scroll !important; /* Things will break if this is overridden */
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror */
+  margin-bottom: -30px; margin-right: -30px;
+  padding-bottom: 30px;
+  height: 100%;
+  outline: none; /* Prevent dragging from highlighting the element */
+  position: relative;
+}
+.geOrchestra .CodeMirror-sizer {
+  position: relative;
+  border-right: 30px solid transparent;
+}
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actual scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+.geOrchestra .CodeMirror-vscrollbar, .geOrchestra .CodeMirror-hscrollbar, .geOrchestra .CodeMirror-scrollbar-filler, .geOrchestra .CodeMirror-gutter-filler {
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+.geOrchestra .CodeMirror-vscrollbar {
+  right: 0; top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.geOrchestra .CodeMirror-hscrollbar {
+  bottom: 0; left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.geOrchestra .CodeMirror-scrollbar-filler {
+  right: 0; bottom: 0;
+}
+.geOrchestra .CodeMirror-gutter-filler {
+  left: 0; bottom: 0;
+}
+
+.geOrchestra .CodeMirror-gutters {
+  position: absolute; left: 0; top: 0;
+  min-height: 100%;
+  z-index: 3;
+}
+.geOrchestra .CodeMirror-gutter {
+  white-space: normal;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: -30px;
+  /* Hack to make IE7 behave */
+  *zoom:1;
+  *display:inline;
+}
+.geOrchestra .CodeMirror-gutter-wrapper {
+  position: absolute;
+  z-index: 4;
+  background: none !important;
+  border: none !important;
+}
+.geOrchestra .CodeMirror-gutter-background {
+  position: absolute;
+  top: 0; bottom: 0;
+  z-index: 4;
+}
+.geOrchestra .CodeMirror-gutter-elt {
+  position: absolute;
+  cursor: default;
+  z-index: 4;
+}
+.geOrchestra .CodeMirror-gutter-wrapper {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.geOrchestra .CodeMirror-lines {
+  cursor: text;
+  min-height: 1px; /* prevents collapsing before first draw */
+}
+.geOrchestra .CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
+}
+.geOrchestra .CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+.geOrchestra .CodeMirror-linebackground {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 0;
+}
+
+.geOrchestra .CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+}
+
+.geOrchestra .CodeMirror-widget {}
+
+.geOrchestra .CodeMirror-code {
+  outline: none;
+}
+
+/* Force content-box sizing for the elements where we expect it */
+.geOrchestra .CodeMirror-scroll,
+.geOrchestra .CodeMirror-sizer,
+.geOrchestra .CodeMirror-gutter,
+.geOrchestra .CodeMirror-gutters,
+.geOrchestra .CodeMirror-linenumber {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.geOrchestra .CodeMirror-measure {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.geOrchestra .CodeMirror-cursor {
+  position: absolute;
+  pointer-events: none;
+}
+.geOrchestra .CodeMirror-measure pre { position: static; }
+
+.geOrchestra div.CodeMirror-cursors {
+  visibility: hidden;
+  position: relative;
+  z-index: 3;
+}
+.geOrchestra div.CodeMirror-dragcursors {
+  visibility: visible;
+}
+
+.geOrchestra .CodeMirror-focused div.CodeMirror-cursors {
+  visibility: visible;
+}
+
+.geOrchestra .CodeMirror-selected { background: #d9d9d9; }
+.geOrchestra .CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }
+.geOrchestra .CodeMirror-crosshair { cursor: crosshair; }
+.geOrchestra .CodeMirror-line::selection, .geOrchestra .CodeMirror-line > span::selection, .geOrchestra .CodeMirror-line > span > span::selection { background: #d7d4f0; }
+.geOrchestra .CodeMirror-line::-moz-selection, .geOrchestra .CodeMirror-line > span::-moz-selection, .geOrchestra .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }
+
+.geOrchestra .cm-searching {
+  background: #ffa;
+  background: rgba(255, 255, 0, .4);
+}
+
+/* IE7 hack to prevent it from returning funny offsetTops on the spans */
+.geOrchestra .CodeMirror span { *vertical-align: text-bottom; }
+
+/* Used to force a border model for a node */
+.geOrchestra .cm-force-border { padding-right: .1px; }
+
+@media print {
+  /* Hide the cursor when printing */
+  .geOrchestra .CodeMirror div.CodeMirror-cursors {
+    visibility: hidden;
+  }
+}
+
+/* See issue #2901 */
+.geOrchestra .cm-tab-wrap-hack:after { content: ''; }
+
+/* Help users use markselection to safely style text background */
+.geOrchestra span.CodeMirror-selectedtext { background: none; }
+</style><style>.geOrchestra .rdw-option-wrapper {
+  border: 1px solid #F1F1F1;
+  padding: 5px;
+  min-width: 25px;
+  height: 20px;
+  border-radius: 2px;
+  margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-option-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-option-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-option-active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-option-disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.geOrchestra .rdw-dropdown-wrapper {
+  height: 30px;
+  background: white;
+  cursor: pointer;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  margin: 0 3px;
+  text-transform: capitalize;
+  background: white;
+}
+.geOrchestra .rdw-dropdown-wrapper:focus {
+  outline: none;
+}
+.geOrchestra .rdw-dropdown-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
+}
+.geOrchestra .rdw-dropdown-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-dropdown-carettoopen {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-top: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.geOrchestra .rdw-dropdown-carettoclose {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-bottom: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.geOrchestra .rdw-dropdown-selectedtext {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-dropdown-optionwrapper {
+  z-index: 100;
+  position: relative;
+  border: 1px solid #F1F1F1;
+  width: 98%;
+  background: white;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.geOrchestra .rdw-dropdown-optionwrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
+}
+
+.geOrchestra .rdw-dropdownoption-default {
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-dropdownoption-highlighted {
+  background: #F1F1F1;
+}
+.geOrchestra .rdw-dropdownoption-active {
+  background: #f5f5f5;
+}
+.geOrchestra .rdw-dropdownoption-disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.geOrchestra .rdw-inline-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-inline-dropdown {
+  width: 50px;
+}
+.geOrchestra .rdw-inline-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-block-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-block-dropdown {
+  width: 110px;
+}
+
+.geOrchestra .rdw-fontsize-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-fontsize-dropdown {
+  min-width: 40px;
+}
+.geOrchestra .rdw-fontsize-option {
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-fontfamily-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-fontfamily-dropdown {
+  width: 115px;
+}
+.geOrchestra .rdw-fontfamily-placeholder {
+  white-space: nowrap;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.geOrchestra .rdw-fontfamily-optionwrapper {
+  width: 140px;
+}
+
+.geOrchestra .rdw-list-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-list-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.geOrchestra .rdw-list-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-text-align-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-text-align-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.geOrchestra .rdw-text-align-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-right-aligned-block {
+  text-align: right;
+}
+.geOrchestra .rdw-left-aligned-block {
+  text-align: left !important;
+}
+.geOrchestra .rdw-center-aligned-block {
+  text-align: center !important;
+}
+.geOrchestra .rdw-justify-aligned-block {
+  text-align: justify !important;
+}
+.geOrchestra .rdw-right-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-left-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-center-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-justify-aligned-block > div {
+  display: inline-block;
+}
+
+.geOrchestra .rdw-colorpicker-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-colorpicker-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+  height: 175px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-modal-header {
+  display: flex;
+  padding-bottom: 5px;
+}
+.geOrchestra .rdw-colorpicker-modal-style-label {
+  font-size: 15px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 10px 5px;
+}
+.geOrchestra .rdw-colorpicker-modal-style-label-active {
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-colorpicker-modal-options {
+  margin: 5px auto;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.geOrchestra .rdw-colorpicker-cube {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #F1F1F1;
+}
+.geOrchestra .rdw-colorpicker-option {
+  margin: 3px;
+  padding: 0;
+  min-height: 20px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  box-shadow: 1px 2px 1px #BFBDBD inset;
+}
+.geOrchestra .rdw-colorpicker-option:hover {
+  box-shadow: 1px 2px 1px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-option:active {
+  box-shadow: -1px -2px 1px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-option-active {
+  box-shadow: 0px 0px 2px 2px #BFBDBD;
+}
+
+.geOrchestra .rdw-link-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-link-dropdown {
+  width: 50px;
+}
+.geOrchestra .rdw-link-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-link-dropdownPlaceholder {
+  margin-left: 8px;
+}
+.geOrchestra .rdw-link-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 205px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-link-modal-label {
+  font-size: 15px;
+}
+.geOrchestra .rdw-link-modal-input {
+  margin-top: 5px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  height: 25px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-link-modal-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-link-modal-buttonsection {
+  margin: 0 auto;
+}
+.geOrchestra .rdw-link-modal-target-option {
+  margin-bottom: 20px;
+}
+.geOrchestra .rdw-link-modal-target-option > span {
+  margin-left: 5px;
+}
+.geOrchestra .rdw-link-modal-btn {
+  margin-left: 10px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-link-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-link-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-link-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-link-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-link-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-history-dropdown {
+  width: 50px;
+}
+
+.geOrchestra .rdw-embedded-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-embedded-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  justify-content: space-between;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-embedded-modal-header {
+  font-size: 15px;
+  display: flex;
+}
+.geOrchestra .rdw-embedded-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.geOrchestra .rdw-embedded-modal-header-label {
+  width: 95px;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-embedded-modal-link-section {
+  display: flex;
+  flex-direction: column;
+}
+.geOrchestra .rdw-embedded-modal-link-input {
+  width: 88%;
+  height: 35px;
+  margin: 10px 0;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-embedded-modal-link-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.geOrchestra .rdw-embedded-modal-link-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-embedded-modal-btn-section {
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-embedded-modal-btn {
+  margin: 0 3px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-embedded-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-embedded-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-embedded-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-embedded-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-embedded-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.geOrchestra .rdw-embedded-modal-size-input {
+  width: 80%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.geOrchestra .rdw-embedded-modal-size-input:focus {
+  outline: none;
+}
+
+.geOrchestra .rdw-emoji-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-emoji-modal {
+  overflow: auto;
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-emoji-icon {
+  margin: 2.5px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.geOrchestra .rdw-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.geOrchestra .rdw-spinner > div {
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+.geOrchestra .rdw-spinner .rdw-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.geOrchestra .rdw-spinner .rdw-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.geOrchestra .rdw-image-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-image-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-image-modal-header {
+  font-size: 15px;
+  margin: 10px 0;
+  display: flex;
+}
+.geOrchestra .rdw-image-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.geOrchestra .rdw-image-modal-header-label {
+  width: 80px;
+  background: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+}
+.geOrchestra .rdw-image-modal-header-label-highlighted {
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-image-modal-upload-option {
+  width: 100%;
+  color: gray;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  outline: 2px dashed gray;
+  outline-offset: -10px;
+  margin: 10px 0;
+  padding: 9px 0;
+}
+.geOrchestra .rdw-image-modal-upload-option-highlighted {
+  outline: 2px dashed #0a66b7;
+}
+.geOrchestra .rdw-image-modal-upload-option-label {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.geOrchestra .rdw-image-modal-upload-option-label span{
+  padding: 0 20px;
+}
+.geOrchestra .rdw-image-modal-upload-option-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+}
+.geOrchestra .rdw-image-modal-upload-option-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.geOrchestra .rdw-image-modal-url-section {
+  display: flex;
+  align-items: center;
+}
+.geOrchestra .rdw-image-modal-url-input {
+  width: 90%;
+  height: 35px;
+  margin: 15px 0 12px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-image-modal-btn-section {
+  margin: 10px auto 0;
+}
+.geOrchestra .rdw-image-modal-url-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-modal-btn {
+  margin: 0 5px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-image-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-image-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-image-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-image-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-image-modal-spinner {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.geOrchestra .rdw-image-modal-alt-input {
+  width: 70%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.geOrchestra .rdw-image-modal-alt-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-modal-alt-lbl {
+  font-size: 12px;
+}
+.geOrchestra .rdw-image-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.geOrchestra .rdw-image-modal-size-input {
+  width: 40%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.geOrchestra .rdw-image-modal-size-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-mandatory-sign {
+  color: red;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.geOrchestra .rdw-remove-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+
+.geOrchestra .rdw-history-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-history-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-history-dropdown {
+  width: 50px;
+}
+
+.geOrchestra .rdw-link-decorator-wrapper {
+  position: relative;
+}
+.geOrchestra .rdw-link-decorator-icon {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  cursor: pointer;
+  background-color: white;
+}
+
+.geOrchestra .rdw-mention-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.geOrchestra .rdw-suggestion-wrapper {
+  position: relative;
+}
+.geOrchestra .rdw-suggestion-dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F1F1F1;
+  min-width: 100px;
+  max-height: 150px;
+  overflow: auto;
+  background: white;
+  z-index: 100;
+}
+.geOrchestra .rdw-suggestion-option {
+  padding: 7px 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.geOrchestra .rdw-suggestion-option-active {
+  background-color: #F1F1F1;
+}
+
+.geOrchestra .rdw-hashtag-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.geOrchestra .rdw-image-alignment-options-popup {
+  position: absolute;
+  background: white;
+  display: flex;
+  padding: 5px 2px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  width: 105px;
+  cursor: pointer;
+  z-index: 100;
+}
+.geOrchestra .rdw-alignment-option-left {
+  justify-content: flex-start;
+}
+.geOrchestra .rdw-image-alignment-option {
+  height: 15px;
+  width: 15px;
+  min-width: 15px;
+}
+.geOrchestra .rdw-image-alignment {
+  position: relative;
+}
+.geOrchestra .rdw-image-imagewrapper {
+  position: relative;
+}
+.geOrchestra .rdw-image-center {
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-image-left {
+  display: flex;
+}
+.geOrchestra .rdw-image-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.geOrchestra .rdw-image-alignment-options-popup-right {
+  right: 0;
+}
+
+.geOrchestra .rdw-editor-main {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.geOrchestra .rdw-editor-toolbar {
+  padding: 6px 5px 0;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+.geOrchestra .public-DraftStyleDefault-block {
+  margin: 1em 0;
+}
+.geOrchestra .rdw-editor-wrapper:focus {
+  outline: none;
+}
+.geOrchestra .rdw-editor-wrapper {
+  box-sizing: content-box;
+}
+.geOrchestra .rdw-editor-main blockquote {
+  border-left: 5px solid #f1f1f1;
+  padding-left: 5px;
+}
+.geOrchestra .rdw-editor-main pre {
+  background: #f1f1f1;
+  border-radius: 3px;
+  padding: 1px 10px;
+}
+/**
+ * Draft v0.9.1
+ *
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+.geOrchestra .DraftEditor-editorContainer,.geOrchestra .DraftEditor-root,.geOrchestra .public-DraftEditor-content{height:inherit;text-align:initial}.geOrchestra .public-DraftEditor-content[contenteditable=true]{-webkit-user-modify:read-write-plaintext-only}.geOrchestra .DraftEditor-root{position:relative}.geOrchestra .DraftEditor-editorContainer{background-color:rgba(255,255,255,0);border-left:.1px solid transparent;position:relative;z-index:1}.geOrchestra .public-DraftEditor-block{position:relative}.geOrchestra .DraftEditor-alignLeft .public-DraftStyleDefault-block{text-align:left}.geOrchestra .DraftEditor-alignLeft .public-DraftEditorPlaceholder-root{left:0;text-align:left}.geOrchestra .DraftEditor-alignCenter .public-DraftStyleDefault-block{text-align:center}.geOrchestra .DraftEditor-alignCenter .public-DraftEditorPlaceholder-root{margin:0 auto;text-align:center;width:100%}.geOrchestra .DraftEditor-alignRight .public-DraftStyleDefault-block{text-align:right}.geOrchestra .DraftEditor-alignRight .public-DraftEditorPlaceholder-root{right:0;text-align:right}.geOrchestra .public-DraftEditorPlaceholder-root{color:#9197a3;position:absolute;z-index:0}.geOrchestra .public-DraftEditorPlaceholder-hasFocus{color:#bdc1c9}.geOrchestra .DraftEditorPlaceholder-hidden{display:none}.geOrchestra .public-DraftStyleDefault-block{position:relative;white-space:pre-wrap}.geOrchestra .public-DraftStyleDefault-ltr{direction:ltr;text-align:left}.geOrchestra .public-DraftStyleDefault-rtl{direction:rtl;text-align:right}.geOrchestra .public-DraftStyleDefault-listLTR{direction:ltr}.geOrchestra .public-DraftStyleDefault-listRTL{direction:rtl}.geOrchestra .public-DraftStyleDefault-ol,.geOrchestra .public-DraftStyleDefault-ul{margin:16px 0;padding:0}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR{margin-left:1.5em}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listRTL{margin-right:1.5em}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listLTR{margin-left:3em}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listRTL{margin-right:3em}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listLTR{margin-left:4.5em}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listRTL{margin-right:4.5em}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listLTR{margin-left:6em}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listRTL{margin-right:6em}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listLTR{margin-left:7.5em}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL{margin-right:7.5em}.geOrchestra .public-DraftStyleDefault-unorderedListItem{list-style-type:square;position:relative}.geOrchestra .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0{list-style-type:disc}.geOrchestra .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth1{list-style-type:circle}.geOrchestra .public-DraftStyleDefault-orderedListItem{list-style-type:none;position:relative}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listLTR:before{left:-36px;position:absolute;text-align:right;width:30px}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listRTL:before{position:absolute;right:-36px;text-align:left;width:30px}.geOrchestra .public-DraftStyleDefault-orderedListItem:before{content:counter(ol0) ". ";counter-increment:ol0}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth1:before{content:counter(ol1) ". ";counter-increment:ol1}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth2:before{content:counter(ol2) ". ";counter-increment:ol2}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth3:before{content:counter(ol3) ". ";counter-increment:ol3}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth4:before{content:counter(ol4) ". ";counter-increment:ol4}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-reset{counter-reset:ol0}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-reset{counter-reset:ol1}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-reset{counter-reset:ol2}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-reset{counter-reset:ol3}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-reset{counter-reset:ol4}</style><style>.geOrchestra .gridcard {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: box-shadow 250ms;
+}
+
+.geOrchestra .gridcard:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.geOrchestra .gridcard-title {
+    padding-left: 10px;
+    padding-top: 3px;
+    min-height: 40px;
+}
+.geOrchestra .gridcard-tools {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.geOrchestra .gridcard-tools .spinner{
+    left: -8px
+}
+.geOrchestra .gridcard-tools .spinner div:before{
+    background-color: white
+}
+</style><style>.geOrchestra .react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.geOrchestra .react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.geOrchestra .react-grid-item img {
+  pointer-events: none;
+  user-select: none;  
+}
+.geOrchestra .react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.geOrchestra .react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.geOrchestra .react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.geOrchestra .react-grid-item.dropping {
+  visibility: hidden;
+}
+
+.geOrchestra .react-grid-item.react-grid-placeholder {
+  background: red;
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.geOrchestra .react-resizable-hide > .react-resizable-handle {
+  display: none;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-w,
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-n,
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+</style><style type="text/css">.react-grid-Header{box-shadow:0 0 4px 0 #ddd;background:#f9f9f9}.react-grid-Header--resizing{cursor:ew-resize}.react-grid-HeaderCell,.react-grid-HeaderRow{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.react-grid-HeaderCell{background:#f9f9f9;padding:8px;font-weight:700;border-right:1px solid #ddd;border-bottom:1px solid #ddd}.react-grid-HeaderCell__value{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;position:relative;top:50%;transform:translateY(-50%)}.react-grid-HeaderCell__resizeHandle:hover{cursor:ew-resize;background:#ddd}.react-grid-HeaderCell--frozen:last-of-type{box-shadow:2px 0 5px -2px hsla(0,0%,53%,.3)}.react-grid-HeaderCell--resizing .react-grid-HeaderCell__resizeHandle{background:#ddd}.react-grid-HeaderCell__draggable{cursor:col-resize}.rdg-can-drop>.react-grid-HeaderCell{background:#ececec}.react-grid-HeaderCell .Select{max-height:30px;font-size:12px;font-weight:400}.react-grid-HeaderCell .Select-control{max-height:30px;border:1px solid #ccc;color:#555;border-radius:3px}.react-grid-HeaderCell .is-focused:not(.is-open)>.Select-control{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.react-grid-HeaderCell .Select-control .Select-placeholder{line-height:20px;color:#999;padding:4px}.react-grid-HeaderCell .Select-control .Select-input{max-height:28px;padding:4px;margin-left:0}.react-grid-HeaderCell .Select-control .Select-input input{padding:0;height:100%}.react-grid-HeaderCell .Select-control .Select-arrow-zone .Select-arrow{border-color:gray transparent transparent;border-width:4px 4px 2.5px}.react-grid-HeaderCell .Select-control .Select-value{padding:4px;line-height:20px!important}.react-grid-HeaderCell .Select--multi .Select-control .Select-value{padding:0;line-height:16px!important;max-height:20px}.react-grid-HeaderCell .Select--multi .Select-control .Select-value .Select-value-icon,.react-grid-HeaderCell .Select--multi .Select-control .Select-value .Select-value-label{max-height:20px}.react-grid-HeaderCell .Select-control .Select-value .Select-value-label{color:#555!important}.react-grid-HeaderCell .Select-menu-outer{z-index:2}.react-grid-HeaderCell .Select-menu-outer .Select-option{padding:4px;line-height:20px}.react-grid-HeaderCell .Select-menu-outer .Select-menu .Select-option.is-focused,.react-grid-HeaderCell .Select-menu-outer .Select-menu .Select-option.is-selected{color:#555}</style><style type="text/css">.react-grid-Cell{background-color:#fff;padding-left:8px;padding-right:8px;border-right:1px solid #eee;border-bottom:1px solid #ddd}.rdg-selected{border:2px solid #66afe9}.rdg-selected-range{border:1px solid #66afe9;background-color:#66afe930}.moving-element{will-change:transform}.react-grid-Cell--frozen,.react-grid-Cell--frozen:focus{z-index:12}.rdg-last--frozen{border-right:1px solid #ddd;box-shadow:2px 0 5px -2px hsla(0,0%,53%,.3)!important}.react-contextmenu--visible{z-index:1000}.react-grid-Cell:not(.editing) .react-grid-Cell__value{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;height:inherit}.react-grid-Cell.readonly{background-color:#000}.react-grid-Cell:hover{background:#eee}.react-grid-cell .form-control-feedback{color:#a94442;position:absolute;top:0;right:10px;z-index:1000000;display:block;width:34px;height:34px}.react-grid-Row.row-selected .react-grid-Cell{background-color:#dbecfa}.react-grid-Cell.editing{padding:0;overflow:visible!important}.react-grid-Cell--frozen.editing{z-index:100}.react-grid-Cell.editing .has-error input{border:2px solid red!important;border-radius:2px!important}.react-grid-Cell__value ul{margin-top:0;margin-bottom:0;display:inline-block}.react-grid-Cell__value .btn-sm{padding:0}.cell-tooltip{position:relative;display:inline-block}.cell-tooltip:hover{z-index:101}.cell-tooltip .cell-tooltip-text{visibility:hidden;width:150px;background-color:#000;color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1;bottom:-150%;left:50%;margin-left:-60px;opacity:1s}.cell-tooltip:hover .cell-tooltip-text{visibility:visible;opacity:.8}.cell-tooltip .cell-tooltip-text:after{content:" ";position:absolute;bottom:100%;left:50%;margin-left:-5px;border-width:5px;border-style:solid;border-color:transparent transparent #000}.react-grid-Canvas.opaque .react-grid-Cell.cell-tooltip:hover .cell-tooltip-text{visibility:hidden}.rdg-cell-expand{float:right;display:table;height:100%}.rdg-cell-expand>span{display:table-cell;vertical-align:middle;cursor:pointer}.rdg-child-row-action-cross-last:before,.rdg-child-row-action-cross:before,rdg-child-row-action-cross-last:after,rdg-child-row-action-cross:after{content:"";position:absolute;background:grey;height:50%}.rdg-child-row-action-cross:before{left:21px;width:1px;height:100%}.rdg-child-row-action-cross-last:before{left:21px;width:1px}.rdg-child-row-action-cross-last:after,.rdg-child-row-action-cross:after{top:50%;left:20px;height:1px;width:15px;content:"";position:absolute;background:grey}.rdg-child-row-action-cross:hover{background:red}.rdg-child-row-btn{position:absolute;cursor:pointer;border:1px solid grey;border-radius:14px;z-index:3;background:#fff}.rdg-child-row-btn div{font-size:12px;text-align:center;line-height:19px;color:grey;height:20px;width:20px;position:absolute;top:60%;left:53%;margin-top:-10px;margin-left:-10px}.rdg-empty-child-row:hover .glyphicon-plus-sign,.rdg-empty-child-row:hover a{color:green}.rdg-child-row-btn .glyphicon-remove-sign:hover{color:red}.last-column .cell-tooltip-text{right:100%;left:0!important}.rdg-cell-action{float:right;height:100%}.rdg-cell-action-last{margin-right:-8px}.rdg-cell-action-button{width:35px;height:100%;text-align:center;position:relative;display:table;color:#4a9de2}.rdg-cell-action-button>span{display:table-cell;vertical-align:middle}.rdg-cell-action-button-toggled,.rdg-cell-action-button:hover{color:#447bbb}.rdg-cell-action-menu{position:absolute;top:100%;z-index:1000;float:left;min-width:160px;padding:5px 0;text-align:left;list-style:none;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #ccc;box-shadow:0 0 3px 0 #ccc}.rdg-cell-action-menu>span{display:block;padding:3px 10px;clear:both;font-weight:400;line-height:1.42857143;color:#333;white-space:nowrap}.rdg-cell-action-menu>span:hover{color:#262626;text-decoration:none;background-color:#f5f5f5}</style><style type="text/css">.react-grid-Row.row-context-menu .react-grid-Cell,.react-grid-Row:hover .react-grid-Cell{background-color:#f9f9f9}.react-grid-Row:hover .rdg-row-index{display:none}.react-grid-Row:hover .rdg-actions-checkbox{display:block}.react-grid-Row:hover .rdg-drag-row-handle{cursor:move;cursor:grab;cursor:-moz-grab;cursor:-webkit-grab;width:12px;height:30px;margin-left:0;background-image:url("data:image/svg+xml;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjlweCIgaGVpZ2h0PSIyOXB4IiB2aWV3Qm94PSIwIDAgOSAyOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMzkgKDMxNjY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5kcmFnIGljb248L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQWN0dWFsaXNhdGlvbi12MiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRlc2t0b3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNS4wMDAwMDAsIC0yNjIuMDAwMDAwKSIgZmlsbD0iI0Q4RDhEOCI+CiAgICAgICAgICAgIDxnIGlkPSJJbnRlcmFjdGlvbnMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LjAwMDAwMCwgMjU4LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlJvdy1Db250cm9scyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9ImRyYWctaWNvbiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMTIiIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjEyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjIiIGN5PSIxNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMTciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iMiIgY3k9IjIyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjciIGN5PSIyMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMjciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjI3IiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==");background-repeat:no-repeat}.react-grid-Row.row-selected,.react-grid-Row .row-selected{background-color:#dbecfa}.react-grid-row-group .row-expand-icon:hover{color:#777}.react-grid-row-index{padding:0 18px}.rdg-row-index{display:block;text-align:center}.rdg-row-actions-cell{padding:0}.rdg-actions-checkbox{display:none;text-align:center}.rdg-actions-checkbox.selected{display:block}.rdg-dragging{cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.rdg-dragged-row{border-bottom:1px solid #000}.rdg-scrolling{pointer-events:none}</style><style type="text/css">.react-grid-Container{clear:both;margin-top:0;padding:0}.react-grid-Main{background-color:#fff;color:inherit;padding:0;outline:1px solid #e7eaec;clear:both}.react-grid-Grid{border:1px solid #ddd;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.react-grid-Canvas,.react-grid-Grid{background-color:#fff}</style><style type="text/css">.rdg-selected{border:2px solid #66afe9}.rdg-selected .drag-handle{pointer-events:auto;position:absolute;bottom:-5px;right:-4px;background:#66afe9;width:8px;height:8px;border:1px solid #fff;border-right:0;border-bottom:0;z-index:8;cursor:crosshair;cursor:-moz-grab;cursor:-webkit-grab;cursor:grab}.rdg-selected:hover .drag-handle{bottom:-8px;right:-7px;background:#fff;width:16px;height:16px;border:1px solid #66afe9}.rdg-selected:hover .drag-handle .glyphicon-arrow-down{display:"block"}.react-grid-cell-dragged-over-down,.react-grid-cell-dragged-over-up{border:1px dashed #000;background:rgba(0,0,255,.2)!important}.react-grid-cell-dragged-over-up{border-bottom-width:0}.react-grid-cell-dragged-over-down{border-top-width:0}.react-grid-cell-copied{background:rgba(0,0,255,.2)!important}.rdg-editor-container input.editor-main,select.editor-main{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}input.editor-main:focus,select.editor-main:focus{border-color:#66afe9;border:2px solid #66afe9;background:#eee;border-radius:4px}.rdg-editor-container input.editor-main::-moz-placeholder,select.editor-main::-moz-placeholder{color:#999;opacity:1}.rdg-editor-container input.editor-main:-ms-input-placeholder,select.editor-main:-ms-input-placeholder{color:#999}.rdg-editor-container input.editor-main::-webkit-input-placeholder,select.editor-main::-webkit-input-placeholder{color:#999}.rdg-editor-container input.editor-main[disabled],.rdg-editor-container input.editor-main[readonly],fieldset[disabled] .rdg-editor-container input.editor-main,fieldset[disabled] select.editor-main,select.editor-main[disabled],select.editor-main[readonly]{cursor:not-allowed;background-color:#eee;opacity:1}textarea.rdg-editor-container input.editor-main,textareaselect.editor-main{height:auto}</style><style type="text/css">.radio-custom,.react-grid-checkbox{opacity:0;position:absolute}.radio-custom,.radio-custom-label,.react-grid-checkbox,.react-grid-checkbox-label{display:inline-block;vertical-align:middle;cursor:pointer}.radio-custom-label,.react-grid-checkbox-label{position:relative}.radio-custom+.radio-custom-label:before,.react-grid-checkbox+.react-grid-checkbox-label:before{content:"";background:#fff;border:2px solid #ddd;display:inline-block;vertical-align:middle;width:20px;height:20px;text-align:center}.react-grid-checkbox:checked+.react-grid-checkbox-label:before{background:#005295;box-shadow:inset 0 0 0 4px #fff}.radio-custom:focus+.radio-custom-label,.react-grid-checkbox:focus+.react-grid-checkbox-label{outline:1px solid #ddd}.react-grid-HeaderCell input[type=checkbox]{z-index:99999}.react-grid-HeaderCell>.react-grid-checkbox-container{padding:0 10px;height:100%}.react-grid-HeaderCell>.react-grid-checkbox-container>.react-grid-checkbox-label{margin:0;position:relative;top:50%;transform:translateY(-50%)}.radio-custom+.radio-custom-label:before{border-radius:50%}.radio-custom:checked+.radio-custom-label:before{background:#ccc;box-shadow:inset 0 0 0 4px #fff}.checkbox-align{text-align:center}</style><style>/*
+
+    Name:       material
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original material color scheme by Mattia Astorino (https://github.com/equinusocio/material-theme)
+
+*/
+
+.geOrchestra .cm-s-material {
+  background-color: #263238;
+  color: rgba(233, 237, 237, 1);
+}
+.geOrchestra .cm-s-material .CodeMirror-gutters {
+  background: #263238;
+  color: rgb(83,127,126);
+  border: none;
+}
+.geOrchestra .cm-s-material .CodeMirror-guttermarker, .geOrchestra .cm-s-material .CodeMirror-guttermarker-subtle, .geOrchestra .cm-s-material .CodeMirror-linenumber { color: rgb(83,127,126); }
+.geOrchestra .cm-s-material .CodeMirror-cursor { border-left: 1px solid #f8f8f0; }
+.geOrchestra .cm-s-material div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.geOrchestra .cm-s-material.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.10); }
+.geOrchestra .cm-s-material .CodeMirror-line::selection, .geOrchestra .cm-s-material .CodeMirror-line > span::selection, .geOrchestra .cm-s-material .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.10); }
+.geOrchestra .cm-s-material .CodeMirror-line::-moz-selection, .geOrchestra .cm-s-material .CodeMirror-line > span::-moz-selection, .geOrchestra .cm-s-material .CodeMirror-line > span > span::-moz-selection { background: rgba(255, 255, 255, 0.10); }
+
+.geOrchestra .cm-s-material .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
+.geOrchestra .cm-s-material .cm-keyword { color: rgba(199, 146, 234, 1); }
+.geOrchestra .cm-s-material .cm-operator { color: rgba(233, 237, 237, 1); }
+.geOrchestra .cm-s-material .cm-variable-2 { color: #80CBC4; }
+.geOrchestra .cm-s-material .cm-variable-3 { color: #82B1FF; }
+.geOrchestra .cm-s-material .cm-builtin { color: #DECB6B; }
+.geOrchestra .cm-s-material .cm-atom { color: #F77669; }
+.geOrchestra .cm-s-material .cm-number { color: #F77669; }
+.geOrchestra .cm-s-material .cm-def { color: rgba(233, 237, 237, 1); }
+.geOrchestra .cm-s-material .cm-string { color: #C3E88D; }
+.geOrchestra .cm-s-material .cm-string-2 { color: #80CBC4; }
+.geOrchestra .cm-s-material .cm-comment { color: #546E7A; }
+.geOrchestra .cm-s-material .cm-variable { color: #82B1FF; }
+.geOrchestra .cm-s-material .cm-tag { color: #80CBC4; }
+.geOrchestra .cm-s-material .cm-meta { color: #80CBC4; }
+.geOrchestra .cm-s-material .cm-attribute { color: #FFCB6B; }
+.geOrchestra .cm-s-material .cm-property { color: #80CBAE; }
+.geOrchestra .cm-s-material .cm-qualifier { color: #DECB6B; }
+.geOrchestra .cm-s-material .cm-variable-3 { color: #DECB6B; }
+.geOrchestra .cm-s-material .cm-tag { color: rgba(255, 83, 112, 1); }
+.geOrchestra .cm-s-material .cm-error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #EC5F67;
+}
+.geOrchestra .cm-s-material .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+</style><style>.geOrchestra div.record-grid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.geOrchestra div.record-grid .record-item{
+    height: auto;
+}
+.geOrchestra div.record-grid .record-item .panel-body{
+    padding: 0;
+}
+
+.geOrchestra #mapstore-catalog-panel button.search-button {
+    margin-bottom: 10px;
+}
+
+.geOrchestra #mapstore-catalog-panel .record-item {
+    min-height: 150px;
+}
+.geOrchestra #catalog-root {
+    position: static!important;
+}
+
+/*
+!important is needed because the library we used
+use inline style which cannot be overridden unless
+we use !important*/
+@media (max-width: 500px) {
+    .geOrchestra div .catalog-sidebar.nav-menu {
+        width: 100% !important
+    }
+}
+
+.geOrchestra #mapstore-metadata-explorer{
+    margin-bottom: 0
+}
+</style><style>.geOrchestra .toc-group-children {
+    margin-left: 15px;
+}
+
+.geOrchestra .TOC-Node-enter, .geOrchestra .TOC-Node-leave {
+    transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -webkit-transition: all 250ms ease-out;
+    overflow: hidden;
+}
+.geOrchestra .TOC-Node-enter,.geOrchestra .TOC-Node-leave.TOC-Node-leave-active {
+    opacity: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+}
+.geOrchestra .TOC-Node-leave, .geOrchestra .TOC-Node-enter.TOC-Node-enter-active {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: top;
+}
+</style><style>.geOrchestra .toc-title {
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style><style></style><style>/* Menu Button */
+.geOrchestra .drawer-menu-button {
+    position: absolute;
+    z-index:1000;
+    left: 30px;
+    top: 8px;
+    width:30px;
+    background: transparent;
+    outline: none;
+    border: transparent;
+    font-size: 14px;
+}
+
+.geOrchestra .drawer-menu-button:hover {
+    background: transparent;
+}
+
+.geOrchestra #drawer-menu-button:active{
+    box-shadow: none;
+}
+
+.geOrchestra #mapstore-drawermenu > div > div:nth-child(2) {
+    display: none;
+}
+
+.geOrchestra .nav-content #background-switcher .thumbnail {
+    border-radius: 0 !important;
+    margin-bottom: 40px;
+    width: 220px !important;
+}
+.geOrchestra .nav-content #background-switcher .thumbnail img {
+    border-radius: 0 !important;
+    height: 90px;
+    width: 220px !important;
+}
+
+.geOrchestra .nav-content #background-switcher .thumbnail .caption {
+    font-size: 14px !important;
+    text-align: left !important;
+    top: -20px !important;
+    position: absolute !important;
+}
+
+.geOrchestra .nav-content #background-switcher {
+    margin-top: 10px;
+}
+
+.geOrchestra #mapstore-drawermenu .panel {
+    border: none;
+    box-shadow: none;
+}
+
+.geOrchestra div.nav-menu {
+    -webkit-transform:   translate3d(300px, 0, 0);
+    -moz-transform: 	 translate3d(300px, 0, 0);
+    -ms-transform: 		 translate3d(300px, 0, 0);
+    -o-transform: 		 translate3d(300px, 0, 0);
+    box-shadow: 2px 0px 15px #A7A7A7;
+}
+
+.geOrchestra .nav-menu  .navHeader {
+    height: 50px;
+}
+.geOrchestra .nav-menu > .nav-content .navHeader .title{
+    font-size: 16px;
+    position: absolute;
+    margin: 13px;
+    font-weight: bold;
+}
+.geOrchestra .nav-content  .section {
+    margin-bottom: 2px;
+}
+.geOrchestra .nav-content  .section .sectionHeader{
+    padding: 5px;
+    cursor: pointer;
+}
+.geOrchestra .nav-content .section .sectionHeader>.glyphicon{
+    /* Firefox */
+    -moz-transition: all .3s ease;
+    /* WebKit */
+    -webkit-transition: all .3s ease;
+    /* Opera */
+    -o-transition: all .3s ease;
+    /* Standard */
+    transition: all .3s ease;
+}
+.geOrchestra .nav-content  .section .sectionTitle{
+    padding-left: 10px;
+
+}
+.geOrchestra .nav-content  .section .sectionContent{
+    -moz-transition: max-height .3s ease;
+    -webkit-transition: max-height .3s ease;
+    -o-transition: max-height .3s ease;
+    transition: max-height .3s ease;
+
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,.5);
+    padding: 5px;
+}
+
+.geOrchestra .navButtons {
+    float: right;
+}
+
+.geOrchestra #drawer-menu-button {
+     position: absolute;
+}
+</style><style>
+.geOrchestra .featuregrid-toolbar {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.geOrchestra #featuregrid-toolbar .btn {
+    overflow: hidden;
+}
+</style><style>.geOrchestra .react-checkbox-tree {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  font-size: 16px;
+}
+
+.geOrchestra .react-checkbox-tree > ol {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.geOrchestra .react-checkbox-tree ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.geOrchestra .react-checkbox-tree ol ol {
+  padding-left: 24px;
+}
+
+.geOrchestra .react-checkbox-tree button {
+  line-height: normal;
+  color: inherit;
+}
+
+.geOrchestra .react-checkbox-tree button:focus {
+  outline: none;
+}
+
+.geOrchestra .react-checkbox-tree button:disabled {
+  cursor: not-allowed;
+}
+
+.geOrchestra .react-checkbox-tree .rct-bare-label {
+  cursor: default;
+}
+
+.geOrchestra .react-checkbox-tree label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.geOrchestra .react-checkbox-tree label:hover {
+  background: rgba(51, 51, 204, 0.1);
+}
+
+.geOrchestra .react-checkbox-tree label:active {
+  background: rgba(51, 51, 204, 0.15);
+}
+
+.geOrchestra .react-checkbox-tree:not(.rct-native-display) input {
+  display: none;
+}
+
+.geOrchestra .react-checkbox-tree.rct-native-display input {
+  margin: 0 5px;
+}
+
+.geOrchestra .react-checkbox-tree .rct-icon {
+  font-family: "FontAwesome";
+  font-style: normal;
+}
+
+.geOrchestra .rct-disabled > .rct-text > label {
+  opacity: .75;
+  cursor: not-allowed;
+}
+
+.geOrchestra .rct-disabled > .rct-text > label:hover {
+  background: transparent;
+}
+
+.geOrchestra .rct-disabled > .rct-text > label:active {
+  background: transparent;
+}
+
+.geOrchestra .rct-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.geOrchestra .rct-options {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-left: .5rem;
+  text-align: right;
+}
+
+.geOrchestra .rct-option {
+  opacity: .75;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 18px;
+}
+
+.geOrchestra .rct-option:hover {
+  opacity: 1;
+}
+
+.geOrchestra .rct-option + .rct-option {
+  margin-left: 2px;
+}
+
+.geOrchestra .rct-collapse,
+.geOrchestra .rct-checkbox,
+.geOrchestra .rct-node-icon {
+  padding: 0 5px;
+}
+
+.geOrchestra .rct-collapse *,
+.geOrchestra .rct-checkbox *,
+.geOrchestra .rct-node-icon * {
+  display: inline-block;
+  margin: 0;
+  width: 14px;
+}
+
+.geOrchestra .rct-collapse {
+  border: 0;
+  background: none;
+  line-height: normal;
+  color: inherit;
+  font-size: 12px;
+}
+
+.geOrchestra .rct-collapse.rct-collapse-btn {
+  cursor: pointer;
+}
+
+.geOrchestra .rct-collapse > .rct-icon-expand-close {
+  opacity: .5;
+}
+
+.geOrchestra .rct-collapse > .rct-icon-expand-close:hover {
+  opacity: 1;
+}
+
+.geOrchestra .rct-native-display .rct-checkbox {
+  display: none;
+}
+
+.geOrchestra .rct-node-clickable {
+  cursor: pointer;
+}
+
+.geOrchestra .rct-node-clickable:hover {
+  background: rgba(51, 51, 204, 0.1);
+}
+
+.geOrchestra .rct-node-clickable:focus {
+  outline: 0;
+  background: rgba(51, 51, 204, 0.2);
+}
+
+.geOrchestra .rct-node-icon {
+  color: #33c;
+}
+
+.geOrchestra .rct-title {
+  padding: 0 5px;
+}
+
+.geOrchestra .rct-icon-expand-close::before {
+  content: "\f054";
+}
+
+.geOrchestra .rct-icon-expand-open::before {
+  content: "\f078";
+}
+
+.geOrchestra .rct-icon-uncheck::before {
+  content: "\f096";
+}
+
+.geOrchestra .rct-icon-check::before {
+  content: "\f046";
+}
+
+.geOrchestra .rct-icon-half-check::before {
+  opacity: .5;
+  content: "\f046";
+}
+
+.geOrchestra .rct-icon-leaf::before {
+  content: "\f016";
+}
+
+.geOrchestra .rct-icon-parent-open::before {
+  content: "\f115";
+}
+
+.geOrchestra .rct-icon-parent-close::before {
+  content: "\f114";
+}
+
+.geOrchestra .rct-icon-expand-all::before {
+  content: "\f0fe";
+}
+
+.geOrchestra .rct-icon-collapse-all::before {
+  content: "\f146";
+}
+</style><style>.geOrchestra .user-thumb, .geOrchestra .group-thumb {
+    max-width: 100%;
+    overflow: hidden;
+    height: 200px;
+    font-size: 12px;
+    cursor: auto;
+}
+.geOrchestra .user-thumb .gridcard-title, .geOrchestra .group-thumb .gridcard-title {
+    min-height: 25px;
+}
+
+.geOrchestra .user-thumb .gridcard-tools,.geOrchestra .group-thumb .gridcard-tools {
+    right: 0
+}
+.geOrchestra .user-data-container {
+    display: flex;
+    width: 100%;
+    height: 132px;
+}
+.geOrchestra .user-card-info-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5px 10px 0 10px;
+    width: 0;
+}
+.geOrchestra .user-card-rolegroups-container {
+    display: flex;
+    min-height: 72px;
+    padding-top: 3px;
+}
+.geOrchestra .user-thumb .role-containter{
+    width: 50px;
+    margin-right: 20px
+}
+.geOrchestra .user-thumb .avatar-containter{
+    width: 50px;
+}
+.geOrchestra .user-thumb  .groups-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.geOrchestra .user-thumb  .groups-container .groups-list{
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.geOrchestra .user-thumb .groups-container .groups-list .group-item {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.geOrchestra .group-thumb .group-thumb-description {
+    font-size: 12px;
+    text-align: justify;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3px;
+}
+.geOrchestra .group-thumb .group-thumb-description .group-thumb-description-content {
+    overflow: auto;
+    word-wrap: break-word;
+}</style><style>.geOrchestra .user-edit-dialog, .geOrchestra .group-edit-dialog{
+    z-index: 1000;
+}
+
+.geOrchestra .user-edit-dialog,.geOrchestra .group-edit-dialog {
+    width: 300px;
+    margin-left: calc(50% - 150px);
+    margin-top: 100px;
+}
+
+.geOrchestra .user-edit-dialog .modal-body .nav-tabs li a, .geOrchestra .group-edit-dialog .modal-body .nav-tabs li a {
+    padding: 0;
+}
+.geOrchestra .group-edit-dialog .user-thumb {
+    height: auto;
+    margin-bottom: 10px;
+}
+.geOrchestra .group-edit-dialog .user-thumb .user-status {
+    display: none;
+}
+
+.geOrchestra .user-edit-dialog .modal-header, .geOrchestra .group-edit-dialog .modal-header {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.geOrchestra .user-edit-dialog  .Select--multi .Select-value-label{
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.geOrchestra .user-edit-dialog  .Select-multi-value-wrapper {
+    max-height: 300px;
+    overflow: auto;
+    min-height: 36px;
+}
+</style><style>.geOrchestra .mapToolbar .mapstore-tb-helpbadge {
+    display: block;
+    background-color: #777;
+    position: absolute;
+    z-index: 1000;
+    top : -10px;
+    left: -10px;
+}
+
+
+.geOrchestra #helpbadge-zoomToMaxExtent {
+    display: inline;
+    position: absolute;
+    left: 34px;
+    top: 72px;
+    z-index: 100000
+}
+
+.geOrchestra #helpbadge-scaleBox {
+    display: inline;
+    position: absolute;
+    left: 116px;
+    bottom: 48px;
+    z-index: 100000
+}
+
+.geOrchestra #helpbadge-seachBar {
+    display: inline;
+    position: absolute;
+    left: 46px;
+    top: 10px;
+    z-index: 100000
+}
+
+
+.geOrchestra .btn .badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.geOrchestra .themed .btn .badge {
+    top: -35px;
+    left: -50px;
+}
+
+.geOrchestra .badge {
+    cursor: pointer;
+}
+
+.geOrchestra #helpbadge-scaleBox {
+    left: 0 !important;
+}
+
+.geOrchestra #mapstore-navbar #helpbadge-search-help {
+    position: absolute;
+    left: -10px;
+    bottom: -8px;
+    z-index: 1;
+}
+</style><style>.geOrchestra .swipe-header-left-button {
+    float: left;
+}
+
+.geOrchestra .swipe-header-right-button {
+    float: right;
+}
+</style><style>.geOrchestra #locate-btn {
+    position: absolute;
+    z-index: 1000;
+    right: 10px;
+    bottom: 150px;
+}
+
+.geOrchestra #mapstore-toolbar #locate-btn {
+    position: static;
+}
+</style><style>.geOrchestra #mapstore-login-menu {
+    text-align: right;
+}
+</style><style>.geOrchestra #mapstore-login-panel {
+    width: 300px;
+}
+.geOrchestra #mapstore-login-panel button {
+    float: right !important;
+}
+</style><style>.geOrchestra .Manager-Container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    height: 100%;
+}
+
+.geOrchestra .Manager-Container .Manager-Tools-Nav .glyphicon {
+    vertical-align: middle;
+}
+
+.geOrchestra .Manager-Container .Manager-Tools-Nav  .nav-msg {
+    display: none;
+}
+@media (min-width: 1200px) {
+    .geOrchestra .Manager-Container .Manager-Tools-Nav  .nav-msg {
+        display: inline-block;
+    }
+}
+.geOrchestra .Manager-Container .Manager-Tools-Nav {
+    order: -1;
+    max-width: 20%;
+}
+.geOrchestra .Manager-Container .usermanager-title {
+    margin-top: 0;
+}
+</style><style>.geOrchestra #mapstore-globalspinner  {
+    width: 28px;
+    height: 28px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 1px solid #999;
+    z-index: 10;
+    top: 90px;
+    left: 2px;
+    position: absolute;
+    margin: 8px;
+}
+
+.geOrchestra #mapstore-globalspinner .circle-wrapper {
+    margin-left: 2px;
+    margin-top: 1px;
+}
+
+.geOrchestra #mapstore-toolbar #mapstore-globalspinner {
+    position: static;
+    width: 42px;
+    margin: 0;
+    margin-top: 0;
+    height: 35px;
+    box-shadow: none;
+}
+
+.geOrchestra .ms2-loading .sk-circle-wrapper {
+     width: 30px;
+     height: 30px;
+     margin-left: 10px !important;
+     margin-top: 10px !important;
+ }
+</style><style>.geOrchestra .mapErrorMessage {
+    font-size: 16px;
+    color: red;
+}
+</style><style> .geOrchestra #mapstore-mouseposition {
+    z-index: 10;
+    top: -10px;
+    right: 45%;
+    position: absolute;
+    margin: 8px;
+    text-shadow: -1px -1px 1px #000,
+                  1px -1px 1px #000,
+                 -1px  1px 1px #000,
+                  1px  1px 1px #000;
+}
+
+.geOrchestra #mapstore-mouseposition .label {
+    max-width: 350px;
+    min-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+
+}
+
+.geOrchestra #mapstore-mouseposition .label-info {
+    background-color:rgba(91,192,222,0);
+    color: white;
+    font-size: 110%;
+}
+
+.geOrchestra #mapstore-mouseposition h5 {
+    display: inline-block;
+}
+
+
+.geOrchestra #mapstore-mousepositionsettings .form-group {
+    margin-bottom: 0 !important;
+}
+
+.geOrchestra #mapstore-mousepositionsettings select, .geOrchestra #mapstore-mousepositionsettings button {
+    width: 60% !important;
+    float: right;
+    height: 35px;
+}
+
+.geOrchestra #mapstore-mousepositionsettings label {
+    width: 100% !important;
+}
+
+
+.geOrchestra #mapstore-mouseposition .label-info {
+    white-space: normal;
+    color: black;
+    font-size: 110%;
+    padding: 0;
+}
+
+.geOrchestra #mapstore-mouseposition {
+    bottom: 5px;
+    right: 264px;
+    top: auto;
+    margin: 0;
+    text-shadow: none;
+    background-color: white;
+    width: 160px;
+    height: 46px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+.geOrchestra #mapstore-mouseposition h5 {
+    margin-top: 5px;
+}
+
+.geOrchestra .mouseposition-separator {
+    display: block;
+}
+
+.geOrchestra #mapstore-mouseposition-mobile {
+        bottom: 25px;
+        right: 30px;
+        z-index: 10;
+        position: absolute;
+        text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+    }
+
+.geOrchestra #mapstore-mouseposition-mobile .label {
+        display: inline-block;
+        max-width: 280px;
+        min-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+}
+
+.geOrchestra #mapstore-mouseposition-mobile .label-info {
+        background-color:rgba(91,192,222,0);
+        color: white;
+        font-size: 90%;
+}
+
+.geOrchestra #mapstore-mouseposition .form-group {
+    float: right;
+}
+
+.geOrchestra #mapstore-mouseposition .form-group .control-label {
+    display: none;
+}
+
+.geOrchestra #mapstore-mouseposition .form-group select {
+    width: 90px;
+    font-size: 11px;
+    padding: 2px;
+}
+</style><style>/*viewer navbar */
+.geOrchestra .navbar-dx {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.geOrchestra .navbar-dx>ul {
+    padding: 0;
+}
+
+.geOrchestra .navbar-dx>ul>li {
+    float: left;
+    list-style: none;
+}
+
+.geOrchestra .navbar-dx .search-wrap .MapSearchBar {
+    right: 0;
+    top: 0;
+    left: 0;
+}
+
+.geOrchestra .navbar-dx .search-wrap .form-control,
+.geOrchestra .navbar-dx .search-wrap .form-control:focus {
+    border-right: 0;
+    box-shadow: none;
+}
+
+.geOrchestra .navbar-dx .search-wrap .MapSearchBar .input-group-addon {
+    border: 0;
+}
+
+.geOrchestra .navbar-dx .search-result-list {
+    left: 0;
+    max-height: none;
+}
+
+.geOrchestra .navbar-dx .dropdown-menu {
+    margin: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 1200px) {
+    .geOrchestra .navbar-dx .search-wrap {
+        width: 500px;
+        height: 50px;
+    }
+}
+
+.geOrchestra .navbar-dx>* {
+    display: inline-block;
+}
+
+/* Page Navbar */
+.geOrchestra .navbar-home .dropdown {
+    float: right;
+}
+
+.geOrchestra .navbar-home .navbar-header {
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+</style><style>.geOrchestra #mappreview-scalebox {
+    position: relative;
+    top: -36px;
+    width: 150px;
+    left: 10px;
+}
+
+.geOrchestra .print-error {
+    height: 100px;
+    color: #600;
+    background-color: #E8BABA;
+    border: solid #600 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.geOrchestra .print-error span, .geOrchestra .print-warning span {
+    display: inline-block;
+    max-height: 80px;
+    overflow: auto;
+    width: 100%;
+}
+.geOrchestra .print-warning {
+    height: 50px;
+    color: #660;
+    background-color: #E6E8BA;
+    border: solid #660 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.geOrchestra .print-preview-panel .spinner {
+    display: inline-block;
+}
+
+.geOrchestra .print-mappreview-refresh {
+    position: relative;
+    top: -83px;
+    right: -155px;
+    z-index: 1000;
+}
+.geOrchestra #mapstore-print-panel.modal-dialog {
+    z-index: 2000;
+}
+
+.geOrchestra #mapstore-print-panel .modal-body {
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+.geOrchestra .mapstore-print-panel {
+    width: 850px;
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    zIndex: 100;
+}
+
+.geOrchestra .mapstore-print-panel .form-inline label {
+    margin-right: 20px;
+}
+
+.geOrchestra .mapstore-print-panel .print-download {
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 34px;
+    border: solid 1px #CCC;
+    padding: 7px;
+    border-radius: 4px;
+    padding-right: 25px;
+    padding-left: 11px;
+    top: 2px;
+    position: relative;
+}
+
+.geOrchestra .print-layout .panel-title {
+    padding-left: 10px;
+}
+
+.geOrchestra .print-layout .panel-title a{
+    text-decoration: none;
+}
+
+.geOrchestra .print-layout .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+.geOrchestra .print-legend-options .panel-title {
+    padding-left: 10px;
+}
+
+.geOrchestra .print-legend-options .panel-title a{
+    text-decoration: none;
+}
+
+.geOrchestra .print-legend-options .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+
+@media (min-width: 992px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 825px;
+    }
+}
+
+@media (max-width: 991px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 700px;
+    }
+}
+
+@media (max-width: 767px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 98%;
+    }
+}
+
+.geOrchestra #mapstore-print-panel .modal-body .print-mappreview-refresh {
+    top: -96px;
+}
+
+.geOrchestra #mapstore-print-panel .print-submit {
+    float: right;
+}
+
+@media (min-width: 768px) {
+    .geOrchestra #mapstore-print-panel input[type=radio] {
+        margin: 0 8px 0 20px;
+    }
+}
+
+.geOrchestra #mapstore-print-panel .print-map-preview {
+    margin-bottom: 15px;
+}
+
+.geOrchestra #mapstore-print-panel .panel-default {
+    border: none;
+}
+
+.geOrchestra #mapstore-print-panel .panel-heading .panel-title {
+    font-weight: bold;
+}
+
+.geOrchestra #mapstore-print-panel .panel-heading {
+    padding-left: 0;
+    background-color: transparent;
+}
+
+.geOrchestra #mapstore-print-panel .panel-body {
+    padding: 10px;
+}
+
+.geOrchestra #mapstore-print-panel .form-control {
+    padding: 0 10px;
+    height: 25px;
+}
+
+.geOrchestra #mapstore-print-panel .print-download {
+    margin-right: 10px;
+}
+
+.geOrchestra #mapstore-print-panel .print-legend-options .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+</style><style></style><style>.geOrchestra #mapstore-scalebox {
+    /*z-index: 10;
+    bottom: 6px;
+    left: -2px;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+
+.geOrchestra #mapstore-scalebox-container {
+    /*z-index: 10;
+    bottom: -16px;
+    right: 55px;
+    left: auto;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+</style><style>
+.geOrchestra #mapstore-settings .btn-group {
+    width: auto;
+}
+
+.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings button {
+    float: none;
+    margin-left: 40%;
+}
+
+.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings select {
+    float: none;
+    margin-left: 40%;
+}
+
+.geOrchestra #mapstore-settings .modal-body .form-group {
+    margin-top: 15px;
+    border-top: solid 1px #EEE;
+    padding-top: 10px;
+}
+</style><style> .geOrchestra .snapshot-panel {
+    width: 700px;
+}
+.geOrchestra .snapshot-panel ul {
+    list-style:none;
+    padding-left:0;
+}
+
+.geOrchestra #mapstore-snapshot-panel {
+    position: absolute;
+    right: 200px;
+    min-width: 725px;
+}
+</style><style>/* css for react-resizable */
+.geOrchestra .street-view-window-body .react-resizable-handle {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: 0;
+        right: 0;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+');
+        background-position: bottom right;
+        padding: 0 3px 3px 0;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        box-sizing: border-box;
+        cursor: se-resize;
+    }
+.geOrchestra .street-view-window-body .react-resizable {
+    position: relative;
+}
+/* override the standard justify */
+.geOrchestra .street-view-window-body .empty-state-container .empty-state-main-view .empty-state-description {
+    text-align: center;
+}
+</style><style>.geOrchestra .CodeMirror-hints {
+  position: absolute;
+  z-index: 10;
+  overflow: hidden;
+  list-style: none;
+
+  margin: 0;
+  padding: 2px;
+
+  -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  border-radius: 3px;
+  border: 1px solid silver;
+
+  background: white;
+  font-size: 90%;
+  font-family: monospace;
+
+  max-height: 20em;
+  overflow-y: auto;
+}
+
+.geOrchestra .CodeMirror-hint {
+  margin: 0;
+  padding: 0 4px;
+  border-radius: 2px;
+  white-space: pre;
+  color: black;
+  cursor: pointer;
+}
+
+.geOrchestra li.CodeMirror-hint-active {
+  background: #08f;
+  color: white;
+}
+</style><style>.geOrchestra #mapstore-elevation {
+    width: 100%;
+    /*margin-top: -46px;*/
+    height: 80px;
+    padding: 0 5px;
+}
+
+.geOrchestra label#mapstore-elevation-label {
+    margin-top: 10px;
+}
+
+.geOrchestra .custom-tooltip {
+    width: auto;
+    margin: 0;
+    line-height: 24px;
+    border: 1px solid #C1C1C1;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+}
+.geOrchestra .custom-tooltip  .label {
+  margin: 0;
+  color: #82CA9D;
+  font-weight: bold;
+  font-size: 16px;
+}
+</style><style>
+
+.geOrchestra .ql-snow .ms-ql-iframe-tooltip[data-mode=video]::before {
+    content: "Enter iframe url:";
+}
+
+
+</style><style>
+.geOrchestra #mapstore-layer-settings {
+    min-width: 400px;
+}
+
+.geOrchestra .portal-dialog {
+    position: absolute;
+}
+
+@media all and (min-width: 635px) {
+    .geOrchestra .portal-dialog {
+        left: calc(50% - 315px);
+        top: 100px;
+        max-width: 630px;
+        background-color: #fff;
+    }
+}
+
+@media all and (max-width: 634px) {
+    .geOrchestra .portal-dialog {
+        width: 100%;
+    }
+}
+</style><style>.geOrchestra .vis .overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10}.geOrchestra .vis-active{box-shadow:0 0 10px #86d5f8}.geOrchestra .vis [class*=span]{min-height:0;width:auto}.geOrchestra div.vis-configuration{position:relative;display:block;float:left;font-size:12px}.geOrchestra div.vis-configuration-wrapper{display:block;width:700px}.geOrchestra div.vis-configuration-wrapper::after{clear:both;content:"";display:block}.geOrchestra div.vis-configuration.vis-config-option-container{display:block;width:495px;background-color:#fff;border:2px solid #f7f8fa;border-radius:4px;margin-top:20px;left:10px;padding-left:5px}.geOrchestra div.vis-configuration.vis-config-button{display:block;width:495px;height:25px;vertical-align:middle;line-height:25px;background-color:#f7f8fa;border:2px solid #ceced0;border-radius:4px;margin-top:20px;left:10px;padding-left:5px;cursor:pointer;margin-bottom:30px}.geOrchestra div.vis-configuration.vis-config-button.hover{background-color:#4588e6;border:2px solid #214373;color:#fff}.geOrchestra div.vis-configuration.vis-config-item{display:block;float:left;width:495px;height:25px;vertical-align:middle;line-height:25px}.geOrchestra div.vis-configuration.vis-config-item.vis-config-s2{left:10px;background-color:#f7f8fa;padding-left:5px;border-radius:3px}.geOrchestra div.vis-configuration.vis-config-item.vis-config-s3{left:20px;background-color:#e4e9f0;padding-left:5px;border-radius:3px}.geOrchestra div.vis-configuration.vis-config-item.vis-config-s4{left:30px;background-color:#cfd8e6;padding-left:5px;border-radius:3px}.geOrchestra div.vis-configuration.vis-config-header{font-size:18px;font-weight:700}.geOrchestra div.vis-configuration.vis-config-label{width:120px;height:25px;line-height:25px}.geOrchestra div.vis-configuration.vis-config-label.vis-config-s3{width:110px}.geOrchestra div.vis-configuration.vis-config-label.vis-config-s4{width:100px}.geOrchestra div.vis-configuration.vis-config-colorBlock{top:1px;width:30px;height:19px;border:1px solid #444;border-radius:2px;padding:0;margin:0;cursor:pointer}.geOrchestra input.vis-configuration.vis-config-checkbox{left:-5px}.geOrchestra input.vis-configuration.vis-config-rangeinput{position:relative;top:-5px;width:60px;padding:1px;margin:0;pointer-events:none}.geOrchestra input.vis-configuration.vis-config-range{-webkit-appearance:none;border:0 solid #fff;background-color:rgba(0,0,0,0);width:300px;height:20px}.geOrchestra input.vis-configuration.vis-config-range::-webkit-slider-runnable-track{width:300px;height:5px;background:#dedede;background:-moz-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#dedede),color-stop(99%,#c8c8c8));background:-webkit-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-o-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-ms-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:linear-gradient(to bottom,#dedede 0,#c8c8c8 99%);border:1px solid #999;box-shadow:#aaa 0 0 3px 0;border-radius:3px}.geOrchestra input.vis-configuration.vis-config-range::-webkit-slider-thumb{-webkit-appearance:none;border:1px solid #14334b;height:17px;width:17px;border-radius:50%;background:#3876c2;background:-moz-linear-gradient(top,#3876c2 0,#385380 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#3876c2),color-stop(100%,#385380));background:-webkit-linear-gradient(top,#3876c2 0,#385380 100%);background:-o-linear-gradient(top,#3876c2 0,#385380 100%);background:-ms-linear-gradient(top,#3876c2 0,#385380 100%);background:linear-gradient(to bottom,#3876c2 0,#385380 100%);box-shadow:#111927 0 0 1px 0;margin-top:-7px}.geOrchestra input.vis-configuration.vis-config-range:focus{outline:0}.geOrchestra input.vis-configuration.vis-config-range:focus::-webkit-slider-runnable-track{background:#9d9d9d;background:-moz-linear-gradient(top,#9d9d9d 0,#c8c8c8 99%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#9d9d9d),color-stop(99%,#c8c8c8));background:-webkit-linear-gradient(top,#9d9d9d 0,#c8c8c8 99%);background:-o-linear-gradient(top,#9d9d9d 0,#c8c8c8 99%);background:-ms-linear-gradient(top,#9d9d9d 0,#c8c8c8 99%);background:linear-gradient(to bottom,#9d9d9d 0,#c8c8c8 99%)}.geOrchestra input.vis-configuration.vis-config-range::-moz-range-track{width:300px;height:10px;background:#dedede;background:-moz-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#dedede),color-stop(99%,#c8c8c8));background:-webkit-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-o-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:-ms-linear-gradient(top,#dedede 0,#c8c8c8 99%);background:linear-gradient(to bottom,#dedede 0,#c8c8c8 99%);border:1px solid #999;box-shadow:#aaa 0 0 3px 0;border-radius:3px}.geOrchestra input.vis-configuration.vis-config-range::-moz-range-thumb{border:none;height:16px;width:16px;border-radius:50%;background:#385380}.geOrchestra input.vis-configuration.vis-config-range:-moz-focusring{outline:1px solid #fff;outline-offset:-1px}.geOrchestra input.vis-configuration.vis-config-range::-ms-track{width:300px;height:5px;background:0 0;border-color:transparent;border-width:6px 0;color:transparent}.geOrchestra input.vis-configuration.vis-config-range::-ms-fill-lower{background:#777;border-radius:10px}.geOrchestra input.vis-configuration.vis-config-range::-ms-fill-upper{background:#ddd;border-radius:10px}.geOrchestra input.vis-configuration.vis-config-range::-ms-thumb{border:none;height:16px;width:16px;border-radius:50%;background:#385380}.geOrchestra input.vis-configuration.vis-config-range:focus::-ms-fill-lower{background:#888}.geOrchestra input.vis-configuration.vis-config-range:focus::-ms-fill-upper{background:#ccc}.geOrchestra .vis-configuration-popup{position:absolute;background:rgba(57,76,89,.85);border:2px solid #f2faff;line-height:30px;height:30px;width:150px;text-align:center;color:#fff;font-size:14px;border-radius:4px;-webkit-transition:opacity .3s ease-in-out;-moz-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out}.geOrchestra .vis-configuration-popup:after,.geOrchestra .vis-configuration-popup:before{left:100%;top:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none}.geOrchestra .vis-configuration-popup:after{border-color:rgba(136,183,213,0);border-left-color:rgba(57,76,89,.85);border-width:8px;margin-top:-8px}.geOrchestra .vis-configuration-popup:before{border-color:rgba(194,225,245,0);border-left-color:#f2faff;border-width:12px;margin-top:-12px}.geOrchestra div.vis-tooltip{position:absolute;visibility:hidden;padding:5px;white-space:nowrap;font-family:verdana;font-size:14px;color:#000;background-color:#f5f4ed;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;border:1px solid #808074;box-shadow:3px 3px 10px rgba(0,0,0,.2);pointer-events:none;z-index:5}.geOrchestra .vis-current-time{background-color:#ff7f6e;width:2px;z-index:1;pointer-events:none}.geOrchestra .vis-rolling-mode-btn{height:40px;width:40px;position:absolute;top:7px;right:20px;border-radius:50%;font-size:28px;cursor:pointer;opacity:.8;color:#fff;font-weight:700;text-align:center;background:#3876c2}.geOrchestra .vis-rolling-mode-btn:before{content:"\26F6"}.geOrchestra .vis-rolling-mode-btn:hover{opacity:1}.geOrchestra .vis-custom-time{background-color:#6e94ff;width:2px;cursor:move;z-index:1}.geOrchestra .vis-panel.vis-background.vis-horizontal .vis-grid.vis-horizontal{position:absolute;width:100%;height:0;border-bottom:1px solid}.geOrchestra .vis-panel.vis-background.vis-horizontal .vis-grid.vis-minor{border-color:#e5e5e5}.geOrchestra .vis-panel.vis-background.vis-horizontal .vis-grid.vis-major{border-color:#bfbfbf}.geOrchestra .vis-data-axis .vis-y-axis.vis-major{width:100%;position:absolute;color:#4d4d4d;white-space:nowrap}.geOrchestra .vis-data-axis .vis-y-axis.vis-major.vis-measure{padding:0;margin:0;border:0;visibility:hidden;width:auto}.geOrchestra .vis-data-axis .vis-y-axis.vis-minor{position:absolute;width:100%;color:#bebebe;white-space:nowrap}.geOrchestra .vis-data-axis .vis-y-axis.vis-minor.vis-measure{padding:0;margin:0;border:0;visibility:hidden;width:auto}.geOrchestra .vis-data-axis .vis-y-axis.vis-title{position:absolute;color:#4d4d4d;white-space:nowrap;bottom:20px;text-align:center}.geOrchestra .vis-data-axis .vis-y-axis.vis-title.vis-measure{padding:0;margin:0;visibility:hidden;width:auto}.geOrchestra .vis-data-axis .vis-y-axis.vis-title.vis-left{bottom:0;-webkit-transform-origin:left top;-moz-transform-origin:left top;-ms-transform-origin:left top;-o-transform-origin:left top;transform-origin:left bottom;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-ms-transform:rotate(-90deg);-o-transform:rotate(-90deg);transform:rotate(-90deg)}.geOrchestra .vis-data-axis .vis-y-axis.vis-title.vis-right{bottom:0;-webkit-transform-origin:right bottom;-moz-transform-origin:right bottom;-ms-transform-origin:right bottom;-o-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg)}.geOrchestra .vis-legend{background-color:rgba(247,252,255,.65);padding:5px;border:1px solid #b3b3b3;box-shadow:2px 2px 10px rgba(154,154,154,.55)}.geOrchestra .vis-legend-text{white-space:nowrap;display:inline-block}.geOrchestra .vis-item{position:absolute;color:#1a1a1a;border-color:#97b0f8;border-width:1px;background-color:#d5ddf6;display:inline-block;z-index:1}.geOrchestra .vis-item.vis-selected{border-color:#ffc200;background-color:#fff785;z-index:2}.geOrchestra .vis-editable.vis-selected{cursor:move}.geOrchestra .vis-item.vis-point.vis-selected{background-color:#fff785}.geOrchestra .vis-item.vis-box{text-align:center;border-style:solid;border-radius:2px}.geOrchestra .vis-item.vis-point{background:0 0}.geOrchestra .vis-item.vis-dot{position:absolute;padding:0;border-width:4px;border-style:solid;border-radius:4px}.geOrchestra .vis-item.vis-range{border-style:solid;border-radius:2px;box-sizing:border-box}.geOrchestra .vis-item.vis-background{border:none;background-color:rgba(213,221,246,.4);box-sizing:border-box;padding:0;margin:0}.geOrchestra .vis-item .vis-item-overflow{position:relative;width:100%;height:100%;padding:0;margin:0;overflow:hidden}.geOrchestra .vis-item-visible-frame{white-space:nowrap}.geOrchestra .vis-item.vis-range .vis-item-content{position:relative;display:inline-block}.geOrchestra .vis-item.vis-background .vis-item-content{position:absolute;display:inline-block}.geOrchestra .vis-item.vis-line{padding:0;position:absolute;width:0;border-left-width:1px;border-left-style:solid}.geOrchestra .vis-item .vis-item-content{white-space:nowrap;box-sizing:border-box;padding:5px}.geOrchestra .vis-item .vis-onUpdateTime-tooltip{position:absolute;background:#4f81bd;color:#fff;width:200px;text-align:center;white-space:nowrap;padding:5px;border-radius:1px;transition:.4s;-o-transition:.4s;-moz-transition:.4s;-webkit-transition:.4s}.geOrchestra .vis-item .vis-delete,.geOrchestra .vis-item .vis-delete-rtl{position:absolute;top:0;width:24px;height:24px;box-sizing:border-box;padding:0 5px;cursor:pointer;-webkit-transition:background .2s linear;-moz-transition:background .2s linear;-ms-transition:background .2s linear;-o-transition:background .2s linear;transition:background .2s linear}.geOrchestra .vis-item .vis-delete{right:-24px}.geOrchestra .vis-item .vis-delete-rtl{left:-24px}.geOrchestra .vis-item .vis-delete-rtl:after,.geOrchestra .vis-item .vis-delete:after{content:"\00D7";color:red;font-family:arial,sans-serif;font-size:22px;font-weight:700;-webkit-transition:color .2s linear;-moz-transition:color .2s linear;-ms-transition:color .2s linear;-o-transition:color .2s linear;transition:color .2s linear}.geOrchestra .vis-item .vis-delete-rtl:hover,.geOrchestra .vis-item .vis-delete:hover{background:red}.geOrchestra .vis-item .vis-delete-rtl:hover:after,.geOrchestra .vis-item .vis-delete:hover:after{color:#fff}.geOrchestra .vis-item .vis-drag-center{position:absolute;width:100%;height:100%;top:0;left:0;cursor:move}.geOrchestra .vis-item.vis-range .vis-drag-left{position:absolute;width:24px;max-width:20%;min-width:2px;height:100%;top:0;left:-4px;cursor:w-resize}.geOrchestra .vis-item.vis-range .vis-drag-right{position:absolute;width:24px;max-width:20%;min-width:2px;height:100%;top:0;right:-4px;cursor:e-resize}.geOrchestra .vis-range.vis-item.vis-readonly .vis-drag-left,.geOrchestra .vis-range.vis-item.vis-readonly .vis-drag-right{cursor:auto}.geOrchestra .vis-itemset{position:relative;padding:0;margin:0;box-sizing:border-box}.geOrchestra .vis-itemset .vis-background,.geOrchestra .vis-itemset .vis-foreground{position:absolute;width:100%;height:100%;overflow:visible}.geOrchestra .vis-axis{position:absolute;width:100%;height:0;left:0;z-index:1}.geOrchestra .vis-foreground .vis-group{position:relative;box-sizing:border-box;border-bottom:1px solid #bfbfbf}.geOrchestra .vis-foreground .vis-group:last-child{border-bottom:none}.geOrchestra .vis-nesting-group{cursor:pointer}.geOrchestra .vis-nested-group{background:#f5f5f5}.geOrchestra .vis-label.vis-nesting-group.expanded:before{content:"\25BC"}.geOrchestra .vis-label.vis-nesting-group.collapsed-rtl:before{content:"\25C0"}.geOrchestra .vis-label.vis-nesting-group.collapsed:before{content:"\25B6"}.geOrchestra .vis-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10}.geOrchestra .vis-labelset{position:relative;overflow:hidden;box-sizing:border-box}.geOrchestra .vis-labelset .vis-label{position:relative;left:0;top:0;width:100%;color:#4d4d4d;box-sizing:border-box}.geOrchestra .vis-labelset .vis-label{border-bottom:1px solid #bfbfbf}.geOrchestra .vis-labelset .vis-label.draggable{cursor:pointer}.geOrchestra .vis-labelset .vis-label:last-child{border-bottom:none}.geOrchestra .vis-labelset .vis-label .vis-inner{display:inline-block;padding:5px}.geOrchestra .vis-labelset .vis-label .vis-inner.vis-hidden{padding:0}.geOrchestra .vis-panel{position:absolute;padding:0;margin:0;box-sizing:border-box}.geOrchestra .vis-panel.vis-bottom,.geOrchestra .vis-panel.vis-center,.geOrchestra .vis-panel.vis-left,.geOrchestra .vis-panel.vis-right,.geOrchestra .vis-panel.vis-top{border:1px #bfbfbf}.geOrchestra .vis-panel.vis-center,.geOrchestra .vis-panel.vis-left,.geOrchestra .vis-panel.vis-right{border-top-style:solid;border-bottom-style:solid;overflow:hidden}.geOrchestra .vis-left.vis-panel.vis-vertical-scroll,.geOrchestra .vis-right.vis-panel.vis-vertical-scroll{height:100%;overflow-x:hidden;overflow-y:scroll}.geOrchestra .vis-left.vis-panel.vis-vertical-scroll{direction:rtl}.geOrchestra .vis-left.vis-panel.vis-vertical-scroll .vis-content{direction:ltr}.geOrchestra .vis-right.vis-panel.vis-vertical-scroll{direction:ltr}.geOrchestra .vis-right.vis-panel.vis-vertical-scroll .vis-content{direction:rtl}.geOrchestra .vis-panel.vis-bottom,.geOrchestra .vis-panel.vis-center,.geOrchestra .vis-panel.vis-top{border-left-style:solid;border-right-style:solid}.geOrchestra .vis-background{overflow:hidden}.geOrchestra .vis-panel>.vis-content{position:relative}.geOrchestra .vis-panel .vis-shadow{position:absolute;width:100%;height:1px;box-shadow:0 0 10px rgba(0,0,0,.8)}.geOrchestra .vis-panel .vis-shadow.vis-top{top:-1px;left:0}.geOrchestra .vis-panel .vis-shadow.vis-bottom{bottom:-1px;left:0}.geOrchestra .vis-graph-group0{fill:#4f81bd;fill-opacity:0;stroke-width:2px;stroke:#4f81bd}.geOrchestra .vis-graph-group1{fill:#f79646;fill-opacity:0;stroke-width:2px;stroke:#f79646}.geOrchestra .vis-graph-group2{fill:#8c51cf;fill-opacity:0;stroke-width:2px;stroke:#8c51cf}.geOrchestra .vis-graph-group3{fill:#75c841;fill-opacity:0;stroke-width:2px;stroke:#75c841}.geOrchestra .vis-graph-group4{fill:#ff0100;fill-opacity:0;stroke-width:2px;stroke:#ff0100}.geOrchestra .vis-graph-group5{fill:#37d8e6;fill-opacity:0;stroke-width:2px;stroke:#37d8e6}.geOrchestra .vis-graph-group6{fill:#042662;fill-opacity:0;stroke-width:2px;stroke:#042662}.geOrchestra .vis-graph-group7{fill:#00ff26;fill-opacity:0;stroke-width:2px;stroke:#00ff26}.geOrchestra .vis-graph-group8{fill:#f0f;fill-opacity:0;stroke-width:2px;stroke:#f0f}.geOrchestra .vis-graph-group9{fill:#8f3938;fill-opacity:0;stroke-width:2px;stroke:#8f3938}.geOrchestra .vis-timeline .vis-fill{fill-opacity:.1;stroke:none}.geOrchestra .vis-timeline .vis-bar{fill-opacity:.5;stroke-width:1px}.geOrchestra .vis-timeline .vis-point{stroke-width:2px;fill-opacity:1}.geOrchestra .vis-timeline .vis-legend-background{stroke-width:1px;fill-opacity:.9;fill:#fff;stroke:#c2c2c2}.geOrchestra .vis-timeline .vis-outline{stroke-width:1px;fill-opacity:1;fill:#fff;stroke:#e5e5e5}.geOrchestra .vis-timeline .vis-icon-fill{fill-opacity:.3;stroke:none}.geOrchestra .vis-time-axis{position:relative;overflow:hidden}.geOrchestra .vis-time-axis.vis-foreground{top:0;left:0;width:100%}.geOrchestra .vis-time-axis.vis-background{position:absolute;top:0;left:0;width:100%;height:100%}.geOrchestra .vis-time-axis .vis-text{position:absolute;color:#4d4d4d;padding:3px;overflow:hidden;box-sizing:border-box;white-space:nowrap}.geOrchestra .vis-time-axis .vis-text.vis-measure{position:absolute;padding-left:0;padding-right:0;margin-left:0;margin-right:0;visibility:hidden}.geOrchestra .vis-time-axis .vis-grid.vis-vertical{position:absolute;border-left:1px solid}.geOrchestra .vis-time-axis .vis-grid.vis-vertical-rtl{position:absolute;border-right:1px solid}.geOrchestra .vis-time-axis .vis-grid.vis-minor{border-color:#e5e5e5}.geOrchestra .vis-time-axis .vis-grid.vis-major{border-color:#bfbfbf}.geOrchestra .vis-timeline{position:relative;border:1px solid #bfbfbf;overflow:hidden;padding:0;margin:0;box-sizing:border-box}</style><style>.geOrchestra .joyride-beacon{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;height:36px;position:relative;width:36px;z-index:1500}.geOrchestra .joyride-beacon:active,.geOrchestra .joyride-beacon:focus,.geOrchestra .joyride-beacon:hover{outline:none}.geOrchestra .joyride-beacon__inner{-webkit-animation:joyride-beacon-inner 1.2s infinite ease-in-out;animation:joyride-beacon-inner 1.2s infinite ease-in-out;background-color:#f04;border-radius:50%;display:block;height:50%;left:50%;opacity:.7;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:50%}.geOrchestra .joyride-beacon__outer{-webkit-animation:joyride-beacon-outer 1.2s infinite ease-in-out;animation:joyride-beacon-outer 1.2s infinite ease-in-out;background-color:rgba(255,0,68,.2);border:2px solid #f04;border-radius:50%;box-sizing:border-box;display:block;height:100%;left:0;opacity:.9;position:absolute;top:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center;width:100%}.geOrchestra .joyride-overlay{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1500}.geOrchestra .joyride-hole{border-radius:4px;box-shadow:0 0 0 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5);position:absolute}.geOrchestra .joyride-hole.safari{box-shadow:0 0 999px 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5)}.geOrchestra .joyride-tooltip{background-color:#fff;border-radius:4px;color:#555;cursor:default;-webkit-filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));opacity:0;padding:20px;pointer-events:auto;-webkit-transform:translateZ(0);transform:translateZ(0);width:290px;z-index:1510}.geOrchestra .joyride-tooltip--animate{-webkit-animation:joyride-tooltip .4s forwards;animation:joyride-tooltip .4s forwards;-webkit-animation-timing-function:cubic-bezier(0,1.05,.55,1.18);animation-timing-function:cubic-bezier(0,1.05,.55,1.18)}.geOrchestra .joyride-tooltip__triangle{background-repeat:no-repeat;position:absolute}.geOrchestra .joyride-tooltip.bottom,.geOrchestra .joyride-tooltip.bottom-left,.geOrchestra .joyride-tooltip.bottom-right{margin-top:18px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M36 18L18 0 0 18z'/%3E%3C/svg%3E");height:18px;left:50%;top:-16px;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.top,.geOrchestra .joyride-tooltip.top-left,.geOrchestra .joyride-tooltip.top-right{margin-bottom:18px}.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 0l18 18L36 0z'/%3E%3C/svg%3E");bottom:-16px;height:18px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:2%}}.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{left:auto;right:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{right:2%}}.geOrchestra .joyride-tooltip.left{margin-right:18px}.geOrchestra .joyride-tooltip.left .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 36l18-18L0 0z'/%3E%3C/svg%3E");height:36px;right:-16px;width:18px}.geOrchestra .joyride-tooltip.right{margin-left:18px}.geOrchestra .joyride-tooltip.right .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M18 0L0 18l18 18z'/%3E%3C/svg%3E");height:36px;left:-16px;width:18px}.geOrchestra .joyride-tooltip__close{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.117.323L8.044 6.398 2.595.323a1.105 1.105 0 0 0-1.562 1.562L6.482 7.96.323 14.119a1.105 1.105 0 0 0 1.562 1.562L7.96 9.608l5.449 6.073a1.103 1.103 0 1 0 1.56-1.562L9.517 8.046l6.159-6.161a1.103 1.103 0 1 0-1.56-1.562z' fill='rgba(85,85,85,0.5)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;height:12px;position:absolute;right:10px;text-decoration:none;top:10px;width:12px;z-index:10;display:block}.geOrchestra .joyride-tooltip__close:active,.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{outline:none}.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{color:rgba(60,60,60,.5);outline:none}.geOrchestra .joyride-tooltip__close--header{right:20px;top:20px}.geOrchestra .joyride-tooltip__header{border-bottom:1px solid #f04;color:#555;font-size:20px;padding-bottom:6px;padding-right:18px;position:relative}.geOrchestra .joyride-tooltip__header~.joyride-tooltip__main{padding:12px 0 18px}.geOrchestra .joyride-tooltip__main{font-size:16px;padding-bottom:18px;padding-right:18px}.geOrchestra .joyride-tooltip__footer{text-align:right}.geOrchestra .joyride-tooltip__button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0}.geOrchestra .joyride-tooltip__button:active,.geOrchestra .joyride-tooltip__button:focus,.geOrchestra .joyride-tooltip__button:hover{outline:none}.geOrchestra .joyride-tooltip__button--primary{background-color:#f04;border-radius:4px;color:#fff;padding:6px 12px;transition:background-color .2s ease-in-out}.geOrchestra .joyride-tooltip__button--primary:active,.geOrchestra .joyride-tooltip__button--primary:focus,.geOrchestra .joyride-tooltip__button--primary:hover{background-color:#ff1f5a;color:#fff}.geOrchestra .joyride-tooltip__button--secondary{color:#f04;margin-right:10px}.geOrchestra .joyride-tooltip__button--skip{color:#ccc;float:left;margin-right:10px}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__main{padding-bottom:0}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__footer{display:none}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip{width:360px}}@media screen and (min-width:960px){.geOrchestra .joyride-tooltip{width:450px}}@-webkit-keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@-webkit-keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@-webkit-keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}@keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}</style><style>/**
+ * Copyright 2017, GeoSolutions Sas.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.geOrchestra .joyride-hole {
+    box-shadow: 0 0 0 9999px rgba(0,0,0,.75), 0 0 15px rgba(0,0,0,.75);
+}
+
+.geOrchestra .joyride-tooltip__button--secondary{
+    color: #888;
+}
+
+.geOrchestra .joyride-tooltip__header {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.geOrchestra .joyride-tooltip__main {
+    font-size: 0.9em;
+}
+
+.geOrchestra .tutorial-presentation-position{
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+
+.geOrchestra #tutorial-intro-checkbox-container {
+    overflow: hidden;
+    margin: 5px 0 5px 0;
+    border-top: 1px dashed #777;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.geOrchestra #tutorial-intro-checkbox {
+    margin: 5px 10px 0 0;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+</style><style>.geOrchestra #mapstore-zoomtomaxextent {
+    z-index: 1;
+    position: relative;
+}
+</style><style>.geOrchestra #zoomin-btn, .geOrchestra #zoomout-btn {
+    z-index: 1;
+    position: relative;
+}
+</style><style>
+.geOrchestra .page-maps .ms-home-description {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore-header.jpg);
+}
+
+.geOrchestra .page-maps .mapstore-header {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore-header.jpg);
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+@media (min-width: 769px) {
+    .geOrchestra div#mapstore-maptype {
+        width: 300px;
+        margin-left: auto;
+        margin-bottom: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .geOrchestra div#mapstore-maptype {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+     .geOrchestra #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 300px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .geOrchestra #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 100%;
+    }
+}
+</style><style>.geOrchestra #navigationBar #locate-btn {
+    position: static;
+}
+</style><style>.geOrchestra #mapstore-globalspinner  {
+    margin: 0 !important;
+    width: 40px !important;
+    position:static !important;
+    border-radius: 0 !important;
+}
+</style><style>.geOrchestra .option-icon {
+    margin-right: 15px;
+}
+.geOrchestra #measure-result-panel button {
+    padding: 14px;
+}
+.geOrchestra #measure-result-panel .glyphicon {
+    margin: 0 15px 0 0;
+}
+.geOrchestra #measure-result-panel .option-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    vertical-align: middle!important;
+    vertical-align: -webkit-baseline-middle!important;
+}
+.geOrchestra #measure-result-panel .option-icon {
+    font-size: 32px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    vertical-align: middle!important;
+    vertical-align: -webkit-baseline-middle!important;
+    vertical-align: -moz-middle-with-baseline !important;
+}
+
+.geOrchestra .measure-value {
+    /* this is necessary to show the uom list correctly,
+     * otherwise the list will be hidden since it exceeds the modal
+     */
+    font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+.geOrchestra #measure .modal-body > div[role="body"] > div {
+    overflow: visible!important;
+}
+</style><style>@-moz-keyframes whirly-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes whirly-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes whirly-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* :not(:required) hides this rule from IE9 and below */
+.geOrchestra .whirly-loader:not(:required) {
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  -moz-box-shadow: #e66 0px 26px 0 6px, #e66 0.90971px 26.05079px 0 5.93333px, #e66 1.82297px 26.06967px 0 5.86667px, #e66 2.73865px 26.05647px 0 5.8px, #e66 3.65561px 26.01104px 0 5.73333px, #e66 4.57274px 25.93327px 0 5.66667px, #e66 5.48887px 25.8231px 0 5.6px, #e66 6.40287px 25.68049px 0 5.53333px, #e66 7.31358px 25.50548px 0 5.46667px, #e66 8.21985px 25.2981px 0 5.4px, #e66 9.12054px 25.05847px 0 5.33333px, #e66 10.01448px 24.78672px 0 5.26667px, #e66 10.90054px 24.48302px 0 5.2px, #e66 11.77757px 24.1476px 0 5.13333px, #e66 12.64443px 23.78072px 0 5.06667px, #e66 13.5px 23.38269px 0 5px, #e66 14.34315px 22.95384px 0 4.93333px, #e66 15.17277px 22.49455px 0 4.86667px, #e66 15.98776px 22.00526px 0 4.8px, #e66 16.78704px 21.48643px 0 4.73333px, #e66 17.56953px 20.93855px 0 4.66667px, #e66 18.33418px 20.36217px 0 4.6px, #e66 19.07995px 19.75787px 0 4.53333px, #e66 19.80582px 19.12626px 0 4.46667px, #e66 20.5108px 18.468px 0 4.4px, #e66 21.1939px 17.78379px 0 4.33333px, #e66 21.85416px 17.07434px 0 4.26667px, #e66 22.49067px 16.34043px 0 4.2px, #e66 23.10251px 15.58284px 0 4.13333px, #e66 23.68881px 14.80241px 0 4.06667px, #e66 24.24871px 14.0px 0 4px, #e66 24.7814px 13.1765px 0 3.93333px, #e66 25.28607px 12.33284px 0 3.86667px, #e66 25.76198px 11.46997px 0 3.8px, #e66 26.2084px 10.58888px 0 3.73333px, #e66 26.62462px 9.69057px 0 3.66667px, #e66 27.01001px 8.77608px 0 3.6px, #e66 27.36392px 7.84648px 0 3.53333px, #e66 27.68577px 6.90284px 0 3.46667px, #e66 27.97502px 5.94627px 0 3.4px, #e66 28.23116px 4.97791px 0 3.33333px, #e66 28.4537px 3.99891px 0 3.26667px, #e66 28.64223px 3.01042px 0 3.2px, #e66 28.79635px 2.01364px 0 3.13333px, #e66 28.91571px 1.00976px 0 3.06667px, #e66 29px 0.0px 0 3px, #e66 29.04896px -1.01441px 0 2.93333px, #e66 29.06237px -2.03224px 0 2.86667px, #e66 29.04004px -3.05223px 0 2.8px, #e66 28.98185px -4.07313px 0 2.73333px, #e66 28.88769px -5.09368px 0 2.66667px, #e66 28.75754px -6.1126px 0 2.6px, #e66 28.59138px -7.12863px 0 2.53333px, #e66 28.38926px -8.14049px 0 2.46667px, #e66 28.15127px -9.1469px 0 2.4px, #e66 27.87755px -10.1466px 0 2.33333px, #e66 27.56827px -11.1383px 0 2.26667px, #e66 27.22365px -12.12075px 0 2.2px, #e66 26.84398px -13.09268px 0 2.13333px, #e66 26.42956px -14.05285px 0 2.06667px, #e66 25.98076px -15.0px 0 2px, #e66 25.49798px -15.93291px 0 1.93333px, #e66 24.98167px -16.85035px 0 1.86667px, #e66 24.43231px -17.75111px 0 1.8px, #e66 23.85046px -18.63402px 0 1.73333px, #e66 23.23668px -19.49789px 0 1.66667px, #e66 22.5916px -20.34157px 0 1.6px, #e66 21.91589px -21.16393px 0 1.53333px, #e66 21.21024px -21.96384px 0 1.46667px, #e66 20.4754px -22.74023px 0 1.4px, #e66 19.71215px -23.49203px 0 1.33333px, #e66 18.92133px -24.2182px 0 1.26667px, #e66 18.10379px -24.91772px 0 1.2px, #e66 17.26042px -25.58963px 0 1.13333px, #e66 16.39217px -26.23295px 0 1.06667px, #e66 15.5px -26.84679px 0 1px, #e66 14.58492px -27.43024px 0 0.93333px, #e66 13.64796px -27.98245px 0 0.86667px, #e66 12.69018px -28.50262px 0 0.8px, #e66 11.7127px -28.98995px 0 0.73333px, #e66 10.71663px -29.4437px 0 0.66667px, #e66 9.70313px -29.86317px 0 0.6px, #e66 8.67339px -30.2477px 0 0.53333px, #e66 7.6286px -30.59666px 0 0.46667px, #e66 6.57001px -30.90946px 0 0.4px, #e66 5.49886px -31.18558px 0 0.33333px, #e66 4.41643px -31.42451px 0 0.26667px, #e66 3.32401px -31.6258px 0 0.2px, #e66 2.22291px -31.78904px 0 0.13333px, #e66 1.11446px -31.91388px 0 0.06667px, #e66 0.0px -32px 0 0px, #e66 -1.11911px -32.04713px 0 -0.06667px, #e66 -2.24151px -32.05506px 0 -0.13333px, #e66 -3.36582px -32.02361px 0 -0.2px, #e66 -4.49065px -31.95265px 0 -0.26667px, #e66 -5.61462px -31.84212px 0 -0.33333px, #e66 -6.73634px -31.69198px 0 -0.4px, #e66 -7.8544px -31.50227px 0 -0.46667px, #e66 -8.9674px -31.27305px 0 -0.53333px, #e66 -10.07395px -31.00444px 0 -0.6px, #e66 -11.17266px -30.69663px 0 -0.66667px, #e66 -12.26212px -30.34982px 0 -0.73333px, #e66 -13.34096px -29.96429px 0 -0.8px, #e66 -14.4078px -29.54036px 0 -0.86667px, #e66 -15.46126px -29.07841px 0 -0.93333px, #e66 -16.5px -28.57884px 0 -1px, #e66 -17.52266px -28.04212px 0 -1.06667px, #e66 -18.52792px -27.46878px 0 -1.13333px, #e66 -19.51447px -26.85936px 0 -1.2px, #e66 -20.48101px -26.21449px 0 -1.26667px, #e66 -21.42625px -25.53481px 0 -1.33333px, #e66 -22.34896px -24.82104px 0 -1.4px, #e66 -23.2479px -24.07391px 0 -1.46667px, #e66 -24.12186px -23.29421px 0 -1.53333px, #e66 -24.96967px -22.48279px 0 -1.6px, #e66 -25.79016px -21.64052px 0 -1.66667px, #e66 -26.58223px -20.76831px 0 -1.73333px, #e66 -27.34477px -19.86714px 0 -1.8px, #e66 -28.07674px -18.938px 0 -1.86667px, #e66 -28.7771px -17.98193px 0 -1.93333px, #e66 -29.44486px -17.0px 0 -2px, #e66 -30.07908px -15.99333px 0 -2.06667px, #e66 -30.67884px -14.96307px 0 -2.13333px, #e66 -31.24325px -13.91039px 0 -2.2px, #e66 -31.7715px -12.83652px 0 -2.26667px, #e66 -32.26278px -11.74269px 0 -2.33333px, #e66 -32.71634px -10.63018px 0 -2.4px, #e66 -33.13149px -9.5003px 0 -2.46667px, #e66 -33.50755px -8.35437px 0 -2.53333px, #e66 -33.84391px -7.19374px 0 -2.6px, #e66 -34.14px -6.0198px 0 -2.66667px, #e66 -34.39531px -4.83395px 0 -2.73333px, #e66 -34.60936px -3.63759px 0 -2.8px, #e66 -34.78173px -2.43218px 0 -2.86667px, #e66 -34.91205px -1.21916px 0 -2.93333px, #e66 -35px 0.0px 0 -3px, #e66 -35.04531px 1.22381px 0 -3.06667px, #e66 -35.04775px 2.45078px 0 -3.13333px, #e66 -35.00717px 3.6794px 0 -3.2px, #e66 -34.92345px 4.90817px 0 -3.26667px, #e66 -34.79654px 6.13557px 0 -3.33333px, #e66 -34.62643px 7.36007px 0 -3.4px, #e66 -34.41316px 8.58016px 0 -3.46667px, #e66 -34.15683px 9.79431px 0 -3.53333px, #e66 -33.85761px 11.001px 0 -3.6px, #e66 -33.5157px 12.19872px 0 -3.66667px, #e66 -33.13137px 13.38594px 0 -3.73333px, #e66 -32.70493px 14.56117px 0 -3.8px, #e66 -32.23675px 15.72291px 0 -3.86667px, #e66 -31.72725px 16.86968px 0 -3.93333px, #e66 -31.17691px 18px 0 -4px, #e66 -30.58627px 19.11242px 0 -4.06667px, #e66 -29.95589px 20.2055px 0 -4.13333px, #e66 -29.28642px 21.27783px 0 -4.2px, #e66 -28.57852px 22.32799px 0 -4.26667px, #e66 -27.83295px 23.35462px 0 -4.33333px, #e66 -27.05047px 24.35635px 0 -4.4px, #e66 -26.23192px 25.33188px 0 -4.46667px, #e66 -25.37819px 26.27988px 0 -4.53333px, #e66 -24.49018px 27.1991px 0 -4.6px, #e66 -23.56888px 28.0883px 0 -4.66667px, #e66 -22.6153px 28.94626px 0 -4.73333px, #e66 -21.6305px 29.77183px 0 -4.8px, #e66 -20.61558px 30.56385px 0 -4.86667px, #e66 -19.57168px 31.32124px 0 -4.93333px, #e66 -18.5px 32.04294px 0 -5px, #e66 -17.40175px 32.72792px 0 -5.06667px, #e66 -16.27818px 33.37522px 0 -5.13333px, #e66 -15.1306px 33.98389px 0 -5.2px, #e66 -13.96034px 34.55305px 0 -5.26667px, #e66 -12.76875px 35.08186px 0 -5.33333px, #e66 -11.55724px 35.56951px 0 -5.4px, #e66 -10.32721px 36.01527px 0 -5.46667px, #e66 -9.08014px 36.41843px 0 -5.53333px, #e66 -7.81748px 36.77835px 0 -5.6px, #e66 -6.54075px 37.09443px 0 -5.66667px, #e66 -5.25147px 37.36612px 0 -5.73333px, #e66 -3.95118px 37.59293px 0 -5.8px, #e66 -2.64145px 37.77443px 0 -5.86667px, #e66 -1.32385px 37.91023px 0 -5.93333px;
+  -webkit-box-shadow: #e66 0px 26px 0 6px, #e66 0.90971px 26.05079px 0 5.93333px, #e66 1.82297px 26.06967px 0 5.86667px, #e66 2.73865px 26.05647px 0 5.8px, #e66 3.65561px 26.01104px 0 5.73333px, #e66 4.57274px 25.93327px 0 5.66667px, #e66 5.48887px 25.8231px 0 5.6px, #e66 6.40287px 25.68049px 0 5.53333px, #e66 7.31358px 25.50548px 0 5.46667px, #e66 8.21985px 25.2981px 0 5.4px, #e66 9.12054px 25.05847px 0 5.33333px, #e66 10.01448px 24.78672px 0 5.26667px, #e66 10.90054px 24.48302px 0 5.2px, #e66 11.77757px 24.1476px 0 5.13333px, #e66 12.64443px 23.78072px 0 5.06667px, #e66 13.5px 23.38269px 0 5px, #e66 14.34315px 22.95384px 0 4.93333px, #e66 15.17277px 22.49455px 0 4.86667px, #e66 15.98776px 22.00526px 0 4.8px, #e66 16.78704px 21.48643px 0 4.73333px, #e66 17.56953px 20.93855px 0 4.66667px, #e66 18.33418px 20.36217px 0 4.6px, #e66 19.07995px 19.75787px 0 4.53333px, #e66 19.80582px 19.12626px 0 4.46667px, #e66 20.5108px 18.468px 0 4.4px, #e66 21.1939px 17.78379px 0 4.33333px, #e66 21.85416px 17.07434px 0 4.26667px, #e66 22.49067px 16.34043px 0 4.2px, #e66 23.10251px 15.58284px 0 4.13333px, #e66 23.68881px 14.80241px 0 4.06667px, #e66 24.24871px 14.0px 0 4px, #e66 24.7814px 13.1765px 0 3.93333px, #e66 25.28607px 12.33284px 0 3.86667px, #e66 25.76198px 11.46997px 0 3.8px, #e66 26.2084px 10.58888px 0 3.73333px, #e66 26.62462px 9.69057px 0 3.66667px, #e66 27.01001px 8.77608px 0 3.6px, #e66 27.36392px 7.84648px 0 3.53333px, #e66 27.68577px 6.90284px 0 3.46667px, #e66 27.97502px 5.94627px 0 3.4px, #e66 28.23116px 4.97791px 0 3.33333px, #e66 28.4537px 3.99891px 0 3.26667px, #e66 28.64223px 3.01042px 0 3.2px, #e66 28.79635px 2.01364px 0 3.13333px, #e66 28.91571px 1.00976px 0 3.06667px, #e66 29px 0.0px 0 3px, #e66 29.04896px -1.01441px 0 2.93333px, #e66 29.06237px -2.03224px 0 2.86667px, #e66 29.04004px -3.05223px 0 2.8px, #e66 28.98185px -4.07313px 0 2.73333px, #e66 28.88769px -5.09368px 0 2.66667px, #e66 28.75754px -6.1126px 0 2.6px, #e66 28.59138px -7.12863px 0 2.53333px, #e66 28.38926px -8.14049px 0 2.46667px, #e66 28.15127px -9.1469px 0 2.4px, #e66 27.87755px -10.1466px 0 2.33333px, #e66 27.56827px -11.1383px 0 2.26667px, #e66 27.22365px -12.12075px 0 2.2px, #e66 26.84398px -13.09268px 0 2.13333px, #e66 26.42956px -14.05285px 0 2.06667px, #e66 25.98076px -15.0px 0 2px, #e66 25.49798px -15.93291px 0 1.93333px, #e66 24.98167px -16.85035px 0 1.86667px, #e66 24.43231px -17.75111px 0 1.8px, #e66 23.85046px -18.63402px 0 1.73333px, #e66 23.23668px -19.49789px 0 1.66667px, #e66 22.5916px -20.34157px 0 1.6px, #e66 21.91589px -21.16393px 0 1.53333px, #e66 21.21024px -21.96384px 0 1.46667px, #e66 20.4754px -22.74023px 0 1.4px, #e66 19.71215px -23.49203px 0 1.33333px, #e66 18.92133px -24.2182px 0 1.26667px, #e66 18.10379px -24.91772px 0 1.2px, #e66 17.26042px -25.58963px 0 1.13333px, #e66 16.39217px -26.23295px 0 1.06667px, #e66 15.5px -26.84679px 0 1px, #e66 14.58492px -27.43024px 0 0.93333px, #e66 13.64796px -27.98245px 0 0.86667px, #e66 12.69018px -28.50262px 0 0.8px, #e66 11.7127px -28.98995px 0 0.73333px, #e66 10.71663px -29.4437px 0 0.66667px, #e66 9.70313px -29.86317px 0 0.6px, #e66 8.67339px -30.2477px 0 0.53333px, #e66 7.6286px -30.59666px 0 0.46667px, #e66 6.57001px -30.90946px 0 0.4px, #e66 5.49886px -31.18558px 0 0.33333px, #e66 4.41643px -31.42451px 0 0.26667px, #e66 3.32401px -31.6258px 0 0.2px, #e66 2.22291px -31.78904px 0 0.13333px, #e66 1.11446px -31.91388px 0 0.06667px, #e66 0.0px -32px 0 0px, #e66 -1.11911px -32.04713px 0 -0.06667px, #e66 -2.24151px -32.05506px 0 -0.13333px, #e66 -3.36582px -32.02361px 0 -0.2px, #e66 -4.49065px -31.95265px 0 -0.26667px, #e66 -5.61462px -31.84212px 0 -0.33333px, #e66 -6.73634px -31.69198px 0 -0.4px, #e66 -7.8544px -31.50227px 0 -0.46667px, #e66 -8.9674px -31.27305px 0 -0.53333px, #e66 -10.07395px -31.00444px 0 -0.6px, #e66 -11.17266px -30.69663px 0 -0.66667px, #e66 -12.26212px -30.34982px 0 -0.73333px, #e66 -13.34096px -29.96429px 0 -0.8px, #e66 -14.4078px -29.54036px 0 -0.86667px, #e66 -15.46126px -29.07841px 0 -0.93333px, #e66 -16.5px -28.57884px 0 -1px, #e66 -17.52266px -28.04212px 0 -1.06667px, #e66 -18.52792px -27.46878px 0 -1.13333px, #e66 -19.51447px -26.85936px 0 -1.2px, #e66 -20.48101px -26.21449px 0 -1.26667px, #e66 -21.42625px -25.53481px 0 -1.33333px, #e66 -22.34896px -24.82104px 0 -1.4px, #e66 -23.2479px -24.07391px 0 -1.46667px, #e66 -24.12186px -23.29421px 0 -1.53333px, #e66 -24.96967px -22.48279px 0 -1.6px, #e66 -25.79016px -21.64052px 0 -1.66667px, #e66 -26.58223px -20.76831px 0 -1.73333px, #e66 -27.34477px -19.86714px 0 -1.8px, #e66 -28.07674px -18.938px 0 -1.86667px, #e66 -28.7771px -17.98193px 0 -1.93333px, #e66 -29.44486px -17.0px 0 -2px, #e66 -30.07908px -15.99333px 0 -2.06667px, #e66 -30.67884px -14.96307px 0 -2.13333px, #e66 -31.24325px -13.91039px 0 -2.2px, #e66 -31.7715px -12.83652px 0 -2.26667px, #e66 -32.26278px -11.74269px 0 -2.33333px, #e66 -32.71634px -10.63018px 0 -2.4px, #e66 -33.13149px -9.5003px 0 -2.46667px, #e66 -33.50755px -8.35437px 0 -2.53333px, #e66 -33.84391px -7.19374px 0 -2.6px, #e66 -34.14px -6.0198px 0 -2.66667px, #e66 -34.39531px -4.83395px 0 -2.73333px, #e66 -34.60936px -3.63759px 0 -2.8px, #e66 -34.78173px -2.43218px 0 -2.86667px, #e66 -34.91205px -1.21916px 0 -2.93333px, #e66 -35px 0.0px 0 -3px, #e66 -35.04531px 1.22381px 0 -3.06667px, #e66 -35.04775px 2.45078px 0 -3.13333px, #e66 -35.00717px 3.6794px 0 -3.2px, #e66 -34.92345px 4.90817px 0 -3.26667px, #e66 -34.79654px 6.13557px 0 -3.33333px, #e66 -34.62643px 7.36007px 0 -3.4px, #e66 -34.41316px 8.58016px 0 -3.46667px, #e66 -34.15683px 9.79431px 0 -3.53333px, #e66 -33.85761px 11.001px 0 -3.6px, #e66 -33.5157px 12.19872px 0 -3.66667px, #e66 -33.13137px 13.38594px 0 -3.73333px, #e66 -32.70493px 14.56117px 0 -3.8px, #e66 -32.23675px 15.72291px 0 -3.86667px, #e66 -31.72725px 16.86968px 0 -3.93333px, #e66 -31.17691px 18px 0 -4px, #e66 -30.58627px 19.11242px 0 -4.06667px, #e66 -29.95589px 20.2055px 0 -4.13333px, #e66 -29.28642px 21.27783px 0 -4.2px, #e66 -28.57852px 22.32799px 0 -4.26667px, #e66 -27.83295px 23.35462px 0 -4.33333px, #e66 -27.05047px 24.35635px 0 -4.4px, #e66 -26.23192px 25.33188px 0 -4.46667px, #e66 -25.37819px 26.27988px 0 -4.53333px, #e66 -24.49018px 27.1991px 0 -4.6px, #e66 -23.56888px 28.0883px 0 -4.66667px, #e66 -22.6153px 28.94626px 0 -4.73333px, #e66 -21.6305px 29.77183px 0 -4.8px, #e66 -20.61558px 30.56385px 0 -4.86667px, #e66 -19.57168px 31.32124px 0 -4.93333px, #e66 -18.5px 32.04294px 0 -5px, #e66 -17.40175px 32.72792px 0 -5.06667px, #e66 -16.27818px 33.37522px 0 -5.13333px, #e66 -15.1306px 33.98389px 0 -5.2px, #e66 -13.96034px 34.55305px 0 -5.26667px, #e66 -12.76875px 35.08186px 0 -5.33333px, #e66 -11.55724px 35.56951px 0 -5.4px, #e66 -10.32721px 36.01527px 0 -5.46667px, #e66 -9.08014px 36.41843px 0 -5.53333px, #e66 -7.81748px 36.77835px 0 -5.6px, #e66 -6.54075px 37.09443px 0 -5.66667px, #e66 -5.25147px 37.36612px 0 -5.73333px, #e66 -3.95118px 37.59293px 0 -5.8px, #e66 -2.64145px 37.77443px 0 -5.86667px, #e66 -1.32385px 37.91023px 0 -5.93333px;
+  box-shadow: #e66 0px 26px 0 6px, #e66 0.90971px 26.05079px 0 5.93333px, #e66 1.82297px 26.06967px 0 5.86667px, #e66 2.73865px 26.05647px 0 5.8px, #e66 3.65561px 26.01104px 0 5.73333px, #e66 4.57274px 25.93327px 0 5.66667px, #e66 5.48887px 25.8231px 0 5.6px, #e66 6.40287px 25.68049px 0 5.53333px, #e66 7.31358px 25.50548px 0 5.46667px, #e66 8.21985px 25.2981px 0 5.4px, #e66 9.12054px 25.05847px 0 5.33333px, #e66 10.01448px 24.78672px 0 5.26667px, #e66 10.90054px 24.48302px 0 5.2px, #e66 11.77757px 24.1476px 0 5.13333px, #e66 12.64443px 23.78072px 0 5.06667px, #e66 13.5px 23.38269px 0 5px, #e66 14.34315px 22.95384px 0 4.93333px, #e66 15.17277px 22.49455px 0 4.86667px, #e66 15.98776px 22.00526px 0 4.8px, #e66 16.78704px 21.48643px 0 4.73333px, #e66 17.56953px 20.93855px 0 4.66667px, #e66 18.33418px 20.36217px 0 4.6px, #e66 19.07995px 19.75787px 0 4.53333px, #e66 19.80582px 19.12626px 0 4.46667px, #e66 20.5108px 18.468px 0 4.4px, #e66 21.1939px 17.78379px 0 4.33333px, #e66 21.85416px 17.07434px 0 4.26667px, #e66 22.49067px 16.34043px 0 4.2px, #e66 23.10251px 15.58284px 0 4.13333px, #e66 23.68881px 14.80241px 0 4.06667px, #e66 24.24871px 14.0px 0 4px, #e66 24.7814px 13.1765px 0 3.93333px, #e66 25.28607px 12.33284px 0 3.86667px, #e66 25.76198px 11.46997px 0 3.8px, #e66 26.2084px 10.58888px 0 3.73333px, #e66 26.62462px 9.69057px 0 3.66667px, #e66 27.01001px 8.77608px 0 3.6px, #e66 27.36392px 7.84648px 0 3.53333px, #e66 27.68577px 6.90284px 0 3.46667px, #e66 27.97502px 5.94627px 0 3.4px, #e66 28.23116px 4.97791px 0 3.33333px, #e66 28.4537px 3.99891px 0 3.26667px, #e66 28.64223px 3.01042px 0 3.2px, #e66 28.79635px 2.01364px 0 3.13333px, #e66 28.91571px 1.00976px 0 3.06667px, #e66 29px 0.0px 0 3px, #e66 29.04896px -1.01441px 0 2.93333px, #e66 29.06237px -2.03224px 0 2.86667px, #e66 29.04004px -3.05223px 0 2.8px, #e66 28.98185px -4.07313px 0 2.73333px, #e66 28.88769px -5.09368px 0 2.66667px, #e66 28.75754px -6.1126px 0 2.6px, #e66 28.59138px -7.12863px 0 2.53333px, #e66 28.38926px -8.14049px 0 2.46667px, #e66 28.15127px -9.1469px 0 2.4px, #e66 27.87755px -10.1466px 0 2.33333px, #e66 27.56827px -11.1383px 0 2.26667px, #e66 27.22365px -12.12075px 0 2.2px, #e66 26.84398px -13.09268px 0 2.13333px, #e66 26.42956px -14.05285px 0 2.06667px, #e66 25.98076px -15.0px 0 2px, #e66 25.49798px -15.93291px 0 1.93333px, #e66 24.98167px -16.85035px 0 1.86667px, #e66 24.43231px -17.75111px 0 1.8px, #e66 23.85046px -18.63402px 0 1.73333px, #e66 23.23668px -19.49789px 0 1.66667px, #e66 22.5916px -20.34157px 0 1.6px, #e66 21.91589px -21.16393px 0 1.53333px, #e66 21.21024px -21.96384px 0 1.46667px, #e66 20.4754px -22.74023px 0 1.4px, #e66 19.71215px -23.49203px 0 1.33333px, #e66 18.92133px -24.2182px 0 1.26667px, #e66 18.10379px -24.91772px 0 1.2px, #e66 17.26042px -25.58963px 0 1.13333px, #e66 16.39217px -26.23295px 0 1.06667px, #e66 15.5px -26.84679px 0 1px, #e66 14.58492px -27.43024px 0 0.93333px, #e66 13.64796px -27.98245px 0 0.86667px, #e66 12.69018px -28.50262px 0 0.8px, #e66 11.7127px -28.98995px 0 0.73333px, #e66 10.71663px -29.4437px 0 0.66667px, #e66 9.70313px -29.86317px 0 0.6px, #e66 8.67339px -30.2477px 0 0.53333px, #e66 7.6286px -30.59666px 0 0.46667px, #e66 6.57001px -30.90946px 0 0.4px, #e66 5.49886px -31.18558px 0 0.33333px, #e66 4.41643px -31.42451px 0 0.26667px, #e66 3.32401px -31.6258px 0 0.2px, #e66 2.22291px -31.78904px 0 0.13333px, #e66 1.11446px -31.91388px 0 0.06667px, #e66 0.0px -32px 0 0px, #e66 -1.11911px -32.04713px 0 -0.06667px, #e66 -2.24151px -32.05506px 0 -0.13333px, #e66 -3.36582px -32.02361px 0 -0.2px, #e66 -4.49065px -31.95265px 0 -0.26667px, #e66 -5.61462px -31.84212px 0 -0.33333px, #e66 -6.73634px -31.69198px 0 -0.4px, #e66 -7.8544px -31.50227px 0 -0.46667px, #e66 -8.9674px -31.27305px 0 -0.53333px, #e66 -10.07395px -31.00444px 0 -0.6px, #e66 -11.17266px -30.69663px 0 -0.66667px, #e66 -12.26212px -30.34982px 0 -0.73333px, #e66 -13.34096px -29.96429px 0 -0.8px, #e66 -14.4078px -29.54036px 0 -0.86667px, #e66 -15.46126px -29.07841px 0 -0.93333px, #e66 -16.5px -28.57884px 0 -1px, #e66 -17.52266px -28.04212px 0 -1.06667px, #e66 -18.52792px -27.46878px 0 -1.13333px, #e66 -19.51447px -26.85936px 0 -1.2px, #e66 -20.48101px -26.21449px 0 -1.26667px, #e66 -21.42625px -25.53481px 0 -1.33333px, #e66 -22.34896px -24.82104px 0 -1.4px, #e66 -23.2479px -24.07391px 0 -1.46667px, #e66 -24.12186px -23.29421px 0 -1.53333px, #e66 -24.96967px -22.48279px 0 -1.6px, #e66 -25.79016px -21.64052px 0 -1.66667px, #e66 -26.58223px -20.76831px 0 -1.73333px, #e66 -27.34477px -19.86714px 0 -1.8px, #e66 -28.07674px -18.938px 0 -1.86667px, #e66 -28.7771px -17.98193px 0 -1.93333px, #e66 -29.44486px -17.0px 0 -2px, #e66 -30.07908px -15.99333px 0 -2.06667px, #e66 -30.67884px -14.96307px 0 -2.13333px, #e66 -31.24325px -13.91039px 0 -2.2px, #e66 -31.7715px -12.83652px 0 -2.26667px, #e66 -32.26278px -11.74269px 0 -2.33333px, #e66 -32.71634px -10.63018px 0 -2.4px, #e66 -33.13149px -9.5003px 0 -2.46667px, #e66 -33.50755px -8.35437px 0 -2.53333px, #e66 -33.84391px -7.19374px 0 -2.6px, #e66 -34.14px -6.0198px 0 -2.66667px, #e66 -34.39531px -4.83395px 0 -2.73333px, #e66 -34.60936px -3.63759px 0 -2.8px, #e66 -34.78173px -2.43218px 0 -2.86667px, #e66 -34.91205px -1.21916px 0 -2.93333px, #e66 -35px 0.0px 0 -3px, #e66 -35.04531px 1.22381px 0 -3.06667px, #e66 -35.04775px 2.45078px 0 -3.13333px, #e66 -35.00717px 3.6794px 0 -3.2px, #e66 -34.92345px 4.90817px 0 -3.26667px, #e66 -34.79654px 6.13557px 0 -3.33333px, #e66 -34.62643px 7.36007px 0 -3.4px, #e66 -34.41316px 8.58016px 0 -3.46667px, #e66 -34.15683px 9.79431px 0 -3.53333px, #e66 -33.85761px 11.001px 0 -3.6px, #e66 -33.5157px 12.19872px 0 -3.66667px, #e66 -33.13137px 13.38594px 0 -3.73333px, #e66 -32.70493px 14.56117px 0 -3.8px, #e66 -32.23675px 15.72291px 0 -3.86667px, #e66 -31.72725px 16.86968px 0 -3.93333px, #e66 -31.17691px 18px 0 -4px, #e66 -30.58627px 19.11242px 0 -4.06667px, #e66 -29.95589px 20.2055px 0 -4.13333px, #e66 -29.28642px 21.27783px 0 -4.2px, #e66 -28.57852px 22.32799px 0 -4.26667px, #e66 -27.83295px 23.35462px 0 -4.33333px, #e66 -27.05047px 24.35635px 0 -4.4px, #e66 -26.23192px 25.33188px 0 -4.46667px, #e66 -25.37819px 26.27988px 0 -4.53333px, #e66 -24.49018px 27.1991px 0 -4.6px, #e66 -23.56888px 28.0883px 0 -4.66667px, #e66 -22.6153px 28.94626px 0 -4.73333px, #e66 -21.6305px 29.77183px 0 -4.8px, #e66 -20.61558px 30.56385px 0 -4.86667px, #e66 -19.57168px 31.32124px 0 -4.93333px, #e66 -18.5px 32.04294px 0 -5px, #e66 -17.40175px 32.72792px 0 -5.06667px, #e66 -16.27818px 33.37522px 0 -5.13333px, #e66 -15.1306px 33.98389px 0 -5.2px, #e66 -13.96034px 34.55305px 0 -5.26667px, #e66 -12.76875px 35.08186px 0 -5.33333px, #e66 -11.55724px 35.56951px 0 -5.4px, #e66 -10.32721px 36.01527px 0 -5.46667px, #e66 -9.08014px 36.41843px 0 -5.53333px, #e66 -7.81748px 36.77835px 0 -5.6px, #e66 -6.54075px 37.09443px 0 -5.66667px, #e66 -5.25147px 37.36612px 0 -5.73333px, #e66 -3.95118px 37.59293px 0 -5.8px, #e66 -2.64145px 37.77443px 0 -5.86667px, #e66 -1.32385px 37.91023px 0 -5.93333px;
+  -moz-animation: whirly-loader 1.25s infinite linear;
+  -webkit-animation: whirly-loader 1.25s infinite linear;
+  animation: whirly-loader 1.25s infinite linear;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+@-moz-keyframes spinner-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinner-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* :not(:required) hides this rule from IE9 and below */
+.geOrchestra .spinner-loader:not(:required) {
+  -moz-animation: spinner-loader 1500ms infinite linear;
+  -webkit-animation: spinner-loader 1500ms infinite linear;
+  animation: spinner-loader 1500ms infinite linear;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
+  -webkit-box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 51, 0.3) 1.5em 0 0 0, rgba(0, 0, 51, 0.3) 1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) 0 1.5em 0 0, rgba(0, 0, 51, 0.3) -1.1em 1.1em 0 0, rgba(0, 0, 51, 0.3) -1.5em 0 0 0, rgba(0, 0, 51, 0.3) -1.1em -1.1em 0 0, rgba(0, 0, 51, 0.3) 0 -1.5em 0 0, rgba(0, 0, 51, 0.3) 1.1em -1.1em 0 0;
+  display: inline-block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin: 1.5em;
+  overflow: hidden;
+  text-indent: 100%;
+}
+.geOrchestra .spinner{
+  float: left;
+  display: table;
+  width: 20px;
+  text-align: center;
+  margin-right: 4px;
+
+}
+.geOrchestra .spinner-card{
+  text-align: center;
+  vertical-align: middle;
+  height: 20px;
+  position:relative;
+  top:-7px;
+
+}
+
+.geOrchestra .spinner-fg{
+  position: relative;
+  top: -36px;
+  left: 1px;
+  font-size: 14px;
+}
+.geOrchestra .sp-small{
+    zoom:0.8;
+    -moz-transform: scale(0.8);
+}
+.geOrchestra .sp-big{
+    zoom:1.5;
+    -moz-transform: scale(0.5);
+}
+</style></head><body class=" geOrchestra" data-ms2-container="ms2"><iframe id="georchestra-header" src="/header/?active=msadmin" scrolling="no" frameborder="0" style="display: block; height: 90px;"></iframe><div id="container" style="top: 90px;"><div class="fill"><div class="error-container"><div id="page-admin" class="page page-admin "><span id="mapstore-navbar"><div id="mapstore-navbar-container" class="navbar shadow navbar-home"></div></span><div id="map-search-bar" class="MapSearchBar user-search"><div class="form-group"><div class="input-group"><input placeholder="search..." type="text" class="searchInput form-control" value="" style="text-overflow: ellipsis;"><span class="search-toolbar-options"><div class="btn-group-menu-options btn-group"><button type="button" class="square-button-md no-border magnifying-glass clickable btn btn-default"><span class="glyphicon glyphicon-search"></span></button></div></span></div></div></div><div class="container-fluid" style="margin-bottom: 10px;"><h1 class="usermanager-title"><span>Contexts</span></h1><button type="button" class="btn btn-success" style="margin-right: 10px;">&nbsp;<span><span>New Context</span></span></button></div><div><div class="ms-grid-container undefined container-fluid"><div class="ms-grid row"></div><div class="pagination-toolbar row"><div class="text-center col-xs-12"><div style="height: 26px; width: 26px; margin: 8px auto;"></div></div><div class="text-center col-xs-12"><ul class="pagination"><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="First">«</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Previous">‹</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Next">›</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Last">»</span></a></li></ul></div><div class="col-xs-12"><h5><span>No items</span></h5></div></div></div></div></div></div></div></div><script src="dist/geOrchestra.js?0e938150d6eb1b4ea844"></script></body></html>

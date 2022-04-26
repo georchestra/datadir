@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
       
       
-	  <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-9C5C02B6FDAE19EBCFF9C00129FA3C56.css" type="text/css" media="screen, projection">
+	  <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-B9CCC9D7214862A34B858E0020C4F849.css" type="text/css" media="screen, projection">
 	  
       <!--[if IE]>
       
@@ -93,7 +93,7 @@ This GeoServer belongs to <a><span></span></a>.
 </div>
 <p></p>
 <p>
-  <span>This GeoServer instance is running version <strong>2.20.4-georchestra</strong>. For more information please contact the <a href="mailto:geoserver@example.org">administrator</a>.</span>
+  <span>This GeoServer instance is running version <strong>2.18.6-georchestra</strong>. For more information please contact the <a href="mailto:geoserver@example.org">administrator</a>.</span>
 </p>
 </div>
 <div id="capabilities">
@@ -104,6 +104,34 @@ This GeoServer belongs to <a><span></span></a>.
       </div>
       <div>
         <ul class="navigation-tab-content plain">
+          <li class="selfclear">
+            <span>
+  </span></li><li>
+  <span>TMS</span>
+  <ul class="flat">
+    <li>
+      <a class="external icon" href="../gwc/service/tms/1.0.0">
+        <span>1.0.0</span></a>
+    </li>
+  </ul>
+  </li><li>
+  <span>WMS-C</span>
+  <ul class="flat">
+    <li>
+      <a class="external icon" href="../gwc/service/wms?request=GetCapabilities&amp;version=1.1.1&amp;tiled=true">
+        <span>1.1.1</span></a>
+    </li>
+  </ul>
+  </li><li>
+  <span>WMTS</span>
+  <ul class="flat">
+    <li>
+      <a class="external icon" href="../gwc/service/wmts?REQUEST=GetCapabilities">
+        <span>1.0.0</span></a>
+    </li>
+  </ul>
+  </li>
+
           <li class="selfclear">
             <span>
   </span></li><li>
@@ -150,6 +178,12 @@ This GeoServer belongs to <a><span></span></a>.
   <span>WCS</span>
   <ul class="flat">
     <li>
+      <a class="external icon" href="../ows?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities">
+        <span>2.0.1</span></a>
+    </li><li>
+      <a class="external icon" href="../ows?service=wcs&amp;version=1.0.0&amp;request=GetCapabilities">
+        <span>1.0.0</span></a>
+    </li><li>
       <a class="external icon" href="../ows?service=wcs&amp;version=1.1.0&amp;request=GetCapabilities">
         <span>1.1.0</span></a>
     </li><li>
@@ -158,12 +192,6 @@ This GeoServer belongs to <a><span></span></a>.
     </li><li>
       <a class="external icon" href="../ows?service=wcs&amp;version=1.1&amp;request=GetCapabilities">
         <span>1.1</span></a>
-    </li><li>
-      <a class="external icon" href="../ows?service=WCS&amp;version=2.0.1&amp;request=GetCapabilities">
-        <span>2.0.1</span></a>
-    </li><li>
-      <a class="external icon" href="../ows?service=wcs&amp;version=1.0.0&amp;request=GetCapabilities">
-        <span>1.0.0</span></a>
     </li>
   </ul>
   </li><li>
@@ -196,34 +224,6 @@ This GeoServer belongs to <a><span></span></a>.
   <ul class="flat">
     <li>
       <a class="external icon" href="../ows?service=wps&amp;version=1.0.0&amp;request=GetCapabilities">
-        <span>1.0.0</span></a>
-    </li>
-  </ul>
-  </li>
-
-          <li class="selfclear">
-            <span>
-  </span></li><li>
-  <span>TMS</span>
-  <ul class="flat">
-    <li>
-      <a class="external icon" href="../gwc/service/tms/1.0.0">
-        <span>1.0.0</span></a>
-    </li>
-  </ul>
-  </li><li>
-  <span>WMS-C</span>
-  <ul class="flat">
-    <li>
-      <a class="external icon" href="../gwc/service/wms?request=GetCapabilities&amp;version=1.1.1&amp;tiled=true">
-        <span>1.1.1</span></a>
-    </li>
-  </ul>
-  </li><li>
-  <span>WMTS</span>
-  <ul class="flat">
-    <li>
-      <a class="external icon" href="../gwc/service/wmts?REQUEST=GetCapabilities">
         <span>1.0.0</span></a>
     </li>
   </ul>

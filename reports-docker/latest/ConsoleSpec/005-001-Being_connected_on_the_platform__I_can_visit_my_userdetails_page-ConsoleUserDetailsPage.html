@@ -1,0 +1,921 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/console.css" rel="stylesheet">
+  <title>User details.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body>
+
+
+
+    
+    <div id="go_head">
+        <iframe src="/header/" style="width:100%;height:90px;border:none;overflow:hidden;" scrolling="no"></iframe>
+    </div>
+    
+
+
+
+
+<script>var org = {"id":"PSC","name":"Project Steering Committee","shortName":"PSC","cities":["2A004","2B033"],"members":[{"uniqueIdentifier":"0c6bb556-4ee8-46f2-892d-6116e262b489","pending":false,"sasluser":null,"uid":"testadmin","cn":"testadmin","sn":"ADMIN","mail":"psc+testadmin@georchestra.org","telephoneNumber":null,"description":"Admin user","givenName":"Test","title":null,"postalAddress":null,"postalCode":null,"registeredAddress":null,"postOfficeBox":null,"physicalDeliveryOfficeName":null,"street":null,"l":null,"facsimileTelephoneNumber":null,"mobile":null,"roomNumber":null,"st":null,"homePostalAddress":null,"shadowExpire":null,"privacyPolicyAgreementDate":null,"manager":null,"knowledgeInformation":"Internal CRM notes on testadmin","preferredLanguage":null,"sshPublicKey":[],"saslUser":null,"org":"PSC"},{"uniqueIdentifier":"048b2f38-6ee7-4eec-9bed-349cc6eb13c3","pending":false,"sasluser":null,"uid":"testuser","cn":"testuser","sn":"USER","mail":"psc+testuser@georchestra.org","telephoneNumber":null,"description":"USER","givenName":"Test","title":null,"postalAddress":null,"postalCode":null,"registeredAddress":null,"postOfficeBox":null,"physicalDeliveryOfficeName":null,"street":null,"l":"SRID=4326;POLYGON((-5.76043921875 48.698689609375,-2.02508765625 50.104939609375,2.45733421875 51.423298984375,7.51104515625 47.644002109375,6.23663109375 45.842244296875,7.29131859375 42.853963046875,3.59991234375 41.975056796875,-2.55243140625 43.601033359375,-5.76043921875 48.698689609375))","facsimileTelephoneNumber":null,"mobile":null,"roomNumber":null,"st":null,"homePostalAddress":null,"shadowExpire":null,"privacyPolicyAgreementDate":null,"manager":null,"knowledgeInformation":"Internal CRM notes on testuser","preferredLanguage":null,"sshPublicKey":[],"saslUser":null,"org":"PSC"}],"address":"127 rue georchestra, 73590 Chamblille","description":"Association PSC geOrchestra","url":"https://www.georchestra.org/","note":"Internal CRM notes on PSC","orgType":"Association","pending":false,"logo":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBQgMFBofBgYHCg0dHhwHBwgMFB0jHAcJCw8aLCgf\r\nCQsTHCI3NCcMEhwgKTQ5LhkgJyw0PTwzJC4wMTgyNDL/2wBDAQkJDBgyMjIyCQsNITIyMjIMDRwy\r\nMjIyMhghMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAyAMQDASIA\r\nAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAHwEAAwEBAQEBAQEBAQAA\r\nAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKB\r\nkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZn\r\naGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT\r\n1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx\r\nBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK\r\nU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3\r\nuLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iis\r\nrxF4ms9MgaXUnIjXhUHWeVuixD1c00uy8kNLsvJGozqo+dgo6sx/hA9TWNL458PxnE3iTR0boUMy\r\ncH35r5o8W/EvV9Xc/bLp4bfP7jT4jhY1/wCmg7n3P4YrlhjtXfDCfzz+R2wwv88j7TtL+2nXNldW\r\n86dpImBH/fSmp6+NNJ1/ULBw2kX89tIOd0Z++PSRehB9wa+jvht8Uo9ZQrerHFfIN08a9LqL+9CP\r\nY9R2rGvh2tnddfIyrUGtnfv5He0VxHiz4ky2ky2/hzSzqWosPM8jOFs0I63De456jA6mqZb4mgbt\r\nnhJj977GN+SPQPn/ANmrFU31cV1RkoPq4rqj0OiuM8G/Ec6hI8Os6a2najH81xZseJkGOYG9sj19\r\n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","uuid":"bddf474d-125d-4b18-92bd-bd8ebb6699a9"};
+var isReferentOrSuperUser = true;
+var gdprAllowAccountDeletion = true;
+</script>
+
+<div class="container">
+  <div class="page-header">
+    <h1>User details. <small>Update your account.</small></h1>
+  </div>
+  <p class="lead">In this page you can manage your account informations and modify your password.</p>
+  <form id="form" name="form" class="form-horizontal col-lg-6" action="userdetails" method="post" onsubmit="return validate();">
+
+    
+
+    
+      
+    
+
+    <fieldset>
+      <legend>User details</legend>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-firstName" class="form-group ">
+		<label class="control-label col-lg-4" for="firstName">First Name<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="firstName" name="firstName" class="form-control" type="text" value="Test" size="30" maxlength="80" placeholder="First Name">
+			
+			
+		</div>
+	</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-surname" class="form-group ">
+		<label class="control-label col-lg-4" for="surname">Surname<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="surname" name="surname" class="form-control" type="text" value="ADMIN" size="30" maxlength="80" placeholder="Surname">
+			
+			
+		</div>
+	</div>
+
+
+      <div class="form-group">
+        <label class="col-lg-4 control-label">E-mail</label>
+        <div class="col-lg-8">
+          <p class="form-control-static">
+              psc+testadmin@georchestra.org
+          </p>
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-phone" class="form-group ">
+		<label class="control-label col-lg-4" for="phone">Phone</label>
+		<div class="col-lg-8">
+			
+				<input id="phone" name="phone" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="Phone">
+			
+			
+		</div>
+	</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-facsimile" class="form-group ">
+		<label class="control-label col-lg-4" for="facsimile">Fax</label>
+		<div class="col-lg-8">
+			
+				<input id="facsimile" name="facsimile" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="Fax">
+			
+			
+		</div>
+	</div>
+
+
+      <div class="form-group">
+        <label class="col-lg-4 control-label">Organization</label>
+        <div class="col-lg-8">
+          <p class="form-control-static">
+            
+              
+                Project Steering Committee
+              
+              
+            
+          </p>
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-title" class="form-group ">
+		<label class="control-label col-lg-4" for="title">Job title</label>
+		<div class="col-lg-8">
+			
+				<input id="title" name="title" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="Job title">
+			
+			
+		</div>
+	</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-description" class="form-group ">
+		<label class="control-label col-lg-4" for="description">Description</label>
+		<div class="col-lg-8">
+			<textarea id="description" name="description" class="form-control" placeholder="Description">Admin user</textarea>
+			
+		</div>
+	</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-postalAddress" class="form-group ">
+		<label class="control-label col-lg-4" for="postalAddress">Postal address</label>
+		<div class="col-lg-8">
+			<textarea id="postalAddress" name="postalAddress" class="form-control" placeholder="Postal address"></textarea>
+			
+		</div>
+	</div>
+
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Credentials</legend>
+      <div class="form-group">
+        <label class="col-lg-4 control-label">User ID</label>
+        <div class="col-lg-8">
+          <p class="form-control-static">
+              testadmin
+          </p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-4 control-label">Password</label>
+        <div class="col-lg-8">
+          <p class="form-control-static">
+            <a href="/console/account/changePassword">
+              Change Password
+            </a>
+          </p>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="form-group">
+        <div class="col-lg-8 col-lg-offset-4 text-right">
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <!-- angularjs app dependencies -->
+  <link rel="stylesheet" href="/console/manager/public/libraries.css">
+  <link rel="stylesheet" href="/console/manager/public/app.css">
+  <style>
+    .area {
+      margin: 2em;
+      background: white;
+    }
+
+    .area .map {
+      height: 200px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .area .map canvas {
+      border-radius: 3px;
+    }
+  </style>
+  <script src="/console/manager/public/libraries.js"></script>
+  <script src="/console/manager/public/templates.js"></script>
+  <script src="/console/manager/public/app.js"></script>
+  <script>require('app')</script>
+  <!-- /angularjs app dependencies -->
+
+  <div class="col-lg-5 col-lg-offset-1 ng-scope" ng-app="manager" ng-strict-di="" ng-controller="StandaloneController">
+    <!-- ngIf: org.id --><fieldset ng-if="org.id" class="ng-scope">
+      <legend class="ng-binding">
+        Organization «Project Steering Committee»
+				<!-- ngIf: isReferentOrSuperUser --><a ng-if="isReferentOrSuperUser" href="/console/account/orgdetails" target="_self" title="Edit Organization" class="small pull-right ng-scope" aria-label="Edit Organization">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+				</a><!-- end ngIf: isReferentOrSuperUser -->
+      </legend>
+
+      <ul class="list-unstyled">
+        <!-- ngIf: org.description --><li ng-if="org.description" class="ng-scope">
+					<p class="ng-binding">Association PSC geOrchestra</p>
+        </li><!-- end ngIf: org.description -->
+        <!-- ngIf: org.url && org.logo --><li ng-if="org.url &amp;&amp; org.logo" class="ng-scope">
+          <a href="https://www.georchestra.org/">
+            <img alt="org logo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBQgMFBofBgYHCg0dHhwHBwgMFB0jHAcJCw8aLCgf
+CQsTHCI3NCcMEhwgKTQ5LhkgJyw0PTwzJC4wMTgyNDL/2wBDAQkJDBgyMjIyCQsNITIyMjIMDRwy
+MjIyMhghMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAyAMQDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAHwEAAwEBAQEBAQEBAQAA
+AAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKB
+kaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZn
+aGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT
+1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iis
+rxF4ms9MgaXUnIjXhUHWeVuixD1c00uy8kNLsvJGozqo+dgo6sx/hA9TWNL458PxnE3iTR0boUMy
+cH35r5o8W/EvV9Xc/bLp4bfP7jT4jhY1/wCmg7n3P4YrlhjtXfDCfzz+R2wwv88j7TtL+2nXNldW
+86dpImBH/fSmp6+NNJ1/ULBw2kX89tIOd0Z++PSRehB9wa+jvht8Uo9ZQrerHFfIN08a9LqL+9CP
+Y9R2rGvh2tnddfIyrUGtnfv5He0VxHiz4ky2ky2/hzSzqWosPM8jOFs0I63De456jA6mqZb4mgbt
+nhJj977GN+SPQPn/ANmrFU31cV1RkoPq4rqj0OiuM8G/Ec6hI8Os6a2najH81xZseJkGOYG9sj19
+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" class="org-logo">
+          </a>
+        </li><!-- end ngIf: org.url && org.logo -->
+        <!-- ngIf: org.url && !org.logo -->
+        <!-- ngIf: !org.url && org.logo -->
+      </ul>
+
+      <h4>Area of competence</h4>
+      <areas item="org" readonly="'true'" class="ng-isolate-scope"><div class="area clearfix">
+
+  <div class="col-md-12">
+    <div class="map">
+      <div class="attributions">
+        © <a href="http://openstreetmap.org" rel="noopener noreferrer" target="blank_">OpenStreetMap</a>
+        contributors.
+      </div>
+      <!-- ngIf: !area.maponly -->
+
+      <!-- ngIf: !area.maponly -->
+    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;" touch-action="none" data-view="23"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0; display: none;"></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%;"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed" style="display: none;"><ul></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+  </div>
+
+  <!-- ngIf: !area.maponly -->
+
+  <div class="loading" ng-show="area.loading">
+    <i class="glyphicon glyphicon-map-marker glyphicon-spin"></i>
+  </div>
+
+</div>
+
+</areas>
+      <br>
+
+      <h4>Members <span class="badge ng-binding">2</span></h4>
+      <ul>
+        <!-- ngRepeat: user in users | itemsPerPage: 10 --><li ng-repeat="user in users | itemsPerPage: 10" class="ng-binding ng-scope">
+          ADMIN Test
+        </li><!-- end ngRepeat: user in users | itemsPerPage: 10 --><li ng-repeat="user in users | itemsPerPage: 10" class="ng-binding ng-scope">
+          USER Test
+        </li><!-- end ngRepeat: user in users | itemsPerPage: 10 -->
+      </ul>
+
+      <dir-pagination-controls class="ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide -->
+
+</dir-pagination-controls>
+    </fieldset><!-- end ngIf: org.id -->
+    <fieldset class="gdpr">
+      <legend>GDPR</legend>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>
+            In accordance with the European General Data Protection Regulation, you are able to download your data on this platform at any time.
+          </p>
+          <p>
+            <a class="btn btn-primary" href="/console/account/gdpr/download" target="_blank">
+              <i class="glyphicon glyphicon-download-alt"></i> Download my data
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- ngIf: gdprAllowAccountDeletion --><div class="panel panel-default ng-scope" ng-if="gdprAllowAccountDeletion">
+        <div class="panel-body">
+          <p>
+            You may also permanently delete your account. WARNING: this cannot be undone !
+          </p>
+          <p>
+            <button class="btn btn-danger" ng-click="deleteUser()">
+              <i class="glyphicon glyphicon-exclamation-sign"></i> Delete my account
+            </button>
+          </p>
+        </div>
+      </div><!-- end ngIf: gdprAllowAccountDeletion -->
+    </fieldset>
+  </div>
+</div>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+/*
+ * Utilities for form validation
+ * 
+ * This validation tests are the same as the server-side tests
+ */ 
+
+function removeError(id) {
+	$("#div-" + id).removeClass("has-error");
+	$("#div-" + id + "> div > span#span-error").remove();
+}
+function addError(id, errCode) {
+	$("#div-" + id).addClass("has-error");
+	$("#div-" + id + " > div").append('<span id="span-error" class="help-block">' + errCode + '</span>');
+}
+
+function testField(field) {
+	removeError(field);
+	if (!isNotEmpty($("#"+field).val()) && isFieldRequired(field)) {
+		addError(field, "Required");
+		return false;
+	}
+	return true;
+}
+function testFirstname() {
+	var firstname = document.form.firstName.value;
+	removeError("firstName");
+	if (!isNotEmpty(firstname) && isFieldRequired("firstName")) {
+		addError("firstName", "Required");
+		return false;
+	}
+	return true;
+}
+function testSurname() {
+	var surname = document.form.surname.value;
+	removeError("surname");
+	if (!isNotEmpty(surname) && isFieldRequired("surname")) {
+		addError("surname", "Required");
+		return false;
+	}
+	return true;
+}
+function testEmail() {
+	var email = document.form.email.value;
+	removeError("email");
+	if (!isNotEmpty(email) && isFieldRequired("email")) {
+		addError("email", "Required");
+		return false;
+	} else if (!emailCheck(email)) {
+		addError("email", "Invalid format");
+		return false;	
+	}
+	return true;
+}
+function testUid() {
+	var uid = document.form.uid.value;
+	removeError("uid");
+	if (!isNotEmpty(uid) && isFieldRequired("uid")) {
+		addError("uid", "user identifier is required");
+		return false;
+	} else if (!isUidValid(uid)) {
+		addError("uid", 'Invalid uid. It must begin with a letter followed by one or more letters, digits, "-" (hyphens) or "." (dots)');
+		return false;
+	}
+	return true;
+}
+function testPassword() {
+	var password = document.form.password.value;
+	removeError("password");
+	if (!isPasswordValid(password)) {
+		addError("password", "The password must contain at least 8 characters");
+		return false;
+	}
+	return true;
+}
+function testConfirmPassword() {
+	var password = document.form.password.value;
+	var confirmPassword = document.form.confirmPassword.value;
+	removeError("confirmPassword");
+	if (password!=confirmPassword) {
+		addError("confirmPassword", "These passwords don't match");
+		return false;
+	}
+	return true;
+}
+function testPrivacyPolicyAgreed(){
+    removeError("privacyPolicyAgreed");
+    if(!$('#privacyPolicyAgreed').is(':checked')){
+	addError("privacyPolicyAgreed", "Please accept the conditions, in order to create the account");
+	return false;
+    }
+    return true;
+}
+
+/**
+ * First verification, be sure g-recaptcha-response textarea is not empty
+ */
+function testRecaptcha() {
+	var recaptcha_response_field = document.getElementById("g-recaptcha-response").value;
+	removeError("g-recaptcha");
+	if (!isNotEmpty(recaptcha_response_field)) {
+		addError("g-recaptcha", "Required");
+		return false;
+	}
+	/** Server side won't accept attribute with - in it, so reuse the old one */
+	document.form.recaptcha_response_field.value=recaptcha_response_field;
+	return true;
+}
+function testOrg(){
+    removeError("orgName");
+    removeError("orgShortName");
+    removeError("orgAddress");
+    removeError("orgType");
+    removeError("org");
+    if($('#createOrg').is(':checked')){
+        return testField("orgName") & testField("orgShortName") & testField("orgAddress") & testField("orgType");
+    } else {
+        return testField("org");
+    }
+}
+
+function setFormError() {
+	$("form#form > #message").remove();
+	$("form#form").prepend('<div id="message" class="alert alert-dismissable alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>The form contains errors</div>');
+}
+
+
+/*
+ * Password utilities
+ * 
+ * This file contains function to manage password.
+ */ 
+
+
+/**
+ * Evaluate the password quality
+ * 
+ * @param password
+ */
+function scorePassword( password) {
+    var score = 0;
+    if (!password)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<password.length; i++) {
+        letters[password[i]] = (letters[password[i]] || 0) + 1;
+        score += 5.0 / letters[password[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(password),
+        lower: /[a-z]/.test(password),
+        upper: /[A-Z]/.test(password),
+        nonWords: /\W/.test(password),
+    };
+
+    variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+
+    return parseInt(score);
+}
+
+/**
+ *  Sets the color and message based on the password quality.
+ * 
+ * @param elId id of the HTML element used to display the password quality
+ * @param password 
+ * 
+ * Note: requires jQuery
+ * TODO: We may use the bootstrap progress bars
+ * TODO: i18n of the tags (empty, weak, etc.)
+ */
+function feedbackPassStrength(elId, password){
+    var message = "";
+    var msgLabelClass = "";
+    var msgOffsetClass = "";
+    var el = $("#"+elId);
+    var patternLabel = /^label-/;
+    var patternOffset = /^col-lg-offset-/;
+    $.each( el.attr('class').split(/\s+/), function(index, item){
+        if (item.match(patternLabel) || item.match(patternOffset)){
+            el.removeClass(item);
+        }
+    });
+    if (!password){
+        message = "empty";
+        msgLabelClass = "default";
+    } else {
+        var score = scorePassword(password);
+        if (score > 80){
+            message= "strong";
+            msgLabelClass = "success";
+            msgOffsetClass = "8";
+        } else if (score > 60) {
+            message = "good";
+            msgLabelClass = "info";
+            msgOffsetClass = "6";
+        } else if (score >= 30) {
+            message = "weak";
+            msgLabelClass = "warning";
+            msgOffsetClass = "4";
+       } else {
+            message = "very weak";
+            msgLabelClass = "danger";
+            msgOffsetClass = "2";
+        }
+    }
+    $("#"+elId).html(message);
+    $("#"+elId).addClass("label-"+msgLabelClass);
+    $("#"+elId).addClass("col-lg-offset-"+msgOffsetClass);
+}
+
+
+/**
+ * Test if a field is required
+ * 
+ * A field is required if its HTML code contains a span with ".required"
+ * class 
+ * 
+ * @param {String} id
+ * @returns {boolean}
+ */
+function isFieldRequired(id) {
+	return $("#div-" + id + " label span").hasClass("required");
+}
+
+/**
+ * Test if a uid string is valid
+ * 
+ * The first character must be a letter, and the uid must contain only
+ * letters, digits, and/or the '.' or '-' character
+ * 
+ * @param {String} uid
+ * @returns {boolean}
+ */
+function isUidValid(uid) {
+	if (uid.charAt(0).match(/[a-z]/ig) && (uid.match(/[a-z0-9\.-]/ig).length == uid.length)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Trim and test if a string is not empty
+ * 
+ * @param {String} str
+ * @returns {boolean}
+ */
+function isNotEmpty(str) {
+    if(str == "-") {
+        return false;
+    }
+	if (str.trim().length){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Test if a password is valid
+ * 
+ * @param {String} password
+ * @returns {boolean}
+ */
+function isPasswordValid(password) {
+	if (!password || password.length < 8){
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Test if an email is valid
+ * 
+ * @see http://www.javascriptsource.com/forms/email-address-validation.html
+ * @param {String} email
+ * @returns {boolean}
+ */
+function emailCheck (emailStr) {
+
+  /* The following variable tells the rest of the function whether or not
+  to verify that the address ends in a two-letter country or well-known
+  TLD.  1 means check it, 0 means don't. */
+
+  var checkTLD=0;
+
+  /* The following is the list of known TLDs that an e-mail address must end with. */
+
+  var knownDomsPat=/^(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum|bzh)$/;
+
+  /* The following pattern is used to check if the entered e-mail address
+  fits the user@domain format.  It also is used to separate the username
+  from the domain. */
+
+  var emailPat=/^(.+)@(.+)$/;
+
+  /* The following string represents the pattern for matching all special
+  characters.  We don't want to allow special characters in the address. 
+  These characters include ( ) < > @ , ; : \ " . [ ] */
+
+  var specialChars="\\(\\)><@,;:\\\\\\\"\\.\\[\\]";
+
+  /* The following string represents the range of characters allowed in a 
+  username or domainname.  It really states which chars aren't allowed.*/
+
+  var validChars="\[^\\s" + specialChars + "\]";
+
+  /* The following pattern applies if the "user" is a quoted string (in
+  which case, there are no rules about which characters are allowed
+  and which aren't; anything goes).  E.g. "jiminy cricket"@disney.com
+  is a legal e-mail address. */
+
+  var quotedUser="(\"[^\"]*\")";
+
+  /* The following pattern applies for domains that are IP addresses,
+  rather than symbolic names.  E.g. joe@[123.124.233.4] is a legal
+  e-mail address. NOTE: The square brackets are required. */
+
+  var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+
+  /* The following string represents an atom (basically a series of non-special characters.) */
+
+  var atom=validChars + '+';
+
+  /* The following string represents one word in the typical username.
+  For example, in john.doe@somewhere.com, john and doe are words.
+  Basically, a word is either an atom or quoted string. */
+
+  var word="(" + atom + "|" + quotedUser + ")";
+
+  // The following pattern describes the structure of the user
+
+  var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+
+  /* The following pattern describes the structure of a normal symbolic
+  domain, as opposed to ipDomainPat, shown above. */
+
+  var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+
+  /* Finally, let's start trying to figure out if the supplied address is valid. */
+
+  /* Begin with the coarse pattern to simply break up user@domain into
+  different pieces that are easy to analyze. */
+
+  var matchArray=emailStr.match(emailPat);
+
+  if (matchArray==null) {
+
+  /* Too many/few @'s or something; basically, this address doesn't
+  even fit the general mould of a valid e-mail address. */
+
+    //alert("Email address seems incorrect (check @ and .'s)");
+    return false;
+  }
+  var user=matchArray[1];
+  var domain=matchArray[2];
+
+  // Start by checking that only basic ASCII characters are in the strings (0-127).
+
+  for (i=0; i<user.length; i++) {
+    if (user.charCodeAt(i)>127) {
+      //alert("Ths username contains invalid characters.");
+      return false;
+    }
+  }
+  for (i=0; i<domain.length; i++) {
+    if (domain.charCodeAt(i)>127) {
+      //alert("Ths domain name contains invalid characters.");
+      return false;
+    }
+  }
+
+  // See if "user" is valid 
+
+  if (user.match(userPat)==null) {
+
+    // user is not valid
+
+    //alert("The username doesn't seem to be valid.");
+    return false;
+  }
+
+  /* if the e-mail address is at an IP address (as opposed to a symbolic
+  host name) make sure the IP address is valid. */
+
+  var IPArray=domain.match(ipDomainPat);
+  if (IPArray!=null) {
+
+    // this is an IP address
+
+    for (var i=1;i<=4;i++) {
+      if (IPArray[i]>255) {
+        //alert("Destination IP address is invalid!");
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Domain is symbolic name.  Check if it's valid.
+
+  var atomPat=new RegExp("^" + atom + "$");
+  var domArr=domain.split(".");
+  var len=domArr.length;
+  for (i=0;i<len;i++) {
+    if (domArr[i].search(atomPat)==-1) {
+      //alert("The domain name does not seem to be valid.");
+      return false;
+    }
+  }
+
+  /* domain name seems valid, but now make sure that it ends in a
+  known top-level domain (like com, edu, gov) or a two-letter word,
+  representing country (uk, nl), and that there's a hostname preceding 
+  the domain or country. */
+
+  if (checkTLD && domArr[domArr.length-1].length!=2 && 
+    domArr[domArr.length-1].search(knownDomsPat)==-1) {
+    //alert("The address must end in a well-known domain or two letter " + "country.");
+    return false;
+  }
+
+  // Make sure there's a host name preceding the domain.
+
+  if (len<2) {
+    //alert("This address is missing a hostname!");
+    return false;
+  }
+
+  // If we've gotten this far, everything's valid!
+  return true;
+}
+</script>
+
+<script type="text/javascript">
+
+  /* Validate the form */
+  function validate() {
+    if (testFirstname() & testSurname() &
+      testField("phone") & testField("org") & testField("title") & testField("description") &
+      testField("facsimile") & testField("postalAddress")
+    ) {
+      return true;
+    } else {
+      setFormError();
+      return false;
+    }
+  }
+
+  /* The current Spring version does not include placeholder in
+   * form:input, form:textarea, or form:password
+   * We then add placeholder afterwards by javascript
+   */
+  $(document).ready(function () {
+    $("input#firstName").attr("placeholder", "First Name");
+    $("input#surname").attr("placeholder", "Surname");
+    $("input#phone").attr("placeholder", "Phone");
+    $("input#facsimile").attr("placeholder", "Fax");
+    $("input#org").attr("placeholder", "Organization");
+    $("input#title").attr("placeholder", "Job title");
+    $("textarea#postalAddress").attr("placeholder", "Postal address");
+    $("textarea#description").attr("placeholder", "Description");
+  });
+</script>
+
+
+</body></html>

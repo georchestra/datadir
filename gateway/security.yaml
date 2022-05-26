@@ -1,0 +1,85 @@
+# File included by gateway.yaml to set up the security/authentication aspects
+# of the application.
+
+georchestra:
+  gateway:
+    security:
+      oauth2:
+        # if enabled, make sure to have at least one OAuth2 client
+        # set up at spring.security.oauth2.client below 
+        enabled: false
+        proxy:
+          # If the OAuht2 clients need to go through an HTTP Proxy, enable and configure.
+          enabled: false
+          host: localhost
+          port: 8000
+          username: jack
+          password: insecure
+      ldap:
+        # Multiple LDAP data sources are supported. The first key defines a simple
+        # name for them. The `default` one here, disabled by default, is pre-configured
+        # to use Georchestra's default OpenLDAP database.
+        # You should usually just enable it in the georchestra dataidr's gateway.yml
+        # with georchestra.gateway.security.ldap.default.enabled: true
+        default:
+          enabled: true
+        ldap2:
+          # Sample additional LDAP database configuration. Disabled. Enable and
+          # tweak as needed if you want to authenticate against multiple LDAP databases.
+          # Can also change the 'ldap2' key to something meaningful to you.
+          enabled: false
+          extended: true
+          url: ${ldapScheme}://${ldapHost}:${ldapPort}
+          baseDn: ${ldapBaseDn:dc=georchestra,dc=org}
+          users:
+            rdn: ${ldapUsersRdn:ou=users}
+            searchFilter: ${ldapUserSearchFilter:(uid={0})}
+          roles:
+            rdn: ${ldapRolesRdn:ou=roles}
+            searchFilter: ${ldapRolesSearchFilter:(member={0})}
+          orgs:
+            rdn: ${ldapOrgsRdn:ou=orgs}
+        activeDirSample:
+          enabled: false
+          activeDirectory: true
+          url: ldap://test.activedirectory.com:389
+          domain: test.georchestra.org
+          baseDn: dc=georchestra,dc=org
+          users.searchFilter: (&(objectClass=user)(userPrincipalName={0}))
+
+# If georchestra.gateway.security.oauth2.enabled == true above, set up
+# the OAuth2/OpenID Connect registrations here.
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        #google and github are well known embedded OAuth2 providers. Google's is also OpenID Connect compliant
+#        registration:
+#          google:
+#            clientId: ${GOOGLE_CLIENT_ID}
+#            clientSecret: ${GOOGLE_CLIENT_SECRET}
+#            scope: openid, email, profile, address, phone
+#            # profile, picture, website, gender, birthdate, zoneinfo, locale, updated_at.
+#            # The phone scope requests access to the phone_number and  phone_number_verified claims.
+#            # name, family_name, given_name, middle_name, nickname, preferred_username,
+#          github:
+#            clientId: ${GITHUB_CLIENT_ID}
+#            clientSecret: ${GITHUB_CLIENT_SECRET}
+#          # To set up your own OAuth2/OIDC registratgion (e.g. for Keycloack), define a
+#          # client registration there and a provider as shown below (both named icu in this example)
+#          icu:
+#            client-name: icu
+#            client-id: ${ICU_CLIENT_ID}
+#            client-secret: ${ICU_CLIENT_SECRET}
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/icu"
+#            scope: openid
+#        provider:
+#          icu:
+#            issuer-uri: https://business-test-login.telekom.de/auth/realms/telekom-customer-k2
+#            # if issue-uri provided, then spring will autoconfigure the following fields (hence commented out)
+#            #authorization-uri:
+#            #token-uri:
+#            #user-info-uri:
+#            userNameAttribute: preferred_username
+

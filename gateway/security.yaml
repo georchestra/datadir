@@ -39,13 +39,21 @@ georchestra:
             searchFilter: ${ldapRolesSearchFilter:(member={0})}
           orgs:
             rdn: ${ldapOrgsRdn:ou=orgs}
+          adminDn: uid=admin,ou=georchestra,ou=org
+          adminPassword: s3cr3t
         activeDirSample:
           enabled: false
           activeDirectory: true
-          url: ldap://test.activedirectory.com:389
-          domain: test.georchestra.org
-          baseDn: dc=georchestra,dc=org
-          users.searchFilter: (&(objectClass=user)(userPrincipalName={0}))
+          url: ${ldapScheme}://${ldapHost}:${ldapPort}
+          baseDn: ${ldapBaseDn:dc=georchestra,dc=org}
+          users:
+            rdn: ${ldapUsersRdn:ou=users}
+            searchFilter: ${ldapUserSearchFilter:(uid={0})}
+          roles:
+            rdn: ${ldapRolesRdn:ou=roles}
+            searchFilter: (&(objectClass=user)(userPrincipalName={0}))
+          adminDn: uid=gdi-admin,ou=myorg,ou=Applications
+          adminPassword: s3cr3t
 
 # If georchestra.gateway.security.oauth2.enabled == true above, set up
 # the OAuth2/OpenID Connect registrations here.

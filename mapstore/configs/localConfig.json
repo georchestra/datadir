@@ -649,6 +649,7 @@
             "StyleEditor",
             "Save",
             "SaveAs",
+            "SearchByBookmark",
             "MapCatalog"
         ],
         "embedded": ["Details",

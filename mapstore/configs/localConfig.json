@@ -641,7 +641,7 @@
                 "declineUrl" : "https://www.georchestra.org/"
                 }
             },
-            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "SidebarMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
             "Timeline",
             "Playback",

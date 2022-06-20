@@ -541,6 +541,9 @@
                 "useFixedScales": true,
                 "mapPreviewOptions": {
                   "enableScalebox": true
+                },
+                "overlayLayersOptions": {
+                  "enabled": true
                 }
               }
             }, "MapImport", "MapExport", {

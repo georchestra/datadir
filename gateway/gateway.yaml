@@ -13,79 +13,65 @@ georchestra:
       roles: true
       org: true
       orgname: true
-      email: true
-      firstName: true
-      lastName: true
-      userid: false
-      lastUpdated: false
-      tel: false
-      address: false
-      title: false
-      notes: false
-      orgid: false
-      orgLastUpdated: false
-      jsonUser: false
-      jsonOrganization: false
     global-access-rules:
+    - intercept-url: "*/ogcproxy/*"
+      allowed-roles: NO_ONE
+    - intercept-url: /testPage
+      anonymous: false
+      allowed-roles: USER
+    - intercept-url: "*(?|&amp;)login*"
+      allowed-roles: USER,GN_EDITOR,GN_REVIEWER,GN_ADMIN,ADMINISTRATOR,SUPERUSER,ORGADMIN
     - intercept-url:
-      - /**
+      - "/**"
+      - "/proxy/?url=*"
       anonymous: true
     services:
+      cas:
+        target: http://cas:8080/cas/
+        access-rules:
+        - intercept-url: /cas/login.*
+          anonymous: true
+      header:
+        target: http://header:8080/header/
+        access-rules:
+        - intercept-url: /header/.*
+          anonymous: true
       analytics:
         target: http://analytics:8080/analytics/
-        headers:
-          proxy: true
-          username: true
-          roles: true
-          org: true
         access-rules:
-        - intercept-url: /analytics/**
-          allowed-roles: ROLE_SUPERUSER, ROLE_ORGADMIN
-      atlas: 
-        target: http://atlas:8080/atlas/
-      console: 
+        - intercept-url: /analytics/.*
+          allowed-roles: SUPERUSER,ORGADMIN
+      console:
         target: http://console:8080/console/
         access-rules:
         - intercept-url:
-          - /console/public/**
-          - /console/manager/public/**
+          - /console/public/.*
+          - /console/manager/public/.*
           #/console/account resources are private except account/new and account/passwordRecovery
           - /console/account/new
           - /console/account/newPassword
           - /console/account/passwordRecovery
-          - /console/account/js/**
-          - /console/account/css/**
-          - /console/account/fonts/**
+          - /console/account/js/.*
+          - /console/account/css/.*
+          - /console/account/fonts/.*
           - /console/testPage
           anonymous: true
         - intercept-url:
-          - /console/private/**
-          - /console/manager/**
-          - /console/*/emails
-          - /console/*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
-          - /console/*/emailTemplates
+          - /console/private/.*
+          - /console/manager/.*
+          - /console/.*/emails
+          - /console/.*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
+          - /console/.*/emailTemplates
           - /console/attachments
           allowed-roles: SUPERUSER,ORGADMIN
         - intercept-url: /console/emailProxy #activated for members having the EMAILPROXY role
           allowed-roles: EMAILPROXY
-        - intercept-url: /console/internal/**
+        - intercept-url: /console/internal/.*
           allowed-roles: SUPERUSER
-        - intercept-url: /console/account/**
+        - intercept-url: /console/account/.*
           anonymous: false
-      extractorapp: 
-        target: http://extractorapp:8080/extractorapp/
-        access-rules:
-        - intercept-url: /extractorapp/admin*
-          allowed-roles: ADMINISTRATOR
-        - intercept-url: /extractorapp/jobs/**
-          allowed-roles: ADMINISTRATOR
-        - intercept-url: /extractorapp/**
-          allowed-roles: EXTRACTORAPP
-      geonetwork: 
+      geonetwork:
         target: http://geonetwork:8080/geonetwork/
-        access-rules:
-        - intercept-url: /geonetwork/**
-          anonymous: true
         headers:
           proxy: true
           username: false
@@ -93,92 +79,5 @@ georchestra:
           org: false
           orgname: true
           json-user: true
-      geoserver: 
+      geoserver:
         target: http://geoserver:8080/geoserver/
-        access-rules:
-        - intercept-url: /geoserver/**
-          anonymous: true
-      geofence:
-        target: http://geofence:8080/geofence/
-        access-rules:
-        - intercept-url: /geofence/**
-          allowed-roles: ADMINISTRATOR
-      header: 
-        target: http://header:8080/header/
-        access-rules:
-        - intercept-url: /header/**
-          anonymous: true
-      mapfishapp: 
-        target: http://mapfishapp:8080/mapfishapp/
-        access-rules:
-        - intercept-url: /mapfishapp/ogcproxy/**
-          forbidden: true
-        - intercept-url: /mapfishapp/**
-          anonymous: true
-      geowebcache: 
-        target: http://geowebcache:8080/geowebcache/
-      mapstore: 
-        target: http://mapstore:8080/mapstore/
-      datafeeder: 
-        target: http://datafeeder:8080/datafeeder
-        headers:
-          proxy: true
-          username: false
-          roles: false
-          org: false
-          orgname: false
-          json-user: true
-          json-organization: true
-        access-rules:
-        - intercept-url: /datafeeder/**
-          anonymous: false
-      import: 
-        target: http://import:80/
-        access-rules:
-        - intercept-url: /import/**
-          anonymous: false
-
----
-# docker profile, sets backend services target URLs to match default docker-compose host names and ports
-spring.config.activate.on-profile: docker
-ldapHost: ldap
-georchestra.gateway.services:
-  analytics.target: http://analytics:8080/analytics/
-  atlas.target: http://atlas:8080/atlas/
-  console.target: http://console:8080/console/
-  datafeeder.target: http://datafeeder:8080/datafeeder
-  extractorapp.target: http://extractorapp:8080/extractorapp/
-  geonetwork.target: http://geonetwork:8080/geonetwork/
-  geoserver.target: http://geoserver:8080/geoserver/
-  geowebcache.target: http://geowebcache:8080/geowebcache/
-  header.target: http://header:8080/header/
-  import.target: http://import:80/
-  mapfishapp.target: http://mapfishapp:8080/mapfishapp/
-  mapstore.target: http://mapstore:8080/mapstore/
-
----
-spring.config.activate.on-profile: dev
-
-georchestra.gateway.security:
-  oauth2.enabled: false
-  ldap:
-    default:
-      enabled: true
-      url: ldap://localhost:3891
-    ldap2:
-      enabled: true
-      url: ldap://localhost:3899
-
-georchestra.gateway.services:
-  header.target: http://localhost:10003/header/
-  mapfishapp.target: http://localhost:10004/mapfishapp/
-  extractorapp.target: http://localhost:10005/extractorapp/
-  geoserver.target: http://localhost:10006/geoserver/
-  console.target: http://localhost:10007/console/
-  geonetwork.target: http://localhost:10008/geonetwork/
-  analytics.target: http://localhost:10009/analytics/
-  mapstore.target: http://localhost:10010/mapstore/
-  datafeeder.target: http://localhost:10011/datafeeder
-  import.target: http://localhost:10012/
-  atlas.target: http://localhost:8080/atlas/
-  geowebcache.target: http://localhost:8080/geowebcache/

@@ -1,0 +1,78 @@
+# Spring-boot/cloud application configuration.
+
+info:
+  component: Gateway Server
+  instance-id: ${spring.application.name}:${spring.application.instance_id:${spring.cloud.client.ip-address}}:${server.port}
+server:
+  port: 8080
+  compression.enabled: true
+  # HTTP/2 is only supported over TLS (HTTPS)
+  # So we need to configure SSL if we want to support HTTP/2
+  http2.enabled: ${server.ssl.enabled}
+  ssl:
+    enabled: false
+spring:
+  config:
+    import: optional:file:${georchestra.datadir}/default.properties,optional:file:${georchestra.datadir}/gateway/gateway.yaml
+  main:
+    banner-mode: off
+    web-application-type: reactive
+  application.name: gateway-service
+  thymeleaf.cache: false
+  autoconfigure:
+    exclude:
+    - org.springframework.boot.autoconfigure.ldap.LdapAutoConfiguration
+  cloud:
+    gateway:
+      enabled: true
+      global-filter.websocket-routing.enabled: true
+      metrics.enabled: true
+      default-filters:
+      - SecureHeaders
+      - TokenRelay
+      - RemoveSecurityHeaders
+      # AddSecHeaders appends sec-* headers to proxied requests based on the
+      # georchestra.gateway.default-headers and georchestra.gateway.servies.<service>.headers config properties
+      - AddSecHeaders
+      global-filter:
+        websocket-routing:
+          enabled: true
+      filter:
+        secure-headers:
+          enabled: true
+          disable:
+          - content-security-policy
+          frame-options: SAMEORIGIN
+          xss-protection-header: 0
+          referrer-policy: no-referrer
+          #content-security-policy: script-src 'self' 'unsafe-eval'; object-src 'self';
+      #routes: ought to be loaded from gateway.yaml, preferrably from georchestra's datadir
+management:
+  info:
+    build.enabled: true
+    java.enabled: true
+    env.enabled: true
+    git:
+      enabled: true
+      mode: full
+  endpoint:
+    info.enabled: true
+    metrics.enabled: true
+    health.enabled: true
+    health.probes.enabled: true
+    prometheus.enabled: true
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: "*"
+debug: true
+logging:
+  level:
+    root: info
+    '[org.springframework]': info
+    '[org.springframework.cloud.gateway]': info
+    '[org.springframework.security]': info
+    '[org.springframework.security.oauth2]': info
+    '[org.springframework.http.codec.json]': info
+    '[org.springframework.security.oauth2.client.oidc]': info
+    '[org.georchestra.gateway.security]': trace
+    '[org.springframework.security.ldap]': trace

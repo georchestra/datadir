@@ -1,0 +1,1199 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/select2.css" rel="stylesheet">
+    <link href="css/console.css" rel="stylesheet">
+    <title>New account.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body>
+    
+
+
+    
+    <div id="go_head">
+        <iframe src="/header/" style="width:100%;height:90px;border:none;overflow:hidden;" scrolling="no"></iframe>
+    </div>
+    
+
+
+
+    <fieldset class="container">
+        <div class="page-header">
+            <h1>New account. <small>Create your account.</small></h1>
+        </div>
+        <p class="lead">An email will be sent to the above address to confirm the account creation.</p>
+        <form id="form" name="form" class="form-horizontal col-lg-10 col-lg-offset-1" action="new" method="post" onsubmit="return validate();">
+
+            
+
+            
+            
+            
+
+            <fieldset>
+                <legend>User details</legend>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-firstName" class="form-group ">
+		<label class="control-label col-lg-4" for="firstName">First Name<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="firstName" name="firstName" class="form-control" onkeyup="makeUid();" onchange="makeUid();" type="text" value="" size="30" maxlength="80" placeholder="First Name">
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-surname" class="form-group ">
+		<label class="control-label col-lg-4" for="surname">Surname<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="surname" name="surname" class="form-control" onkeyup="makeUid();" onchange="makeUid();" type="text" value="" size="30" maxlength="80" placeholder="Surname">
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-email" class="form-group ">
+		<label class="control-label col-lg-4" for="email">E-mail<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="email" name="email" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="E-mail">
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-phone" class="form-group ">
+		<label class="control-label col-lg-4" for="phone">Phone</label>
+		<div class="col-lg-8">
+			
+				<input id="phone" name="phone" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="Phone">
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-org" class="form-group ">
+		<label class="control-label col-lg-4" for="org">Organization<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<select id="org" name="org" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+					<option value="-"></option>
+					<option value="C2C">Camptocamp</option><option value="PSC">Project Steering Committee</option>
+				</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 603px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-org-container"><span class="select2-selection__rendered" id="select2-org-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+			
+			
+		</div>
+	</div>
+
+
+
+                <div id="org_checkbox_div" class="form-group" style="margin-top: -15px;">
+                    <div class="col-lg-8 col-lg-offset-4">
+                        <input id="createOrg" name="createOrg" type="checkbox" value="true"><input type="hidden" name="_createOrg" value="on">
+                        <label for="createOrg" style="font-weight:normal">My organization is not present</label>
+                    </div>
+                </div>
+
+                <div id="create_org_div" class="create_org_block">
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgName" class="form-group ">
+		<label class="control-label col-lg-4" for="orgName">Organization Name<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="orgName" name="orgName" class="form-control" type="text" value="" size="30" maxlength="80">
+			
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgShortName" class="form-group ">
+		<label class="control-label col-lg-4" for="orgShortName">Short Name<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="orgShortName" name="orgShortName" class="form-control" type="text" value="" size="30" maxlength="80" pattern="^\w*$" title="Short name must only contain alphanumeric characters">
+			
+			
+		</div>
+	</div>
+
+
+                    <script>
+                      document.querySelector('#orgShortName').setAttribute('pattern', '^\\w*$')
+                      document.querySelector('#orgShortName').setAttribute('title', 'Short name must only contain alphanumeric characters')
+                    </script>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgAddress" class="form-group ">
+		<label class="control-label col-lg-4" for="orgAddress">Address</label>
+		<div class="col-lg-8">
+			<textarea id="orgAddress" name="orgAddress" class="form-control"></textarea>
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgType" class="form-group ">
+		<label class="control-label col-lg-4" for="orgType">Organization type<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<select id="orgType" name="orgType" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+					<option value="-"></option>
+					<option value="Company">Company</option><option value="Association">Association</option><option value="Individual">Individual</option><option value="NGO">NGO</option><option value="Other">Other</option>
+				</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-orgType-container"><span class="select2-selection__rendered" id="select2-orgType-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+			
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgDescription" class="form-group ">
+		<label class="control-label col-lg-4" for="orgDescription">Description</label>
+		<div class="col-lg-8">
+			
+				<input id="orgDescription" name="orgDescription" class="form-control" type="text" value="" size="30" maxlength="80">
+			
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgUrl" class="form-group ">
+		<label class="control-label col-lg-4" for="orgUrl">Url</label>
+		<div class="col-lg-8">
+			
+				<input id="orgUrl" name="orgUrl" class="form-control" type="text" value="" size="30" maxlength="80">
+			
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgLogo" class="form-group ">
+		<label class="control-label col-lg-4" for="orgLogo">Logo</label>
+		<div class="col-lg-8">
+			<textarea id="orgLogo" name="orgLogo" class="form-control"></textarea>
+			
+		</div>
+	</div>
+
+
+
+                    <link rel="stylesheet" href="/console/manager/public/libraries.css">
+                    <link rel="stylesheet" href="/console/manager/public/app.css">
+                    <style>
+                      .area {
+                        margin: 2em;
+                        background: white;
+                      }
+                      .area > .col-md-4 {
+                        border-right: 1em solid white;
+                        border-bottom: 1em solid white;
+                      }
+                      /* can't set orgLogo to input[hidden] <3 */
+                      #div-orgLogo {
+                        display: none;
+                      }
+                      imageinput .col-md-4 {
+                        text-align: right;
+                      }
+                      .preview {
+                        max-width: 100%;
+                        max-height: 300px;
+                      }
+                      input:focus:invalid,
+                      input:invalid {
+                        border-color: red;
+                      }
+                    </style>
+                    <script src="/console/manager/public/libraries.js"></script>
+                    <script src="/console/manager/public/templates.js"></script>
+                    <script src="/console/manager/public/app.js"></script>
+                    <script>require('app')</script>
+
+                    <div ng-app="manager" ng-strict-di="" ng-controller="StandaloneController" class="ng-scope">
+                      <imageinput target="'#orgLogo'" class="form-group ng-isolate-scope"><div class="row">
+  <div class="col-md-4">
+    <label class="btn btn-primary">
+      <span translate="" class="ng-scope">Upload logo</span>
+      <input type="file" accept="image/*" class="image-input" style="display:none;">
+    </label>
+  </div>
+  <div class="col-md-8 ng-hide" ng-show="imageinput.value">
+    <button ng-click="imageinput.delete()" class="close delete-logo">
+      ×
+    </button>
+    <img class="preview img-responsive" ng-src="data:image/jpeg;base64," src="data:image/jpeg;base64,">
+  </div>
+</div>
+
+</imageinput>
+                      <areas item="org" class="ng-isolate-scope"><div class="area clearfix">
+
+  <div class="col-md-8">
+    <div class="map">
+      <div class="attributions">
+        © <a href="http://openstreetmap.org" rel="noopener noreferrer" target="blank_">OpenStreetMap</a>
+        contributors.
+      </div>
+      <!-- ngIf: !area.maponly --><div class="btn-group selection ng-scope" ng-if="!area.maponly">
+        <select ng-change="area.selectBy()" ng-model="area.group" class="btn btn-default btn-sm ng-untouched ng-valid ng-empty ng-dirty ng-valid-parse">
+          <option value="" disabled="" class="glyphicon glyphicon-ok-circle ng-scope" translate="" selected="selected">Selection</option>
+          <option value="all" class="alternate ng-binding">— All —</option>
+          <!-- ngRepeat: group in area.groups -->
+          <option value="none" class="alternate ng-binding">— None —</option>
+        </select>
+        <button class="btn btn-default btn-sm ol-bbox ng-scope" title="Select by Bounding Box" ng-click="area.selectBBOX()" ng-class="{active: area.draw}" type="button" translate="">Select by Bounding Box</button>
+      </div><!-- end ngIf: !area.maponly -->
+
+      <!-- ngIf: !area.maponly --><div class="search-container ng-scope" ng-init="search=''" ng-if="!area.maponly">
+        <button class="btn btn-link btn-sm search-clear ng-hide" ng-click="search = ''" ng-show="search != ''">
+          <i class="glyphicon glyphicon-remove-sign"></i>
+        </button>
+        <input class="search form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" ng-model="search" autocomplete="off">
+      </div><!-- end ngIf: !area.maponly -->
+    <div class="ol-viewport" touch-action="none" data-view="23" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0; display: none;"></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%;"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed" style="display: none;"><ul></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+  </div>
+
+  <!-- ngIf: !area.maponly --><div class="col-md-4 ng-scope" ng-if="!area.maponly">
+
+    <p class="alert alert-info ng-binding">
+      0 Area(s)
+      <!-- ngIf: area.item.$resolved -->
+      <!-- ngIf: !area.item.$resolved --><input type="hidden" ng-if="!area.item.$resolved" ng-value="area.ids" name="orgCities" autocomplete="off" class="ng-scope" value=""><!-- end ngIf: !area.item.$resolved -->
+    </p>
+    
+    <ul class="list">
+      <!-- ngRepeat: f in area.collection.getArray() | itemsPerPage: 20 -->
+    </ul>
+    <dir-pagination-controls max-size="7" class="ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide -->
+
+</dir-pagination-controls>
+
+    <!-- ngIf: area.canExport --><div class="btn-group importexport ng-scope" ng-if="area.canExport">
+      <button class="btn btn-default btn-sm ng-scope" ng-click="area.import()" translate="">CSV Import</button>
+      <button class="btn btn-default btn-sm ng-scope" ng-click="area.export()" translate="">CSV Export</button>
+    </div><!-- end ngIf: area.canExport -->
+
+  </div><!-- end ngIf: !area.maponly -->
+
+  <div class="loading" ng-show="area.loading">
+    <i class="glyphicon glyphicon-map-marker glyphicon-spin"></i>
+  </div>
+
+</div>
+
+</areas>
+                    </div>
+
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-title" class="form-group ">
+		<label class="control-label col-lg-4" for="title">Job title</label>
+		<div class="col-lg-8">
+			
+				<input id="title" name="title" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="Job title">
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-description" class="form-group ">
+		<label class="control-label col-lg-4" for="description">Description</label>
+		<div class="col-lg-8">
+			<textarea id="description" name="description" class="form-control" placeholder="Description"></textarea>
+			
+		</div>
+	</div>
+
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Credentials</legend>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-uid" class="form-group ">
+		<label class="control-label col-lg-4" for="uid">User ID<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<div class="input-group">
+			
+				<input id="uid" name="uid" class="form-control" type="text" value="" size="30" maxlength="80" placeholder="User ID">
+			
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				</div>
+			
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-password" class="form-group ">
+		<label class="control-label col-lg-4" for="password">Password<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<div class="input-group">
+			
+				<input id="password" name="password" class="form-control" onkeypress="cleanConfirmPassword();" onkeyup="feedbackPassStrength('pwdQuality', value);" onblur="passwordOnBlur();" onchange="cleanConfirmPassword();feedbackPassStrength('pwdQuality', value);" type="password" value="" size="30" maxlength="80" placeholder="Password">
+			
+				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				</div>
+			
+			
+			
+				<span id="pwdQuality" class="help-block label label-danger"></span>
+			
+		</div>
+	</div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-confirmPassword" class="form-group ">
+		<label class="control-label col-lg-4" for="confirmPassword">Confirm password<span class="required">&nbsp;*</span></label>
+		<div class="col-lg-8">
+			
+				<input id="confirmPassword" name="confirmPassword" class="form-control" onblur="confirmPasswordOnBlur();" type="password" value="" size="30" maxlength="80" placeholder="Confirm password">
+			
+			
+			
+		</div>
+	</div>
+
+
+            </fieldset>
+
+            
+
+            
+
+            <fieldset>
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-4 text-right">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </fieldset>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/select2.full.js"></script>
+    
+<script type="text/javascript">
+/*
+ * Utilities for form validation
+ * 
+ * This validation tests are the same as the server-side tests
+ */ 
+
+function removeError(id) {
+	$("#div-" + id).removeClass("has-error");
+	$("#div-" + id + "> div > span#span-error").remove();
+}
+function addError(id, errCode) {
+	$("#div-" + id).addClass("has-error");
+	$("#div-" + id + " > div").append('<span id="span-error" class="help-block">' + errCode + '</span>');
+}
+
+function testField(field) {
+	removeError(field);
+	if (!isNotEmpty($("#"+field).val()) && isFieldRequired(field)) {
+		addError(field, "Required");
+		return false;
+	}
+	return true;
+}
+function testFirstname() {
+	var firstname = document.form.firstName.value;
+	removeError("firstName");
+	if (!isNotEmpty(firstname) && isFieldRequired("firstName")) {
+		addError("firstName", "Required");
+		return false;
+	}
+	return true;
+}
+function testSurname() {
+	var surname = document.form.surname.value;
+	removeError("surname");
+	if (!isNotEmpty(surname) && isFieldRequired("surname")) {
+		addError("surname", "Required");
+		return false;
+	}
+	return true;
+}
+function testEmail() {
+	var email = document.form.email.value;
+	removeError("email");
+	if (!isNotEmpty(email) && isFieldRequired("email")) {
+		addError("email", "Required");
+		return false;
+	} else if (!emailCheck(email)) {
+		addError("email", "Invalid format");
+		return false;	
+	}
+	return true;
+}
+function testUid() {
+	var uid = document.form.uid.value;
+	removeError("uid");
+	if (!isNotEmpty(uid) && isFieldRequired("uid")) {
+		addError("uid", "user identifier is required");
+		return false;
+	} else if (!isUidValid(uid)) {
+		addError("uid", 'Invalid uid. It must begin with a letter followed by one or more letters, digits, "-" (hyphens) or "." (dots)');
+		return false;
+	}
+	return true;
+}
+function testPassword() {
+	var password = document.form.password.value;
+	removeError("password");
+	if (!isPasswordValid(password)) {
+		addError("password", "The password must contain at least 8 characters");
+		return false;
+	}
+	return true;
+}
+function testConfirmPassword() {
+	var password = document.form.password.value;
+	var confirmPassword = document.form.confirmPassword.value;
+	removeError("confirmPassword");
+	if (password!=confirmPassword) {
+		addError("confirmPassword", "These passwords don't match");
+		return false;
+	}
+	return true;
+}
+function testPrivacyPolicyAgreed(){
+    removeError("privacyPolicyAgreed");
+    if(!$('#privacyPolicyAgreed').is(':checked')){
+	addError("privacyPolicyAgreed", "Please accept the conditions, in order to create the account");
+	return false;
+    }
+    return true;
+}
+
+/**
+ * First verification, be sure g-recaptcha-response textarea is not empty
+ */
+function testRecaptcha() {
+	var recaptcha_response_field = document.getElementById("g-recaptcha-response").value;
+	removeError("g-recaptcha");
+	if (!isNotEmpty(recaptcha_response_field)) {
+		addError("g-recaptcha", "Required");
+		return false;
+	}
+	/** Server side won't accept attribute with - in it, so reuse the old one */
+	document.form.recaptcha_response_field.value=recaptcha_response_field;
+	return true;
+}
+function testOrg(){
+    removeError("orgName");
+    removeError("orgShortName");
+    removeError("orgAddress");
+    removeError("orgType");
+    removeError("org");
+    if($('#createOrg').is(':checked')){
+        return testField("orgName") & testField("orgShortName") & testField("orgAddress") & testField("orgType");
+    } else {
+        return testField("org");
+    }
+}
+
+function setFormError() {
+	$("form#form > #message").remove();
+	$("form#form").prepend('<div id="message" class="alert alert-dismissable alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>The form contains errors</div>');
+}
+
+
+/*
+ * Password utilities
+ * 
+ * This file contains function to manage password.
+ */ 
+
+
+/**
+ * Evaluate the password quality
+ * 
+ * @param password
+ */
+function scorePassword( password) {
+    var score = 0;
+    if (!password)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<password.length; i++) {
+        letters[password[i]] = (letters[password[i]] || 0) + 1;
+        score += 5.0 / letters[password[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(password),
+        lower: /[a-z]/.test(password),
+        upper: /[A-Z]/.test(password),
+        nonWords: /\W/.test(password),
+    };
+
+    variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+
+    return parseInt(score);
+}
+
+/**
+ *  Sets the color and message based on the password quality.
+ * 
+ * @param elId id of the HTML element used to display the password quality
+ * @param password 
+ * 
+ * Note: requires jQuery
+ * TODO: We may use the bootstrap progress bars
+ * TODO: i18n of the tags (empty, weak, etc.)
+ */
+function feedbackPassStrength(elId, password){
+    var message = "";
+    var msgLabelClass = "";
+    var msgOffsetClass = "";
+    var el = $("#"+elId);
+    var patternLabel = /^label-/;
+    var patternOffset = /^col-lg-offset-/;
+    $.each( el.attr('class').split(/\s+/), function(index, item){
+        if (item.match(patternLabel) || item.match(patternOffset)){
+            el.removeClass(item);
+        }
+    });
+    if (!password){
+        message = "empty";
+        msgLabelClass = "default";
+    } else {
+        var score = scorePassword(password);
+        if (score > 80){
+            message= "strong";
+            msgLabelClass = "success";
+            msgOffsetClass = "8";
+        } else if (score > 60) {
+            message = "good";
+            msgLabelClass = "info";
+            msgOffsetClass = "6";
+        } else if (score >= 30) {
+            message = "weak";
+            msgLabelClass = "warning";
+            msgOffsetClass = "4";
+       } else {
+            message = "very weak";
+            msgLabelClass = "danger";
+            msgOffsetClass = "2";
+        }
+    }
+    $("#"+elId).html(message);
+    $("#"+elId).addClass("label-"+msgLabelClass);
+    $("#"+elId).addClass("col-lg-offset-"+msgOffsetClass);
+}
+
+
+/**
+ * Test if a field is required
+ * 
+ * A field is required if its HTML code contains a span with ".required"
+ * class 
+ * 
+ * @param {String} id
+ * @returns {boolean}
+ */
+function isFieldRequired(id) {
+	return $("#div-" + id + " label span").hasClass("required");
+}
+
+/**
+ * Test if a uid string is valid
+ * 
+ * The first character must be a letter, and the uid must contain only
+ * letters, digits, and/or the '.' or '-' character
+ * 
+ * @param {String} uid
+ * @returns {boolean}
+ */
+function isUidValid(uid) {
+	if (uid.charAt(0).match(/[a-z]/ig) && (uid.match(/[a-z0-9\.-]/ig).length == uid.length)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Trim and test if a string is not empty
+ * 
+ * @param {String} str
+ * @returns {boolean}
+ */
+function isNotEmpty(str) {
+    if(str == "-") {
+        return false;
+    }
+	if (str.trim().length){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Test if a password is valid
+ * 
+ * @param {String} password
+ * @returns {boolean}
+ */
+function isPasswordValid(password) {
+	if (!password || password.length < 8){
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Test if an email is valid
+ * 
+ * @see http://www.javascriptsource.com/forms/email-address-validation.html
+ * @param {String} email
+ * @returns {boolean}
+ */
+function emailCheck (emailStr) {
+
+  /* The following variable tells the rest of the function whether or not
+  to verify that the address ends in a two-letter country or well-known
+  TLD.  1 means check it, 0 means don't. */
+
+  var checkTLD=0;
+
+  /* The following is the list of known TLDs that an e-mail address must end with. */
+
+  var knownDomsPat=/^(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum|bzh)$/;
+
+  /* The following pattern is used to check if the entered e-mail address
+  fits the user@domain format.  It also is used to separate the username
+  from the domain. */
+
+  var emailPat=/^(.+)@(.+)$/;
+
+  /* The following string represents the pattern for matching all special
+  characters.  We don't want to allow special characters in the address. 
+  These characters include ( ) < > @ , ; : \ " . [ ] */
+
+  var specialChars="\\(\\)><@,;:\\\\\\\"\\.\\[\\]";
+
+  /* The following string represents the range of characters allowed in a 
+  username or domainname.  It really states which chars aren't allowed.*/
+
+  var validChars="\[^\\s" + specialChars + "\]";
+
+  /* The following pattern applies if the "user" is a quoted string (in
+  which case, there are no rules about which characters are allowed
+  and which aren't; anything goes).  E.g. "jiminy cricket"@disney.com
+  is a legal e-mail address. */
+
+  var quotedUser="(\"[^\"]*\")";
+
+  /* The following pattern applies for domains that are IP addresses,
+  rather than symbolic names.  E.g. joe@[123.124.233.4] is a legal
+  e-mail address. NOTE: The square brackets are required. */
+
+  var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+
+  /* The following string represents an atom (basically a series of non-special characters.) */
+
+  var atom=validChars + '+';
+
+  /* The following string represents one word in the typical username.
+  For example, in john.doe@somewhere.com, john and doe are words.
+  Basically, a word is either an atom or quoted string. */
+
+  var word="(" + atom + "|" + quotedUser + ")";
+
+  // The following pattern describes the structure of the user
+
+  var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+
+  /* The following pattern describes the structure of a normal symbolic
+  domain, as opposed to ipDomainPat, shown above. */
+
+  var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+
+  /* Finally, let's start trying to figure out if the supplied address is valid. */
+
+  /* Begin with the coarse pattern to simply break up user@domain into
+  different pieces that are easy to analyze. */
+
+  var matchArray=emailStr.match(emailPat);
+
+  if (matchArray==null) {
+
+  /* Too many/few @'s or something; basically, this address doesn't
+  even fit the general mould of a valid e-mail address. */
+
+    //alert("Email address seems incorrect (check @ and .'s)");
+    return false;
+  }
+  var user=matchArray[1];
+  var domain=matchArray[2];
+
+  // Start by checking that only basic ASCII characters are in the strings (0-127).
+
+  for (i=0; i<user.length; i++) {
+    if (user.charCodeAt(i)>127) {
+      //alert("Ths username contains invalid characters.");
+      return false;
+    }
+  }
+  for (i=0; i<domain.length; i++) {
+    if (domain.charCodeAt(i)>127) {
+      //alert("Ths domain name contains invalid characters.");
+      return false;
+    }
+  }
+
+  // See if "user" is valid 
+
+  if (user.match(userPat)==null) {
+
+    // user is not valid
+
+    //alert("The username doesn't seem to be valid.");
+    return false;
+  }
+
+  /* if the e-mail address is at an IP address (as opposed to a symbolic
+  host name) make sure the IP address is valid. */
+
+  var IPArray=domain.match(ipDomainPat);
+  if (IPArray!=null) {
+
+    // this is an IP address
+
+    for (var i=1;i<=4;i++) {
+      if (IPArray[i]>255) {
+        //alert("Destination IP address is invalid!");
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Domain is symbolic name.  Check if it's valid.
+
+  var atomPat=new RegExp("^" + atom + "$");
+  var domArr=domain.split(".");
+  var len=domArr.length;
+  for (i=0;i<len;i++) {
+    if (domArr[i].search(atomPat)==-1) {
+      //alert("The domain name does not seem to be valid.");
+      return false;
+    }
+  }
+
+  /* domain name seems valid, but now make sure that it ends in a
+  known top-level domain (like com, edu, gov) or a two-letter word,
+  representing country (uk, nl), and that there's a hostname preceding 
+  the domain or country. */
+
+  if (checkTLD && domArr[domArr.length-1].length!=2 && 
+    domArr[domArr.length-1].search(knownDomsPat)==-1) {
+    //alert("The address must end in a well-known domain or two letter " + "country.");
+    return false;
+  }
+
+  // Make sure there's a host name preceding the domain.
+
+  if (len<2) {
+    //alert("This address is missing a hostname!");
+    return false;
+  }
+
+  // If we've gotten this far, everything's valid!
+  return true;
+}
+</script>
+
+    <script type="text/javascript">
+    /* to be called when either Firstname or Surname is modified
+     * ("keyup" or "change" event - "input" event is not available with this version of spring)
+     */
+    function makeUid(){
+        var name = document.form.firstName.value;
+        var surname = document.form.surname.value;
+        var str = stringDeaccentuate(name.toLowerCase().charAt(0)+ surname.toLowerCase());
+        str = str.replace(/[^a-z0-9_.-]*/gi, '');
+        document.form.uid.value = str;
+    }
+    /**
+     * stringDeaccentuate
+     * Returns a string without accents
+     *
+     * Parameters:
+     * str - {String}
+     *
+     * Returns:
+     * {String}
+     */
+    function stringDeaccentuate(str) {
+        str = str.replace(/ç/, 'c');
+        str = str.replace(/(á|à|ä|â|å|Â|Ä|Á|À|Ã)/, 'a');
+        str = str.replace(/(é|è|ë|ê|Ê|Ë|É|È|Ę)/, 'e');
+        str = str.replace(/(í|ì|ï|î|Î|Ï|Í|Ì|Į)/, 'i');
+        str = str.replace(/(ó|ò|ö|ô|ø|Ô|Ö|Ó|Ò)/, 'o');
+        return str.replace(/(ú|ù|ü|û|Û|Ü|Ú|Ù|Ų)/, 'u');
+    }
+    function confirmPasswordOnBlur() {
+        if (!testConfirmPassword()) {
+            document.form.password.focus();
+        }
+    }
+    function passwordOnBlur() {
+        if (!testPassword()) {
+            document.form.password.focus();
+        }
+    }
+    function cleanConfirmPassword(){
+        document.getElementById("confirmPassword").value="";
+        removeError("confirmPassword");
+    }
+    /* Validate the form */
+    function validate() {
+        if (testFirstname() & testSurname() & testEmail() & testUid() & testPassword() & testConfirmPassword() &
+               
+               
+               testField("phone") & testField("title") & testField("description") & testOrg()
+        ) {
+            return true;
+        } else {
+            setFormError();
+            return false;
+        }
+    }
+    /* The current Spring version does not include placeholder in
+     * form:input, form:textarea, or form:password
+     * We then add placeholder afterwards by javascript
+     */
+    $(document).ready(function(){
+        $("input#firstName").attr("placeholder", "First Name");
+        $("input#surname").attr("placeholder", "Surname");
+        $("input#email").attr("placeholder", "E-mail");
+        $("input#phone").attr("placeholder", "Phone");
+        $("input#org").attr("placeholder", "Organization");
+        $("input#title").attr("placeholder", "Job title");
+        $("textarea#description").attr("placeholder", "Description");
+        $("input#uid").attr("placeholder", "User ID");
+        $("input#password").attr("placeholder", "Password");
+        $("input#confirmPassword").attr("placeholder", "Confirm password");
+        $("#org").select2();
+        $("#orgType").select2({width: "100%"});
+
+        // Animate org creation form
+        $( "#createOrg" ).change(function() {
+            if($( "#createOrg" ).prop( "checked" ) ){
+                setTimeout(function() {
+
+                    var map = angular.element($('areas .map')[0]).scope().area.map;
+                    map.updateSize();
+                    var config = map.get('config')
+
+                    if (!config) {
+                        map.getView().fit(map.getLayers().item(1).getSource().getExtent(), map.getSize())
+                    } else {
+                        map.getView().setCenter(ol.proj.fromLonLat(config.center))
+                        map.getView().setZoom(config.zoom)
+                    }
+
+                }, 300);
+                $("#create_org_div").show(200);
+                $("#org").prop("disabled", true);
+            } else {
+                $("#create_org_div").hide(200);
+                $("#org").prop("disabled", false);
+            }
+        });
+
+    });
+    </script>
+
+
+<div class="autocomplete-suggestions "></div></body></html>

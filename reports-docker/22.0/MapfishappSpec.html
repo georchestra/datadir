@@ -1,0 +1,343 @@
+<!--
+Copyright 2017-2019 Tilman Ginzel, AOE GmbH
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="spec.css" />
+    
+</head>
+<body id="top">
+
+
+
+<h1>Report for MapfishappSpec</h1>
+<hr>
+<span class="date-test-ran">Created on Tue Oct 04 16:50:35 CEST 2022 by pmauduit</span>
+<span class="back-link"><a href="index.html">Back to index</a></span>
+
+
+
+<div>
+    <h2>Summary</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Executed features</th>
+            <th>Failures</th>
+            <th>Errors</th>
+            <th>Skipped</th>
+            <th>Success rate</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4</td>
+            <td class="passed">100.0%</td>
+            <td>0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<h2>Features</h2>
+<ul id="toc">
+    
+    <li><a href="#958405788" class="feature-toc-ignored">Being on Mapfishapp, I can use the query features ('Catalogue' tab)</a></li>
+    
+    <li><a href="#-2046826387" class="feature-toc-ignored">Being on Mapfishapp, I can use the query features ('Thesaurus' tab)</a></li>
+    
+    <li><a href="#1763203542" class="feature-toc-ignored">Can go to the Mapfishapp Page</a></li>
+    
+    <li><a href="#1126488055" class="feature-toc-ignored">Some Mapfishapp addons are available</a></li>
+    
+</ul>
+
+<hr>
+
+
+
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="958405788">
+        <span class="feature-name feature-name-ignored">Being on Mapfishapp, I can use the query features ('Catalogue' tab)</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>onto the Mapfishapp page</p>
+                <pre class="code">to MapfishappPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I open the 'add layers' dialog, 'Catalogue' tab</p>
+                <pre class="code">$('button').find { it.text() == "Add layers"}.click()
+$('span').find { it.text() == "Catalogue"}.click()
+$("input[type='text']").find {it.attr("size") == "16" } << "${mfappSearchString}\n" // triggers <enter>
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I should have the listing of available labels from the metadata</p>
+                <pre class="code">waitFor { $("div.x-view-item") }.size() > 0
+report "layer-catalogue-tab"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="-2046826387">
+        <span class="feature-name feature-name-ignored">Being on Mapfishapp, I can use the query features ('Thesaurus' tab)</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>onto the Mapfishapp page</p>
+                <pre class="code">to MapfishappPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I open the 'add layers' dialog, 'Thesaurus' tab</p>
+                <pre class="code">$('button').find { it.text() == "Add layers"}.click()
+$('span').find { it.text() == "Thesaurus"}.click()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I should see a tree of available keywords</p>
+                <pre class="code">waitFor { $("li.x-tree-node") }.size() > 0
+report "layer-thesaurus-tab"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="1763203542">
+        <span class="feature-name feature-name-ignored">Can go to the Mapfishapp Page</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">to MapfishappPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">at MapfishappPage
+report "MapfishappHomePage"
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="1126488055">
+        <span class="feature-name feature-name-ignored">Some Mapfishapp addons are available</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">to MapfishappPage
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">"Open the Manage tools UI"()
+</pre>
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p></p>
+                <pre class="code">def addons = "Available addons"()
+reportInfo "Available addons: <br/><pre>${addons.join(",\n")}</pre>"
+report "addons"
+addons.size() > 0
+</pre>
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+
+
+</body>
+</html>

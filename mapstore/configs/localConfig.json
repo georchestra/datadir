@@ -386,7 +386,20 @@
                 "declineUrl": "https://www.georchestra.org/"
               }
             },
-            "FeedbackMask"
+            "FeedbackMask",
+            {
+              "name": "Share",
+              "cfg": {
+                "showAPI": false,
+                "advancedSettings": {
+                  "bbox": true
+                }
+              }
+            },
+            "MetadataExplorer",
+            "MapImport", 
+            "MapExport",
+            "GlobeViewSwitcher"
         ],
         "desktop": [
           "Header",

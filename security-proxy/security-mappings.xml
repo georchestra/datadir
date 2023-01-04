@@ -16,6 +16,7 @@
   <intercept-url pattern="/console/account/new" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/newPassword.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/passwordRecovery" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  <intercept-url pattern="/console/account/areaofcompetence" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/js/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/css/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
   <intercept-url pattern="/console/account/fonts/.*" access="IS_AUTHENTICATED_ANONYMOUSLY" />

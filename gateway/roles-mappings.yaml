@@ -33,9 +33,6 @@
 georchestra:
   gateway:
     roles-mappings:
-      '[EXTRACTOR*]': 
-        - ROLE_TEST_1
-        - ROLE_TEST_2
       '[ROLE_GP.GDI.*]':
         - ROLE_USER
       '[ROLE_GP.GDI.ADMINISTRATOR]':

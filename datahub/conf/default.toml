@@ -1,0 +1,137 @@
+# GeoNetwork-UI configuration
+# Note: this file's syntax is TOML (https://toml.io/)
+
+### GLOBAL SETTINGS
+
+[global]
+# This URL (relative or absolute) must point to the API endpoint of a GeoNetwork4 instance
+geonetwork4_api_url = "/geonetwork/srv/api"
+# This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
+# The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`
+# This is an optional parameter: leave empty to disable proxy usage
+proxy_path = ""
+# This optional parameter defines, in which language metadata should be queried in elasticsearch.
+# Use ISO 639-2/B (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format to indicate the language of the metadata.
+# If not indicated, a wildcard is used and no language preference is applied for the search.
+# metadata_language = "fre"
+# This optional URL should point to the login page that allows authentication to the datahub.
+# If not indicated, the default geonetwork login page is used.
+# The following three placeholders can be part of this URL:
+#  - ${current_url}: indicates where the current location should be injected in the constructed login URL (eg. start, end)
+#  - ${lang2}, ${lang3}: indicates if and where the current language should be part of the login URL in language 2 or 3 letter code
+# Example to use the georchestra login page:
+# login_url = "/cas/login?service=${current_url}"
+
+### VISUAL THEME
+
+# All parameters are expressed in CSS format, see:
+#  - for color: https://developer.mozilla.org/en-US/docs/Web/CSS/color
+#  - for font families: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
+#  - for background: https://developer.mozilla.org/en-US/docs/Web/CSS/background
+[theme]
+primary_color = "#85127e"
+secondary_color = "#1b1f3b"
+main_color = "#495057" # All-purpose text color
+background_color = "#fdfbff"
+
+# These optional parameters indicate which background should be used for the main header and the text color used
+# on top of the background. The color should be chosen to contrast well with the background (defaults to white).
+# Note: The search header does not use the header_foreground_color as it allows futher customisation via HTML.
+# header_background = "center / cover url('assets/img/header_bg.webp')"
+# header_foreground_color = 'white'
+
+# This optional parameter allows to override the fallback image that should be used for thumbnails,
+# if the metadata record has no thumbnail image url or it is broken.
+# thumbnail_placeholder = 'assets/img/my_custom_placeholder.png'
+
+# These optional parameters allow changing fonts used in the app
+main_font = "'Inter', sans-serif"
+title_font = "'Inter', sans-serif"
+fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=Inter:wght@200;300;400;500;600;700&display=swap"
+
+### SEARCH SETTINGS
+
+# This section contains settings used for fine-tuning the search experience
+[search]
+# Optional; specify a GeoJSON object to be used as filter: all records contained inside the geometry will be boosted on top,
+# all records which _do not_ intersect with the geometry will be excluded; can be specified as URL or inline
+# Note: if the GeoJSON object contains multiple features, only the geometry of the first one will be kept!
+# filter_geometry_url = "https://my.domain.org/assets/boundary.geojson"
+# filter_geometry_data = '{ "coordinates": [...], "type": "Polygon" }'
+
+### MAP SETTINGS
+
+# The map section allows to customize how maps are configured.
+[map]
+# Optional; Will limit the possibility to zoom in past a certain zoom level
+# max_zoom = 10
+
+# Optional; will limit the possibility to pan or zoom out outside of an extent
+# Expressed in the map view projection (EPSG:3857)
+# max_extent = [-418263.418776, 5251529.591305, 961272.067714, 6706890.609855]
+
+# Optional; URL template enabling to open map layers in an external viewer; if set, displays a button next to the map's layer drop down
+# The template must include the following placeholders, which allow the datahub to inject the correct values when adding a layer to a viewer:
+# ${service_url}: URL of the OWS
+# ${service_type}: Type of the OWS; currently supported WMS, WFS
+# ${layer_name}: Name of the layer
+# Be careful to use englobing single quotes, if your template syntax includes JSON (with double quotes)
+# Examples:
+# mapfishapp template:
+# external_viewer_url_template = 'https://dev.geo2france.fr/mapfishapp/?owsurl=${service_url}&layername=${layer_name}&owstype=${service_type}Layer'
+# mapstore template
+# external_viewer_url_template = 'https://dev.geo2france.fr/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
+
+# Optional; if true, opens external viewer in new tab (default false)
+# external_viewer_open_new_tab = false
+
+# Optional; if true, the default basemap will not be added to the map.
+# Use [[map_layer]] sections to define your own custom layers (see below)
+# do_not_use_default_basemap = false
+
+# One or several layers (as background or overlay) can be added to the map with the following properties:
+# - type (mandatory): Indicates the layer type. Possible values are 'xyz', 'wms', 'wfs', 'geojson'.
+# - url (mandatory for 'xyz', 'wms' and 'wfs' types): Layer endpoint URL.
+# - name (mandatory for 'wms' and 'wfs' types): indicates the layer name or feature type.
+# - data (for 'geojson' type only): inline GeoJSON data as string
+# Layer order in the config is the same as in the map, the first one being the bottom one.
+# Each layer is defined in its own [[map_layer]] section.
+# Example:
+# [[map_layer]]
+# type = "xyz"
+# url = "https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+# [[map_layer]]
+# type = "wfs"
+# url = "https://www.geo2france.fr/geoserver/cr_hdf/ows"
+# name = "masque_hdf_ign_carto_latin1"
+# [[map_layer]]
+# type = "geojson"
+# data = """
+# {
+#   "type": "FeatureCollection",
+#   "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [125.6, 10.1]}}]
+# }
+# """
+
+### TRANSLATIONS
+
+# To override translations in a specific language, use a 'translations.xx' section where 'xx' is a language code.
+# Language codes are expressed in ISO 639-1 codes, see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+# Example:
+#
+# [translations.en]
+# results.sortBy.dateStamp = "Last time someone changed something"
+# [translations.fr]
+# results.sortBy.dateStamp = "Dernière fois que quelqu'un a modifié quelque chose"
+#
+# Note:
+#   translation keys ending with ".html" _can_ contain HTML markup, including inline CSS:
+#     catalog.welcome.html = """
+#     Welcome to <span class="text-primary">Organization</span>'s<br>
+#     wonderful <span style="font-size: 1.2em;">data catalogue</span>
+#     """
+[translations.en]
+datahub.header.title.html = '<div class="text-white">Discover all the data <br> of your platform</div>'
+
+[translations.fr]
+datahub.header.title.html = '<div class="text-white">Toutes les données <br> de votre plateforme</div>'

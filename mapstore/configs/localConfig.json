@@ -661,6 +661,7 @@
             "Playback",
             "FeedbackMask",
             "StyleEditor",
+            "DeleteMap",
             "Save",
             "SaveAs",
             "SearchByBookmark",

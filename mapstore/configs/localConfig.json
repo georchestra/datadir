@@ -24,12 +24,17 @@
     },
     "defaultMapOptions": {
       "cesium": {
-          "flyTo": true,
-          "navigationTools": true,
-          "terrainProvider": {
-              "type": "ellipsoid"
-          }
-      }
+        "flyTo": true,
+        "navigationTools": true,
+        "showSkyAtmosphere": true,
+        "showGroundAtmosphere": false,
+        "enableFog": false,
+        "depthTestAgainstTerrain": false,
+        "terrainProvider": {
+          "type": "ellipsoid"
+        }
+      },
+      "floatingIdentifyDelay": 1000
     },
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
@@ -570,10 +575,6 @@
                     "wrap": true
                 }
             }, {
-              "name": "About",
-              "showIn": ["BurgerMenu"]
-            }
-            , {
               "name": "MousePosition",
               "cfg": {
                 "editCRS": true,
@@ -857,7 +858,10 @@
           "containerPosition": "header",
           "className": "navbar shadow navbar-home"
         }
-      }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", "Attribution", "Home", {
+      }, "Login", "Language", "NavMenu",
+        "DashboardSave", "DashboardSaveAs",
+        "DashboardExport", "DashboardImport",
+        "Attribution", "Home", {
         "name": "Share",
         "cfg": {
           "showAPI": false,
@@ -951,6 +955,8 @@
         },
         "GeoStorySave",
         "GeoStorySaveAs",
+        "GeoStoryImport",
+        "GeoStoryExport",
         "MapEditor",
         "MediaEditor",
         {

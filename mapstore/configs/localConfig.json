@@ -572,6 +572,7 @@
             }, {
                 "name": "MetadataExplorer",
                 "cfg": {
+                    "zoomToLayer": false,
                     "wrap": true
                 }
             }, {

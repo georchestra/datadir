@@ -2,20 +2,17 @@
   "map": {
     "projection": "EPSG:3857",
     "units": "m",
-    "center": {
-      "x": 315445.640682,
-      "y": 5971955.5,
-      "crs": "EPSG:3857"
-    },
-    "zoom": 6,
+      "center": {
+        "x": 315445.640682,
+        "y": 5971955.5,
+        "crs": "EPSG:3857"
+      },
+      "zoom": 6,
     "maxExtent": [
-      -1076658.754450426,
-      5134999.16310118,
-      2166310.6398374303,
-      6771685.279280833
+      -20037508.34, -20037508.34,
+      20037508.34, 20037508.34
     ],
-    "layers": [
-      {
+    "layers": [{
         "type": "osm",
         "title": "Open Street Map",
         "name": "mapnik",
@@ -28,8 +25,8 @@
         "group": "background",
         "title": "Empty Background",
         "fixed": true,
-        "type": "empty"
-      }
-    ]
+        "type": "empty",
+        "visibility": false
+      }]
   }
 }

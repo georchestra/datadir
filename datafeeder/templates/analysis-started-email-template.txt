@@ -9,7 +9,7 @@ body:
 Dear ${user.name}, 
 
 Your ${dataset.name} dataset was received correctly and is currently being analyzed.
-Here's a link to the job page: ${scheme}://${domainName}/import/${job.id}
+Here's a link to the job page: https://${domainName}/import/${job.id}
 
 ---
 Sent by ${instanceName}

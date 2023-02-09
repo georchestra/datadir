@@ -37,7 +37,7 @@ background_color = "#fdfbff"
 # These optional parameters indicate which background should be used for the main header and the text color used
 # on top of the background. The color should be chosen to contrast well with the background (defaults to white).
 # Note: The search header does not use the header_foreground_color as it allows futher customisation via HTML.
-# header_background = "center / cover url('assets/img/header_bg.webp')"
+# header_background = "center /cover url('assets/img/header_bg.webp')" or "var(--color-gray-500)"
 # header_foreground_color = 'white'
 
 # This optional parameter allows to override the fallback image that should be used for thumbnails,
@@ -80,10 +80,10 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # mapfishapp template:
 # external_viewer_url_template = 'https://dev.geo2france.fr/mapfishapp/?owsurl=${service_url}&layername=${layer_name}&owstype=${service_type}Layer'
 # mapstore template
-# external_viewer_url_template = 'https://dev.geo2france.fr/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
+external_viewer_url_template = '/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
 
 # Optional; if true, opens external viewer in new tab (default false)
-# external_viewer_open_new_tab = false
+external_viewer_open_new_tab = true
 
 # Optional; if true, the default basemap will not be added to the map.
 # Use [[map_layer]] sections to define your own custom layers (see below)

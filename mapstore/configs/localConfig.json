@@ -1073,6 +1073,9 @@
               "containerPosition": "header"
             }
           }
+        ],
+        "context": [
+          "Header"
         ]
     }
 }

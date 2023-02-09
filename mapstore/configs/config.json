@@ -34,6 +34,9 @@
         "allowedSRS": { "EPSG:3857": true },
         "matrixIds": [ "PM", "EPSG:3857" ],
         "tileMatrixSet": true,
+        "credits": {
+           "title": "<a href='https://geoservices.ign.fr/bdortho'>BD ORTHO®</a> produitee par l'IGN et ses partenaires, sous licence ouverte Etalab"
+        },
         "bbox": {
             "crs": "EPSG:4326",
             "bounds": {

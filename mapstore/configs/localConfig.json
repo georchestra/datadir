@@ -888,8 +888,8 @@
             "selectedService": "localgs",
             "services": {
               "localgs": {
-                "url": "/geoserver/wfs",
-                "type": "wfs",
+                "url": "/geoserver/wms",
+                "type": "wms",
                 "title": "le geoserver local",
                 "autoload": true
               }

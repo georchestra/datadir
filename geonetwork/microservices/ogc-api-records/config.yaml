@@ -74,7 +74,7 @@ gn:
   legacy.url: https://${FQDN}/geonetwork
   linkToLegacyGN4: true
   index:
-    url: http://${ES_HOST}-svc:9200
+    url: http://${ES_HOST}:9200
     records: gn-records
     username:
     password:

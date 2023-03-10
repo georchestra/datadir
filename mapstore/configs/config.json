@@ -2,20 +2,17 @@
   "map": {
     "projection": "EPSG:3857",
     "units": "m",
-    "center": {
-      "x": 315445.640682,
-      "y": 5971955.5,
-      "crs": "EPSG:3857"
-    },
-    "zoom": 6,
+      "center": {
+        "x": 315445.640682,
+        "y": 5971955.5,
+        "crs": "EPSG:3857"
+      },
+      "zoom": 6,
     "maxExtent": [
-      -1076658.754450426,
-      5134999.16310118,
-      2166310.6398374303,
-      6771685.279280833
+      -20037508.34, -20037508.34,
+      20037508.34, 20037508.34
     ],
-    "layers": [
-      {
+    "layers": [{
         "type": "osm",
         "title": "Open Street Map",
         "name": "mapnik",
@@ -24,12 +21,185 @@
         "visibility": true
       },
       {
+        "id": "f4c9e5d0-3dfb-11eb-954f-85311a469d4b",
+        "title": "Photographie aérienne",
+        "type": "wmts",
+        "group": "background",
+        "thumbURL": "/mapstore/dist/MapStore2/web/client/plugins/background/assets/img/Aerial.jpg",
+        "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+        "name": "ORTHOIMAGERY.ORTHOPHOTOS",
+        "format": "image/jpeg",
+        "style": "normal",
+        "visibility" : false,
+        "allowedSRS": { "EPSG:3857": true },
+        "matrixIds": [ "PM", "EPSG:3857" ],
+        "tileMatrixSet": true,
+        "credits": {
+           "title": "<a href='https://geoservices.ign.fr/bdortho'>BD ORTHO®</a> produitee par l'IGN et ses partenaires, sous licence ouverte Etalab"
+        },
+        "bbox": {
+            "crs": "EPSG:4326",
+            "bounds": {
+                "minx": "-63.160706980",
+                "miny": "-21.401263115",
+                "maxx": "55.846431162",
+                "maxy": "51.112419947"
+            }
+        }
+      },
+      {
         "source": "ol",
         "group": "background",
         "title": "Empty Background",
         "fixed": true,
-        "type": "empty"
+        "type": "empty",
+        "visibility": false
       }
-    ]
+    ],
+    "sources": {
+      "https://wxs.ign.fr/decouverte/geoportail/wmts": {
+        "tileMatrixSet": {
+          "PM": {
+            "ows:Identifier": "PM",
+            "ows:SupportedCRS": "EPSG:3857",
+            "TileMatrix": [
+              {
+               "ows:Identifier": "0",
+               "ScaleDenominator": "559082264.0287178958533332",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "1", "MatrixHeight": "1",
+               "ranges": { "cols": { "min": "0", "max": "1" }, "rows": { "min": "0", "max": "1" }}
+              }, {
+               "ows:Identifier": "1",
+               "ScaleDenominator": "279541132.0143588959472254",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "2", "MatrixHeight": "2",
+               "ranges": { "cols": { "min": "0", "max": "2" }, "rows": { "min": "0", "max": "2" }}
+              }, {
+               "ows:Identifier": "2",
+               "ScaleDenominator": "139770566.0071793960087234",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "4", "MatrixHeight": "4",
+               "ranges": { "cols": { "min": "0", "max": "4" }, "rows": { "min": "0", "max": "4" }}
+              }, {
+               "ows:Identifier": "3",
+               "ScaleDenominator": "69885283.0035897239868063",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "8", "MatrixHeight": "8",
+               "ranges": { "cols": { "min": "0", "max": "8" }, "rows": { "min": "0", "max": "8" }}
+              }, {
+               "ows:Identifier": "4",
+               "ScaleDenominator": "34942641.5017948619934032",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "16", "MatrixHeight": "16",
+               "ranges": { "cols": { "min": "0", "max": "16" }, "rows": { "min": "0", "max": "16" }}
+              }, {
+               "ows:Identifier": "5",
+               "ScaleDenominator": "17471320.7508974309967016",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "32", "MatrixHeight": "32",
+               "ranges": { "cols": { "min": "0", "max": "32" }, "rows": { "min": "0", "max": "32" }}
+              }, {
+               "ows:Identifier": "6",
+               "ScaleDenominator": "8735660.3754487154983508",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "64", "MatrixHeight": "64",
+               "ranges": { "cols": { "min": "0", "max": "64" }, "rows": { "min": "1", "max": "64" }}
+              }, {
+               "ows:Identifier": "7",
+               "ScaleDenominator": "4367830.1877243577491754",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "128", "MatrixHeight": "128",
+               "ranges": { "cols": { "min": "0", "max": "128" }, "rows": { "min": "3", "max": "128" }}
+              }, {
+               "ows:Identifier": "8",
+               "ScaleDenominator": "2183915.0938621788745877",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "256", "MatrixHeight": "256",
+               "ranges": { "cols": { "min": "0", "max": "256" }, "rows": { "min": "7", "max": "256" }}
+              }, {
+               "ows:Identifier": "9",
+               "ScaleDenominator": "1091957.5469310886252288",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "512", "MatrixHeight": "512",
+               "ranges": { "cols": { "min": "0", "max": "512" }, "rows": { "min": "15", "max": "512" }}
+              }, {
+               "ows:Identifier": "10",
+               "ScaleDenominator": "545978.7734655447186469",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "1024", "MatrixHeight": "1024",
+               "ranges": { "cols": { "min": "0", "max": "1024" }, "rows": { "min": "31", "max": "1024" }}
+              }, {
+               "ows:Identifier": "11",
+               "ScaleDenominator": "272989.3867327723085907",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "2048", "MatrixHeight": "2048",
+               "ranges": { "cols": { "min": "0", "max": "2048" }, "rows": { "min": "62", "max": "2048" }}
+              }, {
+               "ows:Identifier": "12",
+               "ScaleDenominator": "136494.6933663861796617",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "4096", "MatrixHeight": "4096",
+               "ranges": { "cols": { "min": "0", "max": "4096" }, "rows": { "min": "125", "max": "4096" }}
+              }, {
+               "ows:Identifier": "13",
+               "ScaleDenominator": "68247.3466831930771477",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "8192", "MatrixHeight": "8192",
+               "ranges": { "cols": { "min": "32", "max": "7871" }, "rows": { "min": "2736", "max": "4607" }}
+              }, {
+               "ows:Identifier": "14",
+               "ScaleDenominator": "34123.6733415965449154",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "16384", "MatrixHeight": "16384",
+               "ranges": { "cols": { "min": "80", "max": "15807" }, "rows": { "min": "5472", "max": "9247" }}
+              }, {
+               "ows:Identifier": "15",
+               "ScaleDenominator": "17061.8366707982724577",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "32768", "MatrixHeight": "32768",
+               "ranges": { "cols": { "min": "160", "max": "31615" }, "rows": { "min": "10944", "max": "18479" }}
+              }, {
+               "ows:Identifier": "16",
+               "ScaleDenominator": "8530.9183353991362289",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "65536", "MatrixHeight": "65536",
+               "ranges": { "cols": { "min": "320", "max": "63311" }, "rows": { "min": "21904", "max": "37023" }}
+              }, {
+               "ows:Identifier": "17",
+               "ScaleDenominator": "4265.4591676995681144",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "131072", "MatrixHeight": "131072",
+               "ranges": { "cols": { "min": "656", "max": "126655" }, "rows": { "min": "43808", "max": "74047" }}
+              }, {
+               "ows:Identifier": "18",
+               "ScaleDenominator": "2132.7295838497840572",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "262144", "MatrixHeight": "262144",
+               "ranges": { "cols": { "min": "1312", "max": "253375" }, "rows": { "min": "87616", "max": "148111" }}
+              }, {
+               "ows:Identifier": "19",
+               "ScaleDenominator": "1066.3647919248918304",
+               "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+               "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "524288", "MatrixHeight": "524288",
+               "ranges": { "cols": { "min": "170144", "max": "343487" }, "rows": { "min": "175248", "max": "294063" }}
+              }, {
+               "ows:Identifier": "20",
+                "ScaleDenominator": "533.1823959624461134",
+                "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+                "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "1048576", "MatrixHeight": "1048576",
+                "ranges": { "cols": { "min": "524400", "max": "540927" }, "rows": { "min": "357008", "max": "384687" }}
+              }, {
+                "ows:Identifier": "21",
+                "ScaleDenominator": "266.5911979812228585",
+                "TopLeftCorner": "-20037508.3427892476320267 20037508.3427892476320267",
+                "TileWidth": "256", "TileHeight": "256", "MatrixWidth": "2097152", "MatrixHeight": "2097152",
+                "ranges": { "cols": { "min": "1048816", "max": "1081775" }, "rows": { "min": "714032", "max": "768783" }}
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }

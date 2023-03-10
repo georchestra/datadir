@@ -24,12 +24,17 @@
     },
     "defaultMapOptions": {
       "cesium": {
-          "flyTo": true,
-          "navigationTools": true,
-          "terrainProvider": {
-              "type": "ellipsoid"
-          }
-      }
+        "flyTo": true,
+        "navigationTools": true,
+        "showSkyAtmosphere": true,
+        "showGroundAtmosphere": false,
+        "enableFog": false,
+        "depthTestAgainstTerrain": false,
+        "terrainProvider": {
+          "type": "ellipsoid"
+        }
+      },
+      "floatingIdentifyDelay": 1000
     },
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
@@ -191,13 +196,7 @@
                 "title": "le catalogue GeoBretagne",
                 "autoload": true
               },
-              "PIGMA": {
-                "url": "https://www.pigma.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue PIGMA",
-                "autoload": true
-              },
-              "sadre": {
+              "sandre": {
                 "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
                 "type": "csw",
                 "title": "le catalogue du Sandre",
@@ -568,13 +567,10 @@
             }, {
                 "name": "MetadataExplorer",
                 "cfg": {
+                    "zoomToLayer": false,
                     "wrap": true
                 }
             }, {
-              "name": "About",
-              "showIn": ["BurgerMenu"]
-            }
-            , {
               "name": "MousePosition",
               "cfg": {
                 "editCRS": true,
@@ -661,6 +657,7 @@
             "Playback",
             "FeedbackMask",
             "StyleEditor",
+            "DeleteMap",
             "Save",
             "SaveAs",
             "SearchByBookmark",
@@ -858,7 +855,10 @@
           "containerPosition": "header",
           "className": "navbar shadow navbar-home"
         }
-      }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", "Attribution", "Home", {
+      }, "Login", "Language", "NavMenu",
+        "DashboardSave", "DashboardSaveAs",
+        "DashboardExport", "DashboardImport",
+        "Attribution", "Home", {
         "name": "Share",
         "cfg": {
           "showAPI": false,
@@ -885,8 +885,8 @@
             "selectedService": "localgs",
             "services": {
               "localgs": {
-                "url": "/geoserver/wfs",
-                "type": "wfs",
+                "url": "/geoserver/wms",
+                "type": "wms",
                 "title": "le geoserver local",
                 "autoload": true
               }
@@ -952,6 +952,8 @@
         },
         "GeoStorySave",
         "GeoStorySaveAs",
+        "GeoStoryImport",
+        "GeoStoryExport",
         "MapEditor",
         "MediaEditor",
         {
@@ -1068,6 +1070,9 @@
               "containerPosition": "header"
             }
           }
+        ],
+        "context": [
+          "Header"
         ]
     }
 }

@@ -1,0 +1,7 @@
+[
+	{
+		"name": "XSRF-TOKEN",
+		"from": "/geonetwork",
+		"to": "/datahub"
+	}
+]

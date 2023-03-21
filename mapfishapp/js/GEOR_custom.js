@@ -557,7 +557,7 @@ GEOR.custom = {
      * {RegExp}
      * PLatform layers only with this config
      */
-    EDITABLE_LAYERS: /.*georchestra.mydomain.org.*/i,
+    EDITABLE_LAYERS: /.*georchestra-127-0-1-1.traefik.me.*/i,
 
     /**
      * Constant: FORCE_LOGIN_IN_TOOLBAR

@@ -9,18 +9,18 @@ geonetwork4_api_url = "/geonetwork/srv/api"
 # This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
 # The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`
 # This is an optional parameter: leave empty to disable proxy usage
-proxy_path = ""
+proxy_path = "/proxy/?url="
 # This optional parameter defines, in which language metadata should be queried in elasticsearch.
 # Use ISO 639-2/B (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format to indicate the language of the metadata.
 # If not indicated, a wildcard is used and no language preference is applied for the search.
-# metadata_language = "fre"
+metadata_language = "fre"
 # This optional URL should point to the login page that allows authentication to the datahub.
 # If not indicated, the default geonetwork login page is used.
 # The following three placeholders can be part of this URL:
 #  - ${current_url}: indicates where the current location should be injected in the constructed login URL (eg. start, end)
 #  - ${lang2}, ${lang3}: indicates if and where the current language should be part of the login URL in language 2 or 3 letter code
 # Example to use the georchestra login page:
-# login_url = "/cas/login?service=${current_url}"
+login_url = "${current_url}?login"
 
 ### VISUAL THEME
 
@@ -37,7 +37,7 @@ background_color = "#fdfbff"
 # These optional parameters indicate which background should be used for the main header and the text color used
 # on top of the background. The color should be chosen to contrast well with the background (defaults to white).
 # Note: The search header does not use the header_foreground_color as it allows futher customisation via HTML.
-# header_background = "center / cover url('assets/img/header_bg.webp')"
+# header_background = "center /cover url('assets/img/header_bg.webp')" or "var(--color-gray-500)"
 # header_foreground_color = 'white'
 
 # This optional parameter allows to override the fallback image that should be used for thumbnails,
@@ -56,7 +56,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # Optional; specify a GeoJSON object to be used as filter: all records contained inside the geometry will be boosted on top,
 # all records which _do not_ intersect with the geometry will be excluded; can be specified as URL or inline
 # Note: if the GeoJSON object contains multiple features, only the geometry of the first one will be kept!
-# filter_geometry_url = "https://my.domain.org/assets/boundary.geojson"
+filter_geometry_url = "/console/account/areaofcompetence"
 # filter_geometry_data = '{ "coordinates": [...], "type": "Polygon" }'
 
 ### MAP SETTINGS
@@ -64,7 +64,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # The map section allows to customize how maps are configured.
 [map]
 # Optional; Will limit the possibility to zoom in past a certain zoom level
-# max_zoom = 10
+max_zoom = 14
 
 # Optional; will limit the possibility to pan or zoom out outside of an extent
 # Expressed in the map view projection (EPSG:3857)
@@ -80,10 +80,10 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # mapfishapp template:
 # external_viewer_url_template = 'https://dev.geo2france.fr/mapfishapp/?owsurl=${service_url}&layername=${layer_name}&owstype=${service_type}Layer'
 # mapstore template
-# external_viewer_url_template = 'https://dev.geo2france.fr/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
+external_viewer_url_template = '/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
 
 # Optional; if true, opens external viewer in new tab (default false)
-# external_viewer_open_new_tab = false
+external_viewer_open_new_tab = true
 
 # Optional; if true, the default basemap will not be added to the map.
 # Use [[map_layer]] sections to define your own custom layers (see below)
@@ -135,3 +135,4 @@ datahub.header.title.html = '<div class="text-white">Discover all the data <br> 
 
 [translations.fr]
 datahub.header.title.html = '<div class="text-white">Toutes les données <br> de votre plateforme</div>'
+results.records.hits.found = '{hits, plural, =0{Aucune correspondance.} one{1 donnée trouvée.} other{{hits} données trouvées.}}'

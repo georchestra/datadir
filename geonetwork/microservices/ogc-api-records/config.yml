@@ -17,7 +17,7 @@ spring:
   rabbitmq.host: localhost
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/georchestra
+    url: jdbc:postgresql://database:5432/georchestra
     username: georchestra
     password: georchestra
   jpa:
@@ -31,8 +31,8 @@ spring:
       enabled: false
 
 gn:
-  baseurl: https://georchestra.mydomain.org/geonetwork
-  legacy.url: https://georchestra.mydomain.org/geonetwork
+  baseurl: https://georchestra-127-0-1-1.traefik.me/geonetwork
+  legacy.url: https://georchestra-127-0-1-1.traefik.me/geonetwork
   language:
     default: eng
   linkToLegacyGN4: true
@@ -40,7 +40,7 @@ gn:
     name: GeoNetwork
     organization: opensource
   index:
-    url: http://localhost:9200
+    url: http://elasticsearch:9200
     records: gn-records
     username:
     password:

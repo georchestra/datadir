@@ -27,7 +27,7 @@ georchestra:
       anonymous: true
     services:
       cas:
-        target: http://cas:8080/cas/
+        target: http://${CAS_HOST}:8080/cas/
         access-rules:
         - intercept-url: /cas/login.*
           anonymous: true
@@ -37,12 +37,12 @@ georchestra:
         - intercept-url: /header/.*
           anonymous: true
       analytics:
-        target: ${georchestra.gateway.services.analytics.target}
+        target: http://${ANALYTICS_HOST}:8080/analytics/
         access-rules:
         - intercept-url: /analytics/.*
           allowed-roles: SUPERUSER,ORGADMIN
       console:
-        target: http://console:8080/console/
+        target: http://${CONSOLE_HOST}:8080/console/
         access-rules:
         - intercept-url:
           - /console/public/.*
@@ -71,7 +71,7 @@ georchestra:
         - intercept-url: /console/account/.*
           anonymous: false
       geonetwork:
-        target: http://geonetwork:8080/geonetwork/
+        target: http://${GEONETWORK_HOST}:8080/geonetwork/
         headers:
           proxy: true
           username: false
@@ -80,4 +80,4 @@ georchestra:
           orgname: true
           json-user: true
       geoserver:
-        target: http://geoserver:8080/geoserver/
+        target: http://${GEOSERVER_HOST}:8080/geoserver/

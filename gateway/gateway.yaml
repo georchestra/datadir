@@ -32,12 +32,12 @@ georchestra:
         - intercept-url: /cas/login.*
           anonymous: true
       header:
-        target: http://header:8080/header/
+        target: http://${HEADER_HOST}:8080/header/
         access-rules:
         - intercept-url: /header/.*
           anonymous: true
       analytics:
-        target: http://analytics:8080/analytics/
+        target: ${georchestra.gateway.services.analytics.target}
         access-rules:
         - intercept-url: /analytics/.*
           allowed-roles: SUPERUSER,ORGADMIN

@@ -76,7 +76,7 @@ georchestra.gateway.services:
   geonetwork.target: http://geonetwork:8080/geonetwork/
   geoserver.target: http://geoserver:8080/geoserver/
   geowebcache.target: http://geowebcache:8080/geowebcache/
-  header.target: http://header:8080/header/
+  header.target: http://${HEADER_HOST}:8080/header/
   import.target: http://import:80/
   mapfishapp.target: http://mapfishapp:8080/mapfishapp/
   mapstore.target: http://mapstore:8080/mapstore/

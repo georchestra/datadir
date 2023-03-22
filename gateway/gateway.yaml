@@ -1,0 +1,83 @@
+# Default georchestra gateway specific configuration, always imported from application.yml
+# configure target base URL's, headers and role based access, per service name.
+# Replaces security-proxy's targets-mapping.properties, headers-mapping.properties, and security-mappings.xml
+#
+spring.config.import: security.yaml, routes.yaml, roles-mappings.yaml
+
+georchestra:
+  gateway:
+    default-headers:
+      # Default security headers to append to proxied requests
+      proxy: true
+      username: true
+      roles: true
+      org: true
+      orgname: true
+    global-access-rules:
+    - intercept-url: "*/ogcproxy/*"
+      allowed-roles: NO_ONE
+    - intercept-url: /testPage
+      anonymous: false
+      allowed-roles: USER
+    - intercept-url: "*(?|&amp;)login*"
+      allowed-roles: USER,GN_EDITOR,GN_REVIEWER,GN_ADMIN,ADMINISTRATOR,SUPERUSER,ORGADMIN
+    - intercept-url:
+      - "/**"
+      - "/proxy/?url=*"
+      anonymous: true
+    services:
+      cas:
+        target: http://cas:8080/cas/
+        access-rules:
+        - intercept-url: /cas/login.*
+          anonymous: true
+      header:
+        target: http://header:8080/header/
+        access-rules:
+        - intercept-url: /header/.*
+          anonymous: true
+      analytics:
+        target: http://analytics:8080/analytics/
+        access-rules:
+        - intercept-url: /analytics/.*
+          allowed-roles: SUPERUSER,ORGADMIN
+      console:
+        target: http://console:8080/console/
+        access-rules:
+        - intercept-url:
+          - /console/public/.*
+          - /console/manager/public/.*
+          #/console/account resources are private except account/new and account/passwordRecovery
+          - /console/account/new
+          - /console/account/newPassword
+          - /console/account/passwordRecovery
+          - /console/account/js/.*
+          - /console/account/css/.*
+          - /console/account/fonts/.*
+          - /console/testPage
+          anonymous: true
+        - intercept-url:
+          - /console/private/.*
+          - /console/manager/.*
+          - /console/.*/emails
+          - /console/.*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
+          - /console/.*/emailTemplates
+          - /console/attachments
+          allowed-roles: SUPERUSER,ORGADMIN
+        - intercept-url: /console/emailProxy #activated for members having the EMAILPROXY role
+          allowed-roles: EMAILPROXY
+        - intercept-url: /console/internal/.*
+          allowed-roles: SUPERUSER
+        - intercept-url: /console/account/.*
+          anonymous: false
+      geonetwork:
+        target: http://geonetwork:8080/geonetwork/
+        headers:
+          proxy: true
+          username: false
+          roles: false
+          org: false
+          orgname: true
+          json-user: true
+      geoserver:
+        target: http://geoserver:8080/geoserver/

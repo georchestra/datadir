@@ -447,7 +447,7 @@
         </button>
         <input class="search form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" ng-model="search" autocomplete="off">
       </div><!-- end ngIf: !area.maponly -->
-    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;" touch-action="none" data-view="23"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0; display: none;"></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%;"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed" style="display: none;"><ul></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+    <div class="ol-viewport" touch-action="none" data-view="23" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0; display: none;"></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%;"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed" style="display: none;"><ul></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
   </div>
 
   <!-- ngIf: !area.maponly --><div class="col-md-4 ng-scope" ng-if="!area.maponly">
@@ -719,8 +719,8 @@ function testUid() {
 function testPassword() {
 	var password = document.form.password.value;
 	removeError("password");
-	if (!isPasswordValid(password)) {
-		addError("password", "The password must contain at least 8 characters");
+	if (!isNotEmpty(password) && isFieldRequired("password")) {
+		addError("uid", "Required");
 		return false;
 	}
 	return true;
@@ -923,11 +923,7 @@ function isNotEmpty(str) {
  * @returns {boolean}
  */
 function isPasswordValid(password) {
-	if (!password || password.length < 8){
-		return false;
-	} else {
-		return true;
-	}
+    return true;
 }
 
 /**

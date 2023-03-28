@@ -1,4 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="../resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage?0";
+/*]]>*/
+</script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,7 +18,7 @@
       <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
       
       
-	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-9C5C02B6FDAE19EBCFF9C00129FA3C56.css" type="text/css" media="screen, projection">
+	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-F06A8E46A5E23EEAC1C2B09261573AFD.css" type="text/css" media="screen, projection">
 	  
       <!--[if IE]>
       
@@ -25,10 +32,18 @@
         <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.fullscreen-ver-A1341414A7D106EAE077E0332CD01573.js"></script>
     
 	<script type="text/javascript" src="../resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.AboutGeoServerPage?0-1.IBehaviorListener.0-localeSwitcher","m":"POST","c":"id1","i":"ajaxFeedback","e":"change"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
 </head>
-<body>  
+<body>
   <div id="go_head">
-    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/"></iframe>
+    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/?active=geoserver"></iframe>
   </div>
   <div id="main">
     <div class="wrap selfclear">
@@ -89,26 +104,26 @@
            <ul>
              <li>
                <label for="version">GeoServer Version</label>
-               <span id="version">2.20.4-georchestra</span>
+               <span id="version">2.22.2-georchestra</span>
              </li>
              <li>
                <label for="buildRevision">Git Revision</label>
-               <span id="buildRevision">1a1868e93f5bd36de68cadad6260862be185e7f3</span>
+               <span id="buildRevision">9c06a6ea05986a5b0521efc8e33afc881aaa6723</span>
              </li>
              <li>
                <label for="buildDate">Build Date</label>
-               <span id="buildDate">25-Apr-2022 14:33</span>
+               <span id="buildDate">28-Mar-2023 10:43</span>
              </li>
              <li>
                <label for="geotoolsInfo">GeoTools Version</label>
                <span id="geotoolsInfo">
-                 <span>26.4</span> (rev <span>528edf98521245d91fa38cde4fea5f5dc369ddc8</span>)
+                 <span>28.2</span> (rev <span>558cedba96f8d4c593a362982ce55b7a9e6942dc</span>)
                </span>
              </li>
              <li>
                <label for="geowebcacheInfo">GeoWebCache Version</label>
                <span id="geotoolsInfo">
-                 <span>1.20.2</span> (rev <span>1.20.x/7859501431095a04f5a5c57d0f1c28ef10005a17</span>)
+                 <span>1.22.1</span> (rev <span>b01a7c3999377584b38466ade2f378bf744fb7d0/b01a7c3999377584b38466ade2f378bf744fb7d0</span>)
                </span>
              </li>
            </ul>
@@ -137,7 +152,7 @@
            </p>
              <ul style="margin-left: 2em;">
               <li>
-                <a href="http://docs.geoserver.org">Documentation</a>
+                <a href="https://docs.geoserver.org">Documentation</a>
               </li>
               <li>
                 <a href="https://github.com/geoserver/geoserver/wiki">Wiki</a>

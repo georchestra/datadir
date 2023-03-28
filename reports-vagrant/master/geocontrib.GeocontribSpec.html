@@ -29,9 +29,9 @@ limitations under the License.
 
 
 
-<h1>Report for HeaderSpec</h1>
+<h1>Report for geocontrib.GeocontribSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Mar 28 14:46:34 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Tue Mar 28 14:47:41 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
             <td>2</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
             <td class="passed">100.0%</td>
-            <td>1.533 seconds</td>
+            <td>0</td>
         </tr>
         </tbody>
     </table>
@@ -69,9 +69,9 @@ limitations under the License.
 <h2>Features</h2>
 <ul id="toc">
     
-    <li><a href="#-819463038" class="feature-toc-pass">I can browse the header webapp</a></li>
+    <li><a href="#-1143434878" class="feature-toc-ignored">I can access the GeoContrib main page</a></li>
     
-    <li><a href="#-1341549771" class="feature-toc-pass">Connected as an administrator, I can access the admin tab of the header menu</a></li>
+    <li><a href="#784003964" class="feature-toc-ignored">If a GeoContrib project is available, I can access it</a></li>
     
 </ul>
 
@@ -79,9 +79,9 @@ limitations under the License.
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-819463038">
-        <span class="feature-name feature-name-">I can browse the header webapp</span>
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="-1143434878">
+        <span class="feature-name feature-name-ignored">I can access the GeoContrib main page</span>
 
         
     </div>
@@ -96,25 +96,25 @@ limitations under the License.
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">to HeaderPage
+                <pre class="code">to GeocontribMainPage
 </pre>
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">at HeaderPage
-report "HeaderPage"
+                <pre class="code">at GeocontribMainPage
+report "GeocontribMainPage"
 </pre>
             </td>
         </tr>
@@ -125,27 +125,6 @@ report "HeaderPage"
     
 
     <!-- print geb artifacts -->
-    
-
-    <h3>Geb Artifacts:</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>Label</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <tr class="">
-            <td>HeaderPage</td>
-            <td>
-                <a href="./HeaderSpec/001-001-I_can_browse_the_header_webapp-HeaderPage.png" target="_blank"><img src="./HeaderSpec/001-001-I_can_browse_the_header_webapp-HeaderPage.png" alt="./HeaderSpec/001-001-I_can_browse_the_header_webapp-HeaderPage.png" style="max-width: 120px;" /></a>
-            </td>
-        </tr>
-        
-        </tbody>
-    </table>
     
 
     <!-- print problems -->
@@ -154,9 +133,9 @@ report "HeaderPage"
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-1341549771">
-        <span class="feature-name feature-name-">Connected as an administrator, I can access the admin tab of the header menu</span>
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="784003964">
+        <span class="feature-name feature-name-ignored">If a GeoContrib project is available, I can access it</span>
 
         
     </div>
@@ -171,48 +150,37 @@ report "HeaderPage"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Given:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>I am not connected to the platform</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-connectAsAdmin()
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">to HeaderPage
+                <pre class="code">to GeocontribMainPage
 </pre>
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">headerBanner.adminTab.click()
+                <pre class="code">"a project URL is available"()
 </pre>
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p></p>
-                <pre class="code">headerBanner.consoleAdmTab.displayed
-report "HeaderPage-admin"
+                <pre class="code">"click on the first available project URL"()
+at GeocontribProjectPage
+report "GeocontribProjectPage"
 </pre>
             </td>
         </tr>
@@ -223,27 +191,6 @@ report "HeaderPage-admin"
     
 
     <!-- print geb artifacts -->
-    
-
-    <h3>Geb Artifacts:</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>Label</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <tr class="">
-            <td>HeaderPage-admin</td>
-            <td>
-                <a href="./HeaderSpec/002-001-Connected_as_an_administrator__I_can_access_the_admin_tab_of_the_header_menu-HeaderPage-admin.png" target="_blank"><img src="./HeaderSpec/002-001-Connected_as_an_administrator__I_can_access_the_admin_tab_of_the_header_menu-HeaderPage-admin.png" alt="./HeaderSpec/002-001-Connected_as_an_administrator__I_can_access_the_admin_tab_of_the_header_menu-HeaderPage-admin.png" style="max-width: 120px;" /></a>
-            </td>
-        </tr>
-        
-        </tbody>
-    </table>
     
 
     <!-- print problems -->

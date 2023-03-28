@@ -1,14 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="../resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
-<script type="text/javascript" src="../resource/org.wicketstuff.select2.ApplicationSettings/res/js/select2.full-ver-0C1C8BE2790B7DF692432656FBF4BC9A.js"></script>
-<link rel="stylesheet" type="text/css" href="../resource/org.wicketstuff.select2.ApplicationSettings/res/css/select2-ver-3805311D5FC135A34B316E3F1A7ED1E2.css">
 <script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
-<script type="text/javascript" src="../resource/org.geoserver.web.wicket.Select2DropDownChoice/js/select2/select2-keyboard-ver-96A0E3802007C5F34BB0BE2B9D344312.js"></script>
 <script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
 <script type="text/javascript" id="wicket-ajax-base-url">
 /*<![CDATA[*/
 Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsPage?8&amp;filter=false";
 /*]]>*/
 </script>
+<script type="text/javascript" src="../resource/org.wicketstuff.select2.ApplicationSettings/res/js/select2.full-ver-0C1C8BE2790B7DF692432656FBF4BC9A.js"></script>
+<link rel="stylesheet" type="text/css" href="../resource/org.wicketstuff.select2.ApplicationSettings/res/css/select2-ver-3805311D5FC135A34B316E3F1A7ED1E2.css">
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.Select2DropDownChoice/js/select2/select2-keyboard-ver-96A0E3802007C5F34BB0BE2B9D344312.js"></script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=10">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -21,7 +21,7 @@ Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsP
       <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
       
       
-	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-9C5C02B6FDAE19EBCFF9C00129FA3C56.css" type="text/css" media="screen, projection">
+	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-F06A8E46A5E23EEAC1C2B09261573AFD.css" type="text/css" media="screen, projection">
 	  
       <!--[if IE]>
       
@@ -38,12 +38,14 @@ Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsP
 <script type="text/javascript">
 /*<![CDATA[*/
 Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.admin.GlobalSettingsPage?8-1.IBehaviorListener.0-localeSwitcher&filter=false","m":"POST","c":"id6","i":"ajaxFeedback","e":"change"});;
 $('#charset').select2({});;
 $('#charset').select2({});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.admin.GlobalSettingsPage?8-1.IBehaviorListener.0-form-requestLogging&filter=false","m":"POST","c":"requestLogging","i":"ajaxFeedback","e":"click"});;
 $('#lockProvider').select2({});;
 $('#webUIMode').select2({});;
 $('#defaultLocale').select2({});;
-Wicket.Ajax.ajax({"u":"./org.geoserver.web.admin.GlobalSettingsPage?8-1.IBehaviorListener.0-form-apply&filter=false","m":"POST","c":"id2","f":"id1","sc":"apply","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.admin.GlobalSettingsPage?8-1.IBehaviorListener.0-form-apply&filter=false","m":"POST","c":"id8","f":"id7","sc":"apply","i":"ajaxFeedback","e":"click"});;
 Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
 ;});
 /*]]>*/
@@ -59,9 +61,9 @@ enableSelect2Keyboard('defaultLocale');;
 /*]]>*/
 </script>
 </head>
-<body>  
+<body>
   <div id="go_head">
-    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/"></iframe>
+    <iframe scrolling="no" frameborder="0" style="width:100%;height:90px;border:none;overflow:hidden;" src="/header/?active=geoserver"></iframe>
   </div>
   <div id="main">
     <div class="wrap selfclear">
@@ -274,17 +276,17 @@ enableSelect2Keyboard('defaultLocale');;
 
       <div class="page-pane selfclear" id="page-pane">
         
-<form id="id1" method="post" action="./org.geoserver.web.admin.GlobalSettingsPage?8-1.IFormSubmitListener-form&amp;filter=false"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="id1_hf_0" id="id1_hf_0"></div>
+<form id="id7" method="post" action="./org.geoserver.web.admin.GlobalSettingsPage?8-1.IFormSubmitListener-form&amp;filter=false"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="id7_hf_0" id="id7_hf_0"></div>
   <h3><span>OGC Services</span></h3>
   <fieldset>
     <legend><span>Service Settings</span></legend>
     <ul>
       <li>
         <label for="proxyBaseUrl">Proxy Base URL</label>
-        <input id="proxyBaseUrl" class="field text" type="text" value="${X-Forwarded-Proto}://${X-Forwarded-Host}/geoserver" name="proxyBaseUrl">
+        <input id="proxyBaseUrl" class="field text" type="text" value="https://georchestra.example.org/geoserver" name="proxyBaseUrl">
       </li>
       <li class="choiceItem">
-        <input id="useHeadersProxyURL" type="checkbox" checked="checked" name="useHeadersProxyURL">
+        <input id="useHeadersProxyURL" type="checkbox" name="useHeadersProxyURL">
         <label for="useHeadersProxyURL">Use headers for Proxy URL </label>
       </li>
       <li class="choiceItem">
@@ -524,20 +526,36 @@ enableSelect2Keyboard('defaultLocale');;
       <li>
         <label for="log4jConfigFile">Logging profile</label>
         <select id="log4jConfigFile" class="field select" name="log4jConfigFile" size="8">
-<option selected="selected" value="0">DEFAULT_LOGGING.properties</option>
-<option value="1">GEOSERVER_DEVELOPER_LOGGING.properties</option>
-<option value="2">GEOTOOLS_DEVELOPER_LOGGING.properties</option>
-<option value="3">PRODUCTION_LOGGING.properties</option>
-<option value="4">VERBOSE_LOGGING.properties</option>
+<option selected="selected" value="0">DEFAULT_LOGGING</option>
+<option value="1">GEOSERVER_DEVELOPER_LOGGING</option>
+<option value="2">GEOTOOLS_DEVELOPER_LOGGING</option>
+<option value="3">PRODUCTION_LOGGING</option>
+<option value="4">QUIET_LOGGING</option>
+<option value="5">TEST_LOGGING</option>
+<option value="6">VERBOSE_LOGGING</option>
 </select>
       </li>
       <li class="choiceItem">
         <input id="stdOutLogging" type="checkbox" checked="checked" name="stdOutLogging">
         <label for="stdOutLogging">Log to StdOut</label>
       </li>
-      <li>
-        <label for="xmlPostRequestLogBufferSize">Number of characters to log for incoming POST requests (0 to disable)</label>
-        <input id="xmlPostRequestLogBufferSize" class="field text" type="text" value="1024" name="xmlPostRequestLogBufferSize">
+      <li class="choiceItem">
+        <input id="requestLogging" type="checkbox" name="requestLogging">
+        <label for="requestLogging">Enable Request Logging</label>
+          <ul id="id9">
+            <li class="choiceItem">
+              <input id="requestLogging" type="checkbox" name="requestLoggingSub:requestLoggingBodies" disabled="disabled">
+              <label for="requestLogging">Log Request Bodies</label>
+            </li>
+            <li>
+              <label for="xmlPostRequestLogBufferSize">Number of characters to log for incoming POST requests (0 to disable)</label><br>
+              <input id="xmlPostRequestLogBufferSize" class="field text" type="text" value="1024" name="requestLoggingSub:xmlPostRequestLogBufferSize" disabled="disabled">
+            </li>
+            <li class="choiceItem">
+              <input id="requestLogging" type="checkbox" name="requestLoggingSub:requestLoggingHeaders" disabled="disabled">
+              <label for="requestLogging">Log Request Headers</label>
+            </li>
+          </ul>
       </li>
     </ul>
   </fieldset>
@@ -1359,9 +1377,9 @@ enableSelect2Keyboard('defaultLocale');;
       </li>
   </ul>
   <div class="button-group toolbar-sticky selfclear">
-    <button type="submit" class="form-button-save" name="p::submit" id="id3">Save</button>
-    <a href="javascript:;" class="form-button-apply" id="id2">Apply</a>
-    <button type="submit" class="form-button-cancel" name="cancel" id="id4">Cancel</button>
+    <button type="submit" class="form-button-save" name="p::submit" id="ida">Save</button>
+    <a href="javascript:;" class="form-button-apply" id="id8">Apply</a>
+    <button type="submit" class="form-button-cancel" name="cancel" id="idb">Cancel</button>
   </div>
 </form>
 

@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for ConsoleSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Apr 26 15:33:47 CEST 2022 by pmauduit</span>
+<span class="date-test-ran">Created on Tue Mar 28 14:46:32 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>5</td>
+            <td>3</td>
             <td>0</td>
             <td>0</td>
-            <td>0</td>
+            <td>2</td>
             <td class="passed">100.0%</td>
-            <td>14.764 seconds</td>
+            <td>4.280 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -71,9 +71,9 @@ limitations under the License.
     
     <li><a href="#1284785471" class="feature-toc-pass">I can visit the page to create an account</a></li>
     
-    <li><a href="#-280515081" class="feature-toc-pass">I can create an account</a></li>
+    <li><a href="#-280515081" class="feature-toc-ignored">I can create an account</a></li>
     
-    <li><a href="#-1886279643" class="feature-toc-pass">I can use the console's 'recover my password' feature</a></li>
+    <li><a href="#-1886279643" class="feature-toc-ignored">I can use the console's 'recover my password' feature</a></li>
     
     <li><a href="#1662865496" class="feature-toc-pass">Being connected as an administrator, I can visit the console admin page</a></li>
     
@@ -171,9 +171,9 @@ report "ConsoleNewAccountPage"
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-280515081">
-        <span class="feature-name feature-name-">I can create an account</span>
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="-280515081">
+        <span class="feature-name feature-name-ignored">I can create an account</span>
 
         
     </div>
@@ -188,62 +188,33 @@ report "ConsoleNewAccountPage"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Given:</p>
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I am not connected to the platform</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-</pre>
+                
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to ConsoleNewAccountPage
-</pre>
+                <p>----</p>
+                
             </td>
         </tr>
         
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>And:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">$('input#firstName') << "newUser"
-$('input#surname') << "newUser"
-$('input#email') << "newUser@example.org"
-$('input#phone') << "+331234567890"
-$("span[aria-labelledby='select2-org-container']").click()
-$("li").find {
-    it.attr('id').startsWith("select2-org-result")  &&
-            ! it.attr('id').endsWith("--")
-}.click()
-$('input#password') << "123456789"
-$('input#confirmPassword') << "123456789"
-if ($('input#privacyPolicyAgreed').displayed) {
-    $('input#privacyPolicyAgreed').click()
-}
-$("button[type='submit']").click()
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"Form has been successfully posted"()  || "Form reports that the 'User already exists'"()
-report "ConsoleAccountCreation"
-</pre>
+                <p>----</p>
+                
             </td>
         </tr>
         
@@ -253,27 +224,6 @@ report "ConsoleAccountCreation"
     
 
     <!-- print geb artifacts -->
-    
-
-    <h3>Geb Artifacts:</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>Label</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <tr class="">
-            <td>ConsoleAccountCreation</td>
-            <td>
-                <a href="./ConsoleSpec/002-001-I_can_create_an_account-ConsoleAccountCreation.png" target="_blank"><img src="./ConsoleSpec/002-001-I_can_create_an_account-ConsoleAccountCreation.png" alt="./ConsoleSpec/002-001-I_can_create_an_account-ConsoleAccountCreation.png" style="max-width: 120px;" /></a>
-            </td>
-        </tr>
-        
-        </tbody>
-    </table>
     
 
     <!-- print problems -->
@@ -282,9 +232,9 @@ report "ConsoleAccountCreation"
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-1886279643">
-        <span class="feature-name feature-name-">I can use the console's 'recover my password' feature</span>
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="-1886279643">
+        <span class="feature-name feature-name-ignored">I can use the console's 'recover my password' feature</span>
 
         
     </div>
@@ -299,7 +249,7 @@ report "ConsoleAccountCreation"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Given:</p>
             </td>
@@ -309,7 +259,7 @@ report "ConsoleAccountCreation"
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
@@ -319,7 +269,7 @@ report "ConsoleAccountCreation"
             </td>
         </tr>
         
-        <tr class="">
+        <tr class="ignored">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
@@ -335,27 +285,6 @@ report "ConsoleAccountCreation"
     
 
     <!-- print geb artifacts -->
-    
-
-    <h3>Geb Artifacts:</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>Label</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
-        
-        <tr class="">
-            <td>ConsoleRecoveryPage</td>
-            <td>
-                <a href="./ConsoleSpec/003-001-I_can_use_the_console_s__recover_my_password__feature-ConsoleRecoveryPage.png" target="_blank"><img src="./ConsoleSpec/003-001-I_can_use_the_console_s__recover_my_password__feature-ConsoleRecoveryPage.png" alt="./ConsoleSpec/003-001-I_can_use_the_console_s__recover_my_password__feature-ConsoleRecoveryPage.png" style="max-width: 120px;" /></a>
-            </td>
-        </tr>
-        
-        </tbody>
-    </table>
     
 
     <!-- print problems -->
@@ -437,7 +366,7 @@ report "ConsoleAdminPage"
         <tr class="">
             <td>ConsoleAdminPage</td>
             <td>
-                <a href="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/002-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/002-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/002-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -524,7 +453,7 @@ report "ConsoleUserDetailsPage"
         <tr class="">
             <td>ConsoleUserDetailsPage</td>
             <td>
-                <a href="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/003-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/003-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/003-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         

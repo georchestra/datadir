@@ -17,7 +17,7 @@ spring:
   rabbitmq.host: localhost
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/georchestra
+    url: jdbc:postgresql://localhost:5432/georchestra?currentSchema=geonetwork
     username: georchestra
     password: georchestra
   jpa:

@@ -13,7 +13,7 @@ That is the reason why this directory is provided here.
 In order to use this datadir:
  * simply clone this repository (typically in `/etc/georchestra` but it might be elsewhere)
  * **checkout the branch matching your geOrchestra version** (eventually prefixed with `docker-` if you use [official docker images](https://hub.docker.com/u/georchestra))
- * customize the different configuration files (see below)
+ * customize the different configuration files (see below), starting with `default.properties`
  * launch your servlet container with an extra parameter, typically `georchestra.datadir=/etc/georchestra`
 
 For instance, with tomcat, you may create a `${CATALINA_HOME}/bin/setenv.sh` file with:
@@ -39,7 +39,7 @@ Next thing to do, for security, is changing the password of the `geoserver_privi
 cd /etc/georchestra
 find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen 16 1)'/' {} \;
 ```
-Remember to change it in your LDAP too !
+Remember to change it in the LDAP too !
 
 
 Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
@@ -53,7 +53,8 @@ Once you're done, fill in the public and private keys in the [console/console.pr
 There are plenty of other configuration options available, so feel free to browse the sub-folders of this repository and read the comments to make your mind.
 
 We do recommend that you:
- * change your SDI logo, with [header/logo.png](header/logo.png)
- * update the viewer config with [mapfishapp/js/GEOR_custom.js](mapfishapp/js/GEOR_custom.js)
- * translate the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates to your language, and change the default language in [default.properties](./default.properties).
+ * change the default language in [default.properties](./default.properties)
+ * upload a new logo to [header/logo.png](header/logo.png)
+ * update the viewer config with [mapstore/config/localConfig.json](mapstore/config/localConfig.json)
+ * translate the console ([console/templates](console/templates)) email templates to the desired language.
 

@@ -10,7 +10,7 @@ spring:
         predicates:
         - Path=/
         filters:
-        - RewritePath=/, /header
+        - RedirectTo=308, /header
       - id: loginredirect
         uri: no://op
         predicates:

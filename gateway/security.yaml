@@ -19,7 +19,7 @@ georchestra:
             searchFilter: ${ldapRolesSearchFilter:(member={0})}
           orgs:
             rdn: ${ldapOrgsRdn:ou=orgs}
-            protectedRoles: ADMINISTRATOR, EXTRACTORAPP, GN_.*, ORGADMIN, REFERENT, USER, SUPERUSER
+            protectedRoles: ADMINISTRATOR, GN_.*, ORGADMIN, REFERENT, USER, SUPERUSER
 spring:
   security:
     oauth2:

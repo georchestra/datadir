@@ -77,8 +77,6 @@ max_zoom = 14
 # ${layer_name}: Name of the layer
 # Be careful to use englobing single quotes, if your template syntax includes JSON (with double quotes)
 # Examples:
-# mapfishapp template:
-# external_viewer_url_template = 'https://dev.geo2france.fr/mapfishapp/?owsurl=${service_url}&layername=${layer_name}&owstype=${service_type}Layer'
 # mapstore template
 external_viewer_url_template = '/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
 

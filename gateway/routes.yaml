@@ -10,7 +10,7 @@ spring:
         predicates:
         - Path=/
         filters:
-        - RewritePath=/, /header
+        - RedirectTo=308, /header
       - id: loginredirect
         uri: no://op
         predicates:
@@ -26,18 +26,10 @@ spring:
         uri: ${georchestra.gateway.services.analytics.target}
         predicates:
         - Path=/analytics/**
-      - id: atlas
-        uri: ${georchestra.gateway.services.atlas.target}
-        predicates:
-        - Path=/atlas/**
       - id: console
         uri: ${georchestra.gateway.services.console.target}
         predicates:
         - Path=/console/**
-      - id: extractorapp
-        uri: ${georchestra.gateway.services.extractorapp.target}
-        predicates:
-        - Path=/extractorapp/**
       - id: geonetwork
         uri: ${georchestra.gateway.services.geonetwork.target}
         predicates:
@@ -46,10 +38,6 @@ spring:
         uri: ${georchestra.gateway.services.geoserver.target}
         predicates:
         - Path=/geoserver/**
-      - id: mapfishapp
-        uri: ${georchestra.gateway.services.mapfishapp.target}
-        predicates:
-        - Path=/mapfishapp/**
       - id: geowebcache
         uri: ${georchestra.gateway.services.geowebcache.target}
         predicates:
@@ -69,14 +57,11 @@ spring:
 
 georchestra.gateway.services:
   analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
-  atlas.target: http://${ATLAS_HOST}:8080/atlas/
   console.target: http://${CONSOLE_HOST}:8080/console/
   datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder
-  extractorapp.target: http://${EXTRACTORAPP_HOST}:8080/extractorapp/
   geonetwork.target: http://${GEONETWORK_HOST}:8080/geonetwork/
   geoserver.target: http://${GEOSERVER_HOST}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST}:8080/geowebcache/
   header.target: http://${HEADER_HOST}:8080/header/
   import.target: http://${IMPORT_HOST}:80/
-  mapfishapp.target: http://${MAPFISHAPP_HOST}:8080/mapfishapp/
   mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/

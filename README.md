@@ -53,7 +53,7 @@ Once you're done, fill in the public and private keys in the [console/console.pr
 There are plenty of other configuration options available, so feel free to browse the sub-folders of this repository and read the comments to make your mind.
 
 We do recommend that you:
- * change your SDI logo, with [header/logo.png](header/logo.png)
- * update the viewer config with [mapfishapp/js/GEOR_custom.js](mapfishapp/js/GEOR_custom.js)
- * translate the console ([console/templates](console/templates)) and extractor ([extractorapp/templates](extractorapp/templates)) email templates to your language, and change the default language in [default.properties](./default.properties).
-
+ * change the default language in [default.properties](./default.properties)
+ * upload a new logo to [header/logo.png](header/logo.png)
+ * update the viewer config with [mapstore/config/localConfig.json](mapstore/config/localConfig.json)
+ * translate the console ([console/templates](console/templates)) email templates to the desired language.

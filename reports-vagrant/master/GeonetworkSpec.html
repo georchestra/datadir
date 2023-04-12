@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeonetworkSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Tue Mar 28 14:47:22 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Wed Apr 12 10:37:11 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>3</td>
-            <td>0</td>
+            <td>4</td>
             <td>0</td>
             <td>1</td>
-            <td class="passed">100.0%</td>
-            <td>47.911 seconds</td>
+            <td>0</td>
+            <td class="failure">75.0%</td>
+            <td>56.008 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -75,7 +75,7 @@ limitations under the License.
     
     <li><a href="#1609321075" class="feature-toc-pass">Being connected onto the catalogue, I have access to contribute & admin menu</a></li>
     
-    <li><a href="#1480136461" class="feature-toc-ignored">Being connected onto the catalogue, I can create a metadata using the editor</a></li>
+    <li><a href="#1480136461" class="feature-toc-error">Being connected onto the catalogue, I can create a metadata using the editor</a></li>
     
 </ul>
 
@@ -343,9 +343,9 @@ report "GnMainPageLoggedIn"
 
 
 
-<div class="feature feature-ignored">
-    <div class="feature-heading feature-heading-ignored" id="1480136461">
-        <span class="feature-name feature-name-ignored">Being connected onto the catalogue, I can create a metadata using the editor</span>
+<div class="feature feature-error">
+    <div class="feature-heading feature-heading-error" id="1480136461">
+        <span class="feature-name feature-name-error">Being connected onto the catalogue, I can create a metadata using the editor</span>
 
         
     </div>
@@ -360,7 +360,7 @@ report "GnMainPageLoggedIn"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
@@ -370,7 +370,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
@@ -380,7 +380,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
@@ -390,7 +390,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
@@ -400,7 +400,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
@@ -410,7 +410,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
@@ -420,7 +420,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>When:</p>
             </td>
@@ -430,7 +430,7 @@ report "GnMainPageLoggedIn"
             </td>
         </tr>
         
-        <tr class="ignored">
+        <tr class="">
             <td class="code-block-kind" colspan="1">
                 <p>Then:</p>
             </td>
@@ -448,7 +448,62 @@ report "GnMainPageLoggedIn"
     <!-- print geb artifacts -->
     
 
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>GnAtCreateNewRecord</td>
+            <td>
+                <a href="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" target="_blank"><img src="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" alt="./GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>failure</td>
+            <td>
+                <a href="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" target="_blank"><img src="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" alt="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
     <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>java.lang.NullPointerException: Cannot invoke method click() on null object</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox-1480136461-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox-1480136461-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">java.lang.NullPointerException: Cannot invoke method click() on null object
+	at GeonetworkCatalogEditAddNewRecordPage.click on 'Vector ISO19139'(GeonetworkSpec.groovy:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.Browser.methodMissing(Browser.groovy:226)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at GeonetworkSpec.Being connected onto the catalogue, I can create a metadata using the editor(GeonetworkSpec.groovy:155)
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
     
 </div>
 

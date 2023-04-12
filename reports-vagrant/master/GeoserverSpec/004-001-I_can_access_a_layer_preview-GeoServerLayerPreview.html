@@ -89,7 +89,7 @@
             clear: both;
             position: relative;
             width: 768px;
-            height: 330px;
+            height: 525px;
             border: 1px solid black;
         }
         #wrapper {
@@ -201,12 +201,12 @@
           </li>
           <li>
               <a>Filter:</a>
-              <select id="filterType" disabled="">
+              <select id="filterType">
                   <option value="cql">CQL</option>
                   <option value="ogc">OGC</option>
                   <option value="fid">FeatureID</option>
               </select>
-              <input type="text" size="80" id="filter" disabled="">
+              <input type="text" size="80" id="filter">
               <a id="updateFilterButton" href="#" onclick="updateFilter()" title="Apply filter">Apply</a>
               <a id="resetFilterButton" href="#" onclick="resetFilter()" title="Reset filter">Reset</a>
           </li>
@@ -214,10 +214,10 @@
       </div>
     <div id="map">
       <div class="ol-toggle-options ol-unselectable"><a title="Toggle options toolbar" onclick="toggleControlPanel()" href="#toggle">...</a></div>
-    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="768" height="330" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div></div>
+    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="768" height="525" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div></div>
     <div id="wrapper">
         <div id="location"><div class="custom-mouse-position">&nbsp;</div></div>
-        <div id="scale">Scale = 1 : 140M</div>
+        <div id="scale">Scale = 1 : 545K</div>
     <div id="nodelist">
         <em>Click on the map to get feature info</em>
     </div>
@@ -226,15 +226,15 @@
       // if this is just a coverage or a group of them, disable a few items,
       // and default to jpeg format
       var format = 'image/png';
-      var bounds = [-85.91670227050781, -16.540800094604492,
-                    76.43670654296875, 49.89790344238281];
+      var bounds = [706443.2000085486, 6405353.500049313,
+                    817000.199968456, 6481032.899998338];
       if (pureCoverage) {
         document.getElementById('antialiasSelector').disabled = true;
         document.getElementById('jpeg').selected = true;
         format = "image/jpeg";
       }
 
-      var supportsFiltering = false;
+      var supportsFiltering = true;
       if (!supportsFiltering) {
         document.getElementById('filterType').disabled = true;
         document.getElementById('filter').disabled = true;
@@ -251,11 +251,11 @@
       var untiled = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'https://georchestra.example.org/geoserver/geor/wms',
+          url: 'https://georchestra.example.org/geoserver/psc/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 "STYLES": '',
-                "LAYERS": 'geor:georchestra_instances',
+                "LAYERS": 'psc:terr_communes',
                 "exceptions": 'application/vnd.ogc.se_inimage',
           }
         })
@@ -263,22 +263,21 @@
       var tiled = new ol.layer.Tile({
         visible: false,
         source: new ol.source.TileWMS({
-          url: 'https://georchestra.example.org/geoserver/geor/wms',
+          url: 'https://georchestra.example.org/geoserver/psc/wms',
           params: {'FORMAT': format, 
                    'VERSION': '1.1.1',
                    tiled: true,
                 "STYLES": '',
-                "LAYERS": 'geor:georchestra_instances',
+                "LAYERS": 'psc:terr_communes',
                 "exceptions": 'application/vnd.ogc.se_inimage',
-             tilesOrigin: -85.91670227050781 + "," + -16.540800094604492
+             tilesOrigin: 706443.2000085486 + "," + 6405353.500049313
           }
         })
       });
       var projection = new ol.proj.Projection({
-          code: 'EPSG:4326',
-          units: 'degrees',
-          axisOrientation: 'neu',
-          global: true
+          code: 'EPSG:2154',
+          units: 'm',
+          global: false
       });
       var map = new ol.Map({
         controls: ol.control.defaults({

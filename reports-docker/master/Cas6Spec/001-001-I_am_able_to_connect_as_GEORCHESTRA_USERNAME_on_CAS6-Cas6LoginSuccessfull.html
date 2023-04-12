@@ -1,0 +1,71 @@
+<html><head>
+    <title>CAS - Central Authentication Service Log In Successful</title>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="/cas/webjars/normalize.css/8.0.1/normalize.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/bootstrap/4.6.0/css/bootstrap-grid.min.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/material-components-web/10.0.0/dist/material-components-web.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/mdi__font/5.8.55/css/materialdesignicons.css"><link rel="stylesheet" type="text/css" href="/cas/themes/georchestra/css/cas.css"><link rel="shortcut icon" href="/cas/favicon.ico"></head>
+
+<body>
+    <script type="text/javascript" src="/cas/webjars/es5-shim/4.5.9/es5-shim.js"></script>
+<script type="text/javascript" src="/cas/webjars/css-vars-ponyfill/2.3.1/dist/css-vars-ponyfill.min.js"></script>
+<script type="text/javascript" src="/cas/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/cas/webjars/material-components-web/10.0.0/dist/material-components-web.js"></script>
+
+<script type="text/javascript" src="/cas/themes/georchestra/js/cas.js"></script>
+
+<script>
+    if (typeof resourceLoadedSuccessfully === "function") {
+        resourceLoadedSuccessfully();
+    }
+    cssVars({});
+</script>
+
+<script>
+    /*<![CDATA[*/
+
+    var trackGeoLocation = false;
+
+    var googleAnalyticsTrackingId = null;
+
+    if (googleAnalyticsTrackingId != null && googleAnalyticsTrackingId != '') {
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', googleAnalyticsTrackingId, 'auto');
+        ga('send', 'pageview');
+    }
+
+    /*]]>*/
+</script>
+<div>
+    <iframe src="/header/" style="width:100%;height:90px;border:none;overflow:hidden;" scrolling="no" frameborder="0">
+    </iframe>
+</div>
+
+    <div class="mdc-drawer-scrim"></div>
+
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust d-flex justify-content-center">
+        <main role="main" id="main-content" class="container-lg py-4">
+            <div id="content" class="row">
+        <div class="w-100 m-auto mdc-card card p-4 text-justify">
+            <h2>
+                <i class="mdi mdi-door-open fas fa-door-open"></i>
+                <span>Log In Successful</span>
+            </h2>
+            <p>You, <strong>testadmin</strong>, have successfully logged into the Central Authentication Service.</p>
+        </div>
+    </div>
+        </main>
+    </div>
+
+    <footer>
+
+
+</footer></body></html>

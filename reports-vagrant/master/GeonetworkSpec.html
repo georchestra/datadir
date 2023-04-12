@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeonetworkSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 10:37:11 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Wed Apr 12 11:03:08 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,7 +45,6 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
-            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -54,10 +53,9 @@ limitations under the License.
         <tr>
             <td>4</td>
             <td>0</td>
-            <td>1</td>
             <td>0</td>
-            <td class="failure">75.0%</td>
-            <td>56.008 seconds</td>
+            <td class="passed">100.0%</td>
+            <td>47.296 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -75,7 +73,7 @@ limitations under the License.
     
     <li><a href="#1609321075" class="feature-toc-pass">Being connected onto the catalogue, I have access to contribute & admin menu</a></li>
     
-    <li><a href="#1480136461" class="feature-toc-error">Being connected onto the catalogue, I can create a metadata using the editor</a></li>
+    <li><a href="#1480136461" class="feature-toc-pass">Being connected onto the catalogue, I can create a metadata using the editor</a></li>
     
 </ul>
 
@@ -343,9 +341,9 @@ report "GnMainPageLoggedIn"
 
 
 
-<div class="feature feature-error">
-    <div class="feature-heading feature-heading-error" id="1480136461">
-        <span class="feature-name feature-name-error">Being connected onto the catalogue, I can create a metadata using the editor</span>
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="1480136461">
+        <span class="feature-name feature-name-">Being connected onto the catalogue, I can create a metadata using the editor</span>
 
         
     </div>
@@ -466,9 +464,16 @@ report "GnMainPageLoggedIn"
         </tr>
         
         <tr class="">
-            <td>failure</td>
+            <td>GnAtEditForm</td>
             <td>
-                <a href="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" target="_blank"><img src="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" alt="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-failure.png" style="max-width: 120px;" /></a>
+                <a href="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" target="_blank"><img src="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" alt="./GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>GnAtEditBoard</td>
+            <td>
+                <a href="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" target="_blank"><img src="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" alt="./GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -477,33 +482,6 @@ report "GnMainPageLoggedIn"
     
 
     <!-- print problems -->
-    
-    <div class="problem-description">
-        <div class="problem-header">The following problems occurred:</div>
-        <div>
-            <ul>
-                
-                <li>
-    <pre>java.lang.NullPointerException: Cannot invoke method click() on null object</pre>
-    <input type="checkbox" id="toggle-stacktrace-checkbox-1480136461-0" class="toggle-stacktrace-checkbox" checked />
-    <label for="toggle-stacktrace-checkbox-1480136461-0" class="toggle-stacktrace-label" >Stacktrace</label>
-    <div>
-        <pre class="stacktrace">java.lang.NullPointerException: Cannot invoke method click() on null object
-	at GeonetworkCatalogEditAddNewRecordPage.click on 'Vector ISO19139'(GeonetworkSpec.groovy:44)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.Browser.methodMissing(Browser.groovy:226)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at GeonetworkSpec.Being connected onto the catalogue, I can create a metadata using the editor(GeonetworkSpec.groovy:155)
-</pre>
-    </div>
-</li>
-                
-            </ul>
-        </div>
-    </div>
     
 </div>
 

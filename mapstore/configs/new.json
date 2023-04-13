@@ -28,6 +28,7 @@
         "group": "background",
         "title": "Empty Background",
         "fixed": true,
+        "visibility": false,
         "type": "empty"
       }
     ]

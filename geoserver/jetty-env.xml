@@ -23,9 +23,9 @@
      <Arg>
        <New class="org.apache.commons.dbcp.BasicDataSource">
          <Set name="driverClassName">org.postgresql.Driver</Set>
-         <Set name="username"><Env name="DATAFEEDER_PGUSER"/></Set>
-         <Set name="password"><Env name="DATAFEEDER_PGPASSWORD"/></Set>
-         <Set name="url">jdbc:postgresql://<Env name="DATAFEEDER_PGHOST"/>:<Env name="DATAFEEDER_PGPORT" default="5432"/>/<Env name="DATAFEEDER_PGDATABASE"/></Set>
+         <Set name="username"><Env name="DF_PGUSER"/></Set>
+         <Set name="password"><Env name="DF_PGPASSWORD"/></Set>
+         <Set name="url">jdbc:postgresql://<Env name="DF_PGHOST"/>:<Env name="DF_PGPORT" default="5432"/>/<Env name="DF_PGDATABASE"/></Set>
          <Set name="validationQuery">SELECT 1</Set>
          <Set name="maxWait">10000</Set>
          <Set name="maxActive">20</Set>

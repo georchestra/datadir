@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeoserverSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:35:15 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Apr 14 15:05:50 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,6 +45,7 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -53,9 +54,10 @@ limitations under the License.
         <tr>
             <td>4</td>
             <td>0</td>
-            <td>1</td>
-            <td class="failure">75.0%</td>
-            <td>12.843 seconds</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="passed">100.0%</td>
+            <td>9.032 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -73,7 +75,7 @@ limitations under the License.
     
     <li><a href="#-598223712" class="feature-toc-pass">Being connected as an administrator, I have access to the GeoServer administration menu</a></li>
     
-    <li><a href="#-2808763" class="feature-toc-error">I can access a layer preview</a></li>
+    <li><a href="#-2808763" class="feature-toc-pass">I can access a layer preview</a></li>
     
 </ul>
 
@@ -318,9 +320,9 @@ report "GeoServerGlobalSettingsPage"
 
 
 
-<div class="feature feature-error">
-    <div class="feature-heading feature-heading-error" id="-2808763">
-        <span class="feature-name feature-name-error">I can access a layer preview</span>
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-2808763">
+        <span class="feature-name feature-name-">I can access a layer preview</span>
 
         
     </div>
@@ -411,9 +413,9 @@ report "GeoServerLayerPreview"
         <tbody>
         
         <tr class="">
-            <td>failure</td>
+            <td>GeoServerLayerPreview</td>
             <td>
-                <a href="./GeoserverSpec/004-001-I_can_access_a_layer_preview-failure.png" target="_blank"><img src="./GeoserverSpec/004-001-I_can_access_a_layer_preview-failure.png" alt="./GeoserverSpec/004-001-I_can_access_a_layer_preview-failure.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" target="_blank"><img src="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" alt="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -422,36 +424,6 @@ report "GeoServerLayerPreview"
     
 
     <!-- print problems -->
-    
-    <div class="problem-description">
-        <div class="problem-header">The following problems occurred:</div>
-        <div>
-            <ul>
-                
-                <li>
-    <pre>java.lang.IllegalArgumentException: bound must be positive</pre>
-    <input type="checkbox" id="toggle-stacktrace-checkbox--2808763-0" class="toggle-stacktrace-checkbox" checked />
-    <label for="toggle-stacktrace-checkbox--2808763-0" class="toggle-stacktrace-label" >Stacktrace</label>
-    <div>
-        <pre class="stacktrace">java.lang.IllegalArgumentException: bound must be positive
-	at java.base/java.util.Random.nextInt(Random.java:388)
-	at GeoServerLayerPreviewPage.click on a random OpenLayers preview(GeoserverSpec.groovy:37)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.Browser.methodMissing(Browser.groovy:226)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at GeoserverSpec.I can access a layer preview(GeoserverSpec.groovy:121)
-</pre>
-    </div>
-</li>
-                
-            </ul>
-        </div>
-    </div>
     
 </div>
 

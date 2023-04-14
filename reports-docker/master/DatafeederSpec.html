@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for DatafeederSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:37:37 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Apr 14 15:07:03 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,6 +45,7 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -52,10 +53,11 @@ limitations under the License.
         <tbody>
         <tr>
             <td>3</td>
-            <td>1</td>
             <td>0</td>
-            <td class="failure">66.67%</td>
-            <td>47.430 seconds</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="passed">100.0%</td>
+            <td>26.180 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -71,7 +73,7 @@ limitations under the License.
     
     <li><a href="#-1125494638" class="feature-toc-pass">Can import a dataset with no SRS defined (no PRJ)</a></li>
     
-    <li><a href="#1625600889" class="feature-toc-failure">Can import a basic shapefile dataset</a></li>
+    <li><a href="#1625600889" class="feature-toc-pass">Can import a basic shapefile dataset</a></li>
     
 </ul>
 
@@ -236,9 +238,9 @@ report "DataFeederImportPage"
 
 
 
-<div class="feature feature-failure">
-    <div class="feature-heading feature-heading-failure" id="1625600889">
-        <span class="feature-name feature-name-failure">Can import a basic shapefile dataset</span>
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="1625600889">
+        <span class="feature-name feature-name-">Can import a basic shapefile dataset</span>
 
         
     </div>
@@ -433,9 +435,30 @@ report "DataFeederImportPage"
         </tr>
         
         <tr class="">
-            <td>failure</td>
+            <td>CreationDateAndScaleWizardPage</td>
             <td>
-                <a href="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-failure.png" target="_blank"><img src="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-failure.png" alt="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-failure.png" style="max-width: 120px;" /></a>
+                <a href="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png" target="_blank"><img src="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png" alt="./DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>ProcessDescriptionWizardPage</td>
+            <td>
+                <a href="./DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png" target="_blank"><img src="./DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png" alt="./DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>ConfirmationWizardPage</td>
+            <td>
+                <a href="./DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png" target="_blank"><img src="./DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png" alt="./DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>DataSetLoadedSuccessfullyWizardPage</td>
+            <td>
+                <a href="./DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png" target="_blank"><img src="./DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png" alt="./DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -444,51 +467,6 @@ report "DataFeederImportPage"
     
 
     <!-- print problems -->
-    
-    <div class="problem-description">
-        <div class="problem-header">The following problems occurred:</div>
-        <div>
-            <ul>
-                
-                <li>
-    <pre>geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)</pre>
-    <input type="checkbox" id="toggle-stacktrace-checkbox-1625600889-0" class="toggle-stacktrace-checkbox" checked />
-    <label for="toggle-stacktrace-checkbox-1625600889-0" class="toggle-stacktrace-label" >Stacktrace</label>
-    <div>
-        <pre class="stacktrace">geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at geb.waiting.Wait.waitFor(Wait.groovy:124)
-	at geb.waiting.DefaultWaitingSupport.doWaitFor(DefaultWaitingSupport.groovy:50)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.waiting.DefaultWaitingSupport.waitFor(DefaultWaitingSupport.groovy:37)
-	at geb.Page.waitFor(Page.groovy:116)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.Browser.methodMissing(Browser.groovy:226)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at DatafeederSpec.Can import a basic shapefile dataset(DatafeederSpec.groovy:157)
-Caused by: Assertion failed: 
-
-$('ng2-menu-item').displayed
-|                  |
-[]                 false
-
-	at DatafeederSpec.Can import a basic shapefile dataset_closure4(DatafeederSpec.groovy:157)
-	at DatafeederSpec.Can import a basic shapefile dataset_closure4(DatafeederSpec.groovy)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at geb.waiting.Wait.waitFor(Wait.groovy:113)
-	... 12 more
-</pre>
-    </div>
-</li>
-                
-            </ul>
-        </div>
-    </div>
     
 </div>
 

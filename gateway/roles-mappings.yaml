@@ -33,8 +33,6 @@
 georchestra:
   gateway:
     roles-mappings:
-      '[ROLE_GP.GDI.*]':
-        - ROLE_USER
       '[ROLE_GP.GDI.ADMINISTRATOR]':
         - ROLE_SUPERUSER
         - ROLE_ADMINISTRATOR

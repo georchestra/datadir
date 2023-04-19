@@ -57,4 +57,4 @@ We do recommend that you:
  * upload a new logo to [header/logo.png](header/logo.png)
  * update the viewer config with [mapstore/config/localConfig.json](mapstore/config/localConfig.json)
  * translate the console ([console/templates](console/templates)) email templates to the desired language.
- 
+

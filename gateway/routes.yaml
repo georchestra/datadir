@@ -56,12 +56,12 @@ spring:
         - Path=/import/**
 
 georchestra.gateway.services:
-  analytics.target: http://analytics:8080/analytics/
-  console.target: http://console:8080/console/
-  datafeeder.target: http://datafeeder:8080/datafeeder
-  geonetwork.target: http://geonetwork:8080/geonetwork/
-  geoserver.target: http://geoserver:8080/geoserver/
-  geowebcache.target: http://geowebcache:8080/geowebcache/
-  header.target: http://header:8080/header/
-  import.target: http://import:80/
-  mapstore.target: http://mapstore:8080/mapstore/
+  analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
+  console.target: http://${CONSOLE_HOST}:8080/console/
+  datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder
+  geonetwork.target: http://${GEONETWORK_HOST}:8080/geonetwork/
+  geoserver.target: http://${GEOSERVER_HOST}:8080/geoserver/
+  geowebcache.target: http://${GEOWEBCACHE_HOST}:8080/geowebcache/
+  header.target: http://${HEADER_HOST}:8080/header/
+  import.target: http://${IMPORT_HOST}:80/
+  mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/

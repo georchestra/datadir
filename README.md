@@ -25,11 +25,11 @@ Note that if you are developing, and running the servlet container with the Mave
 
 ## 3-steps editing
 
-Before using this datadir, you should at least change the default FQDN (`georchestra.mydomain.org`) for yours.
+Before using this datadir, you should at least change the default FQDN (`georchestra-127-0-1-1.traefik.me`) for yours.
 This can be done very easily with eg:
 ```
 cd /etc/georchestra
-find ./ -type f -exec sed -i 's/georchestra.mydomain.org/my.fqdn/' {} \;
+find ./ -type f -exec sed -i 's/georchestra-127-0-1-1.traefik.me/my.fqdn/' {} \;
 ```
 ...where `my.fqdn` is your server's FQDN.
 
@@ -57,4 +57,4 @@ We do recommend that you:
  * upload a new logo to [header/logo.png](header/logo.png)
  * update the viewer config with [mapstore/config/localConfig.json](mapstore/config/localConfig.json)
  * translate the console ([console/templates](console/templates)) email templates to the desired language.
- 
+

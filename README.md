@@ -34,7 +34,7 @@ find ./ -type f -exec sed -i 's/georchestra-127-0-1-1.traefik.me/my.fqdn/' {} \;
 ...where `my.fqdn` is your server's FQDN.
 
 
-Next thing to do, for security, is changing the password of the `geoserver_privileged_user`, that is internally used by several geOrchestra modules:
+Next thing to do, for security, is changing the password of the `georchestra_privileged_user`, that is internally used by several geOrchestra modules:
 ```
 cd /etc/georchestra
 find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen 16 1)'/' {} \;

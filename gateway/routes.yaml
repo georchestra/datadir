@@ -1,0 +1,67 @@
+# File included by gateway.yaml to set up the spring-gateway's routes
+# target service URL's are defined in gateway.yaml (e.g. georchestra.gateway.services.<service>.target)
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: root
+        uri: ${georchestra.gateway.services.header.target}
+        predicates:
+        - Path=/
+        filters:
+        - RedirectTo=308, /header
+      - id: loginredirect
+        uri: no://op
+        predicates:
+        - Path=/header
+        - QueryParam=login
+        filters:
+        - RedirectTo=308, /login
+      - id: header
+        uri: ${georchestra.gateway.services.header.target}
+        predicates:
+        - Path=/header,/header/**
+      - id: analytics
+        uri: ${georchestra.gateway.services.analytics.target}
+        predicates:
+        - Path=/analytics/**
+      - id: console
+        uri: ${georchestra.gateway.services.console.target}
+        predicates:
+        - Path=/console/**
+      - id: geonetwork
+        uri: ${georchestra.gateway.services.geonetwork.target}
+        predicates:
+        - Path=/geonetwork/**
+      - id: geoserver
+        uri: ${georchestra.gateway.services.geoserver.target}
+        predicates:
+        - Path=/geoserver/**
+      - id: geowebcache
+        uri: ${georchestra.gateway.services.geowebcache.target}
+        predicates:
+        - Path=/geowebcache/**
+      - id: mapstore
+        uri: ${georchestra.gateway.services.mapstore.target}
+        predicates:
+        - Path=/mapstore/**
+      - id: datafeeder
+        uri: ${georchestra.gateway.services.datafeeder.target}
+        predicates:
+        - Path=/datafeeder/**
+      - id: import
+        uri: ${georchestra.gateway.services.import.target}
+        predicates:
+        - Path=/import/**
+
+georchestra.gateway.services:
+  analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
+  console.target: http://${CONSOLE_HOST}:8080/console/
+  datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder
+  geonetwork.target: http://${GEONETWORK_HOST}:8080/geonetwork/
+  geoserver.target: http://${GEOSERVER_HOST}:8080/geoserver/
+  geowebcache.target: http://${GEOWEBCACHE_HOST}:8080/geowebcache/
+  header.target: http://${HEADER_HOST}:8080/header/
+  import.target: http://${IMPORT_HOST}:80/
+  mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/

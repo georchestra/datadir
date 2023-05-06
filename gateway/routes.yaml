@@ -31,10 +31,6 @@ spring:
         uri: ${georchestra.gateway.services.geoserver.target}
         predicates:
         - Path=/geoserver/**
-      - id: geowebcache
-        uri: ${georchestra.gateway.services.geowebcache.target}
-        predicates:
-        - Path=/geowebcache/**
       - id: mapstore
         uri: ${georchestra.gateway.services.mapstore.target}
         predicates:

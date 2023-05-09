@@ -11,13 +11,6 @@ spring:
         - Path=/
         filters:
         - RedirectTo=308, /header
-      - id: loginredirect
-        uri: no://op
-        predicates:
-        - Path=/header
-        - QueryParam=login
-        filters:
-        - RedirectTo=308, /login
       - id: header
         uri: ${georchestra.gateway.services.header.target}
         predicates:
@@ -54,14 +47,26 @@ spring:
         uri: ${georchestra.gateway.services.import.target}
         predicates:
         - Path=/import/**
+        filters:
+        - RewritePath=/import/(?<segment>.*),/$\{segment}
+      - id: datahub
+        uri: ${georchestra.gateway.services.datahub.target}
+        predicates:
+        - Path=/datahub/**
+      - id: ogc-api-records
+        uri: ${georchestra.gateway.services.ogc-api-records.target}
+        predicates:
+        - Path=/ogc-api-records/**
 
 georchestra.gateway.services:
   analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
   console.target: http://${CONSOLE_HOST}:8080/console/
-  datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder
+  datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder/
+  datahub.target: http://${DATAHUB_HOST}:80/datahub/
   geonetwork.target: http://${GEONETWORK_HOST}:8080/geonetwork/
   geoserver.target: http://${GEOSERVER_HOST}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST}:8080/geowebcache/
   header.target: http://${HEADER_HOST}:8080/header/
   import.target: http://${IMPORT_HOST}:80/
   mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/
+  ogc-api-records.target: http://${OGC_API_RECORDS_HOST}:8080/ogc-api-records/

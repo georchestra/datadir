@@ -16,16 +16,6 @@
       <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c] - %m%n"/>
     </layout>
   </appender>
-  <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
-      <param name="Threshold" value="ALL" />
-      <param name="File" value="/tmp/geonetwork.log" />
-      <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-          <param name="FileNamePattern" value="/tmp/geonetwork.%d.log.gz"/>
-      </rollingPolicy>
-      <layout class="org.apache.log4j.PatternLayout">
-          <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c] - %m%n" />
-      </layout>
-  </appender>
   <logger name="org.geonetwork.security.external" additivity="false">
       <level value="DEBUG" />
       <appender-ref ref="consoleAppender" />
@@ -38,7 +28,6 @@
   <logger name="geonetwork" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="geonetwork.resources">
     <level value="ERROR"/>
@@ -103,12 +92,10 @@
   <logger name="geonetwork.harvester" additivity="false">
     <level value="INFO"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="geonetwork.atom" additivity="false">
     <level value="INFO"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="geonetwork.lucene">
     <level value="ERROR"/>
@@ -157,7 +144,6 @@
   <logger name="jeeves" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="jeeves.dbms">
     <level value="ERROR"/>
@@ -192,11 +178,10 @@
   <logger name="org.springframework" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.springframework.beans" additivity="false">
     <level value="ERROR"/>
-    <appender-ref ref="fileAppender"/>
+    <appender-ref ref="consoleAppender"/>
   </logger>
   <logger name="org.springframework.security">
     <level value="ERROR"/>
@@ -212,7 +197,6 @@
   <logger name="com.k_int" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.jzkit">
     <level value="ERROR"/>
@@ -226,38 +210,32 @@
   <logger name="ro.isdc.wro.http" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="allConsoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.hibernate.SQL" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.hibernate.type" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.hibernate.tool.hbm2ddl" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
   <logger name="org.xhtmlrenderer" additivity="false">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
 
   <logger name="org.apache.camel" additivity="true">
     <level value="ERROR"/>
     <appender-ref ref="consoleAppender"/>
-    <appender-ref ref="fileAppender"/>
   </logger>
 
   <logger name="net.refractions.xml.sax" additivity="false">
     <level value="ERROR"/>
-    <appender-ref ref="fileAppender"/>
+    <appender-ref ref="consoleAppender"/>
   </logger>
   <!-- Turn off logging except when explicitly declared below -->
   <root>

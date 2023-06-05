@@ -142,16 +142,47 @@
                 "title": "IGN essentiels RASTER",
                 "autoload": true
               },
+              "gpfbetarasterwms": {
+                "url": "https://wms-r.geopf.fr/rok4/wms",
+                "type": "wms",
+                "title": "Géoplateforme (béta) RASTER",
+                "autoload": true
+              },
               "ignvectorwms": {
                 "url": "https://wxs.ign.fr/essentiels/geoportail/v/wms",
                 "type": "wms",
                 "title": "IGN essentiels VECTOR",
                 "autoload": true
               },
+              "gpfbetavectorwms": {
+                "url": "https://wms-v.geopf.fr/geoserver/ows",
+                "type": "wms",
+                "title": "Géoplateforme (béta) VECTOR",
+                "autoload": true
+              },
+              "gpfbetawfs": {
+                "url": "https://wfs.geopf.fr/geoserver/ows",
+                "type": "wfs",
+                "title": "Géoplateforme (béta) WFS",
+                "autoload": true
+              },
               "ignwmts": {
                 "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
                 "type": "wmts",
                 "title": "IGN essentiels WMTS",
+                "autoload": true
+              },
+              "gpfbetawmts": {
+                "url": "https://wmts.geopf.fr/rok4/wmts",
+                "type": "wmts",
+                "title": "Géoplateforme (béta) WMTS",
+                "autoload": true
+              },
+              "gpfbetatms": {
+                "url": "https://wmts.geopf.fr/rok4/tms/1.0.0/",
+                "type": "tms",
+                "provider":"tms",
+                "title": "Géoplateforme (béta) TMS",
                 "autoload": true
               },
               "igndecouvertewmts": {

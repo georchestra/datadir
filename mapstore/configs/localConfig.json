@@ -110,9 +110,6 @@
           "format": "decimal",
           "defaultTextAnnotation": "New"
         },
-        "maptype": {
-            "mapType": "{context.mode === 'desktop' ? 'openlayers' : 'leaflet'}"
-        },
         "catalog": {
           "default": {
             "newService": {
@@ -469,7 +466,8 @@
               "cfg": {
                 "showAPI": false,
                 "advancedSettings": {
-                  "bbox": true
+                  "bbox": true,
+                  "centerAndZoom": true
                 }
               }
             },
@@ -870,6 +868,7 @@
       }, "Login", "Language", "NavMenu",
         "DashboardSave", "DashboardSaveAs",
         "DashboardExport", "DashboardImport",
+        "DeleteDashboard",
         "Attribution", "Home", {
         "name": "Share",
         "cfg": {
@@ -966,6 +965,7 @@
         "GeoStorySaveAs",
         "GeoStoryImport",
         "GeoStoryExport",
+        "DeleteGeoStory",
         "MapEditor",
         "MediaEditor",
         {

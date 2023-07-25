@@ -68,3 +68,7 @@ This is a "WIP" reminder of the steps required to switch a geOrchestra instance 
    * `subject.*` values
  * `datafeeder/templates`: translate
  * `mapstore/configs` folder: translate, adapt layers
+
+Also to be mentioned, even if not specific to this "datadir" repository: open a browser, login as "testadmin" (or any other privileged account) then edit the following.
+ * Metadata templates on `/geonetwork/srv/fre/catalog.edit#/board?isTemplate="y"`
+ * Services descriptions and contact point on `/geoserver/web/`

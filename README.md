@@ -39,11 +39,9 @@ Next thing to do, for security, is changing the password of the `geoserver_privi
 cd /etc/georchestra
 find ./ -type f -exec sed -i 's/gerlsSnFd6SmM/'$(pwgen 16 1)'/' {} \;
 ```
-Remember to change it in your LDAP too !
 
+Remember to **change it in the LDAP** too !
 
-Finally, you should head to [ReCAPTCHA](https://www.google.com/recaptcha/) and get an account for your service.
-Once you're done, fill in the public and private keys in the [console/console.properties](console/console.properties) file.
 
 **Restart your tomcat or jetty services when done with datadir editing**.
 
@@ -57,4 +55,16 @@ We do recommend that you:
  * upload a new logo to [header/logo.png](header/logo.png)
  * update the viewer config with [mapstore/config/localConfig.json](mapstore/config/localConfig.json)
  * translate the console ([console/templates](console/templates)) email templates to the desired language.
+ 
+## Switching to another language - tasklist
 
+This is a "WIP" reminder of the steps required to switch a geOrchestra instance from the default language (English) to another language, eg French here:
+ * `default.properties`: language=fr
+ * `datafeeder/metadata_template.xml`: `<gmd:language><gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="fre" /></gmd:language>`
+ * `analytics/analytics.properties`: `localTimezone=Europe/Paris`
+ * `console/templates`: translate
+ * `console/console.properties`: translate
+   * `orgTypeValues=Association,Company,NGO,Individual,Other`
+   * `subject.*` values
+ * `datafeeder/templates`: translate
+ * `mapstore/configs` folder: translate, adapt layers

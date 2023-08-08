@@ -29,18 +29,3 @@
 #        - ROLE_USER
 #      '[ROLE_GP.GDI.ADMINISTRATOR]':
 #        - ROLE_ADMINISTRATOR
- 
-georchestra:
-  gateway:
-    roles-mappings:
-      '[ROLE_GP.GDI.ADMINISTRATOR]':
-        - ROLE_SUPERUSER
-        - ROLE_ADMINISTRATOR
-        - ROLE_GN_ADMIN
-      '[ROLE_GP.GDI.GEODATA_MANAGER]':
-        - ROLE_ADMINISTRATOR
-        - ROLE_GN_ADMIN
-      '[ROLE_GP.GDI.FPIT_SERVICE_USER]':
-        - ROLE_ADMINISTRATOR
-        - ROLE_GN_ADMIN
-        - ROLE_GP.GDI.ADMINISTRATOR

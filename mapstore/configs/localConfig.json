@@ -45,6 +45,7 @@
     }],
     "monitorState": [
       {"name": "router", "path": "router.location.pathname"},
+      {"name": "userrole", "path": "security.user.role"},
       {"name": "browser", "path": "browser"},
       {"name": "geostorymode", "path": "geostory.mode"},
       {"name": "featuregridmode", "path": "featuregrid.mode"},
@@ -417,8 +418,9 @@
                 }
               }
             },
+            "Permalink",
             "MetadataExplorer",
-            "MapImport", 
+            "MapImport",
             "MapExport",
             "GlobeViewSwitcher"
         ],
@@ -471,6 +473,7 @@
                 }
               }
             },
+            "Permalink",
             {
                 "name": "Identify",
                 "cfg": {
@@ -890,6 +893,7 @@
           }
         }
       },
+      "Permalink",
         {
           "name": "DashboardEditor",
           "cfg": {
@@ -1005,7 +1009,8 @@
               "sectionId": true
             }
           }
-        }
+        },
+        "Permalink"
       ],
       "geostory-embedded": [
         "GeoStory",
@@ -1021,6 +1026,10 @@
             "containerPosition": "header"
           }
         }
+      ],
+      "permalink": [
+        "Permalink",
+        "FeedbackMask"
       ],
       "admin": [{
         "name": "Header",
@@ -1081,7 +1090,9 @@
             "cfg": {
               "containerPosition": "header"
             }
-          }
+          },
+          "ContextImport",
+          "ContextExport"
         ],
         "context": [
           "Header"

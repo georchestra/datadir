@@ -1,6 +1,8 @@
 georchestra:
   gateway:
     security:
+      createNonExistingUsersInLDAP: true
+      enableRabbitmqEvents: true
       oauth2:
         enabled: false
       ldap:

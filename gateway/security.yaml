@@ -7,7 +7,7 @@ georchestra:
         default:
           enabled: true
           extended: true
-          url: ldap://ldap:389/
+          url: ldap://${ldapHost:localhost}:${ldapPort:389}/
           baseDn: ${ldapBaseDn:dc=georchestra,dc=org}
           users:
             rdn: ${ldapUsersRdn:ou=users}

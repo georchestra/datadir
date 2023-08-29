@@ -347,11 +347,17 @@ Default template to apply MetadataRecordProperties.java properties to a record t
     </gmd:CI_OnlineResource>
   </xsl:template>
 
+  <!--
+    Uncomment the following to override the language set in the MD template with "eng" (which is the default behavior with current java code).
+    Not recommended for the time being.
+  -->
+  <!--
   <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language/gmd:LanguageCode/@codeListValue">
     <xsl:attribute name="codeListValue">
       <xsl:value-of select="$props//datasetLanguage" />
     </xsl:attribute>
   </xsl:template>
+  -->
 
   <!-- 
     Generate one gmd:topicCategory/gmd:MD_TopicCategoryCode for each gmd:keyword/gco:CharacterString

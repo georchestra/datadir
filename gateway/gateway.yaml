@@ -32,11 +32,18 @@ georchestra:
         access-rules:
         - intercept-url: /analytics/**
           allowed-roles: SUPERUSER,ORGADMIN
+      datafeeder:
+        target: ${georchestra.gateway.services.datafeeder.target}
+        access-rules:
+        - intercept-url: /datafeeder/**
+          anonymous: false
+          allowed-roles: SUPERUSER,DATAFEEDER
       import:
         target: ${georchestra.gateway.services.import.target}
         access-rules:
         - intercept-url: /import/**
           anonymous: false
+          allowed-roles: SUPERUSER,DATAFEEDER
       console:
         target: ${georchestra.gateway.services.console.target}
         access-rules:

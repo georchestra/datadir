@@ -140,10 +140,10 @@
                 "title": "IGN essentiels RASTER",
                 "autoload": true
               },
-              "gpfbetarasterwms": {
-                "url": "https://wms-r.geopf.fr/rok4/wms",
+              "gpfrasterwms": {
+                "url": "https://data.geopf.fr/wms-r/wms",
                 "type": "wms",
-                "title": "Géoplateforme (béta) RASTER",
+                "title": "Géoplateforme RASTER",
                 "autoload": true
               },
               "ignvectorwms": {
@@ -152,16 +152,16 @@
                 "title": "IGN essentiels VECTOR",
                 "autoload": true
               },
-              "gpfbetavectorwms": {
-                "url": "https://wms-v.geopf.fr/geoserver/ows",
+              "gpfvectorwms": {
+                "url": "https://data.geopf.fr/wms-v/wms",
                 "type": "wms",
-                "title": "Géoplateforme (béta) VECTOR",
+                "title": "Géoplateforme VECTOR",
                 "autoload": true
               },
-              "gpfbetawfs": {
-                "url": "https://wfs.geopf.fr/geoserver/ows",
+              "gpfwfs": {
+                "url": "https://data.geopf.fr/wfs/ows",
                 "type": "wfs",
-                "title": "Géoplateforme (béta) WFS",
+                "title": "Géoplateforme WFS",
                 "autoload": true
               },
               "ignwmts": {
@@ -170,17 +170,23 @@
                 "title": "IGN essentiels WMTS",
                 "autoload": true
               },
-              "gpfbetawmts": {
-                "url": "https://wmts.geopf.fr/rok4/wmts",
+              "gpfwmts": {
+                "url": "https://data.geopf.fr/wmts",
                 "type": "wmts",
-                "title": "Géoplateforme (béta) WMTS",
+                "title": "Géoplateforme WMTS",
                 "autoload": true
               },
-              "gpfbetatms": {
-                "url": "https://wmts.geopf.fr/rok4/tms/1.0.0/",
+              "gpftms": {
+                "url": "https://data.geopf.fr/tms/1.0.0/",
                 "type": "tms",
                 "provider":"tms",
-                "title": "Géoplateforme (béta) TMS",
+                "title": "Géoplateforme TMS",
+                "autoload": true
+              },
+              "gpfcsw": {
+                "url": "https://data.geopf.fr/csw",
+                "type": "csw",
+                "title": "Géoplateforme CSW",
                 "autoload": true
               },
               "igndecouvertewmts": {

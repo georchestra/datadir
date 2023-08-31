@@ -142,16 +142,53 @@
                 "title": "IGN essentiels RASTER",
                 "autoload": true
               },
+              "gpfrasterwms": {
+                "url": "https://data.geopf.fr/wms-r/wms",
+                "type": "wms",
+                "title": "Géoplateforme RASTER",
+                "autoload": true
+              },
               "ignvectorwms": {
                 "url": "https://wxs.ign.fr/essentiels/geoportail/v/wms",
                 "type": "wms",
                 "title": "IGN essentiels VECTOR",
                 "autoload": true
               },
+              "gpfvectorwms": {
+                "url": "https://data.geopf.fr/wms-v/wms",
+                "type": "wms",
+                "title": "Géoplateforme VECTOR",
+                "autoload": true
+              },
+              "gpfwfs": {
+                "url": "https://data.geopf.fr/wfs/ows",
+                "type": "wfs",
+                "title": "Géoplateforme WFS",
+                "autoload": true
+              },
               "ignwmts": {
                 "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
                 "type": "wmts",
                 "title": "IGN essentiels WMTS",
+                "autoload": true
+              },
+              "gpfwmts": {
+                "url": "https://data.geopf.fr/wmts",
+                "type": "wmts",
+                "title": "Géoplateforme WMTS",
+                "autoload": true
+              },
+              "gpftms": {
+                "url": "https://data.geopf.fr/tms/1.0.0/",
+                "type": "tms",
+                "provider":"tms",
+                "title": "Géoplateforme TMS",
+                "autoload": true
+              },
+              "gpfcsw": {
+                "url": "https://data.geopf.fr/csw",
+                "type": "csw",
+                "title": "Géoplateforme CSW",
                 "autoload": true
               },
               "igndecouvertewmts": {

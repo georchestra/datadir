@@ -2,8 +2,8 @@ This folder contains a few customizations specific to geOrchestra for the Datahu
 
 * `conf`: geOrchestra-specific Datahub configuration
 * `assets`: custom geOrchestra assets overriding the default ones
-* `add-header.sh`: a script meant for injecting the geOrchestra header in the datahub application
-* `add-header-webcomponent.sh`: same as above, but using the new header Web Component from https://github.com/georchestra/header/
+* `scripts/add-header.sh`: a script meant for injecting the geOrchestra header in the datahub application
+* `scripts/add-header-webcomponent.sh`: same as above, but using the new header Web Component from https://github.com/georchestra/header/
 
 ## How to apply customizations
 
@@ -29,7 +29,7 @@ $ docker run -d \
     --env CONFIG_DIRECTORY_OVERRIDE=/etc/georchestra/datahub/conf \
     --entrypoint sh \
     geonetwork/geonetwork-ui-datahub:latest \
-    -c "sh /docker-entrypoint.sh; sh /etc/georchestra/datahub/add-header.sh; nginx -g 'daemon off;'"
+    -c "sh /docker-entrypoint.sh; sh /etc/georchestra/datahub/scripts/add-header.sh; nginx -g 'daemon off;'"
 ```
 
 ### Not using docker

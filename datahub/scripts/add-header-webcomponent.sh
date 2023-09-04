@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
-SNIPPET="<iframe src='/portail/banner?active=datahub' style='height:90px; width: 100%; border: 0; overflow: hidden'></iframe>"
+SNIPPET="<script src='https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js'></script><geor-header></geor-header>"
 
 if grep -q "${SNIPPET}" "${DATAHUB_DIR}/index.html"; then
   echo "[INFO] geOrchestra: header already present."

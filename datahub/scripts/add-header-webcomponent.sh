@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/sh
 
 DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
 SNIPPET="<script src='https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js'></script><geor-header></geor-header>"

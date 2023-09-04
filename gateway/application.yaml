@@ -48,6 +48,8 @@ spring:
           #content-security-policy: script-src 'self' 'unsafe-eval'; object-src 'self';
       #routes: ought to be loaded from gateway.yaml, preferrably from georchestra's datadir
 management:
+  server:
+    port: 8090
   info:
     build.enabled: true
     java.enabled: true

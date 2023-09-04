@@ -48,30 +48,30 @@ georchestra:
         target: ${georchestra.gateway.services.console.target}
         access-rules:
         - intercept-url:
-          - /console/public/.*
-          - /console/manager/public/.*
+          - /console/public/**
+          - /console/manager/public/**
           #/console/account resources are private except account/new and account/passwordRecovery
           - /console/account/new
           - /console/account/newPassword
           - /console/account/passwordRecovery
-          - /console/account/js/.*
-          - /console/account/css/.*
-          - /console/account/fonts/.*
+          - /console/account/js/**
+          - /console/account/css/**
+          - /console/account/fonts/**
           - /console/testPage
           anonymous: true
         - intercept-url:
-          - /console/private/.*
-          - /console/manager/.*
-          - /console/.*/emails
-          - /console/.*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
-          - /console/.*/emailTemplates
+          - /console/private/**
+          - /console/manager/**
+          - /console/*/emails
+          - /console/*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
+          - /console/*/emailTemplates
           - /console/attachments
           allowed-roles: SUPERUSER,ORGADMIN
         - intercept-url: /console/emailProxy #activated for members having the EMAILPROXY role
           allowed-roles: EMAILPROXY
-        - intercept-url: /console/internal/.*
+        - intercept-url: /console/internal/**
           allowed-roles: SUPERUSER
-        - intercept-url: /console/account/.*
+        - intercept-url: /console/account/**
           anonymous: false
       geonetwork:
         target: ${georchestra.gateway.services.geonetwork.target}

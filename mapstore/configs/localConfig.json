@@ -250,10 +250,10 @@
                 "title": "le catalogue de l'Ifremer",
                 "autoload": true
               },
-              "geograndest": {
-                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
+              "datagrandest": {
+                "url": "https://www.datagrandest.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue de GéoGrandEst",
+                "title": "le catalogue de DataGrandEst",
                 "autoload": true
               }
             },

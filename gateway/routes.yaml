@@ -27,6 +27,12 @@ spring:
         uri: ${georchestra.gateway.services.geonetwork.target}
         predicates:
         - Path=/geonetwork/**
+        filters:
+        - name: CookieAffinity
+          args:
+            name: XSRF-TOKEN
+            from: /geonetwork
+            to: /datahub
       - id: geoserver
         uri: ${georchestra.gateway.services.geoserver.target}
         predicates:

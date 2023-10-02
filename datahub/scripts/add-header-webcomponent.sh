@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# To be propertly executed by datahub initialization need the +x flag on the git
+
 DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
 SNIPPET="<script src='https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js'></script><geor-header></geor-header>"
 

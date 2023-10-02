@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# To be propertly executed by datahub initialization need the +x flag on the git
+
 DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
 SNIPPET="<iframe src='/header/?active=datahub' style='height:90px; width: 100%; border: 0; overflow: hidden'></iframe>"
 

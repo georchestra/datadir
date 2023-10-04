@@ -1,6 +1,6 @@
-<html><head><link rel="stylesheet" id="theme_stylesheet" data-ms-state="mounted" data-ms-theme="default" data-ms-path="dist/themes" data-ms-version="2022.02.xx
-2022.02.xx" href="dist/themes/default.css?2022.02.xx
-2022.02.xx"><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>geOrchestra Viewer</title><style>body {
+<html><head><link rel="stylesheet" id="theme_stylesheet" data-ms-state="mounted" data-ms-theme="default" data-ms-path="dist/themes" data-ms-version="2023.02.xx
+2023.02.xx" href="dist/themes/default.css?2023.02.xx
+2023.02.xx"><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>geOrchestra Viewer</title><style>body {
         margin: 0;
       }
       ._ms2_init_center {
@@ -1055,7 +1055,23 @@
     transform: scale(1, 1);
     transform-origin: top;
 }
-</style><style></style><style>.geOrchestra #mappreview-scalebox {
+</style><style></style><style>.geOrchestra .swipe-header-left-button {
+    float: left;
+}
+
+.geOrchestra .swipe-header-right-button {
+    float: right;
+}
+</style><style>.geOrchestra #mapstore-login-menu {
+    text-align: right;
+}
+</style><style>.geOrchestra #mapstore-login-panel {
+    width: 300px;
+}
+.geOrchestra #mapstore-login-panel button {
+    float: right !important;
+}
+</style><style>.geOrchestra #mappreview-scalebox {
     position: relative;
     top: -36px;
     width: 150px;
@@ -1232,22 +1248,6 @@
 .geOrchestra #mapstore-print-panel .print-legend-options .container-fluid {
     padding-left: 0;
     padding-right: 0;
-}
-</style><style>.geOrchestra #mapstore-login-menu {
-    text-align: right;
-}
-</style><style>.geOrchestra #mapstore-login-panel {
-    width: 300px;
-}
-.geOrchestra #mapstore-login-panel button {
-    float: right !important;
-}
-</style><style>.geOrchestra .swipe-header-left-button {
-    float: left;
-}
-
-.geOrchestra .swipe-header-right-button {
-    float: right;
 }
 </style><style>
 .geOrchestra .background-preview-button-label {
@@ -1550,9 +1550,247 @@
 .geOrchestra #drawer-menu-button {
      position: absolute;
 }
+</style><style>.geOrchestra .mapToolbar .mapstore-tb-helpbadge {
+    display: block;
+    background-color: #777;
+    position: absolute;
+    z-index: 1000;
+    top : -10px;
+    left: -10px;
+}
+
+
+.geOrchestra #helpbadge-zoomToMaxExtent {
+    display: inline;
+    position: absolute;
+    left: 34px;
+    top: 72px;
+    z-index: 100000
+}
+
+.geOrchestra #helpbadge-scaleBox {
+    display: inline;
+    position: absolute;
+    left: 116px;
+    bottom: 48px;
+    z-index: 100000
+}
+
+.geOrchestra #helpbadge-seachBar {
+    display: inline;
+    position: absolute;
+    left: 46px;
+    top: 10px;
+    z-index: 100000
+}
+
+
+.geOrchestra .btn .badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.geOrchestra .themed .btn .badge {
+    top: -35px;
+    left: -50px;
+}
+
+.geOrchestra .badge {
+    cursor: pointer;
+}
+
+.geOrchestra #helpbadge-scaleBox {
+    left: 0 !important;
+}
+
+.geOrchestra #mapstore-navbar #helpbadge-search-help {
+    position: absolute;
+    left: -10px;
+    bottom: -8px;
+    z-index: 1;
+}
+</style><style>.geOrchestra #mapstore-scalebox {
+    /*z-index: 10;
+    bottom: 6px;
+    left: -2px;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+
+.geOrchestra #mapstore-scalebox-container {
+    /*z-index: 10;
+    bottom: -16px;
+    right: 55px;
+    left: auto;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+</style><style>.geOrchestra #locate-btn {
+    position: absolute;
+    z-index: 1000;
+    right: 10px;
+    bottom: 150px;
+}
+
+.geOrchestra #mapstore-toolbar #locate-btn {
+    position: static;
+}
+</style><style>
+.geOrchestra #mapstore-settings .btn-group {
+    width: auto;
+}
+
+.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings button {
+    float: none;
+    margin-left: 40%;
+}
+
+.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings select {
+    float: none;
+    margin-left: 40%;
+}
+
+.geOrchestra #mapstore-settings .modal-body .form-group {
+    margin-top: 15px;
+    border-top: solid 1px #EEE;
+    padding-top: 10px;
+}
+</style><style>.geOrchestra #mapstore-globalspinner  {
+    width: 28px;
+    height: 28px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 1px solid #999;
+    z-index: 10;
+    top: 90px;
+    left: 2px;
+    position: absolute;
+    margin: 8px;
+}
+
+.geOrchestra #mapstore-globalspinner .circle-wrapper {
+    margin-left: 2px;
+    margin-top: 1px;
+}
+
+.geOrchestra #mapstore-toolbar #mapstore-globalspinner {
+    position: static;
+    width: 42px;
+    margin: 0;
+    margin-top: 0;
+    height: 35px;
+    box-shadow: none;
+}
+
+.geOrchestra .ms2-loading .sk-circle-wrapper {
+     width: 30px;
+     height: 30px;
+ }
+</style><style>.geOrchestra #zoomin-btn, .geOrchestra #zoomout-btn {
+    z-index: 1;
+    position: relative;
+}
 </style><style>.geOrchestra #mapstore-zoomtomaxextent {
     z-index: 1;
     position: relative;
+}
+</style><style>.geOrchestra #mapstore-globalspinner  {
+    margin: 0 !important;
+    width: 40px !important;
+    position:static !important;
+    border-radius: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.geOrchestra #mapstore-globalspinner > .spinner {
+    margin: 0;
+}
+</style><style>#mapstore-sidebar-menu-container {
+  z-index: 1030;
+  position: absolute;
+  background: inherit;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  z-index: 10;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray,
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn,
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn {
+  border-bottom: 0;
+  height: 40px;
+  width: 40px;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray span:not(.glyphicon),
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn span:not(.glyphicon),
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn span:not(.glyphicon) {
+  display: none;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu .snapshot-panel {
+  position: absolute;
+  right: 40px;
+  top: 60px;
+  background: #ffffffab;
+}
+</style><style>.geOrchestra .joyride-beacon{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;height:36px;position:relative;width:36px;z-index:1500}.geOrchestra .joyride-beacon:active,.geOrchestra .joyride-beacon:focus,.geOrchestra .joyride-beacon:hover{outline:none}.geOrchestra .joyride-beacon__inner{-webkit-animation:joyride-beacon-inner 1.2s infinite ease-in-out;animation:joyride-beacon-inner 1.2s infinite ease-in-out;background-color:#f04;border-radius:50%;display:block;height:50%;left:50%;opacity:.7;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:50%}.geOrchestra .joyride-beacon__outer{-webkit-animation:joyride-beacon-outer 1.2s infinite ease-in-out;animation:joyride-beacon-outer 1.2s infinite ease-in-out;background-color:rgba(255,0,68,.2);border:2px solid #f04;border-radius:50%;box-sizing:border-box;display:block;height:100%;left:0;opacity:.9;position:absolute;top:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center;width:100%}.geOrchestra .joyride-overlay{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1500}.geOrchestra .joyride-hole{border-radius:4px;box-shadow:0 0 0 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5);position:absolute}.geOrchestra .joyride-hole.safari{box-shadow:0 0 999px 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5)}.geOrchestra .joyride-tooltip{background-color:#fff;border-radius:4px;color:#555;cursor:default;-webkit-filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));opacity:0;padding:20px;pointer-events:auto;-webkit-transform:translateZ(0);transform:translateZ(0);width:290px;z-index:1510}.geOrchestra .joyride-tooltip--animate{-webkit-animation:joyride-tooltip .4s forwards;animation:joyride-tooltip .4s forwards;-webkit-animation-timing-function:cubic-bezier(0,1.05,.55,1.18);animation-timing-function:cubic-bezier(0,1.05,.55,1.18)}.geOrchestra .joyride-tooltip__triangle{background-repeat:no-repeat;position:absolute}.geOrchestra .joyride-tooltip.bottom,.geOrchestra .joyride-tooltip.bottom-left,.geOrchestra .joyride-tooltip.bottom-right{margin-top:18px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M36 18L18 0 0 18z'/%3E%3C/svg%3E");height:18px;left:50%;top:-16px;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.top,.geOrchestra .joyride-tooltip.top-left,.geOrchestra .joyride-tooltip.top-right{margin-bottom:18px}.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 0l18 18L36 0z'/%3E%3C/svg%3E");bottom:-16px;height:18px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:2%}}.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{left:auto;right:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{right:2%}}.geOrchestra .joyride-tooltip.left{margin-right:18px}.geOrchestra .joyride-tooltip.left .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 36l18-18L0 0z'/%3E%3C/svg%3E");height:36px;right:-16px;width:18px}.geOrchestra .joyride-tooltip.right{margin-left:18px}.geOrchestra .joyride-tooltip.right .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M18 0L0 18l18 18z'/%3E%3C/svg%3E");height:36px;left:-16px;width:18px}.geOrchestra .joyride-tooltip__close{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.117.323L8.044 6.398 2.595.323a1.105 1.105 0 0 0-1.562 1.562L6.482 7.96.323 14.119a1.105 1.105 0 0 0 1.562 1.562L7.96 9.608l5.449 6.073a1.103 1.103 0 1 0 1.56-1.562L9.517 8.046l6.159-6.161a1.103 1.103 0 1 0-1.56-1.562z' fill='rgba(85,85,85,0.5)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;height:12px;position:absolute;right:10px;text-decoration:none;top:10px;width:12px;z-index:10;display:block}.geOrchestra .joyride-tooltip__close:active,.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{outline:none}.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{color:rgba(60,60,60,.5);outline:none}.geOrchestra .joyride-tooltip__close--header{right:20px;top:20px}.geOrchestra .joyride-tooltip__header{border-bottom:1px solid #f04;color:#555;font-size:20px;padding-bottom:6px;padding-right:18px;position:relative}.geOrchestra .joyride-tooltip__header~.joyride-tooltip__main{padding:12px 0 18px}.geOrchestra .joyride-tooltip__main{font-size:16px;padding-bottom:18px;padding-right:18px}.geOrchestra .joyride-tooltip__footer{text-align:right}.geOrchestra .joyride-tooltip__button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0}.geOrchestra .joyride-tooltip__button:active,.geOrchestra .joyride-tooltip__button:focus,.geOrchestra .joyride-tooltip__button:hover{outline:none}.geOrchestra .joyride-tooltip__button--primary{background-color:#f04;border-radius:4px;color:#fff;padding:6px 12px;transition:background-color .2s ease-in-out}.geOrchestra .joyride-tooltip__button--primary:active,.geOrchestra .joyride-tooltip__button--primary:focus,.geOrchestra .joyride-tooltip__button--primary:hover{background-color:#ff1f5a;color:#fff}.geOrchestra .joyride-tooltip__button--secondary{color:#f04;margin-right:10px}.geOrchestra .joyride-tooltip__button--skip{color:#ccc;float:left;margin-right:10px}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__main{padding-bottom:0}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__footer{display:none}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip{width:360px}}@media screen and (min-width:960px){.geOrchestra .joyride-tooltip{width:450px}}@-webkit-keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@-webkit-keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@-webkit-keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}@keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}</style><style>/**
+ * Copyright 2017, GeoSolutions Sas.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.geOrchestra .joyride-hole {
+    box-shadow: 0 0 0 9999px rgba(0,0,0,.75), 0 0 15px rgba(0,0,0,.75);
+}
+
+.geOrchestra .joyride-tooltip__button--secondary{
+    color: #888;
+}
+
+.geOrchestra .joyride-tooltip__header {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.geOrchestra .joyride-tooltip__main {
+    font-size: 0.9em;
+}
+
+.geOrchestra .tutorial-presentation-position{
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+
+.geOrchestra #tutorial-intro-checkbox-container {
+    overflow: hidden;
+    margin: 5px 0 5px 0;
+    border-top: 1px dashed #777;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.geOrchestra #tutorial-intro-checkbox {
+    margin: 5px 10px 0 0;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
 }
 </style><style>/*viewer navbar */
 .geOrchestra .navbar-dx {
@@ -1643,30 +1881,892 @@
   font-weight: bold;
   font-size: 16px;
 }
-</style><style></style><style>
-.geOrchestra #mapstore-layer-settings {
-    min-width: 400px;
+</style><style>.geOrchestra .rdw-option-wrapper {
+  border: 1px solid #F1F1F1;
+  padding: 5px;
+  min-width: 25px;
+  height: 20px;
+  border-radius: 2px;
+  margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-option-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-option-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-option-active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-option-disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
-.geOrchestra .portal-dialog {
-    position: absolute;
+.geOrchestra .rdw-dropdown-wrapper {
+  height: 30px;
+  background: white;
+  cursor: pointer;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  margin: 0 3px;
+  text-transform: capitalize;
+  background: white;
+}
+.geOrchestra .rdw-dropdown-wrapper:focus {
+  outline: none;
+}
+.geOrchestra .rdw-dropdown-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
+}
+.geOrchestra .rdw-dropdown-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-dropdown-carettoopen {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-top: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.geOrchestra .rdw-dropdown-carettoclose {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-bottom: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.geOrchestra .rdw-dropdown-selectedtext {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-dropdown-optionwrapper {
+  z-index: 100;
+  position: relative;
+  border: 1px solid #F1F1F1;
+  width: 98%;
+  background: white;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.geOrchestra .rdw-dropdown-optionwrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
 }
 
-@media all and (min-width: 635px) {
-    .geOrchestra .portal-dialog {
-        left: calc(50% - 315px);
-        top: 100px;
-        max-width: 630px;
-        background-color: #fff;
-    }
+.geOrchestra .rdw-dropdownoption-default {
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-dropdownoption-highlighted {
+  background: #F1F1F1;
+}
+.geOrchestra .rdw-dropdownoption-active {
+  background: #f5f5f5;
+}
+.geOrchestra .rdw-dropdownoption-disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
-@media all and (max-width: 634px) {
-    .geOrchestra .portal-dialog {
-        width: 100%;
-    }
+.geOrchestra .rdw-inline-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
 }
-</style><style>.geOrchestra div.record-grid {
+.geOrchestra .rdw-inline-dropdown {
+  width: 50px;
+}
+.geOrchestra .rdw-inline-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-block-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-block-dropdown {
+  width: 110px;
+}
+
+.geOrchestra .rdw-fontsize-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-fontsize-dropdown {
+  min-width: 40px;
+}
+.geOrchestra .rdw-fontsize-option {
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-fontfamily-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-fontfamily-dropdown {
+  width: 115px;
+}
+.geOrchestra .rdw-fontfamily-placeholder {
+  white-space: nowrap;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.geOrchestra .rdw-fontfamily-optionwrapper {
+  width: 140px;
+}
+
+.geOrchestra .rdw-list-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-list-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.geOrchestra .rdw-list-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.geOrchestra .rdw-text-align-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-text-align-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.geOrchestra .rdw-text-align-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-right-aligned-block {
+  text-align: right;
+}
+.geOrchestra .rdw-left-aligned-block {
+  text-align: left !important;
+}
+.geOrchestra .rdw-center-aligned-block {
+  text-align: center !important;
+}
+.geOrchestra .rdw-justify-aligned-block {
+  text-align: justify !important;
+}
+.geOrchestra .rdw-right-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-left-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-center-aligned-block > div {
+  display: inline-block;
+}
+.geOrchestra .rdw-justify-aligned-block > div {
+  display: inline-block;
+}
+
+.geOrchestra .rdw-colorpicker-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-colorpicker-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+  height: 175px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-modal-header {
+  display: flex;
+  padding-bottom: 5px;
+}
+.geOrchestra .rdw-colorpicker-modal-style-label {
+  font-size: 15px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 10px 5px;
+}
+.geOrchestra .rdw-colorpicker-modal-style-label-active {
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-colorpicker-modal-options {
+  margin: 5px auto;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.geOrchestra .rdw-colorpicker-cube {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #F1F1F1;
+}
+.geOrchestra .rdw-colorpicker-option {
+  margin: 3px;
+  padding: 0;
+  min-height: 20px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  box-shadow: 1px 2px 1px #BFBDBD inset;
+}
+.geOrchestra .rdw-colorpicker-option:hover {
+  box-shadow: 1px 2px 1px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-option:active {
+  box-shadow: -1px -2px 1px #BFBDBD;
+}
+.geOrchestra .rdw-colorpicker-option-active {
+  box-shadow: 0px 0px 2px 2px #BFBDBD;
+}
+
+.geOrchestra .rdw-link-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-link-dropdown {
+  width: 50px;
+}
+.geOrchestra .rdw-link-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-link-dropdownPlaceholder {
+  margin-left: 8px;
+}
+.geOrchestra .rdw-link-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 205px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-link-modal-label {
+  font-size: 15px;
+}
+.geOrchestra .rdw-link-modal-input {
+  margin-top: 5px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  height: 25px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-link-modal-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-link-modal-buttonsection {
+  margin: 0 auto;
+}
+.geOrchestra .rdw-link-modal-target-option {
+  margin-bottom: 20px;
+}
+.geOrchestra .rdw-link-modal-target-option > span {
+  margin-left: 5px;
+}
+.geOrchestra .rdw-link-modal-btn {
+  margin-left: 10px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-link-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-link-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-link-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-link-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-link-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-history-dropdown {
+  width: 50px;
+}
+
+.geOrchestra .rdw-embedded-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-embedded-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  justify-content: space-between;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-embedded-modal-header {
+  font-size: 15px;
+  display: flex;
+}
+.geOrchestra .rdw-embedded-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.geOrchestra .rdw-embedded-modal-header-label {
+  width: 95px;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-embedded-modal-link-section {
+  display: flex;
+  flex-direction: column;
+}
+.geOrchestra .rdw-embedded-modal-link-input {
+  width: 88%;
+  height: 35px;
+  margin: 10px 0;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-embedded-modal-link-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.geOrchestra .rdw-embedded-modal-link-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-embedded-modal-btn-section {
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-embedded-modal-btn {
+  margin: 0 3px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-embedded-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-embedded-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-embedded-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-embedded-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-embedded-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.geOrchestra .rdw-embedded-modal-size-input {
+  width: 80%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.geOrchestra .rdw-embedded-modal-size-input:focus {
+  outline: none;
+}
+
+.geOrchestra .rdw-emoji-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-emoji-modal {
+  overflow: auto;
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-emoji-icon {
+  margin: 2.5px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.geOrchestra .rdw-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.geOrchestra .rdw-spinner > div {
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+.geOrchestra .rdw-spinner .rdw-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.geOrchestra .rdw-spinner .rdw-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.geOrchestra .rdw-image-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-image-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.geOrchestra .rdw-image-modal-header {
+  font-size: 15px;
+  margin: 10px 0;
+  display: flex;
+}
+.geOrchestra .rdw-image-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.geOrchestra .rdw-image-modal-header-label {
+  width: 80px;
+  background: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+}
+.geOrchestra .rdw-image-modal-header-label-highlighted {
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.geOrchestra .rdw-image-modal-upload-option {
+  width: 100%;
+  color: gray;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  outline: 2px dashed gray;
+  outline-offset: -10px;
+  margin: 10px 0;
+  padding: 9px 0;
+}
+.geOrchestra .rdw-image-modal-upload-option-highlighted {
+  outline: 2px dashed #0a66b7;
+}
+.geOrchestra .rdw-image-modal-upload-option-label {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.geOrchestra .rdw-image-modal-upload-option-label span{
+  padding: 0 20px;
+}
+.geOrchestra .rdw-image-modal-upload-option-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+}
+.geOrchestra .rdw-image-modal-upload-option-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.geOrchestra .rdw-image-modal-url-section {
+  display: flex;
+  align-items: center;
+}
+.geOrchestra .rdw-image-modal-url-input {
+  width: 90%;
+  height: 35px;
+  margin: 15px 0 12px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.geOrchestra .rdw-image-modal-btn-section {
+  margin: 10px auto 0;
+}
+.geOrchestra .rdw-image-modal-url-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-modal-btn {
+  margin: 0 5px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.geOrchestra .rdw-image-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.geOrchestra .rdw-image-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.geOrchestra .rdw-image-modal-btn:focus {
+  outline: none !important;
+}
+.geOrchestra .rdw-image-modal-btn:disabled {
+  background: #ece9e9;
+}
+.geOrchestra .rdw-image-modal-spinner {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.geOrchestra .rdw-image-modal-alt-input {
+  width: 70%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.geOrchestra .rdw-image-modal-alt-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-modal-alt-lbl {
+  font-size: 12px;
+}
+.geOrchestra .rdw-image-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.geOrchestra .rdw-image-modal-size-input {
+  width: 40%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.geOrchestra .rdw-image-modal-size-input:focus {
+  outline: none;
+}
+.geOrchestra .rdw-image-mandatory-sign {
+  color: red;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.geOrchestra .rdw-remove-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+
+.geOrchestra .rdw-history-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.geOrchestra .rdw-history-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-history-dropdown {
+  width: 50px;
+}
+
+.geOrchestra .rdw-link-decorator-wrapper {
+  position: relative;
+}
+.geOrchestra .rdw-link-decorator-icon {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  cursor: pointer;
+  background-color: white;
+}
+
+.geOrchestra .rdw-mention-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.geOrchestra .rdw-suggestion-wrapper {
+  position: relative;
+}
+.geOrchestra .rdw-suggestion-dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F1F1F1;
+  min-width: 100px;
+  max-height: 150px;
+  overflow: auto;
+  background: white;
+  z-index: 100;
+}
+.geOrchestra .rdw-suggestion-option {
+  padding: 7px 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.geOrchestra .rdw-suggestion-option-active {
+  background-color: #F1F1F1;
+}
+
+.geOrchestra .rdw-hashtag-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.geOrchestra .rdw-image-alignment-options-popup {
+  position: absolute;
+  background: white;
+  display: flex;
+  padding: 5px 2px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  width: 105px;
+  cursor: pointer;
+  z-index: 100;
+}
+.geOrchestra .rdw-alignment-option-left {
+  justify-content: flex-start;
+}
+.geOrchestra .rdw-image-alignment-option {
+  height: 15px;
+  width: 15px;
+  min-width: 15px;
+}
+.geOrchestra .rdw-image-alignment {
+  position: relative;
+}
+.geOrchestra .rdw-image-imagewrapper {
+  position: relative;
+}
+.geOrchestra .rdw-image-center {
+  display: flex;
+  justify-content: center;
+}
+.geOrchestra .rdw-image-left {
+  display: flex;
+}
+.geOrchestra .rdw-image-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.geOrchestra .rdw-image-alignment-options-popup-right {
+  right: 0;
+}
+
+.geOrchestra .rdw-editor-main {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.geOrchestra .rdw-editor-toolbar {
+  padding: 6px 5px 0;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+.geOrchestra .public-DraftStyleDefault-block {
+  margin: 1em 0;
+}
+.geOrchestra .rdw-editor-wrapper:focus {
+  outline: none;
+}
+.geOrchestra .rdw-editor-wrapper {
+  box-sizing: content-box;
+}
+.geOrchestra .rdw-editor-main blockquote {
+  border-left: 5px solid #f1f1f1;
+  padding-left: 5px;
+}
+.geOrchestra .rdw-editor-main pre {
+  background: #f1f1f1;
+  border-radius: 3px;
+  padding: 1px 10px;
+}
+/**
+ * Draft v0.9.1
+ *
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+.geOrchestra .DraftEditor-editorContainer,.geOrchestra .DraftEditor-root,.geOrchestra .public-DraftEditor-content{height:inherit;text-align:initial}.geOrchestra .public-DraftEditor-content[contenteditable=true]{-webkit-user-modify:read-write-plaintext-only}.geOrchestra .DraftEditor-root{position:relative}.geOrchestra .DraftEditor-editorContainer{background-color:rgba(255,255,255,0);border-left:.1px solid transparent;position:relative;z-index:1}.geOrchestra .public-DraftEditor-block{position:relative}.geOrchestra .DraftEditor-alignLeft .public-DraftStyleDefault-block{text-align:left}.geOrchestra .DraftEditor-alignLeft .public-DraftEditorPlaceholder-root{left:0;text-align:left}.geOrchestra .DraftEditor-alignCenter .public-DraftStyleDefault-block{text-align:center}.geOrchestra .DraftEditor-alignCenter .public-DraftEditorPlaceholder-root{margin:0 auto;text-align:center;width:100%}.geOrchestra .DraftEditor-alignRight .public-DraftStyleDefault-block{text-align:right}.geOrchestra .DraftEditor-alignRight .public-DraftEditorPlaceholder-root{right:0;text-align:right}.geOrchestra .public-DraftEditorPlaceholder-root{color:#9197a3;position:absolute;z-index:0}.geOrchestra .public-DraftEditorPlaceholder-hasFocus{color:#bdc1c9}.geOrchestra .DraftEditorPlaceholder-hidden{display:none}.geOrchestra .public-DraftStyleDefault-block{position:relative;white-space:pre-wrap}.geOrchestra .public-DraftStyleDefault-ltr{direction:ltr;text-align:left}.geOrchestra .public-DraftStyleDefault-rtl{direction:rtl;text-align:right}.geOrchestra .public-DraftStyleDefault-listLTR{direction:ltr}.geOrchestra .public-DraftStyleDefault-listRTL{direction:rtl}.geOrchestra .public-DraftStyleDefault-ol,.geOrchestra .public-DraftStyleDefault-ul{margin:16px 0;padding:0}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR{margin-left:1.5em}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listRTL{margin-right:1.5em}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listLTR{margin-left:3em}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listRTL{margin-right:3em}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listLTR{margin-left:4.5em}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listRTL{margin-right:4.5em}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listLTR{margin-left:6em}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listRTL{margin-right:6em}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listLTR{margin-left:7.5em}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL{margin-right:7.5em}.geOrchestra .public-DraftStyleDefault-unorderedListItem{list-style-type:square;position:relative}.geOrchestra .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0{list-style-type:disc}.geOrchestra .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth1{list-style-type:circle}.geOrchestra .public-DraftStyleDefault-orderedListItem{list-style-type:none;position:relative}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listLTR:before{left:-36px;position:absolute;text-align:right;width:30px}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listRTL:before{position:absolute;right:-36px;text-align:left;width:30px}.geOrchestra .public-DraftStyleDefault-orderedListItem:before{content:counter(ol0) ". ";counter-increment:ol0}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth1:before{content:counter(ol1) ". ";counter-increment:ol1}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth2:before{content:counter(ol2) ". ";counter-increment:ol2}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth3:before{content:counter(ol3) ". ";counter-increment:ol3}.geOrchestra .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth4:before{content:counter(ol4) ". ";counter-increment:ol4}.geOrchestra .public-DraftStyleDefault-depth0.public-DraftStyleDefault-reset{counter-reset:ol0}.geOrchestra .public-DraftStyleDefault-depth1.public-DraftStyleDefault-reset{counter-reset:ol1}.geOrchestra .public-DraftStyleDefault-depth2.public-DraftStyleDefault-reset{counter-reset:ol2}.geOrchestra .public-DraftStyleDefault-depth3.public-DraftStyleDefault-reset{counter-reset:ol3}.geOrchestra .public-DraftStyleDefault-depth4.public-DraftStyleDefault-reset{counter-reset:ol4}</style><style>.geOrchestra div.record-grid {
     padding-left: 0;
     padding-right: 0;
 }
@@ -1698,212 +2798,6 @@ we use !important*/
 
 .geOrchestra #mapstore-metadata-explorer{
     margin-bottom: 0
-}
-</style><style>.geOrchestra .mapToolbar .mapstore-tb-helpbadge {
-    display: block;
-    background-color: #777;
-    position: absolute;
-    z-index: 1000;
-    top : -10px;
-    left: -10px;
-}
-
-
-.geOrchestra #helpbadge-zoomToMaxExtent {
-    display: inline;
-    position: absolute;
-    left: 34px;
-    top: 72px;
-    z-index: 100000
-}
-
-.geOrchestra #helpbadge-scaleBox {
-    display: inline;
-    position: absolute;
-    left: 116px;
-    bottom: 48px;
-    z-index: 100000
-}
-
-.geOrchestra #helpbadge-seachBar {
-    display: inline;
-    position: absolute;
-    left: 46px;
-    top: 10px;
-    z-index: 100000
-}
-
-
-.geOrchestra .btn .badge {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-}
-
-.geOrchestra .themed .btn .badge {
-    top: -35px;
-    left: -50px;
-}
-
-.geOrchestra .badge {
-    cursor: pointer;
-}
-
-.geOrchestra #helpbadge-scaleBox {
-    left: 0 !important;
-}
-
-.geOrchestra #mapstore-navbar #helpbadge-search-help {
-    position: absolute;
-    left: -10px;
-    bottom: -8px;
-    z-index: 1;
-}
-</style><style>.geOrchestra #mapstore-scalebox {
-    /*z-index: 10;
-    bottom: 6px;
-    left: -2px;
-    position: absolute;
-    margin: 8px;
-    width: 148px;*/
-}
-
-.geOrchestra #mapstore-scalebox-container {
-    /*z-index: 10;
-    bottom: -16px;
-    right: 55px;
-    left: auto;
-    position: absolute;
-    margin: 8px;
-    width: 148px;*/
-}
-</style><style>.geOrchestra #mapstore-globalspinner  {
-    width: 28px;
-    height: 28px;
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    background-size: 80px 80px;
-    background-repeat: no-repeat;
-    border-radius: 4px;
-    border: 1px solid #999;
-    z-index: 10;
-    top: 90px;
-    left: 2px;
-    position: absolute;
-    margin: 8px;
-}
-
-.geOrchestra #mapstore-globalspinner .circle-wrapper {
-    margin-left: 2px;
-    margin-top: 1px;
-}
-
-.geOrchestra #mapstore-toolbar #mapstore-globalspinner {
-    position: static;
-    width: 42px;
-    margin: 0;
-    margin-top: 0;
-    height: 35px;
-    box-shadow: none;
-}
-
-.geOrchestra .ms2-loading .sk-circle-wrapper {
-     width: 30px;
-     height: 30px;
- }
-</style><style>.geOrchestra #locate-btn {
-    position: absolute;
-    z-index: 1000;
-    right: 10px;
-    bottom: 150px;
-}
-
-.geOrchestra #mapstore-toolbar #locate-btn {
-    position: static;
-}
-</style><style>.geOrchestra #zoomin-btn, .geOrchestra #zoomout-btn {
-    z-index: 1;
-    position: relative;
-}
-</style><style>.geOrchestra .joyride-beacon{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;height:36px;position:relative;width:36px;z-index:1500}.geOrchestra .joyride-beacon:active,.geOrchestra .joyride-beacon:focus,.geOrchestra .joyride-beacon:hover{outline:none}.geOrchestra .joyride-beacon__inner{-webkit-animation:joyride-beacon-inner 1.2s infinite ease-in-out;animation:joyride-beacon-inner 1.2s infinite ease-in-out;background-color:#f04;border-radius:50%;display:block;height:50%;left:50%;opacity:.7;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:50%}.geOrchestra .joyride-beacon__outer{-webkit-animation:joyride-beacon-outer 1.2s infinite ease-in-out;animation:joyride-beacon-outer 1.2s infinite ease-in-out;background-color:rgba(255,0,68,.2);border:2px solid #f04;border-radius:50%;box-sizing:border-box;display:block;height:100%;left:0;opacity:.9;position:absolute;top:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center;width:100%}.geOrchestra .joyride-overlay{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1500}.geOrchestra .joyride-hole{border-radius:4px;box-shadow:0 0 0 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5);position:absolute}.geOrchestra .joyride-hole.safari{box-shadow:0 0 999px 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5)}.geOrchestra .joyride-tooltip{background-color:#fff;border-radius:4px;color:#555;cursor:default;-webkit-filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));opacity:0;padding:20px;pointer-events:auto;-webkit-transform:translateZ(0);transform:translateZ(0);width:290px;z-index:1510}.geOrchestra .joyride-tooltip--animate{-webkit-animation:joyride-tooltip .4s forwards;animation:joyride-tooltip .4s forwards;-webkit-animation-timing-function:cubic-bezier(0,1.05,.55,1.18);animation-timing-function:cubic-bezier(0,1.05,.55,1.18)}.geOrchestra .joyride-tooltip__triangle{background-repeat:no-repeat;position:absolute}.geOrchestra .joyride-tooltip.bottom,.geOrchestra .joyride-tooltip.bottom-left,.geOrchestra .joyride-tooltip.bottom-right{margin-top:18px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.bottom .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M36 18L18 0 0 18z'/%3E%3C/svg%3E");height:18px;left:50%;top:-16px;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.top,.geOrchestra .joyride-tooltip.top-left,.geOrchestra .joyride-tooltip.top-right{margin-bottom:18px}.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 0l18 18L36 0z'/%3E%3C/svg%3E");bottom:-16px;height:18px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-left .joyride-tooltip__triangle{left:2%}}.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{left:auto;right:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.geOrchestra .joyride-tooltip.top-right .joyride-tooltip__triangle{right:2%}}.geOrchestra .joyride-tooltip.left{margin-right:18px}.geOrchestra .joyride-tooltip.left .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 36l18-18L0 0z'/%3E%3C/svg%3E");height:36px;right:-16px;width:18px}.geOrchestra .joyride-tooltip.right{margin-left:18px}.geOrchestra .joyride-tooltip.right .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M18 0L0 18l18 18z'/%3E%3C/svg%3E");height:36px;left:-16px;width:18px}.geOrchestra .joyride-tooltip__close{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.117.323L8.044 6.398 2.595.323a1.105 1.105 0 0 0-1.562 1.562L6.482 7.96.323 14.119a1.105 1.105 0 0 0 1.562 1.562L7.96 9.608l5.449 6.073a1.103 1.103 0 1 0 1.56-1.562L9.517 8.046l6.159-6.161a1.103 1.103 0 1 0-1.56-1.562z' fill='rgba(85,85,85,0.5)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;height:12px;position:absolute;right:10px;text-decoration:none;top:10px;width:12px;z-index:10;display:block}.geOrchestra .joyride-tooltip__close:active,.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{outline:none}.geOrchestra .joyride-tooltip__close:focus,.geOrchestra .joyride-tooltip__close:hover{color:rgba(60,60,60,.5);outline:none}.geOrchestra .joyride-tooltip__close--header{right:20px;top:20px}.geOrchestra .joyride-tooltip__header{border-bottom:1px solid #f04;color:#555;font-size:20px;padding-bottom:6px;padding-right:18px;position:relative}.geOrchestra .joyride-tooltip__header~.joyride-tooltip__main{padding:12px 0 18px}.geOrchestra .joyride-tooltip__main{font-size:16px;padding-bottom:18px;padding-right:18px}.geOrchestra .joyride-tooltip__footer{text-align:right}.geOrchestra .joyride-tooltip__button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0}.geOrchestra .joyride-tooltip__button:active,.geOrchestra .joyride-tooltip__button:focus,.geOrchestra .joyride-tooltip__button:hover{outline:none}.geOrchestra .joyride-tooltip__button--primary{background-color:#f04;border-radius:4px;color:#fff;padding:6px 12px;transition:background-color .2s ease-in-out}.geOrchestra .joyride-tooltip__button--primary:active,.geOrchestra .joyride-tooltip__button--primary:focus,.geOrchestra .joyride-tooltip__button--primary:hover{background-color:#ff1f5a;color:#fff}.geOrchestra .joyride-tooltip__button--secondary{color:#f04;margin-right:10px}.geOrchestra .joyride-tooltip__button--skip{color:#ccc;float:left;margin-right:10px}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__main{padding-bottom:0}.geOrchestra .joyride-tooltip--standalone .joyride-tooltip__footer{display:none}@media screen and (min-width:480px){.geOrchestra .joyride-tooltip{width:360px}}@media screen and (min-width:960px){.geOrchestra .joyride-tooltip{width:450px}}@-webkit-keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@-webkit-keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@-webkit-keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}@keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}</style><style>/**
- * Copyright 2017, GeoSolutions Sas.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-.geOrchestra .joyride-hole {
-    box-shadow: 0 0 0 9999px rgba(0,0,0,.75), 0 0 15px rgba(0,0,0,.75);
-}
-
-.geOrchestra .joyride-tooltip__button--secondary{
-    color: #888;
-}
-
-.geOrchestra .joyride-tooltip__header {
-    font-family: Georgia, serif;
-    font-size: 1.5em;
-    border-bottom: 1px solid #ddd;
-}
-
-.geOrchestra .joyride-tooltip__main {
-    font-size: 0.9em;
-}
-
-.geOrchestra .tutorial-presentation-position{
-    position: fixed;
-    width: 100%;
-    left: 0;
-}
-
-.geOrchestra #tutorial-intro-checkbox-container {
-    overflow: hidden;
-    margin: 5px 0 5px 0;
-    border-top: 1px dashed #777;
-    font-size: 0.8em;
-    font-style: italic;
-}
-
-.geOrchestra #tutorial-intro-checkbox {
-    margin: 5px 10px 0 0;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-}
-</style><style>#mapstore-sidebar-menu-container {
-  z-index: 1030;
-  position: absolute;
-  background: inherit;
-  right: 0;
-  top: 0;
-  width: 40px;
-  height: 100%;
-}
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: auto;
-  z-index: 10;
-}
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray,
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn,
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn {
-  border-bottom: 0;
-  height: 40px;
-  width: 40px;
-}
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray span:not(.glyphicon),
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn span:not(.glyphicon),
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn span:not(.glyphicon) {
-  display: none;
-}
-#mapstore-sidebar-menu-container #mapstore-sidebar-menu .snapshot-panel {
-  position: absolute;
-  right: 40px;
-  top: 60px;
-  background: #ffffffab;
 }
 </style><style> .geOrchestra #mapstore-mouseposition {
     z-index: 10;
@@ -2018,27 +2912,33 @@ we use !important*/
     font-size: 11px;
     padding: 2px;
 }
+</style><style>.geOrchestra #navigationBar #locate-btn {
+    position: static;
+}
 </style><style>
-.geOrchestra #mapstore-settings .btn-group {
-    width: auto;
+.geOrchestra #mapstore-layer-settings {
+    min-width: 400px;
 }
 
-.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings button {
-    float: none;
-    margin-left: 40%;
+.geOrchestra .portal-dialog {
+    position: absolute;
 }
 
-.geOrchestra #mapstore-settings .modal-body #mapstore-mousepositionsettings select {
-    float: none;
-    margin-left: 40%;
+@media all and (min-width: 635px) {
+    .geOrchestra .portal-dialog {
+        left: calc(50% - 315px);
+        top: 100px;
+        max-width: 630px;
+        background-color: #fff;
+    }
 }
 
-.geOrchestra #mapstore-settings .modal-body .form-group {
-    margin-top: 15px;
-    border-top: solid 1px #EEE;
-    padding-top: 10px;
+@media all and (max-width: 634px) {
+    .geOrchestra .portal-dialog {
+        width: 100%;
+    }
 }
-</style><style id="erd_scroll_detection_scrollbar_style">/* Created by the element-resize-detector library. */
+</style><style></style><style id="erd_scroll_detection_scrollbar_style">/* Created by the element-resize-detector library. */
 .erd_scroll_detection_container > div::-webkit-scrollbar { display: none; }
 
 .erd_scroll_detection_container_animation_active { -webkit-animation-duration: 0.1s; animation-duration: 0.1s; -webkit-animation-name: erd_scroll_detection_container_animation; animation-name: erd_scroll_detection_container_animation; }
@@ -2077,25 +2977,22 @@ we use !important*/
 .geOrchestra #measure .modal-body > div[role="body"] > div {
     overflow: visible!important;
 }
-</style><style>.geOrchestra #mapstore-globalspinner  {
-    margin: 0 !important;
-    width: 40px !important;
-    position:static !important;
-    border-radius: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+</style><style>:root,
+.geOrchestra :host {
+  --ol-background-color: white;
+  --ol-accent-background-color: #F5F5F5;
+  --ol-subtle-background-color: rgba(128, 128, 128, 0.25);
+  --ol-partial-background-color: rgba(255, 255, 255, 0.75);
+  --ol-foreground-color: #333333;
+  --ol-subtle-foreground-color: #666666;
+  --ol-brand-color: #00AAFF;
 }
-.geOrchestra #mapstore-globalspinner > .spinner {
-    margin: 0;
-}
-</style><style>.geOrchestra #navigationBar #locate-btn {
-    position: static;
-}
-</style><style>.geOrchestra .ol-box {
+
+.geOrchestra .ol-box {
   box-sizing: border-box;
   border-radius: 2px;
-  border: 2px solid blue;
+  border: 1.5px solid var(--ol-background-color);
+  background-color: var(--ol-partial-background-color);
 }
 
 .geOrchestra .ol-mouse-position {
@@ -2105,188 +3002,263 @@ we use !important*/
 }
 
 .geOrchestra .ol-scale-line {
-  background: rgba(0,60,136,0.3);
+  background: var(--ol-partial-background-color);
   border-radius: 4px;
   bottom: 8px;
   left: 8px;
   padding: 2px;
   position: absolute;
 }
+
 .geOrchestra .ol-scale-line-inner {
-  border: 1px solid #eee;
+  border: 1px solid var(--ol-subtle-foreground-color);
   border-top: none;
-  color: #eee;
+  color: var(--ol-foreground-color);
   font-size: 10px;
   text-align: center;
   margin: 1px;
   will-change: contents, width;
+  transition: all 0.25s;
 }
-.geOrchestra .ol-overlay-container {
-  will-change: left,right,top,bottom;
+
+.geOrchestra .ol-scale-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.geOrchestra .ol-scale-bar-inner {
+  display: flex;
+}
+
+.geOrchestra .ol-scale-step-marker {
+  width: 1px;
+  height: 15px;
+  background-color: var(--ol-foreground-color);
+  float: right;
+  z-index: 10;
+}
+
+.geOrchestra .ol-scale-step-text {
+  position: absolute;
+  bottom: -5px;
+  font-size: 10px;
+  z-index: 11;
+  color: var(--ol-foreground-color);
+  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+}
+
+.geOrchestra .ol-scale-text {
+  position: absolute;
+  font-size: 12px;
+  text-align: center;
+  bottom: 25px;
+  color: var(--ol-foreground-color);
+  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+}
+
+.geOrchestra .ol-scale-singlebar {
+  position: relative;
+  height: 10px;
+  z-index: 9;
+  box-sizing: border-box;
+  border: 1px solid var(--ol-foreground-color);
+}
+
+.geOrchestra .ol-scale-singlebar-even {
+  background-color: var(--ol-subtle-foreground-color);
+}
+
+.geOrchestra .ol-scale-singlebar-odd {
+  background-color: var(--ol-background-color);
 }
 
 .geOrchestra .ol-unsupported {
   display: none;
 }
-.geOrchestra .ol-viewport, .geOrchestra .ol-unselectable {
+
+.geOrchestra .ol-viewport,
+.geOrchestra .ol-unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
 }
+
+.geOrchestra .ol-viewport canvas {
+  all: unset;
+}
+
 .geOrchestra .ol-selectable {
   -webkit-touch-callout: default;
   -webkit-user-select: text;
   -moz-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }
+
 .geOrchestra .ol-grabbing {
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
   cursor: grabbing;
 }
+
 .geOrchestra .ol-grab {
   cursor: move;
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
 }
+
 .geOrchestra .ol-control {
   position: absolute;
-  background-color: rgba(255,255,255,0.4);
+  background-color: var(--ol-subtle-background-color);
   border-radius: 4px;
-  padding: 2px;
 }
-.geOrchestra .ol-control:hover {
-  background-color: rgba(255,255,255,0.6);
-}
+
 .geOrchestra .ol-zoom {
   top: .5em;
   left: .5em;
 }
+
 .geOrchestra .ol-rotate {
   top: .5em;
   right: .5em;
   transition: opacity .25s linear, visibility 0s linear;
 }
+
 .geOrchestra .ol-rotate.ol-hidden {
   opacity: 0;
   visibility: hidden;
   transition: opacity .25s linear, visibility 0s linear .25s;
 }
+
 .geOrchestra .ol-zoom-extent {
   top: 4.643em;
   left: .5em;
 }
+
 .geOrchestra .ol-full-screen {
   right: .5em;
   top: .5em;
-}
-@media print {
-  .geOrchestra .ol-control {
-    display: none;
-  }
 }
 
 .geOrchestra .ol-control button {
   display: block;
   margin: 1px;
   padding: 0;
-  color: white;
-  font-size: 1.14em;
+  color: var(--ol-subtle-foreground-color);
   font-weight: bold;
   text-decoration: none;
+  font-size: inherit;
   text-align: center;
   height: 1.375em;
   width: 1.375em;
   line-height: .4em;
-  background-color: rgba(0,60,136,0.5);
+  background-color: var(--ol-background-color);
   border: none;
   border-radius: 2px;
 }
+
 .geOrchestra .ol-control button::-moz-focus-inner {
   border: none;
   padding: 0;
 }
+
 .geOrchestra .ol-zoom-extent button {
   line-height: 1.4em;
 }
+
 .geOrchestra .ol-compass {
   display: block;
   font-weight: normal;
-  font-size: 1.2em;
   will-change: transform;
 }
+
 .geOrchestra .ol-touch .ol-control button {
   font-size: 1.5em;
 }
+
 .geOrchestra .ol-touch .ol-zoom-extent {
   top: 5.5em;
 }
+
 .geOrchestra .ol-control button:hover,
 .geOrchestra .ol-control button:focus {
   text-decoration: none;
-  background-color: rgba(0,60,136,0.7);
+  outline: 1px solid var(--ol-subtle-foreground-color);
+  color: var(--ol-foreground-color);
 }
+
 .geOrchestra .ol-zoom .ol-zoom-in {
   border-radius: 2px 2px 0 0;
 }
+
 .geOrchestra .ol-zoom .ol-zoom-out {
   border-radius: 0 0 2px 2px;
 }
-
 
 .geOrchestra .ol-attribution {
   text-align: right;
   bottom: .5em;
   right: .5em;
   max-width: calc(100% - 1.3em);
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+}
+
+.geOrchestra .ol-attribution a {
+  color: var(--ol-subtle-foreground-color);
+  text-decoration: none;
 }
 
 .geOrchestra .ol-attribution ul {
   margin: 0;
-  padding: 0 .5em;
-  font-size: .7rem;
-  line-height: 1.375em;
-  color: #000;
-  text-shadow: 0 0 2px #fff;
+  padding: 1px .5em;
+  color: var(--ol-foreground-color);
+  text-shadow: 0 0 2px var(--ol-background-color);
+  font-size: 12px;
 }
+
 .geOrchestra .ol-attribution li {
   display: inline;
   list-style: none;
-  line-height: inherit;
 }
+
 .geOrchestra .ol-attribution li:not(:last-child):after {
   content: " ";
 }
+
 .geOrchestra .ol-attribution img {
   max-height: 2em;
   max-width: inherit;
   vertical-align: middle;
 }
-.geOrchestra .ol-attribution ul, .geOrchestra .ol-attribution button {
-  display: inline-block;
+
+.geOrchestra .ol-attribution button {
+  flex-shrink: 0;
 }
+
 .geOrchestra .ol-attribution.ol-collapsed ul {
   display: none;
 }
+
 .geOrchestra .ol-attribution:not(.ol-collapsed) {
-  background: rgba(255,255,255,0.8);
+  background: var(--ol-partial-background-color);
 }
+
 .geOrchestra .ol-attribution.ol-uncollapsible {
   bottom: 0;
   right: 0;
   border-radius: 4px 0 0;
-  height: 1.1em;
-  line-height: 1em;
 }
+
 .geOrchestra .ol-attribution.ol-uncollapsible img {
   margin-top: -.2em;
   max-height: 1.6em;
 }
+
 .geOrchestra .ol-attribution.ol-uncollapsible button {
   display: none;
 }
@@ -2296,6 +3268,7 @@ we use !important*/
   left: .5em;
   height: 200px;
 }
+
 .geOrchestra .ol-zoomslider button {
   position: relative;
   height: 10px;
@@ -2309,35 +3282,41 @@ we use !important*/
   left: 0.5em;
   bottom: 0.5em;
 }
+
 .geOrchestra .ol-overviewmap.ol-uncollapsible {
   bottom: 0;
   left: 0;
   border-radius: 0 4px 0 0;
 }
+
 .geOrchestra .ol-overviewmap .ol-overviewmap-map,
 .geOrchestra .ol-overviewmap button {
-  display: inline-block;
+  display: block;
 }
+
 .geOrchestra .ol-overviewmap .ol-overviewmap-map {
-  border: 1px solid #7b98bc;
+  border: 1px solid var(--ol-subtle-foreground-color);
   height: 150px;
-  margin: 2px;
   width: 150px;
 }
-.geOrchestra .ol-overviewmap:not(.ol-collapsed) button{
-  bottom: 1px;
-  left: 2px;
+
+.geOrchestra .ol-overviewmap:not(.ol-collapsed) button {
+  bottom: 0;
+  left: 0;
   position: absolute;
 }
+
 .geOrchestra .ol-overviewmap.ol-collapsed .ol-overviewmap-map,
 .geOrchestra .ol-overviewmap.ol-uncollapsible button {
   display: none;
 }
+
 .geOrchestra .ol-overviewmap:not(.ol-collapsed) {
-  background: rgba(255,255,255,0.8);
+  background: var(--ol-subtle-background-color);
 }
+
 .geOrchestra .ol-overviewmap-box {
-  border: 2px dotted rgba(0,60,136,0.7);
+  border: 1.5px dotted var(--ol-subtle-foreground-color);
 }
 
 .geOrchestra .ol-overviewmap .ol-overviewmap-box:hover {
@@ -2483,4 +3462,4 @@ we use !important*/
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-</style></head><body class=" geOrchestra" data-ms2-container="ms2"><iframe id="georchestra-header" src="/header/?active=mapstore" scrolling="no" frameborder="0" style="display: block; height: 90px;"></iframe><div id="container" style="top: 90px;"><div class="fill"><div class="error-container"><div id="viewer" class="viewer"><div id="details-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1920px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1921px; height: 1031px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div id="map"><div class="ol-viewport" data-view="12" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none; cursor: pointer;"><canvas class="ol-unselectable" width="1920" height="962" style="width: 100%; height: 100%; display: block;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div><div></div></div><div id="mapstore-drawermenu"><button id="drawer-menu-button" type="button" class="square-button ms-drawer-menu-button btn btn-primary"><span class="glyphicon glyphicon-1-layer"></span></button><div role="navigation" style="position: absolute; inset: 0px auto 0px 0px; overflow: visible; width: 0px;"><div class="nav-menu" style="z-index: 1022; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; width: 300px; left: 0px; transform: translateX(-100%); box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px; height: calc(100% - 30px);"><div class="nav-content"><div class="navHeader" style="width: 100%; min-height: 35px;"><span class="no-border btn-default glyphicon glyphicon-1-close" style="cursor: pointer;"></span><div class="navButtons"><button type="button" class="square-button no-border btn btn-lg btn-default"><span class="glyphicon glyphicon-1-layer"></span></button></div></div><div class="nav-body"><div open="" class="panel panel-default"><div class="panel-body"><div><div class="mapstore-toc-head toc-head-sections-2"><div class="container-fluid"><div class="row"><div class="mapstore-toc-head-title-container text-center no-border col-xs-12"><div class="mapstore-toc-head-title" title=""><span class="glyphicon glyphicon-1-map"></span>&nbsp;&nbsp;</div></div></div><div class="row"><div class="text-center col-xs-12"><div class="btn-group"><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-add-layer"></span></button><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-add-folder"></span></button><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-comment"></span></button></div></div></div></div></div><div class="mapstore-toc toc-body-sections-3"><div id="mapstore-layers" class="mapstore-layers-container"></div></div></div></div></div></div></div></div><div role="presentation" tabindex="0" style="z-index: 1021; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3);"></div><div style="position: absolute; inset: 0px; overflow-y: auto; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;"><div></div></div></div></div><span><div class="fade in modal " role="dialog" style="display: none; background: rgba(0, 0, 0, 0.5);"><div id="confirm-dialog" class=" modal-dialog modal-content modal-dialog-container" style="display: none;"><div class="modal-header draggable-header"><span role="header"><span class="user-panel-title"><span>Do you confirm?</span></span><button class="login-panel-close close"><span class="glyphicon glyphicon-1-close"></span></button></span></div><div class="modal-body"><div role="body"><span>Are you sure you want to delete "" background?</span></div></div><div class="modal-footer"><div role="footer"><div class="btn-group"><button type="button" class="btn btn-default"><span>Confirm</span></button><button type="button" class="btn btn-default"><span>Cancel</span></button></div></div></div></div></div><div class="background-plugin-position" style="bottom: 0px; left: 0px;"><div class="background-preview-button" style="margin: 5px;"><div class="background-preview-button-container bg-body" style="padding: 3px; width: 78px; height: 78px;"><div class="background-preview-button-label" style="width: 72px; height: 0px; margin-top: 0px; padding: 0px;"><div class="bg-body bg-text" style="padding: 6px;">Open Street Map</div></div><div class="background-preview-button-frame" style="width: 72px; height: 72px;"><img src="https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/plugins/background/assets/img/mapnik.jpg"></div></div></div><div class="background-list-container" style="left: 88px; width: 0px; height: 83px;"><div style="height: 83px; bottom: 0px; width: 0px;"></div></div></div></span><div id="identify-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1050;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1920px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1921px; height: 1031px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div role="navigation" style="position: absolute; inset: 0px auto 0px 0px; overflow: visible; width: 0px;"><div class="query-form-panel-container" style="z-index: 1024; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; width: 600px; left: 0px; transform: translateX(-100%); box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px; height: calc(100% - 30px);"><div class="mapstore-query-builder"><div style="margin: 0px auto; width: 60px;"><div class="sk-three-bounce sk-fade-in spinner"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div></div></div><div role="presentation" tabindex="0" style="z-index: 1023; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3); width: 0px;"></div><div style="position: absolute; inset: 0px; overflow-y: auto; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;"><div></div></div></div><div><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: -500px; top: 0px; width: 500px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; right: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div></div><span id="mapstore-map-footer"><div id="mapstore-map-footer-container" class="mapstore-map-footer"><div id="footer-attribution-container"><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible"><ul><li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div><div id="mapstore-mouseposition"><button type="button" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-mouse"></span></button></div><div id="mapstore-scalebox-container"><span id="helpbadge-scaleBox" class="hidden  badge">?</span><div id="mapstore-scalebox"><form class="form-inline"><div class="form-group form-group-sm"><label class="control-label"><span>Scale:</span></label><select class="form-control"><option value="0">1 : 591658711</option><option value="1">1 : 295829355</option><option value="2">1 : 147914678</option><option value="3">1 : 73957339</option><option value="4">1 : 36978669</option><option value="5">1 : 18489335</option><option value="6">1 : 9244667</option><option value="7">1 : 4622334</option><option value="8">1 : 2311167</option><option value="9">1 : 1155583</option><option value="10">1 : 577792</option><option value="11">1 : 288896</option><option value="12">1 : 144448</option><option value="13">1 : 72224</option><option value="14">1 : 36112</option><option value="15">1 : 18056</option><option value="16">1 : 9028</option><option value="17">1 : 4514</option><option value="18">1 : 2257</option><option value="19">1 : 1128</option><option value="20">1 : 564</option><option value="21">1 : 282</option><option value="22">1 : 141</option><option value="23">1 : 71</option><option value="24">1 : 35</option><option value="25">1 : 18</option><option value="26">1 : 9</option><option value="27">1 : 4</option><option value="28">1 : 2</option></select></div></form></div></div><div></div><div id="footer-scalebar-container"><div class="ol-scale-line ol-unselectable"><div class="ol-scale-line-inner" style="width: 120px;">200 km</div></div></div></div></span><div id="catalog-root" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1920px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1921px; height: 1031px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><span id="navigationBar"><span id="navigationBar-container" class="mapToolbar btn-group-vertical" style="bottom: 0px; right: 40px;"><button id="locate-btn" type="button" class="disabled square-button btn btn-primary"><span class="glyphicon glyphicon-1-position-1"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="zoomin-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-plus"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="zoomout-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-minus"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="fullscreen-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-1-full-screen"></span></button><button id="mapstore-zoomtomaxextent" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-resize-full"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="globeviewswitcher-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-3d"></span></button><button plugincfg="[object Object]" tooltip="[object Object]" help="[object Object]" maptype="leaflet" items="" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-option-horizontal"></span><span></span> </button></span></span><span id="mapstore-navbar"><div id="mapstore-navbar-container" class="navbar-dx shadow"><span id="search-bar-container" class="" style="right: 40px;"><div id="map-search-bar" class="MapSearchBar"><div class="form-group"><div class="input-group" style="display: flex;"><input placeholder="Search by location name" type="text" class="searchInput form-control" value="" style="text-overflow: ellipsis;"><span class="search-toolbar-options"><div class="btn-group-menu-options btn-group"><button type="button" class="square-button-md no-border btn btn-default"><span class="glyphicon glyphicon-cog"></span></button><button type="button" class="square-button-md no-border magnifying-glass btn btn-default"><span class="glyphicon glyphicon-search"></span></button><div class="dropdown btn-group"><button role="button" aria-haspopup="true" aria-expanded="false" type="button" class="square-button-md no-border dropdown-toggle btn btn-default"><span class="glyphicon glyphicon-menu-hamburger"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right"><li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-search"></span> <span>Search by location name</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-search-coords"></span> <span>Search by coordinates</span></a></li></ul></div></div></span></div></div></div></span></div></span><div id="mapstore-sidebar-menu-container" class="shadow-soft" style="height: 100%; max-height: calc(100% - 30px);"><span id="mapstore-sidebar-menu"><button maptype="openlayers" mappreviewoptions="[object Object]" overlaylayersoptions="[object Object]" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-print"></span><span></span> <span>Print</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-upload"></span><span></span> <span>Import</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-download"></span><span></span> <span>Export</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-folder-open"></span><span></span> <span>Add data</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-maps-catalog"></span><span></span> <span>Thematic applications</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-1-ruler"></span><span class="hidden mapstore-helpbadge badge">?</span> <span>Measure</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-cog"></span><span></span> <span>Settings</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-share-alt"></span><span></span> <span>Share</span></button><a maptype="openlayers" docsurl="https://georchestra.readthedocs.io/" href="https://georchestra.readthedocs.io/" target="blank" class="square-button btn btn-tray"><span class="glyphicon glyphicon-question-sign"></span><span></span> <span>Docs</span></a><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-book"></span><span></span> <span>Tutorial</span></button></span><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 81px; height: 1001px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 10000;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: -500px; top: 0px; width: 500px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; right: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="react-grid-layout widget-container on-map " style="left: 500px; margin-top: 52px; bottom: 65px; position: absolute; z-index: 50; width: 1325px; height: 828px;"></div><div class="ms2-mask-container ms2-loading-mask ms2-mask-empty"></div><div class="fade in modal " role="dialog" style="display: none; background: rgba(0, 0, 0, 0.5);"><div id="confirm-dialog" class="modal-dialog-draggable modal-dialog modal-content modal-dialog-container react-draggable" style="touch-action: none; display: none; transform: translate(0px, 150px);"><div class="modal-header draggable-header"><span role="header"><span class="user-panel-title"><span>Delete Map</span></span><button class="login-panel-close close"><span>×</span></button></span></div><div class="modal-body"><div role="body"><div class="ms-detail-body"><span>Are you sure you want to delete this resource?</span></div></div></div><div class="modal-footer"><div role="footer"><div class="btn-group"><button type="button" class="btn btn-danger"><span>Confirm</span></button><button type="button" class="btn btn-default"><span>Close</span></button></div></div></div></div></div><div id="map-catalog-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize map-catalog-dock-panel"><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1920px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1921px; height: 1031px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div></div></div></div><div class="notifications-wrapper"></div><span></span><div><div class="joyride"></div><div id="intro-tutorial" class="tutorial-presentation-position" style="top: 366px;"></div></div><span></span></div><script src="dist/geOrchestra.js?86954f6a2126fd4bf3e3"></script></body></html>
+</style></head><body class=" geOrchestra" data-ms2-container="ms2"><iframe id="georchestra-header" src="/header/?active=mapstore" scrolling="no" frameborder="0" style="display: block; height: 90px;"></iframe><div id="container" style="top: 90px;"><div class="fill"><div class="error-container"><div id="viewer" class="viewer"><div id="details-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1875px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1876px; height: 856px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div id="map"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; cursor: pointer;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0;"><div class="ol-layer" style="position: absolute; width: 100%; height: 100%;"><canvas width="1875" height="787" style="position: absolute; left: 0px; transform-origin: left top; transform: matrix(1, 0, 0, 1, 0, 0);"></canvas></div></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"><div class="ol-rotate ol-unselectable ol-control ol-hidden" style="pointer-events: auto;"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div><div></div></div><div id="mapstore-drawermenu"><button id="drawer-menu-button" type="button" class="square-button ms-drawer-menu-button btn btn-primary"><span class="glyphicon glyphicon-1-layer"></span></button><div role="navigation" style="position: absolute; inset: 0px auto 0px 0px; overflow: visible; width: 0px;"><div class="nav-menu" style="z-index: 1022; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; width: 300px; left: 0px; transform: translateX(-100%); box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px; height: calc(100% - 30px);"><div class="nav-content"><div class="navHeader" style="width: 100%; min-height: 35px;"><span class="no-border btn-default glyphicon glyphicon-1-close" style="cursor: pointer;"></span><div class="navButtons"><button type="button" class="square-button no-border btn btn-lg btn-default"><span class="glyphicon glyphicon-1-layer"></span></button></div></div><div class="nav-body"><div open="" class="panel panel-default"><div class="panel-body"><div><div class="mapstore-toc-head toc-head-sections-2"><div class="container-fluid"><div class="row"><div class="mapstore-toc-head-title-container text-center no-border col-xs-12"><div class="mapstore-toc-head-title" title=""><span class="glyphicon glyphicon-1-map"></span>&nbsp;&nbsp;</div></div></div><div class="row"><div class="text-center col-xs-12"><div class="btn-group"><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-add-layer"></span></button><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-add-folder"></span></button><button type="button" class="square-button-md btn btn-primary"><span class="glyphicon glyphicon-comment"></span></button></div></div></div></div></div><div class="mapstore-toc toc-body-sections-3"><div id="mapstore-layers" class="mapstore-layers-container"></div></div></div></div></div></div></div></div><div role="presentation" tabindex="0" style="z-index: 1021; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3);"></div><div style="position: absolute; inset: 0px; overflow-y: auto; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;"><div></div></div></div></div><span><div class="fade in modal " role="dialog" style="display: none; background: rgba(0, 0, 0, 0.5);"><div id="confirm-dialog" class=" modal-dialog modal-content modal-dialog-container" style="display: none;"><div class="modal-header draggable-header"><span role="header"><span class="user-panel-title"><span>Do you confirm?</span></span><button class="login-panel-close close"><span class="glyphicon glyphicon-1-close"></span></button></span></div><div class="modal-body"><div role="body"><span>Are you sure you want to delete "" background?</span></div></div><div class="modal-footer"><div role="footer"><div class="btn-group"><button type="button" class="btn btn-default"><span>Confirm</span></button><button type="button" class="btn btn-default"><span>Cancel</span></button></div></div></div></div></div><div class="background-plugin-position" style="bottom: 0px; left: 0px;"><div class="background-preview-button" style="margin: 5px;"><div class="background-preview-button-container bg-body" style="padding: 3px; width: 78px; height: 78px;"><div class="background-preview-button-label" style="width: 72px; height: 0px; margin-top: 0px; padding: 0px;"><div class="bg-body bg-text" style="padding: 6px;">Open Street Map</div></div><div class="background-preview-button-frame" style="width: 72px; height: 72px;"><img src="https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/plugins/background/assets/img/mapnik.jpg"></div></div></div><div class="background-list-container" style="left: 88px; width: 0px; height: 83px;"><div style="height: 83px; bottom: 0px; width: 0px;"></div></div></div></span><div id="identify-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1050;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1875px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1876px; height: 856px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div role="navigation" style="position: absolute; inset: 0px auto 0px 0px; overflow: visible; width: 0px;"><div class="query-form-panel-container" style="z-index: 1024; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out 0s; will-change: transform; overflow-y: auto; width: 600px; left: 0px; transform: translateX(-100%); box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px; height: calc(100% - 30px);"><div class="mapstore-query-builder"><div style="margin: 0px auto; width: 60px;"><div class="sk-three-bounce sk-fade-in spinner"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div></div></div><div role="presentation" tabindex="0" style="z-index: 1023; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s; background-color: rgba(0, 0, 0, 0.3); width: 0px;"></div><div style="position: absolute; inset: 0px; overflow-y: auto; transition: left 0.3s ease-out 0s, right 0.3s ease-out 0s;"><div></div></div></div><div><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: -500px; top: 0px; width: 500px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; right: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div></div><span id="mapstore-map-footer"><div id="mapstore-map-footer-container" class="mapstore-map-footer"><div id="footer-attribution-container"><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible"><button type="button" aria-expanded="true" title="Attributions"><span class="ol-attribution-expand">i</span></button><ul><li>© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.</li></ul></div></div><div id="mapstore-mouseposition"><button type="button" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-mouse"></span></button></div><div id="mapstore-scalebox-container"><span id="helpbadge-scaleBox" class="hidden  badge">?</span><div id="mapstore-scalebox"><form class="form-inline"><div class="form-group form-group-sm"><label class="control-label"><span>Scale:</span></label><select class="form-control"><option value="0">1 : 591658711</option><option value="1">1 : 295829355</option><option value="2">1 : 147914678</option><option value="3">1 : 73957339</option><option value="4">1 : 36978669</option><option value="5">1 : 18489335</option><option value="6">1 : 9244667</option><option value="7">1 : 4622334</option><option value="8">1 : 2311167</option><option value="9">1 : 1155583</option><option value="10">1 : 577792</option><option value="11">1 : 288896</option><option value="12">1 : 144448</option><option value="13">1 : 72224</option><option value="14">1 : 36112</option><option value="15">1 : 18056</option><option value="16">1 : 9028</option><option value="17">1 : 4514</option><option value="18">1 : 2257</option><option value="19">1 : 1128</option><option value="20">1 : 564</option><option value="21">1 : 282</option><option value="22">1 : 141</option><option value="23">1 : 71</option><option value="24">1 : 35</option><option value="25">1 : 18</option><option value="26">1 : 9</option><option value="27">1 : 4</option><option value="28">1 : 2</option><option value="29">1 : 1</option><option value="30">2 : 1</option></select></div></form></div></div><div></div><div id="footer-scalebar-container"><div class="ol-scale-line ol-unselectable" style="pointer-events: none;"><div class="ol-scale-line-inner" style="width: 120px;">200 km</div></div></div></div></span><div id="catalog-root" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1875px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1876px; height: 856px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><span id="navigationBar"><span id="navigationBar-container" class="mapToolbar btn-group-vertical" style="bottom: 0px; right: 40px;"><div class="ms2-loading" id="mapstore-globalspinner"><div class="sk-circle-wrapper spinner"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div></div><button id="locate-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-1-position-1"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="zoomin-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-plus"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="zoomout-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-minus"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="fullscreen-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-1-full-screen"></span></button><button id="mapstore-zoomtomaxextent" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-resize-full"></span><span class="hidden mapstore-helpbadge badge">?</span></button><button id="globeviewswitcher-btn" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-3d"></span></button><button plugincfg="[object Object]" tooltip="[object Object]" help="[object Object]" maptype="openlayers" items="" type="button" class="square-button btn btn-primary"><span class="glyphicon glyphicon-option-horizontal"></span><span></span> </button></span></span><span id="mapstore-navbar"><div id="mapstore-navbar-container" class="navbar-dx shadow"><span id="search-bar-container" class="" style="right: 40px;"><div id="map-search-bar" class="MapSearchBar"><div class="form-group"><div class="input-group" style="display: flex;"><input placeholder="Search by location name" type="text" class="searchInput form-control" value="" style="text-overflow: ellipsis;"><span class="search-toolbar-options"><div class="btn-group-menu-options btn-group"><button type="button" class="square-button-md no-border btn btn-default"><span class="glyphicon glyphicon-cog"></span></button><button type="button" class="square-button-md no-border magnifying-glass btn btn-default"><span class="glyphicon glyphicon-search"></span></button><div class="dropdown btn-group"><button role="button" aria-haspopup="true" aria-expanded="false" type="button" class="square-button-md no-border dropdown-toggle btn btn-default"><span class="glyphicon glyphicon-menu-hamburger"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right"><li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-search"></span> <span>Search by location name</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-search-coords"></span> <span>Search by coordinates</span></a></li></ul></div></div></span></div></div></div></span></div></span><div id="mapstore-sidebar-menu-container" class="shadow-soft" style="height: 100%; max-height: calc(100% - 30px);"><span id="mapstore-sidebar-menu"><button maptype="openlayers" mappreviewoptions="[object Object]" overlaylayersoptions="[object Object]" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-print"></span><span></span> <span>Print</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-upload"></span><span></span> <span>Import</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-download"></span><span></span> <span>Export</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-folder-open"></span><span></span> <span>Add data</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-maps-catalog"></span><span></span> <span>Thematic applications</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-1-ruler"></span><span class="hidden mapstore-helpbadge badge">?</span> <span>Measure</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-cog"></span><span></span> <span>Settings</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-share-alt"></span><span></span> <span>Share</span></button><a maptype="openlayers" docsurl="https://georchestra.readthedocs.io/" href="https://georchestra.readthedocs.io/" target="blank" class="square-button btn btn-tray"><span class="glyphicon glyphicon-question-sign"></span><span></span> <span>Docs</span></a><button maptype="openlayers" type="button" class="square-button btn btn-tray"><span class="glyphicon glyphicon-book"></span><span></span> <span>Tutorial</span></button></span><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 81px; height: 826px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div class="ms-side-panel ms-absolute-dock react-dock-no-resize "><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 10000;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: -500px; top: 0px; width: 500px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; right: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="react-grid-layout widget-container on-map " style="left: 500px; bottom: 65px; position: absolute; z-index: 50; width: 1280px; height: 652px;"></div><div class="ms2-mask-container ms2-loading-mask ms2-mask-empty"></div><div class="fade in modal " role="dialog" style="display: none; background: rgba(0, 0, 0, 0.5);"><div id="confirm-dialog" class="modal-dialog-draggable modal-dialog modal-content modal-dialog-container react-draggable" style="touch-action: none; display: none; transform: translate(0px, 150px);"><div class="modal-header draggable-header"><span role="header"><span class="user-panel-title"><span>Delete Map</span></span><button class="login-panel-close close"><span>×</span></button></span></div><div class="modal-body"><div role="body"><div class="ms-detail-body"><span>Are you sure you want to delete this resource?</span></div></div></div><div class="modal-footer"><div role="footer"><div class="btn-group"><button type="button" class="btn btn-danger"><span>Confirm</span></button><button type="button" class="btn btn-default"><span>Close</span></button></div></div></div></div></div><div id="map-catalog-container" class="dock-container" style="width: calc(100% - 40px); transform: translateX(-40px); pointer-events: none;"><div class="ms-side-panel ms-absolute-dock react-dock-no-resize map-catalog-dock-panel"><div style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 1030;"><div style="position: fixed; z-index: 1; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; background: white; left: 1875px; top: 0px; width: 550px; height: calc(100% - 30px); transition: left 0.2s ease-out 0s, top 0.2s ease-out 0s, width 0.2s ease-out 0s, height 0.2s ease-out 0s, opacity 0.01s linear 0.2s; right: 40px; opacity: 0;"><div style="position: absolute; z-index: 2; opacity: 0; left: -5px; width: 10px; top: 0px; height: 100%; cursor: col-resize;"></div><div style="width: 100%; height: 100%; overflow: auto;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"></main></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1876px; height: 856px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1916px; height: 856px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div></div></div><div class="notifications-wrapper"></div><span></span><div><div class="joyride"></div><div id="intro-tutorial" class="tutorial-presentation-position" style="top: 278.5px;"></div></div><span></span></div><script src="dist/geOrchestra.js?92f07925f553166f5c32"></script></body></html>

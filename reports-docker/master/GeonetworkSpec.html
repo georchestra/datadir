@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeonetworkSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Apr 14 15:06:24 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Wed Oct 04 10:42:19 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -57,7 +57,7 @@ limitations under the License.
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>21.986 seconds</td>
+            <td>24.943 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -99,35 +99,6 @@ limitations under the License.
     <!-- print given, when, then, ... blocks -->
     <h3>Code Blocks:</h3>
     <table>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">go GeonetworkPage.url
-if (loginRequired()) {
-    loginAsAdmin()
-    to GeonetworkPage
-} else {
-    to GeonetworkPage
-}
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeonetworkPage
-report "GnHomePage"
-</pre>
-            </td>
-        </tr>
         
     </table>
 
@@ -181,47 +152,6 @@ report "GnHomePage"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">go GeonetworkPage.url
-if (loginRequired()) {
-    loginAsAdmin()
-    to GeonetworkPage
-} else {
-    to GeonetworkPage
-}
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>And:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"click on the search button"()
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeonetworkPage
-"some results are displayed"()
-report "GnSearchResults"
-</pre>
-            </td>
-        </tr>
-        
     </table>
 
     <!-- print data tables if feature failed -->
@@ -274,40 +204,6 @@ report "GnSearchResults"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">loginAsAdmin()
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeonetworkPage
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>And:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"'contribute' and 'admin' menus are available"()
-report "GnMainPageLoggedIn"
-</pre>
-            </td>
-        </tr>
-        
     </table>
 
     <!-- print data tables if feature failed -->
@@ -359,86 +255,6 @@ report "GnMainPageLoggedIn"
     <!-- print given, when, then, ... blocks -->
     <h3>Code Blocks:</h3>
     <table>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p>----</p>
-                
-            </td>
-        </tr>
         
     </table>
 

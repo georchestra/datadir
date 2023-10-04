@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for MapfishappSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Apr 14 15:06:37 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Wed Oct 04 10:42:33 CEST 2023 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -57,7 +57,7 @@ limitations under the License.
             <td>0</td>
             <td>4</td>
             <td class="passed">100.0%</td>
-            <td>0.001 seconds</td>
+            <td>0</td>
         </tr>
         </tbody>
     </table>
@@ -106,8 +106,7 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p>onto the Mapfishapp page</p>
-                <pre class="code">to MapfishappPage
-</pre>
+                
             </td>
         </tr>
         
@@ -117,10 +116,7 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I open the 'add layers' dialog, 'Catalogue' tab</p>
-                <pre class="code">$('button').find { it.text() == "Add layers"}.click()
-$('span').find { it.text() == "Catalogue"}.click()
-$("input[type='text']").find {it.attr("size") == "16" } << "${mfappSearchString}\n" // triggers <enter>
-</pre>
+                
             </td>
         </tr>
         
@@ -130,9 +126,7 @@ $("input[type='text']").find {it.attr("size") == "16" } << "${mfappSearchString}
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I should have the listing of available labels from the metadata</p>
-                <pre class="code">waitFor { $("div.x-view-item") }.size() > 0
-report "layer-catalogue-tab"
-</pre>
+                
             </td>
         </tr>
         
@@ -173,8 +167,7 @@ report "layer-catalogue-tab"
             </td>
             <td class="code-block-text" colspan="9">
                 <p>onto the Mapfishapp page</p>
-                <pre class="code">to MapfishappPage
-</pre>
+                
             </td>
         </tr>
         
@@ -184,9 +177,7 @@ report "layer-catalogue-tab"
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I open the 'add layers' dialog, 'Thesaurus' tab</p>
-                <pre class="code">$('button').find { it.text() == "Add layers"}.click()
-$('span').find { it.text() == "Thesaurus"}.click()
-</pre>
+                
             </td>
         </tr>
         
@@ -196,9 +187,7 @@ $('span').find { it.text() == "Thesaurus"}.click()
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I should see a tree of available keywords</p>
-                <pre class="code">waitFor { $("li.x-tree-node") }.size() > 0
-report "layer-thesaurus-tab"
-</pre>
+                
             </td>
         </tr>
         
@@ -233,29 +222,6 @@ report "layer-thesaurus-tab"
     <h3>Code Blocks:</h3>
     <table>
         
-        <tr class="ignored">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to MapfishappPage
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="ignored">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at MapfishappPage
-report "MapfishappHomePage"
-</pre>
-            </td>
-        </tr>
-        
     </table>
 
     <!-- print data tables if feature failed -->
@@ -286,42 +252,6 @@ report "MapfishappHomePage"
     <!-- print given, when, then, ... blocks -->
     <h3>Code Blocks:</h3>
     <table>
-        
-        <tr class="ignored">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to MapfishappPage
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="ignored">
-            <td class="code-block-kind" colspan="1">
-                <p>And:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"Open the Manage tools UI"()
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="ignored">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">def addons = "Available addons"()
-reportInfo "Available addons: <br/><pre>${addons.join(",\n")}</pre>"
-report "addons"
-addons.size() > 0
-</pre>
-            </td>
-        </tr>
         
     </table>
 

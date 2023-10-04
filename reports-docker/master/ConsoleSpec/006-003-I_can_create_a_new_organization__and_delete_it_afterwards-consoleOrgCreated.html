@@ -1,0 +1,208 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <base href="/console/manager/">
+
+  <link rel="stylesheet" href="public/libraries.css">
+  <link rel="stylesheet" href="public/app.css">
+  <link rel="stylesheet" href="public/svg.css" class="svg-styles">
+
+  <title>Admin Console</title>
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body ng-app="manager" ng-strict-di="" ng-controller="AppController" class="ng-scope">
+
+  <iframe src="/header/?active=console" scrolling="no" frameborder="0"></iframe>
+
+  <div flash-message="2000"><div role="alert" ng-show="hasFlash" class="alert  alert-dismissible alertIn alertOut  alert-success"> <span dynamic="flash.text">Organization created</span> <button type="button" class="close" close-flash=""><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div></div>
+
+  <div class="container">
+
+    <div class="profile label pull-right label-info" title="Your role allows you to manage all accounts">
+      Administrator
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-class="{'active': isActive(['home'])}" class="">
+        <a ng-link="home" translate="" class="ng-scope" href="./home">Dashboard</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['users','browse'])}">
+        <a ng-link="users({'id': 'all'})" translate="" class="ng-scope" href="./browse/all/users">Users</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['orgs','org'])}" class="active">
+        <a ng-link="orgs({'org': 'all'})" translate="" class="ng-scope" href="./orgs/all">Organizations</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['roles','role'])}">
+        <a ng-link="roles({'role': 'all'})" translate="" class="ng-scope" href="./roles/all">Roles</a>
+      </li>
+      <!-- ngIf: profile === 'SUPERUSER' --><li role="presentation" ng-class="{'active': isActive(['delegations'])}" ng-if="profile === 'SUPERUSER'" class="ng-scope">
+        <a ng-link="delegations({})" translate="" class="ng-scope" href="./delegations">Delegations</a>
+      </li><!-- end ngIf: profile === 'SUPERUSER' -->
+      <li role="presentation" ng-class="{'active': isActive(['analytics'])}">
+        <a ng-link="analytics({'role': 'all'})" translate="" class="ng-scope" href="./analytics/all">Analytics</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['logs'])}">
+        <a ng-link="logs" translate="" class="ng-scope" href="./logs">Logs</a>
+      </li>
+    </ul>
+
+    <!-- ngViewport: --><ng-viewport class="ng-scope"><section class="org ng-scope">
+
+  <h4 class="ng-binding">
+    <a ng-link="orgs({'org': 'all'})" translate="" class="ng-scope" href="./orgs/all">All orgs</a>
+    <span>/</span>
+    functional tests organization
+  </h4>
+
+  <hr>
+
+  <div class="col-md-2">
+    <ul class="nav nav-pills nav-stacked">
+      <!-- ngRepeat: tab in org.tabs --><li ng-repeat="tab in org.tabs" ng-class="{active: org.tab==tab}" class="ng-scope active">
+        <a ng-link="org({org: org.org.id, tab: tab})" class="ng-binding" href="./org/functestsorg/infos">Infos</a>
+      </li><!-- end ngRepeat: tab in org.tabs --><li ng-repeat="tab in org.tabs" ng-class="{active: org.tab==tab}" class="ng-scope">
+        <a ng-link="org({org: org.org.id, tab: tab})" class="ng-binding" href="./org/functestsorg/area">Area</a>
+      </li><!-- end ngRepeat: tab in org.tabs --><li ng-repeat="tab in org.tabs" ng-class="{active: org.tab==tab}" class="ng-scope">
+        <a ng-link="org({org: org.org.id, tab: tab})" class="ng-binding" href="./org/functestsorg/users">Members</a>
+      </li><!-- end ngRepeat: tab in org.tabs --><li ng-repeat="tab in org.tabs" ng-class="{active: org.tab==tab}" class="ng-scope">
+        <a ng-link="org({org: org.org.id, tab: tab})" class="ng-binding" href="./org/functestsorg/manage">Manage</a>
+      </li><!-- end ngRepeat: tab in org.tabs -->
+    </ul>
+  </div>
+
+  <div class="col-md-10">
+
+    <div class="panel panel-default" ng-class="{'panel-danger': org.org.pending}">
+
+      <!-- ngIf: org.tab=='infos' && org.delegations.length > 0 && profile === 'SUPERUSER' -->
+
+      <!-- ngIf: org.org.pending -->
+
+      <!-- ngIf: org.tab=='infos' --><div class="panel-body ng-scope" ng-if="org.tab=='infos'">
+        <div ng-inline="templates/orgForm.tpl.html" ng-init="model=org.org;promise=org.org.$promise;required=org.required;orgTypeValues=org.orgTypeValues"><form class="form-horizontal ng-pristine ng-valid-required ng-valid-url ng-valid ng-valid-shortname" name="orgForm">
+
+  <!-- ngIf: !model -->
+
+  <div class="row org-form">
+
+    <div class="col-md-12">
+
+
+      <div class="form-group form-group-sm required" ng-class="{required: required.name}">
+        <label class="col-sm-4 ng-scope" for="name" translate="">Name</label>
+        <div class="col-sm-8">
+          <input ng-model="model.name" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required ng-not-empty" id="name" placeholder="" ng-required="required.name" required="required">
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm required" ng-class="{required: required.shortName}">
+        <label class="col-sm-4 ng-scope" for="shortName" translate="">Short name</label>
+        <div class="col-sm-8">
+          <input ng-model="model.shortName" class="form-control ng-pristine ng-untouched ng-valid-required ng-not-empty ng-valid ng-valid-shortname" id="shortName" placeholder="" ng-required="required.shortName" shortname="" shortname-lower="" required="required">
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm required" ng-class="{required: required.type}">
+        <label class="col-sm-4 ng-scope" for="type" translate="">Type</label>
+        <div class="col-sm-8">
+          <select ng-model="model.orgType" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required ng-not-empty" id="type" placeholder="" ng-required="required.type" required="required">
+            <!-- ngRepeat: o in orgTypeValues --><option ng-repeat="o in orgTypeValues" value="Association" class="ng-binding ng-scope">Association</option><!-- end ngRepeat: o in orgTypeValues --><option ng-repeat="o in orgTypeValues" value="Company" class="ng-binding ng-scope">Company</option><!-- end ngRepeat: o in orgTypeValues --><option ng-repeat="o in orgTypeValues" value="NGO" class="ng-binding ng-scope">NGO</option><!-- end ngRepeat: o in orgTypeValues --><option ng-repeat="o in orgTypeValues" value="Individual" class="ng-binding ng-scope" selected="selected">Individual</option><!-- end ngRepeat: o in orgTypeValues --><option ng-repeat="o in orgTypeValues" value="Other" class="ng-binding ng-scope">Other</option><!-- end ngRepeat: o in orgTypeValues -->
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm" ng-class="{required: required.address}">
+        <label class="col-sm-4 ng-scope" for="address" translate="">Address</label>
+        <div class="col-sm-8">
+          <textarea ng-model="model.address" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-required" id="address" placeholder="" ng-required="required.address"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm" ng-class="{required: required.description}">
+        <label class="col-sm-4 ng-scope" for="address" translate="">Description</label>
+        <div class="col-sm-8">
+          <textarea ng-model="model.description" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-required" id="description" placeholder="" ng-required="required.description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm" ng-class="{required: required.note}">
+        <label class="col-sm-4 ng-scope" for="note" translate="">Internal Notes</label>
+        <div class="col-sm-8">
+          <textarea ng-model="model.note" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-required" id="note" placeholder="" ng-required="required.note"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm" ng-class="{required: required.url}">
+        <label class="col-sm-4 ng-scope" for="url" translate="">Website</label>
+        <div class="col-sm-8">
+          <input ng-model="model.url" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-url ng-valid-required" id="url" type="url" placeholder="" ng-required="required.url">
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm" ng-class="{required: required.mail}">
+        <label class="col-sm-4 ng-scope" for="mail" translate="">Mail</label>
+        <div class="col-sm-8">
+          <input ng-model="model.mail" class="form-control ng-pristine ng-untouched ng-valid ng-valid-required ng-not-empty" id="mail" type="mail" placeholder="" ng-required="required.mail">
+        </div>
+      </div>
+
+      <imageinput model="model" attribute="'logo'" class="ng-isolate-scope"><div class="row">
+  <div class="col-md-4">
+    <label class="btn btn-primary">
+      <span translate="" class="ng-scope">Upload logo</span>
+      <input type="file" accept="image/*" class="image-input" style="display:none;">
+    </label>
+  </div>
+  <div class="col-md-8 ng-hide" ng-show="imageinput.value">
+    <button ng-click="imageinput.delete()" class="close delete-logo">
+      ×
+    </button>
+    <img class="preview img-responsive" ng-src="data:image/jpeg;base64," src="data:image/jpeg;base64,">
+  </div>
+</div>
+
+</imageinput>
+
+    </div>
+
+  </div>
+
+</form>
+
+</div>
+        <hr>
+        <div class="pull-right">
+          <button ng-click="org.save()" class="btn btn-primary ng-scope" translate="" ng-disabled="orgForm.$invalid">Save</button>
+        </div>
+      </div><!-- end ngIf: org.tab=='infos' -->
+
+      <!-- ngIf: org.tab=='area' -->
+
+      <!-- ngIf: org.tab=='users' -->
+
+      <!-- ngIf: org.tab=='manage' -->
+
+  </div>
+
+</div></section>
+
+</ng-viewport>
+
+  </div>
+
+  <script src="public/libraries.js"></script>
+  <script src="public/templates.js"></script>
+  <script src="public/app.js"></script>
+  <script>require('app')</script>
+
+
+
+</body></html>

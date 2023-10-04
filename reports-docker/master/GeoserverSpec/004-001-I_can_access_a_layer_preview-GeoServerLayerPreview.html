@@ -88,12 +88,12 @@
         #map {
             clear: both;
             position: relative;
-            width: 644px;
-            height: 768px;
+            width: 768px;
+            height: 525px;
             border: 1px solid black;
         }
         #wrapper {
-            width: 644px;
+            width: 768px;
         }
         #location {
             float: right;
@@ -214,10 +214,10 @@
       </div>
     <div id="map">
       <div class="ol-toggle-options ol-unselectable"><a title="Toggle options toolbar" onclick="toggleControlPanel()" href="#toggle">...</a></div>
-    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="644" height="768" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div></div>
+    <div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="768" height="525" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div></div></div></div>
     <div id="wrapper">
         <div id="location"><div class="custom-mouse-position">&nbsp;</div></div>
-        <div id="scale">Scale = 1 : 34K</div>
+        <div id="scale">Scale = 1 : 545K</div>
     <div id="nodelist">
         <em>Click on the map to get feature info</em>
     </div>
@@ -226,8 +226,8 @@
       // if this is just a coverage or a group of them, disable a few items,
       // and default to jpeg format
       var format = 'image/png';
-      var bounds = [5.8881648, 45.5552137,
-                    5.9362886, 45.612534];
+      var bounds = [706443.2000085486, 6405353.500049313,
+                    817000.199968456, 6481032.899998338];
       if (pureCoverage) {
         document.getElementById('antialiasSelector').disabled = true;
         document.getElementById('jpeg').selected = true;
@@ -255,7 +255,7 @@
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 "STYLES": '',
-                "LAYERS": 'psc:armoires',
+                "LAYERS": 'psc:terr_communes',
                 "exceptions": 'application/vnd.ogc.se_inimage',
           }
         })
@@ -268,17 +268,16 @@
                    'VERSION': '1.1.1',
                    tiled: true,
                 "STYLES": '',
-                "LAYERS": 'psc:armoires',
+                "LAYERS": 'psc:terr_communes',
                 "exceptions": 'application/vnd.ogc.se_inimage',
-             tilesOrigin: 5.8881648 + "," + 45.5552137
+             tilesOrigin: 706443.2000085486 + "," + 6405353.500049313
           }
         })
       });
       var projection = new ol.proj.Projection({
-          code: 'EPSG:4326',
-          units: 'degrees',
-          axisOrientation: 'neu',
-          global: true
+          code: 'EPSG:2154',
+          units: 'm',
+          global: false
       });
       var map = new ol.Map({
         controls: ol.control.defaults({

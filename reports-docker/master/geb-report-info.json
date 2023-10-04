@@ -9,7 +9,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414432823,
+              "timestamp": 1696417093613,
               "label": "I can access the \u0027geoserver\u0027 webapp-GeoServerHomePage",
               "pageObject": "GeoServerPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geoserver/web/?0",
@@ -26,7 +26,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414433506,
+              "timestamp": 1696417094285,
               "label": "I can access the geoserver about page-GeoServerAboutPage",
               "pageObject": "GeoServerAboutPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geoserver/web/wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage?0",
@@ -43,7 +43,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414435028,
+              "timestamp": 1696417095688,
               "label": "Being connected as an administrator, I have access to the GeoServer administration menu-GeoServerGlobalSettingsPage",
               "pageObject": "GeoServerGlobalSettingsPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geoserver/web/wicket/bookmarkable/org.geoserver.web.admin.GlobalSettingsPage?8\u0026filter\u003dfalse",
@@ -60,10 +60,10 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414437360,
+              "timestamp": 1696417097076,
               "label": "I can access a layer preview-GeoServerLayerPreview",
               "pageObject": "GeoServerLayerPreviewPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service\u003dWMS\u0026version\u003d1.1.0\u0026request\u003dGetMap\u0026layers\u003dpsc%3Aterr_communes\u0026bbox\u003d706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338\u0026width\u003d768\u0026height\u003d525\u0026srs\u003dEPSG%3A2154\u0026styles\u003d\u0026format\u003dapplication/openlayers",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service\u003dWMS\u0026version\u003d1.1.0\u0026request\u003dGetMap\u0026layers\u003dpsc%3Aterr_communes_1\u0026bbox\u003d706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338\u0026width\u003d768\u0026height\u003d525\u0026srs\u003dEPSG%3A2154\u0026styles\u003d\u0026format\u003dapplication/openlayers",
               "files": [
                 "GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.html",
                 "GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png"
@@ -83,7 +83,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414439653,
+              "timestamp": 1696417099425,
               "label": "I can access the \u0027datahub\u0027 webapp-datahub.DatahubSearchPage",
               "pageObject": "DatahubSearchPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/datahub/news",
@@ -106,7 +106,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414441176,
+              "timestamp": 1696417100825,
               "label": "I can visit the page to create an account-ConsoleNewAccountPage",
               "pageObject": "ConsoleNewAccountPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/account/new",
@@ -123,7 +123,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414443483,
+              "timestamp": 1696417103027,
               "label": "I can create an account-ConsoleAccountCreation",
               "pageObject": "ConsoleNewAccountPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/account/new",
@@ -140,7 +140,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414444502,
+              "timestamp": 1696417104065,
               "label": "I can use the console\u0027s \u0027recover my password\u0027 feature-ConsoleRecoveryPage",
               "pageObject": "RecoverMyPasswordPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/account/passwordRecovery",
@@ -157,7 +157,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414446151,
+              "timestamp": 1696417105857,
               "label": "Being connected as an administrator, I can visit the console admin page-ConsoleAdminPage",
               "pageObject": "ConsoleAdminPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/manager/home",
@@ -174,7 +174,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414447617,
+              "timestamp": 1696417107171,
               "label": "Being connected on the platform, I can visit my userdetails page-ConsoleUserDetailsPage",
               "pageObject": "ConsoleUserDetailsPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/account/userdetails",
@@ -191,7 +191,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414449132,
+              "timestamp": 1696417108520,
               "label": "I can create a new organization, and delete it afterwards-consoleAdminPage",
               "pageObject": "ConsoleAdminPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/manager/home",
@@ -202,7 +202,7 @@
             },
             {
               "number": 2,
-              "timestamp": 1696414449461,
+              "timestamp": 1696417108799,
               "label": "I can create a new organization, and delete it afterwards-consoleOrganizationsAdministrationTab",
               "pageObject": "ConsoleOrganizationsAdministrationPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/manager/orgs/all",
@@ -213,7 +213,7 @@
             },
             {
               "number": 3,
-              "timestamp": 1696414451287,
+              "timestamp": 1696417110629,
               "label": "I can create a new organization, and delete it afterwards-consoleOrgCreated",
               "pageObject": "ConsoleOrganizationsAdministrationPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/manager/org/functestsorg/infos",
@@ -224,7 +224,7 @@
             },
             {
               "number": 4,
-              "timestamp": 1696414452766,
+              "timestamp": 1696417112212,
               "label": "I can create a new organization, and delete it afterwards-consoleOrgDeleted",
               "pageObject": "ConsoleOrganizationsAdministrationPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/console/manager/orgs/undefined",
@@ -247,7 +247,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414453202,
+              "timestamp": 1696417112633,
               "label": "I can browse the header webapp-HeaderPage",
               "pageObject": "HeaderPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/header/",
@@ -264,7 +264,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414454593,
+              "timestamp": 1696417114015,
               "label": "Connected as an administrator, I can access the admin tab of the header menu-HeaderPage-admin",
               "pageObject": "HeaderPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/header/",
@@ -287,7 +287,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414458155,
+              "timestamp": 1696417117143,
               "label": "I can access the \u0027geonetwork\u0027 webapp-GnHomePage",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.search#/home",
@@ -304,7 +304,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414466345,
+              "timestamp": 1696417124261,
               "label": "Being onto the \u0027geonetwork\u0027 catalogue, I can trigger a search-GnSearchResults",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.search#/search?any\u003d",
@@ -321,7 +321,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414468724,
+              "timestamp": 1696417126485,
               "label": "Being connected onto the catalogue, I have access to contribute \u0026 admin menu-GnMainPageLoggedIn",
               "pageObject": "GeonetworkPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.search#/home",
@@ -334,39 +334,78 @@
         },
         {
           "number": 4,
-          "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtCreateNewRecord",
+          "label": "Being connected as administrator, I can visit the \u0027group management\u0027 interface-GnAtGeonetworkUsersAndGroupsPage",
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414472023,
-              "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtCreateNewRecord",
-              "pageObject": "GeonetworkCatalogEditAddNewRecordPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.edit#/create",
+              "timestamp": 1696417129210,
+              "label": "Being connected as administrator, I can visit the \u0027group management\u0027 interface-GnAtGeonetworkUsersAndGroupsPage",
+              "pageObject": "GeonetworkUsersAndGroupsPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/admin.console#/organization",
               "files": [
-                "GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.html",
-                "GeonetworkSpec/004-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png"
+                "GeonetworkSpec/004-001-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsPage.html",
+                "GeonetworkSpec/004-001-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsPage.png"
               ]
             },
             {
               "number": 2,
-              "timestamp": 1696414475268,
-              "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtEditForm",
-              "pageObject": "GeonetworkCatalogEditForm",
-              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.edit#/metadata/125?justcreated\u0026redirectUrl\u003dcatalog.edit",
+              "timestamp": 1696417129714,
+              "label": "Being connected as administrator, I can visit the \u0027group management\u0027 interface-GnAtGeonetworkUsersAndGroupsPage",
+              "pageObject": "GeonetworkUsersAndGroupsGroupsPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/admin.console#/organization/groups",
               "files": [
-                "GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.html",
-                "GeonetworkSpec/004-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png"
+                "GeonetworkSpec/004-002-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsPage.html",
+                "GeonetworkSpec/004-002-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsPage.png"
               ]
             },
             {
               "number": 3,
-              "timestamp": 1696414477775,
+              "timestamp": 1696417130082,
+              "label": "Being connected as administrator, I can visit the \u0027group management\u0027 interface-GnAtGeonetworkUsersAndGroupsGroupsSingleGroupPage",
+              "pageObject": "GeonetworkUsersAndGroupsGroupsSingleGroupPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/admin.console#/organization/groups",
+              "files": [
+                "GeonetworkSpec/004-003-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsGroupsSingleGroupPage.html",
+                "GeonetworkSpec/004-003-Being_connected_as_administrator__I_can_visit_the__group_management__interface-GnAtGeonetworkUsersAndGroupsGroupsSingleGroupPage.png"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtCreateNewRecord",
+          "artifacts": [
+            {
+              "number": 1,
+              "timestamp": 1696417132842,
+              "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtCreateNewRecord",
+              "pageObject": "GeonetworkCatalogEditAddNewRecordPage",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.edit#/create",
+              "files": [
+                "GeonetworkSpec/005-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.html",
+                "GeonetworkSpec/005-001-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtCreateNewRecord.png"
+              ]
+            },
+            {
+              "number": 2,
+              "timestamp": 1696417135723,
+              "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtEditForm",
+              "pageObject": "GeonetworkCatalogEditForm",
+              "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.edit#/metadata/127?justcreated\u0026redirectUrl\u003dcatalog.edit",
+              "files": [
+                "GeonetworkSpec/005-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.html",
+                "GeonetworkSpec/005-002-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditForm.png"
+              ]
+            },
+            {
+              "number": 3,
+              "timestamp": 1696417138061,
               "label": "Being connected onto the catalogue, I can create a metadata using the editor-GnAtEditBoard",
               "pageObject": "GeonetworkCatalogEditBoard",
               "url": "https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/eng/catalog.edit#/board?from\u003d1\u0026to\u003d30\u0026languageStrategy\u003dsearchInAllLanguages",
               "files": [
-                "GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.html",
-                "GeonetworkSpec/004-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png"
+                "GeonetworkSpec/005-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.html",
+                "GeonetworkSpec/005-003-Being_connected_onto_the_catalogue__I_can_create_a_metadata_using_the_editor-GnAtEditBoard.png"
               ]
             }
           ]
@@ -383,7 +422,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414483917,
+              "timestamp": 1696417143311,
               "label": "I can visit mapstore\u0027s viewer-MapstoreViewerPage",
               "pageObject": "MapstoreViewerPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/mapstore/#/",
@@ -400,7 +439,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414487154,
+              "timestamp": 1696417146664,
               "label": "I can visit mapstore\u0027s home page-MapstoreHomePage",
               "pageObject": "MapstoreHomePage",
               "url": "https://georchestra-127-0-1-1.traefik.me/mapstore/#/home",
@@ -417,7 +456,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414490627,
+              "timestamp": 1696417150073,
               "label": "Being logged in as admin, I can visit the admin page-MapstoreAdminPage",
               "pageObject": "MapstoreAdminPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/mapstore/#/admin",
@@ -440,7 +479,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414492473,
+              "timestamp": 1696417152001,
               "label": "Can go to the import Page-DataFeederImportPage",
               "pageObject": "DataFeederImportPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/import/",
@@ -457,10 +496,10 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414496990,
+              "timestamp": 1696417155355,
               "label": "Can import a dataset with no SRS defined (no PRJ)-BeginWizardImportPage-nosrs",
               "pageObject": "BeginImportWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/e086af13-378c-44d6-8863-4ed5bebb294d/validation",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/1f9e1b63-0b5d-4fe9-9643-c7b59241639f/validation",
               "files": [
                 "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.html",
                 "DatafeederSpec/002-001-Can_import_a_dataset_with_no_SRS_defined__no_PRJ_-BeginWizardImportPage-nosrs.png"
@@ -474,10 +513,10 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414500419,
+              "timestamp": 1696417158906,
               "label": "Can import a basic shapefile dataset-BeginWizardImportPage",
               "pageObject": "BeginImportWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/validation",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/validation",
               "files": [
                 "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.html",
                 "DatafeederSpec/003-001-Can_import_a_basic_shapefile_dataset-BeginWizardImportPage.png"
@@ -485,10 +524,10 @@
             },
             {
               "number": 2,
-              "timestamp": 1696414502427,
+              "timestamp": 1696417161057,
               "label": "Can import a basic shapefile dataset-DataDescriptionWizardPage",
               "pageObject": "DataDescriptionWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/step/1",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/step/1",
               "files": [
                 "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.html",
                 "DatafeederSpec/003-002-Can_import_a_basic_shapefile_dataset-DataDescriptionWizardPage.png"
@@ -496,10 +535,10 @@
             },
             {
               "number": 3,
-              "timestamp": 1696414503274,
+              "timestamp": 1696417161946,
               "label": "Can import a basic shapefile dataset-TagSelectionWizardPage",
               "pageObject": "TagSelectionWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/step/2",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/step/2",
               "files": [
                 "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.html",
                 "DatafeederSpec/003-003-Can_import_a_basic_shapefile_dataset-TagSelectionWizardPage.png"
@@ -507,10 +546,10 @@
             },
             {
               "number": 4,
-              "timestamp": 1696414506123,
+              "timestamp": 1696417163867,
               "label": "Can import a basic shapefile dataset-CreationDateAndScaleWizardPage",
               "pageObject": "CreationDateAndScaleWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/step/3",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/step/3",
               "files": [
                 "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.html",
                 "DatafeederSpec/003-004-Can_import_a_basic_shapefile_dataset-CreationDateAndScaleWizardPage.png"
@@ -518,10 +557,10 @@
             },
             {
               "number": 5,
-              "timestamp": 1696414507873,
+              "timestamp": 1696417165612,
               "label": "Can import a basic shapefile dataset-ProcessDescriptionWizardPage",
               "pageObject": "ProcessDescriptionWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/step/4",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/step/4",
               "files": [
                 "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.html",
                 "DatafeederSpec/003-005-Can_import_a_basic_shapefile_dataset-ProcessDescriptionWizardPage.png"
@@ -529,10 +568,10 @@
             },
             {
               "number": 6,
-              "timestamp": 1696414509662,
+              "timestamp": 1696417167602,
               "label": "Can import a basic shapefile dataset-ConfirmationWizardPage",
               "pageObject": "ConfirmationWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/confirm",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/confirm",
               "files": [
                 "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.html",
                 "DatafeederSpec/003-006-Can_import_a_basic_shapefile_dataset-ConfirmationWizardPage.png"
@@ -540,10 +579,10 @@
             },
             {
               "number": 7,
-              "timestamp": 1696414518219,
+              "timestamp": 1696417176355,
               "label": "Can import a basic shapefile dataset-DataSetLoadedSuccessfullyWizardPage",
               "pageObject": "DataSetLoadedSuccessfullyWizardPage",
-              "url": "https://georchestra-127-0-1-1.traefik.me/import/85acf017-34d0-4691-b60c-4759c34b9f39/publishok",
+              "url": "https://georchestra-127-0-1-1.traefik.me/import/a33fc656-8851-4c6f-b65e-1429ad63c1ed/publishok",
               "files": [
                 "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.html",
                 "DatafeederSpec/003-007-Can_import_a_basic_shapefile_dataset-DataSetLoadedSuccessfullyWizardPage.png"
@@ -563,7 +602,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414521402,
+              "timestamp": 1696417179585,
               "label": "Being connected as an administrator, I can access the \u0027analytics\u0027 webapp-AnalyticsHomePage",
               "pageObject": "AnalyticsPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/analytics/",
@@ -586,7 +625,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414522742,
+              "timestamp": 1696417180967,
               "label": "I am able to connect as GEORCHESTRA_USERNAME on CAS6-Cas6LoginSuccessfull",
               "pageObject": "Cas6LoginSuccessFullPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/cas/login",
@@ -603,7 +642,7 @@
           "artifacts": [
             {
               "number": 1,
-              "timestamp": 1696414523225,
+              "timestamp": 1696417181525,
               "label": "Using invalid credentials, I should not be able to connect onto CAS6-Cas6InvalidCredentials",
               "pageObject": "Cas6LoginPage",
               "url": "https://georchestra-127-0-1-1.traefik.me/cas/login",

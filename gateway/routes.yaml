@@ -63,6 +63,10 @@ spring:
         uri: ${georchestra.gateway.services.ogc-api-records.target}
         predicates:
         - Path=/ogc-api-records/**
+      - id: whoami
+        uri: ${georchestra.gateway.services.proxy.target}
+        predicates:
+        - Path=/whoami/
 
 georchestra.gateway.services:
   analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
@@ -76,3 +80,4 @@ georchestra.gateway.services:
   import.target: http://${IMPORT_HOST}:80/
   mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/
   ogc-api-records.target: http://${OGC_API_RECORDS_HOST}:8080/ogc-api-records/
+  proxy.target: http://${SECURITY_PROXY_HOST}:8080/

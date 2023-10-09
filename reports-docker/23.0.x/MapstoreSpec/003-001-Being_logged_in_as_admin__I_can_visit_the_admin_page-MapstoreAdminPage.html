@@ -1,0 +1,1474 @@
+<html><head><link rel="stylesheet" id="theme_stylesheet" data-ms-state="mounted" data-ms-theme="default" data-ms-path="dist/themes" data-ms-version="2022.02.00-geOrchestra
+2022.02.xx" href="dist/themes/default.css?2022.02.00-geOrchestra
+2022.02.xx"><meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>geOrchestra Viewer</title><style>body {
+        margin: 0;
+      }
+      ._ms2_init_center {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: show;
+        margin: auto;
+        display: flex;
+        align-items: center;
+      }
+      ._ms2_init_center::before {
+          content: 'Loading';
+          position: absolute;
+          left: 50%;
+          height: 0.5em;
+          text-align: center;
+          transform: translateX(-50%) translateY(-50%);
+          -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          color: #6F6F6f;
+          font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+          width: 6em;
+          text-align: center;
+          margin: auto;
+      }
+      ._ms2_init_spinner {
+        height: 176px;
+        width: 176px;
+      }
+      ._ms2_init_spinner > div,
+      ._ms2_init_spinner > div:after {
+        border-radius: 50%;
+        width: 176px;
+        height: 176px;
+      }
+      ._ms2_init_spinner > div {
+        box-sizing: border-box;
+        text-indent: -9999em;
+        border: 16px solid rgba(119,119,119, 0.2);
+        border-left: 16px solid #777777;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: _ms2_init_anim 1.1s infinite linear;
+        animation: _ms2_init_anim 1.1s infinite linear;
+      }
+      @-webkit-keyframes _ms2_init_anim {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes _ms2_init_anim {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      ._ms2_init_text {
+        -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+        animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+        color: #6F6F6f;
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        height: 0.75em;
+        width:  6em;
+        text-align: center;
+        margin: auto;
+        z-index: 1000;
+        display: none;
+      }
+      @keyframes _ms2_init_text_anim {
+        0%  {opacity: 0}
+        20% {opacity: 0}
+        50% {opacity: 1}
+        70% {opacity: .75}
+        100%{opacity: 0}
+      }
+      #georchestra-header {
+          width: 100%;
+          height: 90px;
+          border: none;
+          overflow: hidden;
+          position: absolute;
+      }
+      #container {
+          position: absolute;
+          top: 90px;
+          bottom: 0;
+          height: unset !important;
+          width: 100%;
+      }</style><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="shortcut icon" type="image/png" href="https://cdn.jslibs.mapstore2.geo-solutions.it/leaflet/favicon.ico"><script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4.js"></script><script async="" src="https://unpkg.com/bowser@2.7.0/es5.js" onload="checkBrowser()"></script><script>function checkBrowser() {
+              var browserInfo = bowser.getParser(window.navigator.userAgent);
+              var isValidBrowser = browserInfo.satisfies({
+                  "edge": ">1",
+                  "chrome": ">1",
+                  "safari": ">1",
+                  "firefox": ">1"
+              });
+              if (!isValidBrowser) {
+                  window.location.href = "unsupportedBrowser.html"
+                  document.querySelector("container").style.display = "none";
+              }
+          }</script><style>.geOrchestra html, .geOrchestra body, .geOrchestra #container, .geOrchestra .fill {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.geOrchestra .viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEE;
+}
+
+.geOrchestra #map {
+    position:absolute;
+    width: 100%;
+    top: 0;
+    bottom: 28px;
+    height: auto;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.geOrchestra #home-button {
+    float: left;
+}
+.geOrchestra #navigationBar #home-button {
+    float: none;
+}
+
+.geOrchestra .leaflet-control-attribution > a:first-child{
+    display: none;
+    visibility: hidden;
+}
+
+.geOrchestra .map-logo{
+	position:absolute;
+	width:90px;
+	height:27px;
+	bottom:36px;
+	left:5px;
+	background-image:url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore2_logo.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+    cursor: pointer;
+}
+
+.geOrchestra .map-logo > img{
+    width: 90px;
+    height: 27px;
+    opacity: 0;
+}
+
+.geOrchestra .with-love {
+    position:absolute;
+	width:90px;
+	height:27px;
+	bottom:35px;
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+    background-image:url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/made-in-italy-logo.png);
+	background-size:contain;
+}
+
+.geOrchestra .modal-dialog-container {
+    z-index: 2000;
+}
+
+.geOrchestra #mapstore-scalebox-container {
+    bottom: -36px !important;
+    right: 323px !important;
+}
+
+.geOrchestra #mapstore-mouseposition {
+    width: auto !important;
+    right: 5px !important;
+    background-color: transparent !important;
+    height: 25px !important;
+}
+
+.geOrchestra #mapstore-mouseposition .mouseposition-separator {
+    display: inline !important;
+}
+
+.geOrchestra #mapstore-mouseposition .label {
+    font-size: 90% !important;
+}
+
+
+.geOrchestra #mapstore-mouseposition .mouseposition-crs {
+    font-size: 90%;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.geOrchestra #mapstore-getfeatureinfo.mapstore-right-panel {
+    position: absolute;
+    height: calc(100% - 30px);
+    right: 0;
+    left: auto;
+    top: 0;
+    margin-top: 0;
+    border: none;
+}
+
+.geOrchestra .mapstore-right-panel .info-wrap {
+    position: absolute;
+    bottom: 0;
+    top: 51px;
+    width: 100%;
+    padding: 0;
+}
+
+.geOrchestra .mapstore-right-panel .mapstore-identify-viewer {
+    position: absolute;
+    top: 60px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+.geOrchestra .mapstore-right-panel div[role=body], .geOrchestra .mapstore-right-panel .react-swipeable-view-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.geOrchestra .mapstore-right-panel .swipeable-view {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    position: absolute;
+}
+
+.geOrchestra .mapstore-right-panel .alert-info {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.geOrchestra .mapstore-right-panel #mapstore-identify-revgeocoder {
+    padding: 15px;
+}
+
+.geOrchestra #container > .chart-color-class-popover.popover {
+    z-index: 10000;
+}
+
+.geOrchestra #container > .chart-color-class-popover.popover > .popover-content {
+    max-height: 250px;
+    overflow-y: auto;
+}
+</style><style>.geOrchestra .manager .mapstore-header {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/manager-header.jpg);
+    height: 200px;
+    z-index: -100;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+.geOrchestra .manager .MapSearchBar.user-search {
+    top: -100px;
+    height: 0;
+    overflow: visible;
+}
+.geOrchestra .manager .MapSearchBar.user-search .input-group {
+    box-shadow: -1px 1px 5px 1px rgba(94,94,94,1);
+}
+.geOrchestra .manager .Manager-Container {
+    margin: 0;
+}
+
+.geOrchestra .manager #home-button {
+    float: right;
+}
+</style><style>@-webkit-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-ms-keyframes sk-fade-in {
+  .geOrchestra 0% {
+      opacity: 0;
+  }
+  .geOrchestra 50% {
+      opacity: 0;
+  }
+  .geOrchestra 100% {
+      opacity: 1;
+  }
+}
+
+@keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.geOrchestra .sk-fade-in {
+  -webkit-animation: sk-fade-in 2s;
+  -moz-animation: sk-fade-in 2s;
+  -o-animation: sk-fade-in 2s;
+  -ms-animation: sk-fade-in 2s;
+}
+</style><style>.geOrchestra .sk-chasing-dots {
+  width: 27px;
+  height: 27px;
+  position: relative;
+
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.geOrchestra .sk-dot1, .geOrchestra .sk-dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.geOrchestra .sk-dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-circle-wrapper {
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.geOrchestra .sk-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.geOrchestra .sk-circle:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 20%;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.geOrchestra .sk-circle2  { -webkit-transform: rotate(30deg);  transform: rotate(30deg)  }
+.geOrchestra .sk-circle3  { -webkit-transform: rotate(60deg);  transform: rotate(60deg)  }
+.geOrchestra .sk-circle4  { -webkit-transform: rotate(90deg);  transform: rotate(90deg)  }
+.geOrchestra .sk-circle5  { -webkit-transform: rotate(120deg); transform: rotate(120deg) }
+.geOrchestra .sk-circle6  { -webkit-transform: rotate(150deg); transform: rotate(150deg) }
+.geOrchestra .sk-circle7  { -webkit-transform: rotate(180deg); transform: rotate(180deg) }
+.geOrchestra .sk-circle8  { -webkit-transform: rotate(210deg); transform: rotate(210deg) }
+.geOrchestra .sk-circle9  { -webkit-transform: rotate(240deg); transform: rotate(240deg) }
+.geOrchestra .sk-circle10 { -webkit-transform: rotate(270deg); transform: rotate(270deg) }
+.geOrchestra .sk-circle11 { -webkit-transform: rotate(300deg); transform: rotate(300deg) }
+.geOrchestra .sk-circle12 { -webkit-transform: rotate(330deg); transform: rotate(330deg) }
+
+.geOrchestra .sk-circle2:before  { -webkit-animation-delay: -1.1s; animation-delay: -1.1s }
+.geOrchestra .sk-circle3:before  { -webkit-animation-delay: -1.0s; animation-delay: -1.0s }
+.geOrchestra .sk-circle4:before  { -webkit-animation-delay: -0.9s; animation-delay: -0.9s }
+.geOrchestra .sk-circle5:before  { -webkit-animation-delay: -0.8s; animation-delay: -0.8s }
+.geOrchestra .sk-circle6:before  { -webkit-animation-delay: -0.7s; animation-delay: -0.7s }
+.geOrchestra .sk-circle7:before  { -webkit-animation-delay: -0.6s; animation-delay: -0.6s }
+.geOrchestra .sk-circle8:before  { -webkit-animation-delay: -0.5s; animation-delay: -0.5s }
+.geOrchestra .sk-circle9:before  { -webkit-animation-delay: -0.4s; animation-delay: -0.4s }
+.geOrchestra .sk-circle10:before { -webkit-animation-delay: -0.3s; animation-delay: -0.3s }
+.geOrchestra .sk-circle11:before { -webkit-animation-delay: -0.2s; animation-delay: -0.2s }
+.geOrchestra .sk-circle12:before { -webkit-animation-delay: -0.1s; animation-delay: -0.1s }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0);
+    transform: scale(0.0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-cube-grid {
+  width:27px;
+  height:27px;
+}
+
+.geOrchestra .sk-cube {
+  width:33%;
+  height:33%;
+  background:#333;
+  float:left;
+  -webkit-animation: sk-scaleDelay 1.3s infinite ease-in-out;
+  animation: sk-scaleDelay 1.3s infinite ease-in-out;
+}
+
+/*
+ * Spinner positions
+ * 1 2 3
+ * 4 5 6
+ * 7 8 9
+ */
+
+.geOrchestra .sk-spinner .sk-cube:nth-child(1) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(2) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(3) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(4) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(5) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(6) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(7) { -webkit-animation-delay: 0.0s; animation-delay: 0.0s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(8) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.geOrchestra .sk-spinner .sk-cube:nth-child(9) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+
+@-webkit-keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+@keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+</style><style>.geOrchestra .sk-double-bounce {
+  width: 27px;
+  height: 27px;
+
+  position: relative;
+}
+
+.geOrchestra .sk-double-bounce1, .geOrchestra .sk-double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.geOrchestra .sk-double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-folding-cube {
+  width: 27px;
+  height: 27px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.geOrchestra .sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); 
+}
+.geOrchestra .sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.geOrchestra .sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.geOrchestra .sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.geOrchestra .sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s; 
+}
+.geOrchestra .sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  } 
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  }
+}
+</style><style>.geOrchestra .sk-pulse {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+</style><style>.geOrchestra .sk-rotating-plane {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+</style><style>.geOrchestra .sk-three-bounce > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.geOrchestra .sk-three-bounce .sk-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.geOrchestra .sk-three-bounce .sk-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+</style><style>.geOrchestra .sk-wandering-cubes {
+  width: 27px;
+  height: 27px;
+  position: relative;
+}
+
+.geOrchestra .sk-cube1, .geOrchestra .sk-cube2 {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.geOrchestra .sk-cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(22px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(22px) translateY(22px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(22px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% {
+    /* Hack to make FF rotate in the right direction */
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  } 50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  } 75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  } 100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+</style><style>.geOrchestra .sk-wave {
+  width: 50px;
+  height: 27px;
+}
+
+.geOrchestra .sk-wave > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.geOrchestra .sk-wave .sk-rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.geOrchestra .sk-wave .sk-rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.geOrchestra .sk-wave .sk-rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.geOrchestra .sk-wave .sk-rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  } 20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+</style><style>.geOrchestra .sk-wordpress {
+  background: #333;
+  width: 27px;
+  height: 27px;
+  display: inline-block;
+  border-radius: 27px;
+  position: relative;
+  -webkit-animation: sk-inner-circle 1s linear infinite;
+  animation: sk-inner-circle 1s linear infinite;
+}
+
+.geOrchestra .sk-inner-circle {
+  display: block;
+  background: #fff;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 8px;
+  top: 5px;
+  left: 5px;
+}
+
+@-webkit-keyframes sk-inner-circle {
+  0% { -webkit-transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes sk-inner-circle {
+  0% { transform: rotate(0); -webkit-transform:rotate(0); }
+  100% { transform: rotate(360deg); -webkit-transform:rotate(360deg); }
+}
+
+</style><style>.geOrchestra .mapstore-filter input::-ms-clear,
+.geOrchestra .mapstore-filter input::-ms-reveal {
+  display: none;
+}
+</style><style>.geOrchestra .react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.geOrchestra .react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.geOrchestra .react-grid-item img {
+  pointer-events: none;
+  user-select: none;  
+}
+.geOrchestra .react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.geOrchestra .react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.geOrchestra .react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.geOrchestra .react-grid-item.dropping {
+  visibility: hidden;
+}
+
+.geOrchestra .react-grid-item.react-grid-placeholder {
+  background: red;
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.geOrchestra .react-resizable-hide > .react-resizable-handle {
+  display: none;
+}
+
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-w,
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-n,
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.geOrchestra .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+</style><style>.geOrchestra .toc-title {
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style><style>.geOrchestra .form-control-intl {
+    background-color: unset !important;
+}
+</style><style>.geOrchestra .gridcard {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: box-shadow 250ms;
+}
+
+.geOrchestra .gridcard:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.geOrchestra .gridcard-title {
+    padding-left: 10px;
+    padding-top: 3px;
+    min-height: 40px;
+}
+.geOrchestra .gridcard-tools {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.geOrchestra .gridcard-tools .spinner{
+    left: -8px
+}
+.geOrchestra .gridcard-tools .spinner div:before{
+    background-color: white
+}
+</style><style>.geOrchestra .toc-group-children {
+    margin-left: 15px;
+}
+
+.geOrchestra .TOC-Node-enter, .geOrchestra .TOC-Node-leave {
+    transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -webkit-transition: all 250ms ease-out;
+    overflow: hidden;
+}
+.geOrchestra .TOC-Node-enter,.geOrchestra .TOC-Node-leave.TOC-Node-leave-active {
+    opacity: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+}
+.geOrchestra .TOC-Node-leave, .geOrchestra .TOC-Node-enter.TOC-Node-enter-active {
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: top;
+}
+</style><style></style><style>.geOrchestra #mappreview-scalebox {
+    position: relative;
+    top: -36px;
+    width: 150px;
+    left: 10px;
+}
+
+.geOrchestra .print-error {
+    height: 100px;
+    color: #600;
+    background-color: #E8BABA;
+    border: solid #600 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.geOrchestra .print-error span, .geOrchestra .print-warning span {
+    display: inline-block;
+    max-height: 80px;
+    overflow: auto;
+    width: 100%;
+}
+.geOrchestra .print-warning {
+    height: 50px;
+    color: #660;
+    background-color: #E6E8BA;
+    border: solid #660 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.geOrchestra .print-preview-panel .spinner {
+    display: inline-block;
+}
+
+.geOrchestra .print-mappreview-refresh {
+    position: relative;
+    top: -83px;
+    right: -155px;
+    z-index: 1000;
+}
+.geOrchestra #mapstore-print-panel.modal-dialog {
+    z-index: 2000;
+}
+
+.geOrchestra #mapstore-print-panel .modal-body {
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+.geOrchestra .mapstore-print-panel {
+    width: 850px;
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    zIndex: 100;
+}
+
+.geOrchestra .mapstore-print-preview-img-wrapper {
+    position: relative;
+    top: 0;
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+}
+
+.geOrchestra .mapstore-print-preview-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.geOrchestra .mapstore-print-panel .form-inline label {
+    margin-right: 20px;
+}
+
+.geOrchestra .mapstore-print-panel .print-download {
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 34px;
+    border: solid 1px #CCC;
+    padding: 7px;
+    border-radius: 4px;
+    padding-right: 25px;
+    padding-left: 11px;
+    top: 2px;
+    position: relative;
+}
+
+.geOrchestra .print-layout .panel-title {
+    padding-left: 10px;
+}
+
+.geOrchestra .print-layout .panel-title a{
+    text-decoration: none;
+}
+
+.geOrchestra .print-layout .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+.geOrchestra .print-legend-options .panel-title {
+    padding-left: 10px;
+}
+
+.geOrchestra .print-legend-options .panel-title a{
+    text-decoration: none;
+}
+
+.geOrchestra .print-legend-options .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+
+@media (min-width: 992px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 825px;
+    }
+}
+
+@media (max-width: 991px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 700px;
+    }
+}
+
+@media (max-width: 767px) {
+    .geOrchestra #mapstore-print-panel {
+        width: 98%;
+    }
+}
+
+.geOrchestra #mapstore-print-panel .modal-body .print-mappreview-refresh {
+    top: -96px;
+}
+
+.geOrchestra #mapstore-print-panel .print-submit {
+    float: right;
+}
+
+@media (min-width: 768px) {
+    .geOrchestra #mapstore-print-panel input[type=radio] {
+        margin: 0 8px 0 20px;
+    }
+}
+
+.geOrchestra #mapstore-print-panel .print-map-preview {
+    margin-bottom: 15px;
+}
+
+.geOrchestra #mapstore-print-panel .panel-default {
+    border: none;
+}
+
+.geOrchestra #mapstore-print-panel .panel-heading .panel-title {
+    font-weight: bold;
+}
+
+.geOrchestra #mapstore-print-panel .panel-heading {
+    padding-left: 0;
+    background-color: transparent;
+}
+
+.geOrchestra #mapstore-print-panel .panel-body {
+    padding: 10px;
+}
+
+.geOrchestra #mapstore-print-panel .form-control {
+    padding: 0 10px;
+    height: 25px;
+}
+
+.geOrchestra #mapstore-print-panel .print-download {
+    margin-right: 10px;
+}
+
+.geOrchestra #mapstore-print-panel .print-legend-options .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+</style><style>.geOrchestra #mapstore-login-menu {
+    text-align: right;
+}
+</style><style>.geOrchestra #mapstore-login-panel {
+    width: 300px;
+}
+.geOrchestra #mapstore-login-panel button {
+    float: right !important;
+}
+</style><style>.geOrchestra .swipe-header-left-button {
+    float: left;
+}
+
+.geOrchestra .swipe-header-right-button {
+    float: right;
+}
+</style><style>
+.geOrchestra .background-preview-button-label {
+    position: absolute;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    -webkit-transition: all 0.0s;
+    -moz-transition: all 0.0s;
+    -o-transition: all 0.0s;
+    transition: all 0.0s;
+
+}
+
+.geOrchestra .background-preview-button-label div {
+    overflow: hidden;
+    opacity: 0.8;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -webkit-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -moz-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+}
+
+.geOrchestra .background-preview-button-container {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-button-frame {
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.geOrchestra .background-preview-button-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.geOrchestra .background-preview-button-container:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.geOrchestra .background-preview-button-container:active {
+    opacity: 0.6;
+}
+</style><style>
+.geOrchestra .background-preview-icon-frame {
+    overflow: hidden;
+}
+
+.geOrchestra .background-preview-icon-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal {
+    cursor: pointer;
+    float: left;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-horizontal:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal:active {
+    opacity: 0.6;
+}
+
+.geOrchestra .background-preview-icon-container-horizontal.disabled-icon {
+    cursor: not-allowed;
+    float: left;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-vertical {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.geOrchestra .background-preview-icon-container-vertical:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.geOrchestra .background-preview-icon-container-vertical:active {
+    opacity: 0.6;
+}
+
+.geOrchestra .background-preview-icon-container-vertical.disabled-icon {
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+</style><style>
+.geOrchestra .page-maps .ms-home-description {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore-header.jpg);
+}
+
+.geOrchestra .page-maps .mapstore-header {
+    background-image: url(https://georchestra-127-0-1-1.traefik.me/mapstore/dist/MapStore2/web/client/product/assets/img/mapstore-header.jpg);
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+@media (min-width: 769px) {
+    .geOrchestra div#mapstore-maptype {
+        width: 300px;
+        margin-left: auto;
+        margin-bottom: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .geOrchestra div#mapstore-maptype {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+     .geOrchestra #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 300px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .geOrchestra #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 100%;
+    }
+}
+</style><style>/*viewer navbar */
+.geOrchestra .navbar-dx {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.geOrchestra .navbar-dx>ul {
+    padding: 0;
+}
+
+.geOrchestra .navbar-dx>ul>li {
+    float: left;
+    list-style: none;
+}
+
+.geOrchestra .navbar-dx .search-wrap .MapSearchBar {
+    right: 0;
+    top: 0;
+    left: 0;
+}
+
+.geOrchestra .navbar-dx .search-wrap .form-control,
+.geOrchestra .navbar-dx .search-wrap .form-control:focus {
+    border-right: 0;
+    box-shadow: none;
+}
+
+.geOrchestra .navbar-dx .search-wrap .MapSearchBar .input-group-addon {
+    border: 0;
+}
+
+.geOrchestra .navbar-dx .search-result-list {
+    left: 0;
+    max-height: none;
+}
+
+.geOrchestra .navbar-dx .dropdown-menu {
+    margin: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 1200px) {
+    .geOrchestra .navbar-dx .search-wrap {
+        width: 500px;
+        height: 50px;
+    }
+}
+
+.geOrchestra .navbar-dx>* {
+    display: inline-block;
+}
+
+/* Page Navbar */
+.geOrchestra .navbar-home .dropdown {
+    float: right;
+}
+
+.geOrchestra .navbar-home .navbar-header {
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+</style></head><body class=" geOrchestra" data-ms2-container="ms2"><iframe id="georchestra-header" src="/header/?active=msadmin" scrolling="no" frameborder="0" style="display: block; height: 90px;"></iframe><div id="container" style="top: 90px;"><div class="fill"><div class="error-container"><div id="page-admin" class="page page-admin "><span id="mapstore-navbar"><div id="mapstore-navbar-container" class="navbar shadow navbar-home"></div></span><div id="map-search-bar" class="MapSearchBar user-search"><div class="form-group"><div class="input-group"><input placeholder="search..." type="text" class="searchInput form-control" value="" style="text-overflow: ellipsis;"><span class="search-toolbar-options"><div class="btn-group-menu-options btn-group"><button type="button" class="square-button-md no-border magnifying-glass clickable btn btn-default"><span class="glyphicon glyphicon-search"></span></button></div></span></div></div></div><div class="container-fluid" style="margin-bottom: 10px;"><h1 class="usermanager-title"><span>Contexts</span></h1><button type="button" class="btn btn-success" style="margin-right: 10px;">&nbsp;<span><span>New Context</span></span></button></div><div><div class="ms-grid-container undefined container-fluid"><div class="ms-grid row"></div><div class="pagination-toolbar row"><div class="text-center col-xs-12"><div style="height: 26px; width: 26px; margin: 8px auto;"></div></div><div class="text-center col-xs-12"><ul class="pagination"><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="First">«</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Previous">‹</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Next">›</span></a></li><li class="disabled"><a role="button" href="#" tabindex="-1" style="pointer-events: none;"><span aria-label="Last">»</span></a></li></ul></div><div class="col-xs-12"><h5><span>No items</span></h5></div></div></div></div></div></div></div></div><script src="dist/geOrchestra.js?1ac1f6728d4b13acbd2d"></script></body></html>

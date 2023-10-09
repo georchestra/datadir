@@ -1,0 +1,312 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <base target="_parent">
+    <style type="text/css">
+        /* see https://github.com/georchestra/georchestra/issues/147 for missing http protocol */
+        @import url(//fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+        html, body {
+            padding     : 0;
+            margin      : 0;
+            background  : #fff;
+        }
+        #go_head {
+            padding     : 0;
+            margin      : 0;
+            font-family : 'Yanone Kaffeesatz', arial,verdana,helvetica;
+            background  : #fff;
+        }
+        #go_home {
+            float  : left;
+            margin : 20px 0 0 10px;
+        }
+        #go_home img {
+            border : none;
+        }
+        #go_head ul {
+            float      : left;
+            list-style : none;
+            margin     : 20px 0 0 10px;
+            padding    : 0;
+            font-size  : 18px;
+            display    : inline;
+        }
+        #go_head li {
+            right      : 100%;
+            left       : 0;
+            margin     : 0;
+            padding    : 0;
+            position   : relative;
+            display    : inline-block;
+            transition : right .3s ease, left .3s ease, background .3s ease;
+            background : transparent;
+        }
+        #go_head li a {
+            color              : #666;
+            display            : inline-block;
+            background         : #fff;
+            padding            : 0 0.3em;
+            margin             : 0 0.3em;
+            border-bottom      : 1px dotted #ddd;
+            height             : 52px;
+            line-height        : 52px;
+            text-decoration    : none;
+            border-radius      : .3em .3em 0 0;
+            transition         : background .3s ease-in;
+            transition-property         : background,color,border-radius;
+        }
+        #go_head li a:hover {
+            background-color : #666;
+            color            : #fff;
+            border-radius    : 0.3em;
+            border-bottom    : none;
+        }
+        #go_head ul li.active a {
+            background-color : rgb(85,0,106);
+            padding          : 0 0.6em;
+            border-radius    : 0.3em;
+            color            : #fff;
+            border           : 0;
+        }
+        #go_head .logged {
+            margin        : 20px 15px 0 0;
+            border        : 1px dotted #ddd;
+            border-radius : 0.3em;
+            padding       : 0 0.6em;
+            width         : auto;
+            float         : right;
+            height        : 52px;
+            line-height   : 52px;
+            font-size     : 16px;
+        }
+        #go_head .logged span{
+            color: #000;
+        }
+        #go_head .logged span.light{
+            color: #ddd;
+        }
+        #go_head .logged {
+            position : relative;
+        }
+        #go_head .logged div {
+            position : absolute;
+            top      : 16px;
+            right    : 10px;
+        }
+        #go_head .logged a {
+            text-decoration : underline;
+            color           : rgb(84, 0, 105);
+        }
+        #go_head ul ul {
+            display: none;
+        }
+        #go_head li li {
+            right: auto;
+        }
+        #go_head .expanded {
+            position    : absolute;
+            right       : 0;
+            left        : 200px;
+            top         : 20px;
+            background  : white;
+            z-index     : 1;
+            min-width   : 20em;
+        }
+        #go_head .expanded ul{
+            display: block;
+        }
+        #go_head .expanded > a,
+        #go_head .expanded ul{
+            margin-top: 0;
+            float: right;
+        }
+        #go_head .expanded > a {
+            color: white;
+            background: #666;
+        }
+        #go_head .group > a:after {
+            content: ' »';
+        }
+        #go_head .expanded > a:before {
+            content: '« ';
+        }
+        #go_head .expanded > a:after {
+            content: '';
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="go_head">
+        <a href="/" id="go_home" title="go home">
+            <img src="img/logo.png" alt="geOrchestra" height="50">
+        </a>
+        <ul>
+        
+            
+            
+            <li><a href="/geonetwork/">catalogue</a></li>
+            
+        
+
+        
+            
+            
+            <li><a href="/mapstore/#/">viewer</a></li>
+            
+        
+
+        
+            
+            
+            <li><a href="/mapstore/#/home">maps</a></li>
+            
+        
+
+
+        
+            
+            
+            <li><a href="/geoserver/web/">services</a></li>
+            
+        
+
+        
+            
+                
+                    
+                    
+                    <li><a href="/import/">import</a></li>
+                    
+                
+            
+        
+
+        
+            
+            <li class="group expanded"> 
+                <a href="#admin">administration</a>
+                <ul>
+
+                    
+                        
+                        
+                            
+                            
+                        <li><a href="/geonetwork/srv/eng/admin.console">catalogue</a></li>
+                            
+                        
+                        
+                    
+
+                    
+                        
+                        
+                            
+                            
+                        <li><a href="/mapstore/#/admin">viewer</a></li>
+                            
+                        
+                        
+                    
+
+                    
+                        
+                        
+                            
+                            
+                        <li><a href="/analytics/">analytics</a></li>
+                            
+                        
+                        
+                    
+
+                    
+                        
+                        
+                            
+                            
+                        <li><a href="/console/manager/">users</a></li>
+                            
+                        
+                        
+                    
+
+                </ul>
+            </li>
+            
+        
+        </ul>
+
+        
+            
+        <p class="logged" style="visibility: hidden;">
+            <a href="/console/account/userdetails">testadmin</a><span class="light"> | </span><a href="/logout">logout</a>
+        </p>
+            
+            
+        
+    </div>
+
+    <script>
+        (function(){
+            // required to get the correct redirect after login, see https://github.com/georchestra/georchestra/issues/170
+            var url,
+                a = document.getElementById("login_a"),
+                cnxblk = document.querySelector('#go_head p.logged');
+            if (a !== null) {
+                url = parent.window.location.href;
+                if (/\/cas\//.test(url)) {
+                    a.href = "/?login";
+                } else if (/\/geoserver\/web\/\?0/.test(url)) {
+                    a.href = "/geoserver/web/?login";
+                } else {
+                    // removing any existing anchor from URL first:
+                    // see https://github.com/georchestra/georchestra/issues/1032
+                    var p = url.split('#', 2),
+                    /* Taken from https://github.com/openlayers/openlayers/blob/master/lib/OpenLayers/Util.js#L557 */
+                    paramStr = "login", parts = (p[0] + " ").split(/[?&]/);
+                    a.href = p[0] + (parts.pop() === " " ?
+                        paramStr :
+                        parts.length ? "&" + paramStr : "?" + paramStr) +
+                        // adding potential anchor
+                        (p.length == 2 ? "#" + p[1] : "");
+                }
+            }
+
+            // handle menus
+            if (!window.addEventListener || !document.querySelectorAll) return;
+            var each = function(els, callback) {
+                for (var i = 0, l=els.length ; i<l ; i++) {
+                    callback(els[i]);
+                }
+            }
+            each(document.querySelectorAll('#go_head li a'), function(a){
+                var li = a.parentNode;
+                var ul = li.querySelectorAll('ul');
+                a.addEventListener('click', function(e) {
+                    each(
+                        document.querySelectorAll('#go_head li'),
+                        function(l){ l.classList.remove('active');}
+                    );
+                    if (ul[0]) {
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        e.preventDefault();
+                        li.classList.toggle('expanded');
+                        // hide/show connexion block:
+                        cnxblk.style.visibility = 
+                            cnxblk.style.visibility == '' ? 'hidden' : '';
+                    } else {
+                        a.parentNode.className = 'active';
+                    }
+                });
+            });
+        })();
+    </script>
+
+
+
+</body></html>

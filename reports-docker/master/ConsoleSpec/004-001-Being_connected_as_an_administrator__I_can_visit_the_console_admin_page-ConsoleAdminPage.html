@@ -74,10 +74,10 @@
     </div>
 
     <div class="jumbotron">
-      <!-- ngIf: home.connected && home.connected.results.length > 0 --><h1 ng-if="home.connected &amp;&amp; home.connected.results.length > 0" ng-cloack="" class="ng-binding ng-scope">1</h1><!-- end ngIf: home.connected && home.connected.results.length > 0 -->
+      <!-- ngIf: home.connected && home.connected.results.length > 0 --><h1 ng-if="home.connected &amp;&amp; home.connected.results.length > 0" ng-cloack="" class="ng-binding ng-scope">2</h1><!-- end ngIf: home.connected && home.connected.results.length > 0 -->
       <p><ng-pluralize count="home.connected.results.length" when="{'0': 'No registered user of services today !',
                               '1': 'user of services today',
-                              'other': 'users of services today'}">user of services today</ng-pluralize></p>
+                              'other': 'users of services today'}">users of services today</ng-pluralize></p>
       <!-- ngIf: home.connected.results && home.connected.results.length > 0 --><div ng-if="home.connected.results &amp;&amp; home.connected.results.length > 0" class="ng-scope">      
         <table class="table table-condensed">
           <thead>
@@ -89,7 +89,11 @@
           </thead>
           <tbody>
             <!-- ngRepeat: user in home.connected.results | itemsPerPage: 10 --><tr ng-repeat="user in home.connected.results | itemsPerPage: 10" class="ng-scope">
-              <td title="7" class="ng-binding">7</td>
+              <td title="548" class="ng-binding">548</td>
+              <td title="testadmin"><a ng-link="user({id: user.user, tab: 'infos'})" class="ng-binding" href="./users/testadmin/infos">testadmin</a></td>
+              <td title="Project Steering Committee" class="ng-binding">Project Steering Committee</td>
+            </tr><!-- end ngRepeat: user in home.connected.results | itemsPerPage: 10 --><tr ng-repeat="user in home.connected.results | itemsPerPage: 10" class="ng-scope">
+              <td title="8" class="ng-binding">8</td>
               <td title="testuser"><a ng-link="user({id: user.user, tab: 'infos'})" class="ng-binding" href="./users/testuser/infos">testuser</a></td>
               <td title="" class="ng-binding"></td>
             </tr><!-- end ngRepeat: user in home.connected.results | itemsPerPage: 10 -->
@@ -133,41 +137,41 @@
     </div>
   </div>
 
-  <div class="chartist" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata" title="Number of requests"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line x1="55" x2="55" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="152.14285714285714" x2="152.14285714285714" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="249.28571428571428" x2="249.28571428571428" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="346.42857142857144" x2="346.42857142857144" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="443.57142857142856" x2="443.57142857142856" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="540.7142857142857" x2="540.7142857142857" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="637.8571428571429" x2="637.8571428571429" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="735" x2="735" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line y1="315" y2="315" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="277.5" y2="277.5" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="240" y2="240" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="202.5" y2="202.5" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="165" y2="165" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="127.5" y2="127.5" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="90" y2="90" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="52.5" y2="52.5" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="55" x2="735" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M55,315C87.381,235,119.762,75,152.143,75C184.524,75,216.905,150,249.286,150C281.667,150,314.048,15,346.429,15C378.81,15,411.19,61.667,443.571,75C475.952,88.333,508.333,105,540.714,105C573.095,105,605.476,82.5,637.857,82.5C670.238,82.5,702.619,172.5,735,217.5" class="ct-line"></path><line x1="55" y1="315" x2="55.01" y2="315" class="ct-point" ct:value="10"></line><line x1="152.14285714285714" y1="75" x2="152.15285714285713" y2="75" class="ct-point" ct:value="42"></line><line x1="249.28571428571428" y1="150" x2="249.29571428571427" y2="150" class="ct-point" ct:value="32"></line><line x1="346.42857142857144" y1="15" x2="346.43857142857144" y2="15" class="ct-point" ct:value="50"></line><line x1="443.57142857142856" y1="75" x2="443.58142857142855" y2="75" class="ct-point" ct:value="42"></line><line x1="540.7142857142857" y1="105" x2="540.7242857142857" y2="105" class="ct-point" ct:value="38"></line><line x1="637.8571428571429" y1="82.5" x2="637.8671428571429" y2="82.5" class="ct-point" ct:value="41"></line><line x1="735" y1="217.5" x2="735.01" y2="217.5" class="ct-point" ct:value="23"></line></g></g><g class="ct-labels"><text x="55" y="328">27/09</text><text x="152.14285714285714" y="328">28/09</text><text x="249.28571428571428" y="328">29/09</text><text x="346.42857142857144" y="328">30/09</text><text x="443.57142857142856" y="328">01/10</text><text x="540.7142857142857" y="328">02/10</text><text x="637.8571428571429" y="328">03/10</text><text x="735" y="328">04/10</text><text x="10" y="316.3888888888889">10</text><text x="10" y="278.8888888888889">15</text><text x="10" y="241.38888888888889">20</text><text x="10" y="203.88888888888889">25</text><text x="10" y="166.38888888888889">30</text><text x="10" y="128.88888888888889">35</text><text x="10" y="91.38888888888889">40</text><text x="10" y="53.888888888888886">45</text><text x="10" y="23.888888888888886">50</text></g></svg></div>
+  <div class="chartist" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata" title="Number of requests"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line x1="55" x2="55" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="152.14285714285714" x2="152.14285714285714" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="249.28571428571428" x2="249.28571428571428" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="346.42857142857144" x2="346.42857142857144" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="443.57142857142856" x2="443.57142857142856" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="540.7142857142857" x2="540.7142857142857" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="637.8571428571429" x2="637.8571428571429" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line x1="735" x2="735" y1="15" y2="315" class="ct-grid ct-horizontal"></line><line y1="315" y2="315" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="290" y2="290" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="265" y2="265" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="240" y2="240" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="215" y2="215" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="190" y2="190" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="165" y2="165" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="140" y2="140" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="115" y2="115" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="90" y2="90" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="65" y2="65" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="40" y2="40" x1="55" x2="735" class="ct-grid ct-vertical"></line><line y1="15" y2="15" x1="55" x2="735" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M55,313.5C87.381,306.167,119.762,291.5,152.143,291.5C184.524,291.5,216.905,298,249.286,298C281.667,298,314.048,290.5,346.429,290.5C378.81,290.5,411.19,291.889,443.571,293C475.952,294.111,508.333,298,540.714,298C573.095,298,605.476,296.45,637.857,293.5C670.238,290.55,702.619,116.833,735,28.5" class="ct-line"></path><line x1="55" y1="313.5" x2="55.01" y2="313.5" class="ct-point" ct:value="3"></line><line x1="152.14285714285714" y1="291.5" x2="152.15285714285713" y2="291.5" class="ct-point" ct:value="47"></line><line x1="249.28571428571428" y1="298" x2="249.29571428571427" y2="298" class="ct-point" ct:value="34"></line><line x1="346.42857142857144" y1="290.5" x2="346.43857142857144" y2="290.5" class="ct-point" ct:value="49"></line><line x1="443.57142857142856" y1="293" x2="443.58142857142855" y2="293" class="ct-point" ct:value="44"></line><line x1="540.7142857142857" y1="298" x2="540.7242857142857" y2="298" class="ct-point" ct:value="34"></line><line x1="637.8571428571429" y1="293.5" x2="637.8671428571429" y2="293.5" class="ct-point" ct:value="43"></line><line x1="735" y1="28.5" x2="735.01" y2="28.5" class="ct-point" ct:value="573"></line></g></g><g class="ct-labels"><text x="55" y="328">02/10</text><text x="152.14285714285714" y="328">03/10</text><text x="249.28571428571428" y="328">04/10</text><text x="346.42857142857144" y="328">05/10</text><text x="443.57142857142856" y="328">06/10</text><text x="540.7142857142857" y="328">07/10</text><text x="637.8571428571429" y="328">08/10</text><text x="735" y="328">09/10</text><text x="10" y="316.9230769230769">0</text><text x="10" y="291.9230769230769">50</text><text x="10" y="266.9230769230769">100</text><text x="10" y="241.92307692307693">150</text><text x="10" y="216.92307692307693">200</text><text x="10" y="191.92307692307693">250</text><text x="10" y="166.92307692307693">300</text><text x="10" y="141.92307692307693">350</text><text x="10" y="116.92307692307692">400</text><text x="10" y="91.92307692307692">450</text><text x="10" y="66.92307692307692">500</text><text x="10" y="41.92307692307692">550</text><text x="10" y="11.923076923076923">600</text></g></svg></div>
 
   <table class="table table-bordered table-striped ng-hide" ng-show="stats.view=='table'">
     <tbody><!-- ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
       <!-- ngIf: stats.type === 'bar' -->
+      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-09</td><!-- end ngIf: stats.type !== 'bar' -->
+      <td class="ng-binding">573</td>
+    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
+      <!-- ngIf: stats.type === 'bar' -->
+      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-08</td><!-- end ngIf: stats.type !== 'bar' -->
+      <td class="ng-binding">43</td>
+    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
+      <!-- ngIf: stats.type === 'bar' -->
+      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-07</td><!-- end ngIf: stats.type !== 'bar' -->
+      <td class="ng-binding">34</td>
+    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
+      <!-- ngIf: stats.type === 'bar' -->
+      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-06</td><!-- end ngIf: stats.type !== 'bar' -->
+      <td class="ng-binding">44</td>
+    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
+      <!-- ngIf: stats.type === 'bar' -->
+      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-05</td><!-- end ngIf: stats.type !== 'bar' -->
+      <td class="ng-binding">49</td>
+    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
+      <!-- ngIf: stats.type === 'bar' -->
       <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-04</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">23</td>
+      <td class="ng-binding">34</td>
     </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
       <!-- ngIf: stats.type === 'bar' -->
       <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-03</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">41</td>
+      <td class="ng-binding">47</td>
     </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
       <!-- ngIf: stats.type === 'bar' -->
       <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-02</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">38</td>
-    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
-      <!-- ngIf: stats.type === 'bar' -->
-      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-10-01</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">42</td>
-    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
-      <!-- ngIf: stats.type === 'bar' -->
-      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-09-30</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">50</td>
-    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
-      <!-- ngIf: stats.type === 'bar' -->
-      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-09-29</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">32</td>
-    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
-      <!-- ngIf: stats.type === 'bar' -->
-      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-09-28</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">42</td>
-    </tr><!-- end ngRepeat: value in stats.serie track by $index --><tr ng-repeat="value in stats.serie track by $index" class="ng-scope">
-      <!-- ngIf: stats.type === 'bar' -->
-      <!-- ngIf: stats.type !== 'bar' --><td ng-if="stats.type !== 'bar'" class="ng-binding ng-scope">2023-09-27</td><!-- end ngIf: stats.type !== 'bar' -->
-      <td class="ng-binding">10</td>
+      <td class="ng-binding">3</td>
     </tr><!-- end ngRepeat: value in stats.serie track by $index -->
   </tbody></table>
 
@@ -204,7 +208,7 @@
         </thead><!-- end ngIf: !logger.filter -->
     <tbody>
         <!-- ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 3:02 PM">a few seconds ago</span></abbr></td>
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 9, 2023 5:02 PM">a few seconds ago</span></abbr></td>
           <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
           <!--Target-->
           </td><td>
@@ -231,7 +235,7 @@
             <!-- ngIf: log.changed && log.changed.field === log.target -->
           </td>
         </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:58 PM">4 minutes ago</span></abbr></td>
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 9, 2023 4:59 PM">3 minutes ago</span></abbr></td>
           <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
           <!--Target-->
           </td><td>
@@ -256,7 +260,7 @@
             <!-- ngIf: log.changed && log.changed.field === log.target -->
           </td>
         </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:58 PM">4 minutes ago</span></abbr></td>
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 9, 2023 4:59 PM">3 minutes ago</span></abbr></td>
           <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
           <!--Target-->
           </td><td>
@@ -281,7 +285,7 @@
             <!-- ngIf: log.changed && log.changed.field === log.target -->
           </td>
         </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:58 PM">4 minutes ago</span></abbr></td>
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 9, 2023 4:59 PM">3 minutes ago</span></abbr></td>
           <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
           <!--Target-->
           </td><td>
@@ -308,84 +312,7 @@
             <!-- ngIf: log.changed && log.changed.field === log.target -->
           </td>
         </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:51 PM">11 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation deleted" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-minus-sign"></i>
-                Organisation deleted
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:51 PM">11 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation created" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-plus-sign"></i>
-                Organisation created
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:50 PM">11 minutes ago</span></abbr></td>
-          <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
-          <!--Target-->
-          </td><td>
-            <!--user or user's role modification-->
-            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
-              testadmin
-            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
-            <!--org-->
-            <!-- ngIf: logger.getType(log) === 'ORG' -->
-            <!--role-->
-            <!-- ngIf: logger.getType(log) === 'ROLE' -->
-            <!--refused or deleted-->
-            <!-- ngIf: logger.getType(log) === '' -->
-          </td>
-          <!--Type-->
-          <td>
-            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
-                <i class="glyphicon glyphicon-edit"></i>
-                Password recovery email sent
-            </span><!-- end ngIf: !log.changed -->  
-            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
-            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
-            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
-            <!-- ngIf: log.changed && log.changed.field === log.target -->
-          </td>
-        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
-          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 4, 2023 2:50 PM">11 minutes ago</span></abbr></td>
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Oct 9, 2023 4:59 PM">3 minutes ago</span></abbr></td>
           <td><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
           <!--Target-->
           </td><td>

@@ -67,6 +67,10 @@ spring:
         uri: ${georchestra.gateway.services.proxy.target}
         predicates:
         - Path=/whoami/
+      - id: metadata-editor
+        uri: ${georchestra.gateway.services.metadata-editor.target}
+        predicates:
+        - Path=/metadata-editor/
 
 georchestra.gateway.services:
   analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
@@ -81,3 +85,4 @@ georchestra.gateway.services:
   mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/
   ogc-api-records.target: http://${OGC_API_RECORDS_HOST}:8080/ogc-api-records/
   proxy.target: http://${SECURITY_PROXY_HOST}:8080/
+  metadata-editor.target: http://${METADATA_EDITOR_HOST}:80/metadata-editor

@@ -125,13 +125,13 @@
               "local": {
                 "url": "/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue local",
+                "title": "Catalogue de données de la plateforme",
                 "autoload": true
               },
               "localgs": {
                 "url": "/geoserver/ows",
                 "type": "wms",
-                "title": "le geoserver local",
+                "title": "Service de données de la plateforme",
                 "autoload": true
               },
               "ignrasterwms": {
@@ -225,35 +225,34 @@
                 "title": "IGN altimetrie WMTS",
                 "autoload": true
               },
+              "sandre": {
+                "url": "https://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
+                "type": "csw",
+                "title": "Référentiels de l'Eau en France (Sandre)",
+                "autoload": true
+              },
+              "craig": {
+                "url": "https://ids.craig.fr/geocat/srv/fre/csw",
+                "type": "csw",
+                "title": "Région Auvergne-Rhône-Alpes",
+                "autoload": true
+              },
               "geobretagne": {
                 "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue GeoBretagne",
+                "title": "Région Bretagne",
                 "autoload": true
               },
-              "sandre": {
-                "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
+              "geo2france": {
+                "url": "https://www.geo2france.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue du Sandre",
-                "autoload": true
-              },
-              "webservice_energy": {
-                "url": "http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de webservice-energy",
-                "autoload": true
-              },
-              "ifremer": {
-                "NOTE": "NOT WORKING, requires login. This is configured on the current viewer but do not provide any response",
-                "url": "http://www.ifremer.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de l'Ifremer",
+                "title": "Région Hauts-de-France",
                 "autoload": true
               },
               "datagrandest": {
                 "url": "https://www.datagrandest.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue de DataGrandEst",
+                "title": "Région Grand Est",
                 "autoload": true
               }
             },

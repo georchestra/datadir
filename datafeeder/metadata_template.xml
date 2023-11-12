@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd"
-  xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:srv="http://www.isotc211.org/2005/srv"
-  xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gts="http://www.isotc211.org/2005/gts"
-  xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gmi="http://www.isotc211.org/2005/gmi"
-  xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd">
-	<!-- https://sdi.eea.europa.eu/catalogue/srv/api/records/38ee29b5-70b1-4431-abf6-7c1aa3c50515/formatters/xml?approved=true -->
+                 xmlns:gco="http://www.isotc211.org/2005/gco"
+                 xmlns:srv="http://www.isotc211.org/2005/srv"
+                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                 xmlns:gts="http://www.isotc211.org/2005/gts"
+                 xmlns:gsr="http://www.isotc211.org/2005/gsr"
+                 xmlns:gmi="http://www.isotc211.org/2005/gmi"
+                 xmlns:gml="http://www.opengis.net/gml/3.2"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd">
   <gmd:fileIdentifier>
-    <gco:CharacterString>38ee29b5-70b1-4431-abf6-7c1aa3c50515</gco:CharacterString>
+      <gco:CharacterString>42a640cf-6899-4373-aa82-f45c4828ab24</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng" />
@@ -26,7 +29,7 @@
     <gco:DateTime>1970-01-01T00:00:00</gco:DateTime>
   </gmd:dateStamp>
   <gmd:metadataStandardName>
-    <gco:CharacterString>ISO 19115/19139</gco:CharacterString>
+    <gco:CharacterString>ISO 19115:2003/19139</gco:CharacterString>
   </gmd:metadataStandardName>
   <gmd:metadataStandardVersion>
     <gco:CharacterString>1.0</gco:CharacterString>
@@ -115,7 +118,7 @@
           <gmd:thesaurusName>
             <gmd:CI_Citation>
               <gmd:title>
-                <gmx:Anchor xlink:href="https://www.eea.europa.eu/themes">EEA topics</gmx:Anchor>
+                <gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/inspire_themes">GEMET - INSPIRE themes</gmx:Anchor>
               </gmd:title>
               <gmd:date>
                 <gmd:CI_Date>
@@ -129,14 +132,6 @@
                   </gmd:dateType>
                 </gmd:CI_Date>
               </gmd:date>
-              <gmd:identifier>
-                <gmd:MD_Identifier>
-                  <gmd:code>
-                    <gmx:Anchor
-                      xlink:href="https://sdi.eea.europa.eu/catalogue/srv/api/registries/vocabularies/external.theme.eea-topics">geonetwork.thesaurus.external.theme.eea-topics</gmx:Anchor>
-                  </gmd:code>
-                </gmd:MD_Identifier>
-              </gmd:identifier>
             </gmd:CI_Citation>
           </gmd:thesaurusName>
         </gmd:MD_Keywords>
@@ -153,36 +148,22 @@
           </gmd:otherConstraints>
         </gmd:MD_LegalConstraints>
       </gmd:resourceConstraints>
-      <gmd:aggregationInfo>
-        <gmd:MD_AggregateInformation>
-          <gmd:aggregateDataSetIdentifier>
-            <gmd:MD_Identifier>
-              <gmd:code>
-                <gmx:Anchor
-                  xlink:href="https://sdi.eea.europa.eu/catalogue/srv/eng/catalog.search#/metadata/4e2c9bcd-9ba5-465f-abaa-2b2f28fc68a5"
-                  xlink:title="Urban Waste Water Treatment Directive  Treatment plants reported under UWWTD data call 2017 - PUBLIC VERSION - Oct. 2019">4e2c9bcd-9ba5-465f-abaa-2b2f28fc68a5</gmx:Anchor>
-              </gmd:code>
-            </gmd:MD_Identifier>
-          </gmd:aggregateDataSetIdentifier>
-          <gmd:associationType>
-            <gmd:DS_AssociationTypeCode
-              codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#DS_AssociationTypeCode"
-              codeListValue="revisionOf" />
-          </gmd:associationType>
-        </gmd:MD_AggregateInformation>
-      </gmd:aggregationInfo>
       <gmd:spatialRepresentationType>
         <gmd:MD_SpatialRepresentationTypeCode
           codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_SpatialRepresentationTypeCode"
           codeListValue="vector" />
       </gmd:spatialRepresentationType>
-      <gmd:spatialResolution>
-        <gmd:MD_Resolution>
-          <gmd:distance>
-            <gco:Distance uom="m">100</gco:Distance>
-          </gmd:distance>
-        </gmd:MD_Resolution>
-      </gmd:spatialResolution>
+         <gmd:spatialResolution>
+            <gmd:MD_Resolution>
+               <gmd:equivalentScale>
+                  <gmd:MD_RepresentativeFraction>
+                     <gmd:denominator>
+                        <gco:Integer/>
+                     </gmd:denominator>
+                  </gmd:MD_RepresentativeFraction>
+               </gmd:equivalentScale>
+            </gmd:MD_Resolution>
+         </gmd:spatialResolution>
       <gmd:language>
         <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng" />
       </gmd:language>
@@ -212,16 +193,6 @@
   </gmd:identificationInfo>
   <gmd:distributionInfo>
     <gmd:MD_Distribution>
-      <gmd:distributionFormat xmlns:che="http://www.geocat.ch/2008/che">
-        <gmd:MD_Format>
-          <gmd:name>
-            <gco:CharacterString>SHP</gco:CharacterString>
-          </gmd:name>
-          <gmd:version>
-            <gco:CharacterString>1</gco:CharacterString>
-          </gmd:version>
-        </gmd:MD_Format>
-      </gmd:distributionFormat>
       <gmd:transferOptions>
         <gmd:MD_DigitalTransferOptions>
           <!-- to be filled by XSL -->
@@ -239,37 +210,6 @@
           </gmd:level>
         </gmd:DQ_Scope>
       </gmd:scope>
-      <gmd:report>
-        <gmd:DQ_DomainConsistency>
-          <gmd:result>
-            <gmd:DQ_ConformanceResult>
-              <gmd:specification>
-                <gmd:CI_Citation>
-                  <gmd:title>
-                    <gmx:Anchor xlink:href="http://data.europa.eu/eli/reg/2010/1089/2014-12-31">COMMISSION REGULATION (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</gmx:Anchor>
-                  </gmd:title>
-                  <gmd:date>
-                    <gmd:CI_Date>
-                      <gmd:date>
-                        <gco:Date>2010-12-08</gco:Date>
-                      </gmd:date>
-                      <gmd:dateType>
-                        <gmd:CI_DateTypeCode
-                          codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_DateTypeCode"
-                          codeListValue="publication" />
-                      </gmd:dateType>
-                    </gmd:CI_Date>
-                  </gmd:date>
-                </gmd:CI_Citation>
-              </gmd:specification>
-              <gmd:explanation>
-                <gco:CharacterString>See the referenced specification</gco:CharacterString>
-              </gmd:explanation>
-              <gmd:pass gco:nilReason="unknown" />
-            </gmd:DQ_ConformanceResult>
-          </gmd:result>
-        </gmd:DQ_DomainConsistency>
-      </gmd:report>
       <gmd:lineage>
         <gmd:LI_Lineage>
           <gmd:statement>

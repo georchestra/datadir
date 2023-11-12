@@ -80,7 +80,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       <gmd:thesaurusName>
         <gmd:CI_Citation>
           <gmd:title>
-            <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+            <gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/inspire_themes">GEMET - INSPIRE themes, version 1.0</gmx:Anchor>
           </gmd:title>
           <gmd:date>
             <gmd:CI_Date>
@@ -94,14 +94,6 @@ Default template to apply MetadataRecordProperties.java properties to a record t
               </gmd:dateType>
             </gmd:CI_Date>
           </gmd:date>
-          <gmd:identifier>
-            <gmd:MD_Identifier>
-              <gmd:code>
-                <gmx:Anchor
-                  xlink:href="https://sdi.eea.europa.eu/catalogue/srv/api/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme">geonetwork.thesaurus.external.theme.httpinspireeceuropaeutheme-theme</gmx:Anchor>
-              </gmd:code>
-            </gmd:MD_Identifier>
-          </gmd:identifier>
         </gmd:CI_Citation>
       </gmd:thesaurusName>
     </gmd:MD_Keywords>
@@ -348,8 +340,10 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <!--
-    Uncomment the following to override the language set in the MD template with "eng" (which is the default behavior with current java code).
-    Not recommended for the time being.
+    If uncommented, the following overrides the language set in the MD template with "eng"
+    (which is the default value for datasetLanguage with the current java code).
+    Not recommended !
+    You should rather edit metadata_template.xml to set your prefered lang for the time being.
   -->
   <!--
   <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language/gmd:LanguageCode/@codeListValue">

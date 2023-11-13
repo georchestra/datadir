@@ -253,9 +253,7 @@
               <gmd:explanation>
                 <gco:CharacterString>Conformance has not been evaluated</gco:CharacterString>
               </gmd:explanation>
-              <gmd:pass>
-                <gco:Boolean>false</gco:Boolean>
-              </gmd:pass>
+              <gmd:pass gco:nilReason="unknown" />
             </gmd:DQ_ConformanceResult>
           </gmd:result>
         </gmd:DQ_DomainConsistency>

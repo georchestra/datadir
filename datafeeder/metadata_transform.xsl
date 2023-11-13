@@ -80,7 +80,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       <gmd:thesaurusName>
         <gmd:CI_Citation>
           <gmd:title>
-            <gmx:Anchor xlink:href="http://www.eionet.europa.eu/gemet/inspire_themes">GEMET - INSPIRE themes, version 1.0</gmx:Anchor>
+            <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
           </gmd:title>
           <gmd:date>
             <gmd:CI_Date>
@@ -94,6 +94,13 @@ Default template to apply MetadataRecordProperties.java properties to a record t
               </gmd:dateType>
             </gmd:CI_Date>
           </gmd:date>
+          <gmd:identifier>
+            <gmd:MD_Identifier>
+              <gmd:code>
+                <gmx:Anchor xlink:href="https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/api/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme">geonetwork.thesaurus.external.theme.httpinspireeceuropaeutheme-theme</gmx:Anchor>
+              </gmd:code>
+            </gmd:MD_Identifier>
+          </gmd:identifier>
         </gmd:CI_Citation>
       </gmd:thesaurusName>
     </gmd:MD_Keywords>

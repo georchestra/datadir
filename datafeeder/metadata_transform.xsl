@@ -97,8 +97,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
           <gmd:identifier>
             <gmd:MD_Identifier>
               <gmd:code>
-                <gmx:Anchor
-                  xlink:href="https://sdi.eea.europa.eu/catalogue/srv/api/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme">geonetwork.thesaurus.external.theme.httpinspireeceuropaeutheme-theme</gmx:Anchor>
+                <gmx:Anchor xlink:href="https://georchestra-127-0-1-1.traefik.me/geonetwork/srv/api/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme">geonetwork.thesaurus.external.theme.httpinspireeceuropaeutheme-theme</gmx:Anchor>
               </gmd:code>
             </gmd:MD_Identifier>
           </gmd:identifier>
@@ -348,8 +347,10 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <!--
-    Uncomment the following to override the language set in the MD template with "eng" (which is the default behavior with current java code).
-    Not recommended for the time being.
+    If uncommented, the following overrides the language set in the MD template with "eng"
+    (which is the default value for datasetLanguage with the current java code).
+    Not recommended !
+    You should rather edit metadata_template.xml to set your prefered lang for the time being.
   -->
   <!--
   <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language/gmd:LanguageCode/@codeListValue">

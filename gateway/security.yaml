@@ -33,7 +33,7 @@ georchestra:
 #            redirect-uri: "{baseUrl}/login/oauth2/code/cas-oauth2"
 #        provider:
 #          cas-oauth2:
-#            authorization-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/authorize
-#            token-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/accessToken
-#            user-info-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/profile
+#            authorization-uri: https://georchestra.mydomain.org/cas/oauth2.0/authorize
+#            token-uri: https://georchestra.mydomain.org/cas/oauth2.0/accessToken
+#            user-info-uri: https://georchestra.mydomain.org/cas/oauth2.0/profile
 #            userNameAttribute: id

@@ -36,12 +36,6 @@ Default template to apply MetadataRecordProperties.java properties to a record t
     </gco:CharacterString>
   </xsl:template>
 
-  <xsl:template match="gmd:MD_Metadata/gmd:language/gmd:LanguageCode/@codeListValue">
-    <xsl:attribute name="codeListValue">
-      <xsl:value-of select="$props//metadataLanguage" />
-    </xsl:attribute>
-  </xsl:template>
-
   <xsl:template match="gmd:dateStamp">
     <gmd:dateStamp>
       <gco:DateTime>
@@ -356,6 +350,12 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:language/gmd:LanguageCode/@codeListValue">
     <xsl:attribute name="codeListValue">
       <xsl:value-of select="$props//datasetLanguage" />
+    </xsl:attribute>
+  </xsl:template>
+
+  <xsl:template match="gmd:MD_Metadata/gmd:language/gmd:LanguageCode/@codeListValue">
+    <xsl:attribute name="codeListValue">
+      <xsl:value-of select="$props//metadataLanguage" />
     </xsl:attribute>
   </xsl:template>
   -->

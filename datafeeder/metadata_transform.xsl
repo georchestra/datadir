@@ -310,7 +310,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       </gmd:contactInfo>
       <gmd:role>
         <gmd:CI_RoleCode
-          codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+          codeList="http://standards.iso.org/iso/19139/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
           codeListValue="pointOfContact" />
       </gmd:role>
     </gmd:CI_ResponsibleParty>

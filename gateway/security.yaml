@@ -11,6 +11,8 @@ georchestra:
           extended: true
           url: ldap://${ldapHost:localhost}:${ldapPort:389}/
           baseDn: ${ldapBaseDn:dc=georchestra,dc=org}
+          adminDn: ${ldapAdminDn:cn=admin,dc=georchestra,dc=org"}
+          adminPassword: ${ldapAdminPassword:secret}
           users:
             rdn: ${ldapUsersRdn:ou=users}
             searchFilter: ${ldapUserSearchFilter:(uid={0})}

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# To be properly executed by datahub initialization need the +x flag
+# so you need to add it with chmod and commit/push it
+
+
 DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
 SNIPPET="<iframe src='/header/?active=datahub' style='height:90px; width: 100%; border: 0; overflow: hidden'></iframe>"
 

@@ -22,7 +22,7 @@
       "height": 90,
       "url": "/header/",
       "script": "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
-      "legacy": true
+      "legacy": false
     },
     "defaultMapOptions": {
       "cesium": {

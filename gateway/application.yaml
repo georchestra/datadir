@@ -11,6 +11,9 @@ server:
   http2.enabled: ${server.ssl.enabled}
   ssl:
     enabled: false
+  reactive:
+    session:
+      timeout: 1440m # 24h
 spring:
   config:
     import: optional:file:${georchestra.datadir}/default.properties,optional:file:${georchestra.datadir}/gateway/gateway.yaml

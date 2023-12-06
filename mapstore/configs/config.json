@@ -26,7 +26,7 @@
         "type": "wmts",
         "group": "background",
         "thumbURL": "/mapstore/dist/MapStore2/web/client/plugins/background/assets/img/Aerial.jpg",
-        "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
+        "url" : "https://data.geopf.fr/wmts",
         "name": "ORTHOIMAGERY.ORTHOPHOTOS",
         "format": "image/jpeg",
         "style": "normal",
@@ -57,7 +57,7 @@
       }
     ],
     "sources": {
-      "https://wxs.ign.fr/decouverte/geoportail/wmts": {
+      "https://data.geopf.fr/wmts" : {
         "tileMatrixSet": {
           "PM": {
             "ows:Identifier": "PM",

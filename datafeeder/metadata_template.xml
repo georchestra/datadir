@@ -14,7 +14,7 @@
     <gco:CharacterString>42a640cf-6899-4373-aa82-f45c4828ab24</gco:CharacterString>
   </gmd:fileIdentifier>
   <gmd:language>
-    <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng" />
+    <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="fre" />
   </gmd:language>
   <gmd:characterSet>
     <gmd:MD_CharacterSetCode

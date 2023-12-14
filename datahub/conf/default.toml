@@ -6,14 +6,16 @@
 [global]
 # This URL (relative or absolute) must point to the API endpoint of a GeoNetwork4 instance
 geonetwork4_api_url = "/geonetwork/srv/api"
+datahub_url = "/datahub"
 # This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
 # The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`
 # This is an optional parameter: leave empty to disable proxy usage
 proxy_path = "/proxy/?url="
 # This optional parameter defines, in which language metadata should be queried in elasticsearch.
 # Use ISO 639-2/B (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format to indicate the language of the metadata.
+# Setting to "current" will use the current language of the User Interface.
 # If not indicated, a wildcard is used and no language preference is applied for the search.
-# metadata_language = "fre"
+# metadata_language = "current"
 # This optional URL should point to the login page that allows authentication to the datahub.
 # If not indicated, the default geonetwork login page is used.
 # The following three placeholders can be part of this URL:
@@ -21,6 +23,16 @@ proxy_path = "/proxy/?url="
 #  - ${lang2}, ${lang3}: indicates if and where the current language should be part of the login URL in language 2 or 3 letter code
 # Example to use the georchestra login page:
 login_url = "${current_url}?login"
+# This optional URL should point to the static html page wc-embedder.html which allows to display a web component (like chart and table) via a permalink.
+# URLs can be indicated from the root of the same server starting with a "/" or as an external URL. Be conscious of potential CORS issues when using an external URL.
+# The default location in the dockerized datahub app for example is "/datahub/wc-embedder.html".
+# If the URL is not indicated, no permalinks will show up in the UI.
+web_component_embedder_url = "/datahub/wc-embedder.html"
+
+# This optional parameter defines the languages that will be provided in a dropdown for the user to translate the UI.
+# Available languages are listed here: (https://github.com/geonetwork/geonetwork-ui/blob/main/libs/util/i18n/src/lib/i18n.constants.ts).
+# More information about the translation can be found in the docs (https://geonetwork.github.io/geonetwork-ui/main/docs/reference/i18n.html)
+# languages = ['en', 'fr', 'de']
 
 ### VISUAL THEME
 
@@ -53,11 +65,70 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 
 # This section contains settings used for fine-tuning the search experience
 [search]
+
 # Optional; specify a GeoJSON object to be used as filter: all records contained inside the geometry will be boosted on top,
-# all records which _do not_ intersect with the geometry will be excluded; can be specified as URL or inline
+# all records which do not intersect with the geometry will be shown with lower priority; can be specified as URL or inline
 # Note: if the GeoJSON object contains multiple features, only the geometry of the first one will be kept!
 filter_geometry_url = "/console/account/areaofcompetence"
 # filter_geometry_data = '{ "coordinates": [...], "type": "Polygon" }'
+
+# The advanced search filters available to the user can be customized with this setting.
+# The following fields can be used for filtering: 'publisher', 'format', 'publicationYear', 'standard', 'inspireKeyword', 'topic', 'isSpatial', 'license'
+# any other field will be ignored
+# advanced_filters = ['publisher', 'format', 'publicationYear', 'topic', 'isSpatial', 'license']
+
+# One or several search presets can be defined here; every search preset is composed of:
+# - a name (which can be a translation key)
+# - a sort criteria: either `createDate`, `userSavedCount` or `_score` (prepend with `-` for descending sort) (optional)
+# - filters which can be expressed like so:
+# [[search_preset]]
+#     name = 'filterByName'
+#     filters.q = 'Full text search'
+#     filters.publisher = ['Org 1', 'Org 2']
+#     filters.format = ['format 1', 'format 2']
+#     filters.documentStandard = ['iso19115-3.2018']
+#     filters.inspireKeyword = ['keyword 1', 'keyword 2']
+#     filters.topic = ['boundaries']
+#     filters.publicationYear = ['2023', '2022']
+#     filters.isSpatial = ['yes']
+#     filters.license = ['unknown']
+#     sort = 'createDate'
+# [[search_preset]]
+#     name = 'otherFilterName'
+#     filters.q = 'Other Full text search'
+# ...
+
+# Search presets will be advertised to the user along the main search field.
+
+
+### METADATA QUALITY SETTINGS
+
+# This section contains settings used for fine-tuning the metadata quality experience
+[metadata-quality]
+# By default the widget is not activated to enable it, just add this parameter.
+# enabled = true
+# If u want to use metadata quality widget this configuration is required
+
+# if you add an indexed field to calculate the qualityScore, the datahub search allow you to sort on this field with this parameter
+# sortable = true
+
+# by default the widget appears in 2 locations in the search list and in the detail page
+# allow you to hide the widget in detail
+# display_widget_in_detail = false
+# allow you to hide the widget in search list
+# display_widget_in_search = false
+# If you want see the widget in the two locations, don't fill theses configurations
+
+# By default the window popup all fields to view if they are filled or not but you can hide some
+# display_title = false
+# display_description = false
+# display_topic = false
+# display_keywords = false
+# display_legal_constraints = false
+# display_contact = false
+# display_update_frequency = false
+# display_organisation = false
+# If you want see all fields, don't fill theses configurations
 
 ### MAP SETTINGS
 
@@ -77,6 +148,8 @@ max_zoom = 14
 # ${layer_name}: Name of the layer
 # Be careful to use englobing single quotes, if your template syntax includes JSON (with double quotes)
 # Examples:
+# mapfishapp template:
+# external_viewer_url_template = '/mapfishapp/?owsurl=${service_url}&layername=${layer_name}&owstype=${service_type}Layer'
 # mapstore template
 external_viewer_url_template = '/mapstore/#/?actions=[{"type":"CATALOG:ADD_LAYERS_FROM_CATALOGS","layers":["${layer_name}"],"sources":[{"url":"${service_url}","type":"${service_type}"}]}]'
 

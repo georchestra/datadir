@@ -12,4 +12,4 @@ if grep -q "${SNIPPET}" "${DATAFEEDER_DIR}/index.html"; then
 fi
 
 echo "[INFO] geOrchestra: adding header in the main page..."
-sed -i "s#<body>#<body>${SNIPPET}#" ${DATAFEEDER_DIR}/index.html
+sed -i "s#<body class=\"m-0 h-full flex flex-col\">#<body class=\"m-0 h-full flex flex-col\">${SNIPPET}#" ${DATAFEEDER_DIR}/index.html

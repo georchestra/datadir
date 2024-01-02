@@ -1,13 +1,13 @@
-Dear admin,
+{welcome_msg}
 
-A new {oauth2}user signed up on {instanceName} !
+{start_msg_part1}{oauth2}{start_msg_part2} {instanceName}:
 
-User name: {name}
-User email: {email}
+{name_msg}
+{email_msg}
 {uid_msg}{org_msg}{provider_msg}
 
-Manage account on {publicUrl}/console/manager/users/{user_id}/infos.
+{manage_msg} {publicUrl}/console/manager/users/{user_id}/infos.
 
 
 ---
-Sent by {instanceName} ({publicUrl}/)
+{sent_msg_part1} {instanceName} ({publicUrl}/) {sent_msg_part2} 

@@ -5,3 +5,8 @@
 #
 # See here for the default provided configuration:
 # https://github.com/georchestra/georchestra-gateway/blob/main/gateway/src/main/resources/application.yml
+
+server:
+  reactive:
+    session:
+      timeout: 1440m # 24h

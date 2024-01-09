@@ -15,10 +15,6 @@ spring:
         uri: ${georchestra.gateway.services.header.target}
         predicates:
         - Path=/header,/header/**
-      - id: analytics
-        uri: ${georchestra.gateway.services.analytics.target}
-        predicates:
-        - Path=/analytics/**
       - id: console
         uri: ${georchestra.gateway.services.console.target}
         predicates:
@@ -65,7 +61,6 @@ spring:
         - Path=/ogc-api-records/**
 
 georchestra.gateway.services:
-  analytics.target: http://${ANALYTICS_HOST}:8080/analytics/
   console.target: http://${CONSOLE_HOST}:8080/console/
   datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder/
   datahub.target: http://${DATAHUB_HOST}:80/datahub/

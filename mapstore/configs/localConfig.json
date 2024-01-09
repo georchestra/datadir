@@ -199,8 +199,8 @@
                 "title": "Région Hauts-de-France",
                 "autoload": true
               },
-              "geograndest": {
-                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
+              "datagrandest": {
+                "url": "https://www.datagrandest.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
                 "title": "Région Grand Est",
                 "autoload": true

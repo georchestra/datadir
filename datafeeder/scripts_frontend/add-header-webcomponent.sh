@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# To be properl executed by datahub initialization need the +x flag 
+# To be properly executed by datafeeder initialization need the +x flag
 # so you need to add it with chmod and commit/push it
 
 DATAFEEDER_DIR=${1:-/usr/share/nginx/html}

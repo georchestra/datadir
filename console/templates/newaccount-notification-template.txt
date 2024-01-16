@@ -1,12 +1,13 @@
 Dear admin,
 
-A new {oauth2}user signed up on {instanceName} !
+A new user signed up on {instanceName} !
 
 User name: {name}
 User email: {email}
-{uid_msg}{org_msg}{provider_msg}
+User ID: {uid}
+User Organization: {org}
 
-Manage account on {publicUrl}/console/manager/users/{user_id}/infos.
+Manage account on {publicUrl}/console/manager/users/{uid}/infos.
 
 
 ---

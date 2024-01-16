@@ -536,6 +536,13 @@
                 "mapPreviewOptions": {
                   "enableScalebox": true
                 },
+                "outputFormatOptions": {
+                  "allowedFormats": [
+                    { "name": "PDF", "value": "pdf" },
+                    { "name": "PNG", "value": "png" },
+                    { "name": "JPG", "value": "jpg" }
+                  ]
+                },
                 "overlayLayersOptions": {
                   "enabled": true
                 }

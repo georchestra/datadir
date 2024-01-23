@@ -6,6 +6,8 @@ spring.config.import: application.yaml, security.yaml, routes.yaml, roles-mappin
 
 georchestra:
   gateway:
+    # Redirection URL after a successfull logout : Default to /?logout
+    # logoutUrl : "/?logout" 
     default-headers:
       # Default security headers to append to proxied requests
       proxy: true

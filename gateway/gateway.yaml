@@ -42,13 +42,13 @@ georchestra:
         access-rules:
         - intercept-url: /datafeeder/**
           anonymous: false
-          allowed-roles: SUPERUSER,DATAFEEDER
+          allowed-roles: SUPERUSER,IMPORT
       import:
         target: ${georchestra.gateway.services.import.target}
         access-rules:
         - intercept-url: /import/**
           anonymous: false
-          allowed-roles: SUPERUSER,DATAFEEDER
+          allowed-roles: SUPERUSER,IMPORT
       console:
         target: ${georchestra.gateway.services.console.target}
         access-rules:

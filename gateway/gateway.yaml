@@ -2,10 +2,11 @@
 # configure target base URL's, headers and role based access, per service name.
 # Replaces security-proxy's targets-mapping.properties, headers-mapping.properties, and security-mappings.xml
 #
-spring.config.import: security.yaml, routes.yaml, roles-mappings.yaml
+spring.config.import: application.yaml, security.yaml, routes.yaml, roles-mappings.yaml
 
 georchestra:
   gateway:
+    logoutUrl: "/"
     default-headers:
       # Default security headers to append to proxied requests
       proxy: true
@@ -27,45 +28,56 @@ georchestra:
         access-rules:
         - intercept-url: /header/**
           anonymous: true
-      analytics:
-        target: ${georchestra.gateway.services.analytics.target}
+      datafeeder:
+        target: ${georchestra.gateway.services.datafeeder.target}
+        headers:
+          json-user: true
+          json-organization: true
         access-rules:
-        - intercept-url: /analytics/**
-          allowed-roles: SUPERUSER,ORGADMIN
+        - intercept-url: /datafeeder/**
+          anonymous: false
+          allowed-roles: SUPERUSER,DATAFEEDER
       import:
         target: ${georchestra.gateway.services.import.target}
         access-rules:
         - intercept-url: /import/**
           anonymous: false
+          allowed-roles: SUPERUSER,DATAFEEDER
       console:
         target: ${georchestra.gateway.services.console.target}
         access-rules:
         - intercept-url:
-          - /console/public/.*
-          - /console/manager/public/.*
+          - /console/public/**
+          - /console/manager/public/**
           #/console/account resources are private except account/new and account/passwordRecovery
           - /console/account/new
           - /console/account/newPassword
           - /console/account/passwordRecovery
-          - /console/account/js/.*
-          - /console/account/css/.*
-          - /console/account/fonts/.*
+          - /console/account/js/**
+          - /console/account/css/**
+          - /console/account/fonts/**
           - /console/testPage
           anonymous: true
         - intercept-url:
-          - /console/private/.*
-          - /console/manager/.*
-          - /console/.*/emails
-          - /console/.*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
-          - /console/.*/emailTemplates
+          - /console/private/**
+          - /console/manager/**
+          - /console/*/emails
+          - /console/*/sendEmail # /console/sendEmail features are reserved to SUPERUSER & delegated admins
+          - /console/*/emailTemplates
           - /console/attachments
           allowed-roles: SUPERUSER,ORGADMIN
         - intercept-url: /console/emailProxy #activated for members having the EMAILPROXY role
           allowed-roles: EMAILPROXY
-        - intercept-url: /console/internal/.*
+        - intercept-url: /console/internal/**
           allowed-roles: SUPERUSER
-        - intercept-url: /console/account/.*
+        - intercept-url: /console/account/**
           anonymous: false
+      datahub:
+        target: http://datahub-datahub-svc:80/datahub/
+      metadata-editor:
+        target: http://metadata-editor-metadata-editor-svc:80/metadata-editor/
+      plateforme:
+        target: http://plateforme-datahub-datahub-svc:80/plateforme/
       geonetwork:
         target: ${georchestra.gateway.services.geonetwork.target}
         headers:

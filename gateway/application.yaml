@@ -7,6 +7,21 @@
 # https://github.com/georchestra/georchestra-gateway/blob/main/gateway/src/main/resources/application.yml
 
 server:
+  forward-headers-strategy: FRAMEWORK
   reactive:
     session:
       timeout: 1440m # 24h
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - SecureHeaders
+        - TokenRelay
+        - RemoveSecurityHeaders
+        # AddSecHeaders appends sec-* headers to proxied requests based on the currently authenticated user
+        - AddSecHeaders
+        - PreserveHostHeader
+      filter:
+        secure-headers:
+          referrer-policy: strict-origin

@@ -59,6 +59,10 @@ spring:
         uri: ${georchestra.gateway.services.ogc-api-records.target}
         predicates:
         - Path=/ogc-api-records/**
+      - id: data-api
+        uri: ${georchestra.gateway.services.data-api.target}
+        predicates:
+        - Path=/data/**
 
 georchestra.gateway.services:
   console.target: http://${CONSOLE_HOST}:8080/console/
@@ -71,3 +75,4 @@ georchestra.gateway.services:
   import.target: http://${IMPORT_HOST}:80/
   mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/
   ogc-api-records.target: http://${OGC_API_RECORDS_HOST}:8080/ogc-api-records/
+  data-api.target: http://${DATA_API_HOST}:8080/data/

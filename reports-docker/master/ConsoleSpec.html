@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for ConsoleSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Mon Oct 09 17:02:36 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Thu Jun 06 17:07:40 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -52,12 +52,12 @@ limitations under the License.
         </thead>
         <tbody>
         <tr>
-            <td>6</td>
+            <td>7</td>
             <td>0</td>
             <td>0</td>
             <td>0</td>
             <td class="passed">100.0%</td>
-            <td>14.821 seconds</td>
+            <td>13.440 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -74,6 +74,8 @@ limitations under the License.
     <li><a href="#-280515081" class="feature-toc-pass">I can create an account</a></li>
     
     <li><a href="#-1886279643" class="feature-toc-pass">I can use the console's 'recover my password' feature</a></li>
+    
+    <li><a href="#514236382" class="feature-toc-pass">If I am using a bad token, I should be redirected to the 'recover my password' feature</a></li>
     
     <li><a href="#1662865496" class="feature-toc-pass">Being connected as an administrator, I can visit the console admin page</a></li>
     
@@ -354,6 +356,88 @@ limitations under the License.
 
 
 <div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="514236382">
+        <span class="feature-name feature-name-">If I am using a bad token, I should be redirected to the 'recover my password' feature</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Given:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am not connected to the platform</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I visit the newPassword page with a bad token</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am redirected to the password recovery page, and an error message is displayed</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>NewPasswordBadTokenPage</td>
+            <td>
+                <a href="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" target="_blank"><img src="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" alt="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
     <div class="feature-heading feature-heading-" id="1662865496">
         <span class="feature-name feature-name-">Being connected as an administrator, I can visit the console admin page</span>
 
@@ -421,7 +505,7 @@ limitations under the License.
         <tr class="">
             <td>ConsoleAdminPage</td>
             <td>
-                <a href="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -503,7 +587,7 @@ limitations under the License.
         <tr class="">
             <td>ConsoleUserDetailsPage</td>
             <td>
-                <a href="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -635,28 +719,28 @@ limitations under the License.
         <tr class="">
             <td>consoleAdminPage</td>
             <td>
-                <a href="./ConsoleSpec/006-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/006-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" alt="./ConsoleSpec/006-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" alt="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
         <tr class="">
             <td>consoleOrganizationsAdministrationTab</td>
             <td>
-                <a href="./ConsoleSpec/006-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" target="_blank"><img src="./ConsoleSpec/006-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" alt="./ConsoleSpec/006-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" target="_blank"><img src="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" alt="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrganizationsAdministrationTab.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
         <tr class="">
             <td>consoleOrgCreated</td>
             <td>
-                <a href="./ConsoleSpec/006-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" target="_blank"><img src="./ConsoleSpec/006-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" alt="./ConsoleSpec/006-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/007-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" target="_blank"><img src="./ConsoleSpec/007-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" alt="./ConsoleSpec/007-003-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgCreated.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
         <tr class="">
             <td>consoleOrgDeleted</td>
             <td>
-                <a href="./ConsoleSpec/006-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" target="_blank"><img src="./ConsoleSpec/006-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" alt="./ConsoleSpec/006-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/007-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" target="_blank"><img src="./ConsoleSpec/007-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" alt="./ConsoleSpec/007-004-I_can_create_a_new_organization__and_delete_it_afterwards-consoleOrgDeleted.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         

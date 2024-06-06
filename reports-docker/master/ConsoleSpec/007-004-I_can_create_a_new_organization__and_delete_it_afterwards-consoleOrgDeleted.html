@@ -1,0 +1,134 @@
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <base href="/console/manager/">
+
+  <link rel="stylesheet" href="public/libraries.css">
+  <link rel="stylesheet" href="public/app.css">
+  <link rel="stylesheet" href="public/svg.css" class="svg-styles">
+
+  <title>Admin Console</title>
+
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body ng-app="manager" ng-strict-di="" ng-controller="AppController" class="ng-scope">
+
+  <geor-header legacy-header="false" legacy-url="/header/" style="width:100%;height:90px;border:none;" logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet="" active-app="console"></geor-header>
+  <script ng-src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js" src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+
+  <div flash-message="2000"><div role="alert" ng-show="hasFlash" class="alert  alert-dismissible alertIn alertOut  alert-success"> <span dynamic="flash.text">Organization deleted</span> <button type="button" class="close" close-flash=""><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div></div>
+
+  <div class="container" style="padding-top:20px">
+
+    <div class="profile label pull-right label-info" title="Your role allows you to manage all accounts">
+      Administrator
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-class="{'active': isActive(['home'])}" class="">
+        <a ng-link="home" translate="" class="ng-scope" href="./home">Dashboard</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['users','browse'])}">
+        <a ng-link="users({'id': 'all'})" translate="" class="ng-scope" href="./browse/all/users">Users</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['orgs','org'])}" class="active">
+        <a ng-link="orgs({'org': 'all'})" translate="" class="ng-scope" href="./orgs/all">Organizations</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['roles','role'])}">
+        <a ng-link="roles({'role': 'all'})" translate="" class="ng-scope" href="./roles/all">Roles</a>
+      </li>
+      <!-- ngIf: profile === 'SUPERUSER' --><li role="presentation" ng-class="{'active': isActive(['delegations'])}" ng-if="profile === 'SUPERUSER'" class="ng-scope">
+        <a ng-link="delegations({})" translate="" class="ng-scope" href="./delegations">Delegations</a>
+      </li><!-- end ngIf: profile === 'SUPERUSER' -->
+      <!-- ngIf: platformInfos.analyticsEnabled || false --><li role="presentation" ng-class="{'active': isActive(['analytics'])}" ng-if="platformInfos.analyticsEnabled || false" class="ng-scope">
+        <a ng-link="analytics({'role': 'all'})" translate="" class="ng-scope" href="./analytics/all">Analytics</a>
+      </li><!-- end ngIf: platformInfos.analyticsEnabled || false -->
+      <li role="presentation" ng-class="{'active': isActive(['logs'])}">
+        <a ng-link="logs" translate="" class="ng-scope" href="./logs">Logs</a>
+      </li>
+    </ul>
+
+    <!-- ngViewport: --><ng-viewport class="ng-scope"><section class="orgs ng-scope">
+
+  <div class="col-md-4 aside">
+
+    <div class="alert alert-info">
+      <a ng-link="orgs({org: 'all'})" class="category ng-scope" ng-class="{active: orgs.org=='all'}" translate="" href="./orgs/all">All orgs</a>
+      <a ng-link="orgs({org: 'pending'})" class="category ng-scope" ng-class="{active: orgs.org=='pending'}" translate="" href="./orgs/pending">Pending</a>
+      <!-- ngIf: profile === 'SUPERUSER' --><hr ng-if="profile === 'SUPERUSER'" class="ng-scope"><!-- end ngIf: profile === 'SUPERUSER' -->
+      <!-- ngIf: profile === 'SUPERUSER' --><div class="create-btn ng-scope" ng-if="profile === 'SUPERUSER'">
+        <a ng-click="orgs.create()" class="btn btn-default ng-scope" translate="">New org</a>
+      </div><!-- end ngIf: profile === 'SUPERUSER' -->
+    </div>
+
+  </div>
+
+  <div class="col-md-8">
+
+    <input type="text" class="filter-table form-control pull-right ng-pristine ng-untouched ng-valid ng-empty" ng-model="orgs.q" placeholder="Filter">
+    <i class="glyphicon glyphicon-remove-sign filter-table-reset ng-hide" ng-show="orgs.q != ''" ng-click="orgs.q = ''"></i>
+    <h3 class="roles-title">
+    <ng-pluralize count="orgs.simplifiedOrgs.length" when="{'0': 'No organization',
+                         '1': '{} organization',
+                         'other': '{} organizations'}">2 organizations</ng-pluralize></h3>
+    <table class="table table-striped table-condensed">
+
+      <thead>
+        <tr>
+          <th translate="" class="ng-scope">Name</th>
+          <th translate="" class="ng-scope">Short name</th>
+          <th translate="" class="ng-scope">Members count</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- ngRepeat: org in orgs.simplifiedOrgs | filter:orgs.q | filter: {pending: orgs.org==='pending'} | itemsPerPage: orgs.itemsPerPage --><tr ng-repeat="org in orgs.simplifiedOrgs | filter:orgs.q | filter: {pending: orgs.org==='pending'} | itemsPerPage: orgs.itemsPerPage" class="ng-scope">
+          <td>
+            <a ng-link="org({org: org.id, tab: 'infos'})" ng-class="{pending: org.status !== 'REGISTERED'}" class="ng-binding pending" href="./org/C2C/infos">
+              Camptocamp
+            </a>
+          </td>
+          <td class="ng-binding">C2C</td>
+          <td class="ng-binding">2</td>
+        </tr><!-- end ngRepeat: org in orgs.simplifiedOrgs | filter:orgs.q | filter: {pending: orgs.org==='pending'} | itemsPerPage: orgs.itemsPerPage --><tr ng-repeat="org in orgs.simplifiedOrgs | filter:orgs.q | filter: {pending: orgs.org==='pending'} | itemsPerPage: orgs.itemsPerPage" class="ng-scope">
+          <td>
+            <a ng-link="org({org: org.id, tab: 'infos'})" ng-class="{pending: org.status !== 'REGISTERED'}" class="ng-binding pending" href="./org/PSC/infos">
+              Project Steering Committee
+            </a>
+          </td>
+          <td class="ng-binding">PSC</td>
+          <td class="ng-binding">2</td>
+        </tr><!-- end ngRepeat: org in orgs.simplifiedOrgs | filter:orgs.q | filter: {pending: orgs.org==='pending'} | itemsPerPage: orgs.itemsPerPage -->
+      </tbody>
+
+    </table>
+
+    <dir-pagination-controls class="ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide -->
+
+</dir-pagination-controls>
+
+  </div>
+
+  <!-- ngIf: orgs.newOrg -->
+
+</section>
+
+</ng-viewport>
+
+  </div>
+
+  <script src="public/libraries.js"></script>
+  <script src="public/templates.js"></script>
+  <script src="public/app.js"></script>
+  <script>require('app')</script>
+
+
+
+</body></html>

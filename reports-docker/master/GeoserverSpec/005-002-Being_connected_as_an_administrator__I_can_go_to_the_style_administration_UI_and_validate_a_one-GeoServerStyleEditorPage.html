@@ -1,0 +1,782 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="../resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.wms.web.data.StyleEditPage?7&amp;name=polygon";
+/*]]>*/
+</script>
+<script type="text/javascript" src="../resource/org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow/res/modal-ver-C7EDA47208933B085147D7FD44BBA930.js"></script>
+<link rel="stylesheet" type="text/css" href="../resource/org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow/res/modal-ver-6DD427F62536C71D033C76331801D153.css">
+<script type="text/javascript" src="../resource/org.wicketstuff.select2.ApplicationSettings/res/js/select2.full-ver-0C1C8BE2790B7DF692432656FBF4BC9A.js"></script>
+<link rel="stylesheet" type="text/css" href="../resource/org.wicketstuff.select2.ApplicationSettings/res/css/select2-ver-3805311D5FC135A34B316E3F1A7ED1E2.css">
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.Select2DropDownChoice/js/select2/select2-keyboard-ver-96A0E3802007C5F34BB0BE2B9D344312.js"></script>
+<script type="text/javascript" id="org.apache.wicket.markup.html.form.Form">
+/*<![CDATA[*/
+if (typeof(Wicket)=='undefined') { Wicket={}; } if (typeof(Wicket.Forms)=='undefined') { Wicket.Forms={}; }
+/*]]>*/
+</script>
+<script type="text/javascript" id="org.apache.wicket.markup.html.form.Form.showhideForm.metadata">
+/*<![CDATA[*/
+Wicket.Forms["showhideForm"]={multipart:true};
+/*]]>*/
+</script>
+<link rel="stylesheet" type="text/css" href="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/css/codemirror-ver-1C26F7D1F30CBCC58982178F588906D5.css">
+<link rel="stylesheet" type="text/css" href="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/css/show-hint-ver-630E320A614E7732F6CE1BF37147F27F.css">
+<link rel="stylesheet" type="text/css" href="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/dialog/dialog-ver-910C1893A275073BE1F80F32B77CD5A4.css">
+<link rel="stylesheet" type="text/css" href="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/search/matchesonscrollbar-ver-00EA2770C568A848190BCF52E4241276.css">
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/codemirror-ver-208A0F580565126F52E4DA2F1E567731.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/xml-ver-C8B8AA554E22CE880E78551FA6EA7FA0.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/clike-ver-8AC8F9D2C8B1B7D5BDF55127BF9BD6C5.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/groovy-ver-F9DBB8F84A5CCC51C62F0808F2BFDBD9.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/javascript-ver-0063319742359F1DBD185B1863DC6482.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/python-ver-571837EAC052B283891A6FCEEBC071B6.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/ruby-ver-8D1A3B200B49E89EEBDE8167CD06E10C.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/css-ver-873229C9064AC6BA1281131098E5FF49.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/show-hint-ver-D5A1E37177008AB50E7C744B2D0A3934.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/geocss-hint-ver-12D3F0B8E89D3FC98E91E8007BB1040C.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/js/xml-hint-ver-00B637B47DD4A12641BE21D929108558.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/dialog/dialog-ver-ABA56DE379EC95A648422429EBA58184.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/search/searchcursor-ver-5DD636330ED2981450470307D3C465CD.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/search/search-ver-9E85D866664C0789C3818C273D6B2AED.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/search/matchesonscrollbar-ver-71DC343E0B3DBEE5E53DD3C07115D3F6.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.wicket.CodeMirrorEditor/js/codemirror/addon/scroll/annotatescrollbar-ver-8EE620648A74D855E7EFF611DA89E02E.js"></script>
+
+     <!-- Make the line numbers look good -->
+     <style type="text/css" id="org-geoserver-web-wicket-CodeMirrorEditor-0">
+/*<![CDATA[*/
+
+      .CodeMirror-line-numbers {
+        width: 2.2em;
+        color: #aaa;
+        background-color: #eee;
+        text-align: right;
+        padding-right: .3em;
+        font-size: 12px;
+        font-family: monospace;
+        padding-top: .4em;
+        line-height: normal;
+      }
+      
+      .fullscreen {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        background: inherit;
+      }
+      
+      .button-toolbar span {
+           height: 16px;
+           width: 16px;
+           margin: 2px;
+       }
+       
+      .button-toolbar a {
+           float: left;
+           margin: 0;
+           padding: 0;
+           background: none;
+           border: none;
+       }
+       a.separator {
+           /*border-right: 1px outset;
+           padding-right: 5px;*/
+           margin-right: 5px;
+       }
+       div.disabled .button-toolbar {
+         display: none !important;
+       }
+    
+/*]]>*/
+</style>
+    
+    
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>GeoServer: Style Editor - polygon</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+	
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/screen-ver-5E7BA86A4C3BEA6B457AC3C7F9ADF9B4.css" type="text/css" media="screen, projection">
+      
+      
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
+      
+      
+        <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/bootstrap-utilities.min-ver-645A1893E414D59190220CC91091A3B1.css" type="text/css" media="all">
+	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-2BEFECF600188C5A52BB47BAB8EA1140.css" type="text/css" media="screen, projection">
+	  
+      <!--[if IE]>
+      
+        <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/ie-ver-830652BCF971CCAF4FB29B4A140F9430.css" type="text/css" media="screen, projection"/>
+        
+      <![endif]-->
+      
+      <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.placeholder-ver-6E6E735FF3A1792243C593D1E48D6AE1.js"></script>
+      
+    
+        <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.fullscreen-ver-A1341414A7D106EAE077E0332CD01573.js"></script>
+    
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-localeSwitcher&name=polygon","m":"POST","c":"id2c","i":"ajaxFeedback","e":"change"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-tabs~container-tabs-0-link&name=polygon","m":"POST","c":"id2d","f":"styleForm","mp":true,"sc":"context:tabs-container:tabs:0:link","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-tabs~container-tabs-1-link&name=polygon","m":"POST","c":"id2e","f":"styleForm","mp":true,"sc":"context:tabs-container:tabs:1:link","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-tabs~container-tabs-2-link&name=polygon","m":"POST","c":"id2f","f":"styleForm","mp":true,"sc":"context:tabs-container:tabs:2:link","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-tabs~container-tabs-3-link&name=polygon","m":"POST","c":"id30","f":"styleForm","mp":true,"sc":"context:tabs-container:tabs:3:link","i":"ajaxFeedback","e":"click"});;
+$('#id31').select2({});;
+$('#id32').select2({});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-legendPanel-externalGraphicContainer-list-chooseImage&name=polygon","m":"POST","c":"id33","f":"styleForm","mp":true,"sc":"context:panel:legendPanel:externalGraphicContainer:list:chooseImage","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-legendPanel-externalGraphicContainer-showhide-show&name=polygon","m":"POST","c":"id34","f":"showhideForm","mp":true,"sc":"context:panel:legendPanel:externalGraphicContainer:showhide:show","i":"ajaxFeedback","e":"click","pd":true});;
+$('#id35').select2({});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-templates&name=polygon","m":"POST","c":"id35","i":"ajaxFeedback","e":"change"});;
+$('#id36').select2({});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-existingStyles&name=polygon","m":"POST","c":"id36","i":"ajaxFeedback","e":"change"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-upload&name=polygon","m":"POST","c":"id37","f":"styleForm","mp":true,"sc":"context:panel:upload","i":"ajaxFeedback","pre":[function(attrs){var val = attrs.event.view.document.gsEditors ? attrs.event.view.document.gsEditors.editor.getValue() : attrs.event.view.document.getElementById("editor").value; if(val != '' &&!confirm('Really want to overwrite the current editor contents?')) return false;}],"e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-context-panel-preview&name=polygon","m":"POST","c":"id38","f":"styleForm","mp":true,"sc":"context:panel:preview","i":"ajaxFeedback","bh":[function(attrs){if (document.gsEditors) { document.getElementById('editor').value = document.gsEditors.editor.getValue(); }}],"e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-styleEditor-editorContainer-toolbar-custom~buttons-1&name=polygon","c":"id39","i":"ajaxFeedback","dep":[function(attrs){var result = {'cmSelection': getSelection()};return result;}],"e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-styleForm-styleEditor-editorContainer-toolbar-custom~buttons-2&name=polygon","c":"id3a","i":"ajaxFeedback","dep":[function(attrs){var result = {'cmSelection': getSelection()};return result;}],"e":"click"});;
+function completeAfterKeyup(cm, pred) {
+    if(cm.getOption("mode") && cm.getOption("mode").startsWith("text/sld")) {
+      var cur = cm.getCursor();
+      if (!pred || pred()) setTimeout(function() {
+        if (!cm.state.completionActive)
+          cm.showHint({completeSingle: false});
+      }, 100);
+    }
+    return CodeMirror.Pass;
+}
+
+function completeIfValidPos(cm) {
+    return completeAfterKeyup(cm, function() {
+      var cur = cm.getCursor();
+      var beforeCur = trimStart(cm.getRange(CodeMirror.Pos(cur.line, 0), cur));
+      var afterCur = cm.getRange(cur, CodeMirror.Pos(cur.line, null));
+
+      if (isEmpty(beforeCur) && isEmpty(afterCur)) return true;
+
+      if ((isStartOpenTag(beforeCur) || isStartCloseTag(beforeCur)) && isEndTag(afterCur)) return true;
+
+      return false
+    });
+}
+
+function trimStart(str) {
+  var startIndex = str.lastIndexOf('<');
+  if (startIndex < 0) return "";
+
+  return str.substring(startIndex);
+}
+function isStartOpenTag(str) {
+   return /^<[^>]*$/.test(str);
+}
+function isStartCloseTag(str) {
+  return /^<\/[^>\s]*$/.test(str);
+}
+function isEndTag(str) {
+  return /^\s*>?\s*$/.test(str);
+}
+function isEmpty(str) {
+  return str.trim() == "";
+}
+//the root codeMirrorEditor div
+var codeMirrorEditor=document.getElementById("style-editor");
+var textarea = document.getElementById('editor');
+var editor = CodeMirror.fromTextArea(textarea, { 
+    mode: 'text/sld10',
+    theme: 'default',
+    lineWrapping: true,
+    lineNumbers: true,
+    extraKeys: {
+        "Ctrl-Space": "autocomplete",
+        // override built-in to clear selection too on "Esc"
+        "Esc" : function(cm) {editor.execCommand("clearSearch"); editor.execCommand("singleSelection")}
+    }
+});
+editor.getWrapperElement().style.fontSize = "12px"; 
+editor.refresh();
+
+if(!document.gsEditors) {
+    document.gsEditors = {};
+}
+document.gsEditors.editor = editor;
+document.getElementById('cm_undo').onclick = function() {
+    editor.execCommand('undo');
+};
+document.getElementById('cm_redo').onclick = function() {
+    editor.execCommand('redo')
+};
+document.getElementById('cm_goto').onclick = function() {
+    var line = Number(prompt("Jump to line:", "")) - 1;
+    var lastLine = editor.lineCount() - 1;
+    if (line && !isNaN(line)) {
+      if(line > lastLine) {
+          editor.setCursor({line: lastLine, ch: 0})
+      } else if(line < 0) {
+          editor.setCursor({line: 0, ch: 0});
+      } else {
+          editor.setCursor({line: line, ch: 0});
+      }
+    }
+    editor.focus();
+};
+document.getElementById('cm_font_size').onchange = function() {
+    var fontSize;
+    if (typeof(codeMirrorEditor) !== "undefined" && codeMirrorEditor !== null ){
+        fontSize=codeMirrorEditor.querySelector('#cm_font_size').value;
+    } else {
+        fontSize=document.getElementById('cm_font_size').value;
+    }
+    editor.getWrapperElement().style.fontSize = fontSize+"px"; 
+    editor.refresh();
+}
+document.getElementById('cm_editor_heigth').onchange = function() {
+    var height;
+    if (typeof(codeMirrorEditor) !== "undefined" && codeMirrorEditor !== null ){
+         height=codeMirrorEditor.querySelector('#cm_editor_heigth').value;
+    } else {
+         height=document.getElementById('cm_editor_heigth').value;
+    }
+    editor.setSize("100%", height);
+    editor.refresh();
+}
+document.getElementById('cm_reformat').onclick = function() {
+    var start, end, i;
+    if (editor.getSelection()) {
+        start = editor.getCursor(true).line;
+        end = editor.getCursor(false).line;
+    } else {
+        start = 0;
+        end = editor.lineCount();
+    }
+    for(i = start; i<end; i++) {
+        editor.indentLine(i);
+    }
+}
+document.getElementById('cm_find').onclick = function() {
+    editor.execCommand('find')
+};
+document.getElementById('cm_find_next').onclick = function() {
+    editor.execCommand('findNext')
+};
+document.getElementById('cm_replace').onclick = function() {
+    editor.execCommand('replace')
+};
+replaceSelection = function(repl) {
+	start = editor.getCursor(true).line;
+    editor.replaceSelection(repl);
+	lines = repl.split(/\r\n|\r|\n/).length;
+    for(i = start + 1; i < start + lines; i++) {
+        editor.indentLine(i);
+    }
+}
+getSelection = function() {
+	start = editor.getCursor(true).line;
+    return editor.getSelection();
+};
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-validate&name=polygon","m":"POST","c":"id3c","f":"styleForm","mp":true,"sc":"validate","i":"ajaxFeedback","bh":[function(attrs){if (document.gsEditors) { document.getElementById('editor').value = document.gsEditors.editor.getValue(); }}],"e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-apply&name=polygon","m":"POST","c":"id3d","f":"styleForm","mp":true,"sc":"apply","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.wms.web.data.StyleEditPage?7-1.IBehaviorListener.0-save&name=polygon","m":"POST","c":"id3e","f":"styleForm","mp":true,"sc":"save","i":"ajaxFeedback","e":"click"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "load", function(event) { 
+enableSelect2Keyboard('id31');;
+enableSelect2Keyboard('id32');;
+enableSelect2Keyboard('id35');;
+enableSelect2Keyboard('id36');;
+;});
+/*]]>*/
+</script>
+</head>
+<body>
+  <div id="go_head">
+    <geor-header style="width:100%;height:90px;border:none;" active-app="geoserver" legacy-url="/header/" legacy-header="false" logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet=""></geor-header>
+  </div>
+  <div id="main">
+    <div class="wrap selfclear">
+    <div id="sidebar">
+      
+      <ul id="navigation">
+        <li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>About &amp; Status</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.StatusPage?filter=false" title="Summary of server configuration and status">
+                <img src="../resource/org.geoserver.web.admin.StatusPage/::/img/icons/silk/server_error-ver-102A2CF17440C6924EFAD1B6540701CB.png" alt="Server Status"><span>Server Status</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.LogPage?filter=false" title="Show the GeoServer log file contents">
+                <img src="../resource/org.geoserver.web.admin.LogPage/::/img/icons/silk/page_white_text-ver-0DA66BDB013F9A9D12CE7219E642BC25.png" alt="GeoServer Logs"><span>GeoServer Logs</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.ContactPage?filter=false" title="Set the contact information for this server.">
+                <img src="../resource/org.geoserver.web.admin.ContactPage/::/img/icons/silk/vcard-ver-151823B90AD370105DB8FFDBAAABF39F.png" alt="Contact Information"><span>Contact Information</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.AboutGeoServerPage?filter=false" title="General information about GeoServer">
+                <img src="../resource/org.geoserver.web.AboutGeoServerPage/img/icons/silk/help-ver-C3812C74BC524179F4CCF5D2DB7B3CBF.png" alt="About GeoServer"><span>About GeoServer</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.ProcessStatusPage?filter=false" title="Lists all running and recently completed processes">
+                <img src="../resource/org.geoserver.wps.web.ProcessStatusPage/::/::/web/img/icons/silk/cog-ver-30A18063EF42B090194A7E936086960F.png" alt="Process status"><span>Process status</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Data</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.demo.MapPreviewPage?filter=false" title="List of all layers configured in GeoServer and provides previews in various formats for each.">
+                <img src="../resource/org.geoserver.web.demo.MapPreviewPage/::/img/icons/geosilk/map-ver-3085230CE03A9A93A074669E4C194432.png" alt="Layer Preview"><span>Layer Preview</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.workspace.WorkspacePage?filter=false" title="Manage GeoServer workspaces">
+                <img src="../resource/org.geoserver.web.data.workspace.WorkspacePage/::/::/img/icons/silk/folder-ver-FBD3929A893B147AE0940D48D533E023.png" alt="Workspaces"><span>Workspaces</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.store.StorePage?filter=false" title="Manage the stores providing data to GeoServer">
+                <img src="../resource/org.geoserver.web.data.store.StorePage/::/::/img/icons/silk/database-ver-D698A5E9A755A97B51E657256881BBDE.png" alt="Stores"><span>Stores</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.layer.LayerPage?filter=false" title="Manage the layers being published by GeoServer">
+                <img src="../resource/org.geoserver.web.data.layer.LayerPage/::/::/img/icons/silk/picture_empty-ver-7C42DAE5239115350CA4F2557CF0F015.png" alt="Layers"><span>Layers</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.data.layergroup.LayerGroupPage?filter=false" title="Define and manage layer groupings">
+                <img src="../resource/org.geoserver.web.data.layergroup.LayerGroupPage/::/::/img/icons/silk/layers-ver-A13DE972B638EC78F2A83894515FF4E7.png" alt="Layer Groups"><span>Layer Groups</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wms.web.data.StylePage?filter=false" title="Manage the Styles published by GeoServer">
+                <img src="../resource/org.geoserver.wms.web.data.StylePage/palette-ver-184B77B5020909BED079C417E8F6BB9F.png" alt="Styles"><span>Styles</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Services</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.wmts.WMTSAdminPage?filter=false" title="Web Map Tile Service">
+                <img src="../resource/org.geoserver.gwc.web.wmts.WMTSAdminPage/server_tile_map-ver-23B59D4EE5EADA27CD2BDE0F7B292392.png" alt="WMTS"><span>WMTS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wcs.web.WCSAdminPage?filter=false" title="Web Coverage Service">
+                <img src="../resource/org.geoserver.wcs.web.WCSAdminPage/server_raster-ver-24A0B07B2E1CE3A44AAB292B4AA5567B.png" alt="WCS"><span>WCS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wfs.web.WFSAdminPage?filter=false" title="Web Feature Service">
+                <img src="../resource/org.geoserver.wfs.web.WFSAdminPage/server_vector-ver-ABCFC9BDF3237F2799FED1B0E4679A21.png" alt="WFS"><span>WFS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wms.web.WMSAdminPage?filter=false" title="Web Map Service">
+                <img src="../resource/org.geoserver.wms.web.WMSAdminPage/server_map-ver-BD9F5588DF2CAD48A10C7D90BD6C9DE7.png" alt="WMS"><span>WMS</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.WPSAdminPage?filter=false" title="Web Processing Service">
+                <img src="../resource/org.geoserver.wps.web.WPSAdminPage/server_gear-ver-D3E4E668C526960F9BBB166F1C758467.png" alt="WPS"><span>WPS</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Settings</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.GlobalSettingsPage?filter=false" title="Settings that apply to all OGC services and control the internal behavior of GeoServer.">
+                <img src="../resource/org.geoserver.web.admin.GlobalSettingsPage/::/img/icons/silk/server-ver-B0B38DC2E3593F7363DE77ED20FD7897.png" alt="Global"><span>Global</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.JAIPage?filter=false" title="Administer settings for Java Advanced Imaging image processing and raster encoding.">
+                <img src="../resource/org.geoserver.web.admin.JAIPage/::/img/icons/silk/cog_photo-ver-717DE401B9156ECAC0DDE3752F8C5095.png" alt="Image Processing"><span>Image Processing</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.web.admin.CoverageAccessPage?filter=false" title="Administer settings related to accessing raster data.">
+                <img src="../resource/org.geoserver.web.admin.CoverageAccessPage/::/img/icons/silk/cog_photo-ver-717DE401B9156ECAC0DDE3752F8C5095.png" alt="Raster Access"><span>Raster Access</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Tile Caching</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.layer.CachedLayersPage?filter=false" title="Manage the cached layers published by the integrated GeoWebCache">
+                <img src="../resource/org.geoserver.gwc.web.layer.CachedLayersPage/::/tilelayer-ver-A4E41E9A105008CEA7F89E5529A5CC04.png" alt="Tile Layers"><span>Tile Layers</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.GWCSettingsPage?filter=false" title="Configure the global settings for the embedded GeoWebCache">
+                <img src="../resource/org.geoserver.gwc.web.GWCSettingsPage/geowebcache-16-ver-A2CC77BEC866639F3454064AE0E3AE2C.png" alt="Caching Defaults"><span>Caching Defaults</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.gridset.GridSetsPage?filter=false" title="Manage the available gridsets or create a new one">
+                <img src="../resource/org.geoserver.gwc.web.gridset.GridSetsPage/::/gridset-ver-618E101D6EA16710A07144904F301F58.png" alt="Gridsets"><span>Gridsets</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.diskquota.DiskQuotaSettingsPage?filter=false" title="Configure the disk quota limits and expiration policy for the tile cache">
+                <img src="../resource/org.geoserver.gwc.web.diskquota.DiskQuotaSettingsPage/::/diskquota-ver-952051985214488BB370ECD21DB44C74.png" alt="Disk Quota"><span>Disk Quota</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.gwc.web.blob.BlobStoresPage?filter=false" title="Configure different BlobStores for the embedded GeoWebCache.">
+                <img src="../resource/org.geoserver.gwc.web.blob.BlobStoresPage/::/blobstores-ver-D698A5E9A755A97B51E657256881BBDE.png" alt="BlobStores"><span>BlobStores</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Security</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.SecuritySettingsPage?filter=false" title="Configure global security settings">
+                <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/wrench-ver-A137EB4441860564CE1655357AF26DE8.png" alt="Settings"><span>Settings</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.auth.AuthenticationPage?filter=false" title="Authentication providers and settings">
+                <img src="../resource/org.geoserver.security.web.auth.AuthenticationPage/::/img/icons/silk/shield-ver-807CDFB63D846A7E57F43CBDD59317CE.png" alt="Authentication"><span>Authentication</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.passwd.PasswordPage?filter=false" title="Password settings">
+                <img src="../resource/org.geoserver.security.web.passwd.PasswordPage/::/img/icons/silk/lock-ver-B508411BB915ECF32B1A995644F67FD1.png" alt="Passwords"><span>Passwords</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.UserGroupRoleServicesPage?filter=false" title="Manage users, groups, and roles">
+                <img src="../resource/org.geoserver.security.web.UserGroupRoleServicesPage/img/icons/silk/group-ver-3AFBBB77C13A366898F9088F7AE086A0.png" alt="Users, Groups, Roles"><span>Users, Groups, Roles</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.data.DataSecurityPage?filter=false" title="Edit data access rules">
+                <img src="../resource/org.geoserver.security.web.data.DataSecurityPage/::/img/icons/silk/database_key-ver-B5213A0964C48368586607D76A55A83B.png" alt="Data"><span>Data</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.url.URLChecksPage?filter=false" title="Control External URLs that Geoserver can access">
+                <img src="../resource/org.geoserver.security.web.url.URLChecksPage/::/img/icons/silk/shield-ver-807CDFB63D846A7E57F43CBDD59317CE.png" alt="URL Checks"><span>URL Checks</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.security.web.service.ServiceAccessRulePage?filter=false" title="Edit service access rules">
+                <img src="../resource/org.geoserver.security.web.service.ServiceAccessRulePage/::/img/icons/silk/shape_square_key-ver-48019BBC44223E249D1E0B48DD79E1FD.png" alt="Services"><span>Services</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.wps.web.WPSAccessRulePage?filter=false" title="Web Processing Service security">
+                <img src="../resource/org.geoserver.wps.web.WPSAccessRulePage/server_key-ver-D3E4E668C526960F9BBB166F1C758467.png" alt="WPS security"><span>WPS security</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Monitor</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.monitor.web.ActivityPage?filter=false" title="Recent Server Activity">
+                <img src="../resource/org.geoserver.monitor.web.ActivityPage/img/chart_bar-ver-8D60518C6D18AF693CFEEA9C066026C1.png" alt="Activity"><span>Activity</span>
+              </a>
+            </li><li class="nav-administer-service">
+              <a href="./org.geoserver.monitor.web.ReportPage?filter=false" title="Monitoring Reports">
+                <img src="../resource/org.geoserver.monitor.web.ReportPage/img/table-ver-FEE040A77B0766093B56268370E24AFF.png" alt="Reports"><span>Reports</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./org.geoserver.web.DemoPage" title="GeoServer Demonstrations"><span>Demos</span></a>
+          </div>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./org.geoserver.web.ToolPage" title="GeoServer Tools"><span>Tools</span></a>
+          </div>
+        </li>
+      </ul>
+      
+    </div><!-- /#sidebar -->
+    <div id="page" class="selfclear">
+      <div class="page-header">
+        <div id="topFeedback">
+  
+</div>
+        <h1 id="header-title">Style Editor - polygon</h1>
+        <p id="header-description">Edit the current style. The editor can provide syntax highlighting and automatic formatting. Click on the "validate" button to verify the style is a valid SLD document.</p>
+        <div class="header-panel"></div>
+      </div>
+
+      <div class="page-pane selfclear" id="page-pane">
+        
+    <div id="id3f">
+<!-- The dialog holder -->
+<div id="id40" style="display:none">
+	
+</div>
+</div>
+    <div id="fullscreen-div" class="expand"><a href="#" id="fullscreen-link"><img id="fullscreen-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="fullscreen-image-out" alt="Fullscreen"></a></div>
+    <form id="styleForm" method="post" action="./org.geoserver.wms.web.data.StyleEditPage?7-1.IFormSubmitListener-styleForm&amp;name=polygon" enctype="multipart/form-data" accept-charset="UTF-8"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="styleForm_hf_0" id="styleForm_hf_0"></div>
+        <div class="mb-1" id="style-context">
+<div class="tab-row tab-row-compact">
+<ul>
+	<li class="tab0 selected"><a href="javascript:;" id="id2d"><span>Data</span></a></li><li class="tab1"><a href="javascript:;" id="id2e"><span>Publishing</span></a></li><li class="tab2"><a href="javascript:;" id="id2f"><span>Layer Preview</span></a></li><li class="tab3 last"><a href="javascript:;" id="id30"><span>Layer Attributes</span></a></li>
+</ul>
+</div>
+<div class="tab-panel">
+      <div class="clearfix pt-4">
+          <fieldset class="float-start" style="width: 45%; margin-right: 5%; margin-bottom: 0px">
+            <legend>
+              <span>Style Data</span>
+            </legend>
+            <ul>
+              <li>
+                <label for="name">Name</label>
+                <input class="text" value="polygon" name="context:panel:name" disabled="disabled">
+              </li>
+              <li>
+                <label for="workspace">Workspace</label>
+                <select name="context:panel:workspace" disabled="" id="id31" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option selected="selected" value=""></option>
+<option value="WorkspaceInfoImpl-2b665931:15a1d6fbd50:-7ff9">geor</option>
+<option value="WorkspaceInfoImpl-58a67778:18fec9f10ce:-7dbc">psc</option>
+</select><span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 47px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-labelledby="select2-id31-container"><span class="select2-selection__rendered" id="select2-id31-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+              </li>
+              <li>
+                <label for="format">Format</label>
+                <select name="context:panel:format" disabled="" id="id32" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option value="css">CSS</option>
+<option selected="selected" value="sld">SLD</option>
+<option value="zip">ZIP</option>
+<option value="mbstyle">MBStyle</option>
+</select><span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 72px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-labelledby="select2-id32-container"><span class="select2-selection__rendered" id="select2-id32-container" title="SLD">SLD</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                <div class="info-link" style="display: inline-block;">
+                  Format only editable for new styles
+                </div>
+              </li>
+            </ul>
+          <div style="padding-top: 2em"><fieldset style="margin-bottom: 0em">
+            <legend>
+              <span>Style Content</span>
+            </legend>
+            <ul>
+              <li>
+                <label for="name">Generate a default style</label>
+                <select name="context:panel:templates" id="id35" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option selected="selected" value="">Choose One</option>
+<option value="Point">Point</option>
+<option value="Line">Line</option>
+<option value="Polygon">Polygon</option>
+<option value="Raster">Raster</option>
+<option value="Generic">Generic</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 94px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-id35-container"><span class="select2-selection__rendered" id="select2-id35-container" title="Choose One">Choose One</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                <a id="id41">Generate ...</a>
+              </li>
+              <li>
+                <label for="name">Copy from existing style</label>
+                <select style="width: 27em;" name="context:panel:existingStyles" id="id36" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option selected="selected" value="">Choose One</option>
+<option value="StyleInfoImpl-58a67778:18fec9f10ce:-7ffb">generic</option>
+<option value="StyleInfoImpl-78ff667e:12476299803:-7ffc">line</option>
+<option value="StyleInfoImpl-78ff667e:12476299803:-7ff9">point</option>
+<option value="StyleInfoImpl-78ff667e:12476299803:-7ffa">polygon</option>
+<option value="StyleInfoImpl-78ff667e:12476299803:-7ffb">raster</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 27em;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-id36-container"><span class="select2-selection__rendered" id="select2-id36-container" title="Choose One">Choose One</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                <a id="id42">Copy ...</a>
+              </li>
+              <li>
+                <label for="filename">Upload a style file</label>
+                <input type="file" name="context:panel:filename"> 
+                <a href="javascript:;" id="id37">Upload ...</a>
+              </li>
+            </ul>
+          </fieldset></div>
+          </fieldset>
+          <fieldset class="float-start" style="width: 45%; margin-right: 5%">
+            <legend>
+              <span>Legend</span>
+            </legend>
+            <ul>
+              <li>
+                <label for="legend">Legend</label>
+                <span id="id43">
+  <div id="id44">
+    <ul id="id45" style="display:none">
+      <li>
+        <label for="onlineResource">Online Resource</label>
+      </li>
+      <li>
+        <input type="text" class="text" value="" name="context:panel:legendPanel:externalGraphicContainer:list:onlineResource" id="id46">
+        <a href="javascript:;" id="id33">Choose Image ...</a>
+        <br>
+        
+      </li>
+      <li><label for="width">Width</label></li>
+      <li><input type="text" class="text" value="0" name="context:panel:legendPanel:externalGraphicContainer:list:width" id="id47"></li>
+      <li><label for="height">Height</label></li>
+      <li><input type="text" class="text" value="0" name="context:panel:legendPanel:externalGraphicContainer:list:height" id="id48"></li>
+      <li><label for="format">Format</label></li>
+      <li><input type="text" class="text" value="" name="context:panel:legendPanel:externalGraphicContainer:list:format" id="id49"></li>      
+    </ul>
+    <div id="showhideForm">
+        <button name="context:panel:legendPanel:externalGraphicContainer:showhide:show" id="id34">Add legend</button>
+        
+    </div>
+  </div>  
+</span>
+              </li>
+              <li>
+                <a href="javascript:;" id="id38">Preview legend</a>
+                <div id="id4a">
+                  
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+      </div>
+    </div>
+</div>
+        <div class="field" id="style-editor">
+  <div id="id3b">
+    <div class="py-1">
+      
+        <div class="button-group button-toolbar clearfix">
+              <a class="button-undo icon" href="#a" title="Undo" id="cm_undo">
+                <span></span>
+              </a>
+              <a class="button-redo icon separator" href="#a" title="Redo" id="cm_redo">
+                <span></span>
+              </a>
+              <a class="button-goto icon" href="#a" title="Go to line ..." id="cm_goto">
+                <span></span>
+              </a>
+              <a class="button-reformat icon separator" href="#a" title="Reformat" id="cm_reformat">
+                <span></span>
+              </a>
+              <a class="button-find icon separator" href="#a" title="Find" id="cm_find">
+                <span></span>
+              </a>
+               <a class="button-find-next icon separator" href="#a" title="Find next" id="cm_find_next">
+                 <span></span>
+               </a>
+              <a class="button-replace icon separator" href="#a" title="Replace" id="cm_replace">
+                 <span></span>
+              </a>
+              Font
+              <select class="m-0" id="cm_font_size">
+                <option value="8">8pt</option>
+                <option value="10">10pt</option>
+                <option value="12" selected="selected">12pt</option>
+                <option value="14">14pt</option>
+                <option value="16">16pt</option>
+                <option value="18">18pt</option>
+                <option value="20">20pt</option>
+              </select>
+              Height
+              <select class="m-0" id="cm_editor_heigth">
+                <option value="200">200px</option>
+                <option value="250">250px</option>
+                <option value="300" selected="selected">300px</option>
+                <option value="350">350px</option>
+                <option value="400">400px</option>
+                <option value="450">450px</option>
+                <option value="500">500px</option>
+                <option value="450">550px</option>
+                <option value="600">600px</option>
+                <option value="650">650px</option>
+                <option value="700">700px</option>
+                <option value="750">750px</option>
+                <option value="800">800px</option>
+                <option value="850">850px</option>
+                <option value="900">900px</option>
+                <option value="950">950px</option>
+                <option value="1000">1000px</option>                  
+              </select>
+
+              <a class="icon separator button-picture" id="id39" href="javascript:;" title="Insert Image ...">
+                <span></span>
+              </a><a class="icon separator button-color" id="id3a" href="javascript:;" title="Choose color ...">
+                <span></span>
+              </a>    
+            </div>
+      
+    </div>
+    <div style="border: 1px solid black; padding-bottom: 3px">
+      <textarea name="styleEditor:editorContainer:editorParent:editor" id="editor" style="display: none;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;StyledLayerDescriptor version="1.0.0" 
+ xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" 
+ xmlns="http://www.opengis.net/sld" 
+ xmlns:ogc="http://www.opengis.net/ogc" 
+ xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;!-- a Named Layer is the basic building block of an SLD document --&gt;
+  &lt;NamedLayer&gt;
+    &lt;Name&gt;default_polygon&lt;/Name&gt;
+    &lt;UserStyle&gt;
+    &lt;!-- Styles can have names, titles and abstracts --&gt;
+      &lt;Title&gt;Default Polygon&lt;/Title&gt;
+      &lt;Abstract&gt;A sample style that draws a polygon&lt;/Abstract&gt;
+      &lt;!-- FeatureTypeStyles describe how to render different features --&gt;
+      &lt;!-- A FeatureTypeStyle for rendering polygons --&gt;
+      &lt;FeatureTypeStyle&gt;
+        &lt;Rule&gt;
+          &lt;Name&gt;rule1&lt;/Name&gt;
+          &lt;Title&gt;Gray Polygon with Black Outline&lt;/Title&gt;
+          &lt;Abstract&gt;A polygon with a gray fill and a 1 pixel black outline&lt;/Abstract&gt;
+          &lt;PolygonSymbolizer&gt;
+            &lt;Fill&gt;
+              &lt;CssParameter name="fill"&gt;#AAAAAA&lt;/CssParameter&gt;
+            &lt;/Fill&gt;
+            &lt;Stroke&gt;
+              &lt;CssParameter name="stroke"&gt;#000000&lt;/CssParameter&gt;
+              &lt;CssParameter name="stroke-width"&gt;1&lt;/CssParameter&gt;
+            &lt;/Stroke&gt;
+          &lt;/PolygonSymbolizer&gt;
+        &lt;/Rule&gt;
+      &lt;/FeatureTypeStyle&gt;
+    &lt;/UserStyle&gt;
+  &lt;/NamedLayer&gt;
+&lt;/StyledLayerDescriptor&gt;
+</textarea><div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 12px; width: 100%; height: 300px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 33px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 440px;"></div></div><div class="CodeMirror-hscrollbar" not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" not-content="true"></div><div class="CodeMirror-gutter-filler" not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; margin-bottom: -15px; border-right-width: 15px; min-height: 440px; padding-right: 15px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>36</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 12px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-meta">&lt;?xml</span> <span class="cm-meta">version="1.0" encoding="UTF-8"?&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">StyledLayerDescriptor</span> <span class="cm-attribute">version</span>=<span class="cm-string">"1.0.0"</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-attribute">xsi:schemaLocation</span>=<span class="cm-string">"http://www.opengis.net/sld StyledLayerDescriptor.xsd"</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-attribute">xmlns</span>=<span class="cm-string">"http://www.opengis.net/sld"</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-attribute">xmlns:ogc</span>=<span class="cm-string">"http://www.opengis.net/ogc"</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-attribute">xmlns:xlink</span>=<span class="cm-string">"http://www.w3.org/1999/xlink"</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;"> <span class="cm-attribute">xmlns:xsi</span>=<span class="cm-string">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-comment">&lt;!-- a Named Layer is the basic building block of an SLD document --&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">NamedLayer</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">10</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Name</span><span class="cm-tag cm-bracket">&gt;</span>default_polygon<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Name</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">11</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">UserStyle</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">12</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-comment">&lt;!-- Styles can have names, titles and abstracts --&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">13</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Title</span><span class="cm-tag cm-bracket">&gt;</span>Default Polygon<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">14</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Abstract</span><span class="cm-tag cm-bracket">&gt;</span>A sample style that draws a polygon<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Abstract</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">15</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-comment">&lt;!-- FeatureTypeStyles describe how to render different features --&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">16</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-comment">&lt;!-- A FeatureTypeStyle for rendering polygons --&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">17</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">FeatureTypeStyle</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">18</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Rule</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">19</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Name</span><span class="cm-tag cm-bracket">&gt;</span>rule1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Name</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">20</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Title</span><span class="cm-tag cm-bracket">&gt;</span>Gray Polygon with Black Outline<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">21</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Abstract</span><span class="cm-tag cm-bracket">&gt;</span>A polygon with a gray fill and a 1 pixel black outline<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Abstract</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">22</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">PolygonSymbolizer</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">23</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Fill</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">24</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">CssParameter</span> <span class="cm-attribute">name</span>=<span class="cm-string">"fill"</span><span class="cm-tag cm-bracket">&gt;</span>#AAAAAA<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">CssParameter</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">25</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Fill</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">26</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Stroke</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">27</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">CssParameter</span> <span class="cm-attribute">name</span>=<span class="cm-string">"stroke"</span><span class="cm-tag cm-bracket">&gt;</span>#000000<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">CssParameter</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">28</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">CssParameter</span> <span class="cm-attribute">name</span>=<span class="cm-string">"stroke-width"</span><span class="cm-tag cm-bracket">&gt;</span>1<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">CssParameter</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">29</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Stroke</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">30</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">PolygonSymbolizer</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">31</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Rule</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">32</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">FeatureTypeStyle</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">33</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">UserStyle</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -29px; width: 29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">34</div></div><pre class=""><span style="padding-right: 0.1px;">  <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">NamedLayer</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 15px; width: 1px; top: 440px;"></div><div class="CodeMirror-gutters" style="height: 455px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div>
+    </div>
+  </div>
+</div>
+        <div id="id4b" style="display:none">
+	
+</div>
+    </form>
+    <div class="button-group toolbar-sticky selfclear" style="margin-top: 0.5em; margin-left: -1px; clear: left">
+       <a href="javascript:;" class="form-button-validate" id="id3c">Validate</a>
+       <a href="javascript:;" class="form-button-save" id="id3e">Save</a>
+       <a href="javascript:;" class="form-button-apply" id="id3d">Apply</a>
+       <a href="./org.geoserver.wms.web.data.StyleEditPage?7-1.ILinkListener-cancel&amp;name=polygon" class="form-button-cancel">Cancel</a>
+    </div>
+
+      </div>
+      <div class="page-footer">
+        <div id="bottomFeedback">
+  
+</div>
+      </div>
+    </div><!-- /#page -->
+    </div><!-- /.wrap> -->
+  </div><!-- /#main -->
+  <!-- The feebdback component needs a local style so that the Wicket Ajax support can flip
+       its value to "display: true". Will not work with a class, do not use one here -->
+  <div id="ajaxFeedback" style="display: none">
+    <img alt="Loading..." src="../resource/org.geoserver.web.GeoServerBasePage/img/ajax-loader-ver-A51C5608D01ACF32DF728F299767F82B.gif">
+  </div>
+
+
+</body></html>

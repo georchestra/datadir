@@ -1,0 +1,453 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="../resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
+<script type="text/javascript" src="../resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="wicket/bookmarkable/org.geoserver.web.demo.MapPreviewPage?1&amp;filter=false";
+/*]]>*/
+</script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>GeoServer: Layer Preview</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+	
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/screen-ver-5E7BA86A4C3BEA6B457AC3C7F9ADF9B4.css" type="text/css" media="screen, projection">
+      
+      
+      <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
+      
+      
+        <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/bootstrap-utilities.min-ver-645A1893E414D59190220CC91091A3B1.css" type="text/css" media="all">
+	  <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-2BEFECF600188C5A52BB47BAB8EA1140.css" type="text/css" media="screen, projection">
+	  
+      <!--[if IE]>
+      
+        <link rel="stylesheet" href="../resource/org.geoserver.web.GeoServerBasePage/css/blueprint/ie-ver-830652BCF971CCAF4FB29B4A140F9430.css" type="text/css" media="screen, projection"/>
+        
+      <![endif]-->
+      
+      <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.placeholder-ver-6E6E735FF3A1792243C593D1E48D6AE1.js"></script>
+      
+    
+        <script type="text/javascript" src="../resource/org.geoserver.web.GeoServerBasePage/js/jquery.fullscreen-ver-A1341414A7D106EAE077E0332CD01573.js"></script>
+    
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+<script type="text/javascript" src="../resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.demo.MapPreviewPage?1-1.IBehaviorListener.0-localeSwitcher&filter=false","m":"POST","c":"id5","i":"ajaxFeedback","e":"change"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.demo.MapPreviewPage?1-1.IBehaviorListener.0-table-filterForm-submit&filter=false","m":"POST","c":"id7","f":"id6","sc":"p::submit","i":"ajaxFeedback","e":"click","pd":true});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.demo.MapPreviewPage?1-1.IBehaviorListener.0-table-listContainer-sortableLinks-0-header-link&filter=false","c":"id8","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.demo.MapPreviewPage?1-1.IBehaviorListener.0-table-listContainer-sortableLinks-1-header-link&filter=false","c":"id9","i":"ajaxFeedback","e":"click"});;
+Wicket.Ajax.ajax({"u":"./org.geoserver.web.demo.MapPreviewPage?1-1.IBehaviorListener.0-table-listContainer-sortableLinks-2-header-link&filter=false","c":"ida","i":"ajaxFeedback","e":"click"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+</head>
+<body>
+  <div id="go_head">
+    <geor-header style="width:100%;height:90px;border:none;" active-app="geoserver" legacy-url="/header/" legacy-header="false" logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet=""></geor-header>
+  </div>
+  <div id="main">
+    <div class="wrap selfclear">
+    <div id="sidebar">
+      
+      <ul id="navigation">
+        <li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>About &amp; Status</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.AboutGeoServerPage?filter=false" title="General information about GeoServer">
+                <img src="../resource/org.geoserver.web.AboutGeoServerPage/img/icons/silk/help-ver-C3812C74BC524179F4CCF5D2DB7B3CBF.png" alt="About GeoServer"><span>About GeoServer</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Data</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./org.geoserver.web.demo.MapPreviewPage?filter=false" title="List of all layers configured in GeoServer and provides previews in various formats for each.">
+                <img src="../resource/org.geoserver.web.demo.MapPreviewPage/::/img/icons/geosilk/map-ver-3085230CE03A9A93A074669E4C194432.png" alt="Layer Preview"><span>Layer Preview</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./org.geoserver.web.DemoPage" title="GeoServer Demonstrations"><span>Demos</span></a>
+          </div>
+        </li>
+      </ul>
+      
+    </div><!-- /#sidebar -->
+    <div id="page" class="selfclear">
+      <div class="page-header">
+        <div id="topFeedback">
+  
+</div>
+        <h1 id="header-title">Layer Preview</h1>
+        <p id="header-description">List of all layers configured in GeoServer and provides previews in various formats for each.</p>
+        <div class="header-panel"></div>
+      </div>
+
+      <div class="page-pane selfclear" id="page-pane">
+        
+  <!-- the table component -->
+  <div id="idb">
+	<!--  the pager/filter top block -->
+	<form class="clearfix" id="id6" method="post" action="./org.geoserver.web.demo.MapPreviewPage?1-1.IFormSubmitListener-table-filterForm&amp;filter=false"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="id6_hf_0" id="id6_hf_0"></div><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="text" tabindex="-1" autocomplete="off"><input type="submit" tabindex="-1" name="p::submit" onclick=" var b=document.getElementById('id7'); if (b!=null&amp;&amp;b.onclick!=null&amp;&amp;typeof(b.onclick) != 'undefined') {  var r = Wicket.bind(b.onclick, b)(); if (r != false) b.click(); } else { b.click(); };  return false;"></div>
+		<div class="float-start">
+			<span id="idc">
+	<span class="paginator" id="idd">
+	<a class="first" id="ide" disabled="disabled" title="Go to first page">&lt;&lt;</a>
+	<a rel="prev" class="prev" id="idf" disabled="disabled" title="Go to previous page">&lt;</a>
+	<span class="goto">
+		<a id="id10" disabled="disabled" title="Go to page 1"><span>1</span></a>
+	</span>
+	<a rel="next" class="next" id="id11" disabled="disabled" title="Go to next page">&gt;</a>
+	<a class="last" id="id12" disabled="disabled" title="Go to last page">&gt;&gt;</a>
+</span>
+	<span>Results 1 to 10 (out of 11 items)</span>
+</span>
+		</div>
+		<div class="float-end">
+			<input id="filter" class="me-1 search" type="text" size="35" title="Search" placeholder="Search" value="" name="filter" onkeypress="if(event.keyCode == 13) {document.getElementById('id7').click();return false;}">
+			<input class="d-none" type="submit" value="Search" name="p::submit" id="id7">
+			<script type="text/javascript">
+/*<![CDATA[*/
+
+				$('input, textarea').placeholder();
+			
+/*]]>*/
+</script>
+			
+		</div>
+	</form>
+
+	<!--  the table -->
+	<table id="id13">
+		<thead>
+			<tr>
+			  <!-- The select all checkbox -->
+			  
+			  <!-- This is a repeater, will generate one th for each property -->
+			  <th><div>
+		<a href="javascript:;" id="id8"><span>Type</span></a>
+	</div></th><th><div>
+		<a href="javascript:;" id="id9"><span>Title</span></a>
+	</div></th><th><div>
+		<a href="javascript:;" id="ida"><span>Name</span></a>
+	</div></th><th><div>Common Formats</div></th><th><div>All Formats</div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="id14" class="even">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id15" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_1</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_1&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_1&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_1">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_1&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_1&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id16" class="even">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_2</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_2&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_2&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_2">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_2&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_2&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id17" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_3</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_3&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_3&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_3">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_3&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_3&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id18" class="even">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_4</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_4&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_4&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_4">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_4&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_4&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id19" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_5</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_5&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_5&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_5">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_5&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_5&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id1a" class="even">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_6</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_6&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_6&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_6">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_6&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_6&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id1b" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_7</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_7&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_7&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_7">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_7&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_7&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id1c" class="even">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_8</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_8&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_8&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_8">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_8&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_8&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr><tr id="id1d" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_9</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_9&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_9&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_9">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_9&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'https://georchestra-127-0-1-1.traefik.me/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_9&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- the bottom pager -->
+	<span id="id1e">
+	<span class="paginator" id="id1f">
+	<a class="first" id="id20" disabled="disabled" title="Go to first page">&lt;&lt;</a>
+	<a rel="prev" class="prev" id="id21" disabled="disabled" title="Go to previous page">&lt;</a>
+	<span class="goto">
+		<a id="id22" disabled="disabled" title="Go to page 1"><span>1</span></a>
+	</span>
+	<a rel="next" class="next" id="id23" disabled="disabled" title="Go to next page">&gt;</a>
+	<a class="last" id="id24" disabled="disabled" title="Go to last page">&gt;&gt;</a>
+</span>
+	<span>Results 1 to 10 (out of 11 items)</span>
+</span>
+
+	<!-- Sortable header fragments -->
+	
+
+	<!-- Pagination fragment -->
+	
+
+	
+</div>
+  
+  <!-- The fragment for the icon -->
+  
+  
+  <!-- The fragment for the common links -->
+  
+  
+  <!--  The custom drop down with optgroups -->
+  
+
+      </div>
+      <div class="page-footer">
+        <div id="bottomFeedback">
+  
+</div>
+      </div>
+    </div><!-- /#page -->
+    </div><!-- /.wrap> -->
+  </div><!-- /#main -->
+  <!-- The feebdback component needs a local style so that the Wicket Ajax support can flip
+       its value to "display: true". Will not work with a class, do not use one here -->
+  <div id="ajaxFeedback" style="display: none">
+    <img alt="Loading..." src="../resource/org.geoserver.web.GeoServerBasePage/img/ajax-loader-ver-A51C5608D01ACF32DF728F299767F82B.gif">
+  </div>
+
+
+</body></html>

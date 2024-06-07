@@ -1,165 +1,586 @@
-<html><head>
-    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>CAS - Central Authentication Service Login</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css" href="/cas/webjars/normalize.css/8.0.1/normalize.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/bootstrap/5.2.0/css/bootstrap-grid.min.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/material-components-web/14.0.0/dist/material-components-web.min.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/mdi__font/6.5.95/css/materialdesignicons.min.css"><link rel="stylesheet" type="text/css" href="/cas/themes/georchestra/css/cas.css"><link rel="shortcut icon" href="/favicon.ico"></head>
+<html lang="en"><head><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <base href="/console/manager/">
 
-<body class="login mdc-typography">
-    <script type="text/javascript" src="/cas/webjars/jquery/3.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="/cas/webjars/datatables/1.12.1/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="public/libraries.css">
+  <link rel="stylesheet" href="public/app.css">
+  <link rel="stylesheet" href="public/svg.css" class="svg-styles">
 
-<script type="text/javascript" src="/cas/webjars/es5-shim/4.5.9/es5-shim.min.js"></script>
-  <script type="text/javascript" src="/cas/webjars/css-vars-ponyfill/2.4.7/dist/css-vars-ponyfill.min.js"></script>
-  <script type="text/javascript" src="/cas/webjars/material-components-web/14.0.0/dist/material-components-web.min.js"></script>
-<script type="text/javascript" src="/cas/themes/georchestra/js/cas.js"></script>
-<script>
-    if (typeof resourceLoadedSuccessfully === "function") {
-        resourceLoadedSuccessfully();
-    }
-    $(() => {
-        typeof cssVars === "function" && cssVars({onlyLegacy: true});
-    })
-    var trackGeoLocation = false;
-</script>
+  <title>Admin Console</title>
 
-<div>
-    <geor-header style="width:100%;height:90px;border:none;overflow:hidden;" legacy-url="/header/" legacy-header="false" logo-url="https://www.georchestra.org/public/georchestra-logo.svg"></geor-header>
-    <script src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+<style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }
+[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto; }
+[touch-action~="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }
+[touch-action~="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }
+[touch-action~="pan-up"]{ -ms-touch-action: pan-up; touch-action: pan-up; }
+[touch-action~="pan-down"]{ -ms-touch-action: pan-down; touch-action: pan-down; }
+[touch-action~="pan-left"]{ -ms-touch-action: pan-left; touch-action: pan-left; }
+[touch-action~="pan-right"]{ -ms-touch-action: pan-right; touch-action: pan-right; }
+</style></head>
+
+<body ng-app="manager" ng-strict-di="" ng-controller="AppController" class="ng-scope">
+
+  <geor-header legacy-header="false" legacy-url="/header/" style="width:100%;height:90px;border:none;" logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet="" active-app="console"></geor-header>
+  <script ng-src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js" src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+
+  <div flash-message="2000"><div role="alert" ng-show="hasFlash" class="alert  alert- alert-dismissible ng-hide alertIn alertOut "> <span dynamic="flash.text"></span> <button type="button" class="close" close-flash=""><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div></div>
+
+  <div class="container" style="padding-top:20px">
+
+    <div class="profile label pull-right label-info" title="Your role allows you to manage all accounts">
+      Administrator
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-class="{'active': isActive(['home'])}" class="active">
+        <a ng-link="home" translate="" class="ng-scope" href="./home">Dashboard</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['users','browse'])}">
+        <a ng-link="users({'id': 'all'})" translate="" class="ng-scope" href="./browse/all/users">Users</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['orgs','org'])}">
+        <a ng-link="orgs({'org': 'all'})" translate="" class="ng-scope" href="./orgs/all">Organizations</a>
+      </li>
+      <li role="presentation" ng-class="{'active': isActive(['roles','role'])}">
+        <a ng-link="roles({'role': 'all'})" translate="" class="ng-scope" href="./roles/all">Roles</a>
+      </li>
+      <!-- ngIf: profile === 'SUPERUSER' --><li role="presentation" ng-class="{'active': isActive(['delegations'])}" ng-if="profile === 'SUPERUSER'" class="ng-scope">
+        <a ng-link="delegations({})" translate="" class="ng-scope" href="./delegations">Delegations</a>
+      </li><!-- end ngIf: profile === 'SUPERUSER' -->
+      <!-- ngIf: platformInfos.analyticsEnabled || false --><li role="presentation" ng-class="{'active': isActive(['analytics'])}" ng-if="platformInfos.analyticsEnabled || false" class="ng-scope">
+        <a ng-link="analytics({'role': 'all'})" translate="" class="ng-scope" href="./analytics/all">Analytics</a>
+      </li><!-- end ngIf: platformInfos.analyticsEnabled || false -->
+      <li role="presentation" ng-class="{'active': isActive(['logs'])}">
+        <a ng-link="logs" translate="" class="ng-scope" href="./logs">Logs</a>
+      </li>
+    </ul>
+
+    <!-- ngViewport: --><ng-viewport class="ng-scope"><section class="home row ng-scope">
+
+  <div class="col-md-4">
+    <div class="alerts">
+      <div class="alert alert-info">
+        <i class="glyphicon glyphicon-user pull-right"></i>
+        <i class="glyphicon glyphicon-user pull-right"></i>
+        <a ng-link="users({id: 'all'})" translate="" class="ng-scope" href="./browse/all/users">Manage users</a>
+      </div>
+      <!-- ngIf: home.pendingCount > 0 --><div class="alert alert-danger ng-scope" ng-if="home.pendingCount > 0">
+        <a ng-link="users({id: 'pending'})" href="./browse/pending/users">
+          <span><ng-pluralize count="home.pendingCount" when="{'1': '{} waiting user',
+                               'other': '{} waiting users'}">2 waiting users</ng-pluralize></span><br>
+          <span class="manage ng-scope" translate="">View &amp; manage</span>
+        </a>
+      </div><!-- end ngIf: home.pendingCount > 0 -->
+      <!-- ngIf: home.expired && home.expired.users.length > 0 -->
+    </div>
+
+    <!-- ngIf: platformInfos.analyticsEnabled --><div class="jumbotron ng-scope" ng-if="platformInfos.analyticsEnabled">
+      <!-- ngIf: home.connected && home.connected.results.length > 0 -->
+      <p><ng-pluralize count="home.connected.results.length" when="{'0': 'No registered user of services today !',
+                              '1': 'user of services today',
+                              'other': 'users of services today'}">No registered user of services today !</ng-pluralize></p>
+      <!-- ngIf: home.connected.results && home.connected.results.length > 0 -->
+    </div><!-- end ngIf: platformInfos.analyticsEnabled -->
+
+  </div>
+
+  <div class="col-md-8">
+    <!-- ngIf: platformInfos.analyticsEnabled --><stats data="home.requests" type="'line'" config="['date', 'count']" title="'analytics.requests'" ng-if="platformInfos.analyticsEnabled" class="ng-scope ng-isolate-scope"><div class="stats">
+
+  <div class="btn-group pull-right" role="role">
+    <button ng-click="stats.switchView()" type="button" class="btn btn-default active" ng-class="{'active': stats.view =='graph'}" title="View as graph">
+      <i class="glyphicon glyphicon-stats"></i>
+    </button>
+    <button ng-click="stats.switchView()" type="button" class="btn btn-default" ng-class="{'active': stats.view =='table'}" title="View as table">
+      <i class="glyphicon glyphicon-th-list"></i>
+    </button>
+  </div>
+
+  <h4 class="ng-binding">
+    Number of requests
+    <!-- ngIf: stats.data.granularity --><span ng-if="stats.data.granularity" class="ng-binding ng-scope">
+      per day
+    </span><!-- end ngIf: stats.data.granularity -->
+  </h4>
+
+  <div ng-show="stats.nodata &amp;&amp; stats.data.$resolved" class="alert alert-warning">
+    <i class="glyphicon glyphicon-alert"></i>&nbsp;
+    <span translate="" class="ng-scope">No data for this period</span>
+  </div>
+
+  <div ng-show="!stats.data.$resolved" class="progress ng-hide">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    </div>
+  </div>
+
+  <div class="chartist ng-hide" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata" title="Number of requests" style=""><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="16" y2="16" x1="55" x2="56" class="ct-grid ct-vertical"></line></g><g></g><g class="ct-labels"><text x="10" y="336">0</text></g></svg></div>
+
+  <table class="table table-bordered table-striped ng-hide" ng-show="stats.view=='table'">
+    <tbody><!-- ngRepeat: value in stats.serie track by $index -->
+  </tbody></table>
+
+  <!-- Download graph as PNG -->
+  <button ng-click="stats.exportPNG()" class="btn btn-default btn-sm center-block ng-hide" title="Save as PNG" ng-show="stats.view=='graph' &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata">
+    <i class="glyphicon glyphicon-save"></i>
+  </button>
+
+  <!-- Export data as CSV -->
+  <button ng-click="stats.exportCSV()" class="btn btn-default btn-sm center-block ng-hide" title="Save as CSV" ng-show="stats.view=='table' &amp;&amp; stats.csvConfig &amp;&amp; stats.data.$resolved &amp;&amp; !stats.nodata">
+    <i class="glyphicon glyphicon-save"></i>
+  </button>
+
 </div>
 
-    <div class="mdc-drawer-scrim"></div>
+</stats><!-- end ngIf: platformInfos.analyticsEnabled -->
+    <logger filter="false" title="true" class="ng-isolate-scope"><section class="logger">
+    <button ng-show="logger.isFiltered()" class="reset btn btn-default pull-right ng-hide" ng-click="logger.reset()">
+    <i class="glyphicon glyphicon-repeat"></i>
+    Reset filters
+    </button>
+    <!-- ngIf: logger.getTitle() -->
+    <hr>
+    <!-- ngIf: logger.log -->
+    <!-- ngIf: !logger.log --><table class="table table-condensed ng-scope" ng-if="!logger.log">
+        <!-- ngIf: logger.filter -->
+        <!-- ngIf: !logger.filter --><thead ng-if="!logger.filter" class="ng-scope">
+            <tr>
+                <th translate="" class="ng-scope">Date</th>
+                <th translate="" class="ng-scope">Author</th>
+                <th translate="" class="ng-scope">Modification of</th>
+                <th translate="" class="ng-scope">Action</th>
+            </tr>
+        </thead><!-- end ngIf: !logger.filter -->
+    <tbody>
+        <!-- ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:20 PM">a few seconds ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:18 PM">2 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation deleted" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+                Organisation deleted
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:18 PM">2 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation created" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Organisation created
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:18 PM">2 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:17 PM">3 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation deleted" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+                Organisation deleted
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 5:17 PM">3 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">functestsorg</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation created" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Organisation created
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:56 PM">24 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:56 PM">24 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/nnewuser/infos">
+              nnewuser
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Pending user created" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-plus"></i>
+                Pending user created
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:55 PM">25 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">nnewuser</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Pending user refused" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-remove"></i>
+                Pending user refused
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:50 PM">30 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:39 PM">41 minutes ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:22 PM">an hour ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:17 PM">an hour ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">aaa</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation deleted" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+                Organisation deleted
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:17 PM">an hour ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/testadmin/infos">testadmin</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' --><span ng-if="logger.getType(log) === ''" class="ng-binding ng-scope">aaa</span><!-- end ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Organisation created" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Organisation created
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage --><tr ng-repeat="log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage" class="ng-scope">
+          <td><abbr ng-bind-html="log.date | dateFormat" class="ng-binding"><span title="Jun 7, 2024 4:13 PM">an hour ago</span></abbr></td>
+          <td style="max-width: 10vw" class="text-overflow"><a ng-link="user({id: log.admin, tab: 'infos'})" title="" class="ng-binding" href="./users/anonymousUser/infos">anonymousUser</a>
+          <!--Target-->
+          </td><td style="max-width: 10vw" class="text-overflow">
+            <!--user or user's role modification-->
+            <!-- ngIf: logger.getType(log) === 'USER' --><a ng-if="logger.getType(log) === 'USER'" ng-link="user({id: log.target, tab: 'infos'})" class="ng-binding ng-scope" href="./users/testadmin/infos">
+              testadmin
+            </a><!-- end ngIf: logger.getType(log) === 'USER' -->
+            <!--org-->
+            <!-- ngIf: logger.getType(log) === 'ORG' -->
+            <!--role-->
+            <!-- ngIf: logger.getType(log) === 'ROLE' -->
+            <!--refused or deleted-->
+            <!-- ngIf: logger.getType(log) === '' -->
+          </td>
+          <!--Type-->
+          <td>
+            <!-- ngIf: !log.changed --><span ng-if="!log.changed" title="Password recovery email sent" class="ng-binding ng-scope">
+                <i class="glyphicon glyphicon-edit"></i>
+                Password recovery email sent
+            </span><!-- end ngIf: !log.changed -->  
+            <!-- ngIf: log.changed && log.type=='EMAIL_SENT' -->
+            <!-- ngIf: log.type.indexOf('_ROLE_') >= 0 -->
+            <!-- ngIf: log.type.indexOf('_ATTRIBUTE_CHANGED') >= 0 -->
+            <!-- ngIf: log.changed && log.changed.field === log.target -->
+          </td>
+        </tr><!-- end ngRepeat: log in logger.logs | logs: logger.type:logger.admin:logger.target:logger.date | orderBy: '-date' | itemsPerPage: logger.itemsPerPage -->
+        <!-- ngIf: (logger.logs | logs: logger.type:logger.admin:logger.target:logger.date).length === 0 -->
+    </tbody>
+    </table><!-- end ngIf: !logger.log -->
 
-    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust d-flex justify-content-center">
-        <main role="main" id="main-content" class="container-lg py-4">
-            <div id="content" class="d-flex justify-content-center">
-    <div class="d-flex justify-content-center flex-md-row flex-column mdc-card mdc-card-content card">
-        <section id="loginForm" class="login-section login-form card-body">
-            <div class="d-flex flex-column justify-content-between m-auto">
-        <div>
-            <div id="serviceui" class="mb-4">
-        <div class="d-flex align-items-center p-2">
-            <div id="servicedesc" class="ml-2">
-                <h5><i class="mdi mdi-web"></i>georchestra</h5>
-                <p></p>
-            </div>
-        </div>
-    </div>
-        </div>
-        <div class="form-wrapper">
-            <form method="post" id="fm1" action="login">
+    <!-- ngIf: !logger.log.changed && !logger.log.trusted --><dir-pagination-controls ng-if="!logger.log.changed &amp;&amp; !logger.log.trusted" class="ng-scope ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide --><ul class="pagination ng-scope" ng-if="1 < pages.length || !autoHide">
+    <!-- ngIf: boundaryLinks -->
+    <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }" class="ng-scope disabled">
+        <a ng-click="setCurrent(pagination.current - 1)">‹</a>
+    </li><!-- end ngIf: directionLinks -->
+    <!-- ngRepeat: pageNumber in pages track by tracker(pageNumber, $index) --><li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }" class="ng-scope active">
+        <a ng-click="setCurrent(pageNumber)" class="ng-binding">1</a>
+    </li><!-- end ngRepeat: pageNumber in pages track by tracker(pageNumber, $index) --><li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }" class="ng-scope">
+        <a ng-click="setCurrent(pageNumber)" class="ng-binding">2</a>
+    </li><!-- end ngRepeat: pageNumber in pages track by tracker(pageNumber, $index) -->
 
-                <h3 class="text-center">
-                    <i class="mdi mdi-security"></i>
-                    <span>Enter Username &amp; Password</span>
-                </h3>
+    <!-- ngIf: directionLinks --><li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }" class="ng-scope">
+        <a ng-click="setCurrent(pagination.current + 1)">›</a>
+    </li><!-- end ngIf: directionLinks -->
+    <!-- ngIf: boundaryLinks -->
+</ul><!-- end ngIf: 1 < pages.length || !autoHide -->
 
-                <section class="cas-field my-3" id="usernameSection">
-                    <div class="d-flex">
+</dir-pagination-controls><!-- end ngIf: !logger.log.changed && !logger.log.trusted -->
+</section>
 
-                        <label for="username" class="mdc-text-field mdc-text-field--outlined mdc-text-field--focused mdc-text-field--label-floating">
-                            <input class="mdc-text-field__input" id="username" size="25" type="text" accesskey="u" autocomplete="username" name="username" value=""><span class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch" style="width: 67.25px;">
-                                  <span class="mdc-floating-label mdc-floating-label--float-above" style=""><span class="accesskey">U</span>sername:</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                              </span>
-                        </label>
+</logger>
+  </div>
 
-                        <script type="text/javascript">
-                            /*<![CDATA[*/
-                            var username = "";
-                            var disabled = false;
+</section>
 
-                            if (username != null && username !== '') {
-                                $('#username').val(username);
-                                if (disabled) {
-                                    $('#usernameSection').hide();
-                                }
-                            }
-                            /*]]>*/
-                        </script>
-                    </div>
-                </section>
+</ng-viewport>
 
-                <section class="cas-field my-3 mdc-input-group">
-                    <div class="mdc-input-group-field mdc-input-group-field-append">
-                        <div class="d-flex caps-check">
+  </div>
 
-                            <label for="password" class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+  <script src="public/libraries.js"></script>
+  <script src="public/templates.js"></script>
+  <script src="public/app.js"></script>
+  <script>require('app')</script>
 
-                                <input class="mdc-text-field__input pwd" type="password" id="password" size="25" accesskey="p" autocomplete="off" name="password" value=""><span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                        <span class="mdc-notched-outline__leading"></span>
-                                        <span class="mdc-notched-outline__notch">
-                                          <span class="mdc-floating-label" style=""><span class="accesskey">P</span>assword:</span>
-                                        </span>
-                                        <span class="mdc-notched-outline__trailing"></span>
-                                    </span>
 
-                            </label>
-                        </div>
 
-                        <div class="mdc-text-field-helper-line caps-warn">
-                            <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg text-danger">
-                                <span>CAPSLOCK key is turned on!</span>
-                            </p>
-                        </div>
-                    </div>
-                    <button class="reveal-password mdc-button mdc-button--raised mdc-input-group-append mdc-icon-button" type="button">
-                        <i class="mdi mdi-eye reveal-password-icon"></i>
-                        <span class="sr-only">Toggle Password</span>
-                    </button>
-                </section>
-
-                <section class="cas-field my-3">
-                    </section>
-
-                <section class="cas-field">
-
-                    <div>
-            </div>
-
-                    <input type="hidden" name="execution" value="2502240d-e8e6-4646-bdbd-6138b22fa911_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJbUZtTkdObFkyTTJMVFkwTjJNdE5HSmpZeTFoT1dReExUTm1ORGt3TmpnellqWTRaQ0o5Lk9GeDljN3hMLXJnQkpmMzMzQ3RZNmNRV2oxVHI1U3ZpQjZYOVQ4QjdwVUs5VHBaOUV6MDhsOFU5UUZpRWNwNEpDb3c4X3VZWkdnVjZWVDVzUG5kUFZfc01jenJIZ01xSFVEQ2NiMk01MmJ3cWp1RmdpakMxem1MWk04OEpiN2F1bmx1RWgxQlFkTE8yLWU5b1lpcmhTdzFqUVJuVUJqeF94N3l4YkdCTHFXSEpBMGRjeDRqcGpVLVRUTjFPNDJhQmVwSkVsUkROSy10UmpuckJhSTUtaDJtYXZWNmNzSHN4d01JVEVoWHJUTVU5VXpJMldqdWZCekoyOEQ5X0hqV18tdmhNajlmbVplSXYycTdJSDhHRmMzREgtMlZSdERxLTBzcnVXcllDMHdEb3YxNTkwc1F2bFJySHNCbkZScEhWSkhqQkxrYk5UMEktWjk3dExBRXJsQ3c0bG1hR2Uta1dsQ2VfUFpEeFgzdTh6LVJFMG5TSHdBaFNNRE1KQTVWYnNoOWhBT1FrZEdDUzVua1hhd0ctMnhjbDdIUVFjSU1KVFNtZk50QkZmc1dlYTRyNTRvSms1ZWNDcW9GX3JEaVhNb0NfU3pGVW5YaVJDQkpITmlPTXlvcUJVTVZxT2FwZGhnMVZMY3Jwd0h4NlJuSk5feGMzZlVCdEd4eVByN1Y3aGwtZU1EM3FZWTF5R29tb3h3R29Lek1SamdjZWxvdHJpSE9EcnFOQU8yZjlSTE5sRVc4WmpPQzFyVDZjUW5jY2x6bHFaZnh2Q0sxUUs5SXdCT2laaF85ZC1PVTJ1dHRPb3RiajRTdlp1cjRfRTFmRzRtQ2JKU1BsQ0lac25LSjhENC0zd0lkV2doZmRFLS14Y3laejktQjRDdlkyVWRCY3N1cGxIWUFhY0owNk9tUU5LaWctYWJDNFBrTEFtXzhaZHFRTVhCN1RHLVVIN2NqZElPZnJqT1lBMHdRZExwSWVWdVNidmJqZ2F3WU12QnRoMjNOLWV4allwZVRiQVdZUU1fS0REZGJvXzRBTG9qVnd0R0tKVFJFeHRjVmNZTGZNVHhKY1dUQUNBZm10RUw2MVc0UVVubjBzT1R5YkNKcFN4bV9LQXdqN2FpQ2tuMUhabzRXdzV4N0xYbGtxTXg3S1NZNHhsNk0yeGVTQmp0cmhXNUhZZkM5MWw4SlhKWGFOMGJqYmw3TXVxXzl0OVVfY1lWTi1ReHI2NnpySWVuZTNGaGxwRGFqQ0Z4MlppSHZVbW9OS0VlVDBnaXJIVTZQQV9IdHpfay1xM21xRFhkQlJ2RGI1QmhOUDJULXZCZkRwUGVvVlhJSENqQk52SFRyTnVqWlFLUXVHbEJNTXo5ZXptYWNJUzRDZ0hJS3pfdHd6dldYUnpwUlVFc09EdjhQa3NVeU95akJ6QVEwRUtpRllhYVNVOHptNVlHbnN1R2w5MHFUSE4wT0YzVDZvbWFjY2JKMGJkcTVxczNYdXkwYk1NdWpCbUF0U3N1MVU1SWNadExGQUlUNGVwZ1pOUjVYWjVfMk1mODRtTk4xa0swamV5anlMUjlpQVRfcDJzSkJobFNLWXBRMzhKSTJLYjBvWnYzOEFaMEFKeFRkMFN3QllHUkEtWXBSX2ViR2ZwVFQxNGVVaGJXYk1NZjBMX1IySFFYdmZBLThCdDh0clpQM2I1dllIVGhqUktTMW55MTE2R3p5SFVTaTVjU3ZsTC1TdWZaQ09KdmxoYWozZUp1eV9ud19KbG9vdHhOSEVoOHB3TUU4T1N4S3F1Uk9LWjQ0ZGtOdUJORGR3TTdyLXV3ZjJRbEZRdWV0alQ1cWttWVZ1aVVXMFlVbXVJZkZaN3VSR1dnbHQ0RDk4SHJpLWFiakt2ekVOb05xTVc4UkNOcWRPXy1rMUdMODZGc1hBQ0s3ZDdyLTlsR1EtRFVKbVVnVURVckFYWTFxalVzV1lpdG9oOVZaMVo2UTJmR1diNHNNbG1IQUVoLXExNDNzM2RKakoxbldaYk0ybzF6T3NtaVdYZzNtTXRLQ3RldmV5SDNHbC0yRFVqS1JqUDRnSXhwUWpoTjlLY1dteGZ0NTJCUjZkY09FLVJiYXNmUDNMa2xxQ2I3eU9jQW53YnhFZnBRSWRKajk3S2FJZU9UUUVGRk95b1AyZFgwOUxiekdXcmJFQWh5cnR5U1ZJdEJ3WkZoTXVfY2o2aU9aZDBxZ29sYVdQaU9DWDhPeGY5bWRKOHRkVnJfRU9Ib2Y1Q2Fud3BTUWZJTDBWYjJ6WkliVjNPOEpaWU8xWHRMWWgwWEpTVGZ6T09TN2FyVS1wNEg5TncwOFVaSlRnQTllcWRUaU5jS3NiTTJDY2JmcmZtZjNyVlJRX1VNSFFPZlRaYWNoSW42TVJOU2R3YlVVaFQ3bWxfWk0zUkY0aFVlUk9zRUJWQXpmVjJuQXdKa0VsSUdodkV2Mm1seVhDNFFWbVFzb2tfZEtRdThvbEE2WWVzc0kxNV8zbG1PdmhLX21XTHRobEFNbWJGYTAyb2RLdmJRNXJ4RGxnYXFSOEVoS0s4RVBULXRoWDlTS0Zwb0stSkVHSFBpSWhlT0g1cUF5WUV5aDlKTDdCQnlyWW40RFZnMndBUUNCQ21fSkNVSUo2TEh4UkhteU1CWldLcXRHWDU3T2kzMk9IM0Q0SFMzNzNiVzZSYXFOM2JPUE1TS1lFalNGQkxoOGptWWNhWDZVUVNodzdlTlpscmtuZmpHTzA0aldVU3NpR3k0U29FN1R6TDF0LTFSM0pmNUwtYVhQOTVJNW84R2VBRnBzakN0Tk9ERjJVQXJxNXdEVW9haGV6V2ljaUU4VExVSF9HeXAxb2FORUZqSWF3RGlsd2l5UXBNWngwdnY2b2NLWDFjbDdkcjlyTmp4ajZrLTZ5YUdWMTlGVzlnQU5lQ0FYTWJmZ0xLUWsxLVJGNVoxei1Ua3hTdWhkVUZTdDJTa193SXppN2dhbEVkUXY2MTJxV0RzamxjQ3dxV202c2U5ZDMxcTJDSThkVlBHX3dRNW92MTBnU0tvTFZ4QkpFTkZRcThaSEpJOC1SR29JV2ZtS0lPNFBsV3MybVJkWUstemRaYUZZUGxUTHNKOTJtUmxxeC0ydko1NnZqamRub2k1dXJEc3pFckVwOEFCV2I1N3p6NzdZbkp1WTFRQXRNX2hUVHJiRjVjQ3NJTGZlOXVyTkxyV0ZYTFprY3VOVWpjQ3R3OFFvYWFXUU1FV2VDNDVkZldOVElhX1V0SHNiT2hKalJ0cS0wSTFVVzZGNndvV0JkNk80R3JjaUU4M3o3NlFpYnNiZktON2tGU09LMk5kZDhBYVhMLXhLRGY2c1NDM3kxUm1UeVhsc0RGTW5oVWFvbGN3WEJ2aFEzNWF6N1Y1YXhyQWo2QWhOYXFjYmdQWjRlc0tyZHNwSDRQeTlCTEZQMUpuOWZ2V0oxNHNJTzk4Y25YTWllM2JJb0NfU0gxT0FjcVFHRVlPcWlHdFo1MXpSQUZpajdSbl9XY2FuaVhBakctcDN3MnYxVUZacm1LZWtDSXN5MlJKQXl1SXZ2NEoxZU5FNjJ1ZVlZX1ZPczlQZE1nbWlCQ0h6eDVZMlk5N2E5Z0t0WnVDUFZzTFF4MlhMSTV3a3VJMnAwZXlLNHl4empMeVBZWFBKTXpWNTA4MlBsV1ZWbldUbnhzbjlBWnA2bTAtNnpOMWNLUmh2VDFaNU1WWU1IcEhrVHV4a3FLZWh6dXZ4aGJzdmdjenEwWkRUUnc0WEtLMlY0VFdEQVpRLXB4cDVqbTJVUGRoakpaVFBSX1lzMEFFMlZ3eEt5UjNaTklVNmUyOWI4MXhZdnBCdVpKTGpvbkhYQ1h6V244dlNSa3RKQ2pXUzNJN2oxb19qYWcyV0k4dU5sNU56ck5iTG8teFR4NVB4SXVLb0cxZDFiZkJHblk0bUhXSnBtUENqTHRqX2FIa1N6djRDbnFwU0N4ay1VcHJxel8wWTZ1LTlOZDVHWkYtTWM2YTkwUmljVU9ORktTYkZVbVpMUVdDaGlZNWFMdWYyam1nelRjZWp5bUtDYXI2SEZPZFNIaG12eTVlUlZ0WDZPbVZTczJmdmtJWEhESDdJVXV5bUtBRmFOd3MwaTZIVlhlYTU3bVhoR0J6dTBPSG9pWUhMVHVidnNYZkZfdWRTUmtlR3pDbkhKbmVYSmlNX29nYmkzdVR4aFRMMjZreTVRb1RFWFQ4SjZlV1M1ZlZOZHQ3Z3A0blhDZnNHdDV3ektyRXdHMHBicExCbklrWVRjSXVfTnRBWHJaa21HdXgzbFlNVkhmMU80RE1oOExrb0VPbFl0bnNOalpMSHZSM1NKaUEtakNVTlhGcjRwY3g0WWEzWUJHbUQwcHc5TEVsTTB4QjJIMnJNUGdYaXU5MHYtc3MxR1FJSWVyOXR1NDJKbDF6NE9IYWgxRXl3OFJVN3lpWXhBank1N1lnd2g3Rkc4WWpBOHJzWmVvNzgtODBPaFl5QnJHRWxoNUVwY2thUEFtRnAxMTl2Rjlrb2ZEYkNlc1VnWDZyQnFNTjNRRHVGVFBRcEo1R21BMVlzUWw3aF9RYXlBYlNpWWVrRFNJNHViTElfWUdwYzhtM3Qycmp1a0R3cm1rSWxMSlRJMkNSTlRTcEFicGlNWEdRYlRRME5ad01VMUI0dG9FWkdHWC12VnZIVnVCQ0tMRkNJS2dWQ2xQUmdDRVppdldfY085NG9EbDZDUXZCb2hHNk9qU29SZ2cyUWM0MGxrcjR4ME96eFM1MjMxX0c5OFdvNW0wamdPOVYza2M2ZnBid00tQm5KZUZ5NHJlS0RsQVpNZ3JTYVdlanFMYzh1TEVLTmdYcExONGF4UEZ6Qi16enZseURyZHloSm5OdTJHV1ZQWnlxbE93cElyalk5OUxsNFdTZVVidVBqZzdROXZXbVNxb1NCenFsdGpZVlV0ajQ5dlJMMC1sV1F6dlFIY2RTOUtnQy11bDRiMFJRdU1JVTlaTkw0S1RhVXV3TjdRZ1ZXMzhTdjI4XzZvLkxZd3ZVdC0zRVNoQU13SE5FYl9ibzRNTkp0NUUyOTdXRngwem9ydC05eEFqQ3F2cGh2eGJLVGJQVV9nZ0w0OUxnZFBldFNqWVdXalBveGMzaGJ1bnZ3"><input type="hidden" name="_eventId" value="submit"><input type="hidden" name="geolocation"></section>
-
-                <button class="mdc-button mdc-button--raised btn btn-primary btn-primary" name="submitBtn" accesskey="l" type="submit" value="Login">
-            <span class="mdc-button__label">Login</span>
-        </button>
-
-        </form>
-
-            <hr class="my-4"><div id="pmlinks" class="my-2">
-        <div id="resetPasswordLink">
-            <a href="/console/account/new">
-                <span>Register</span>
-            </a> -
-            <span><a href="/console/account/passwordRecovery">Forgot your password? </a></span>
-        </div>
-    <p></p></div>
-
-            <script type="text/javascript">
-                /*<![CDATA[*/
-                var i = "One moment please..."
-                var j = "Login"
-                    /*]]>*/
-                    $(window).on('pageshow', function () {
-                        $(':submit').prop('disabled', false);
-                        $(':submit').attr('value', j);
-                    });
-            </script>
-
-        </div>
-        <div id="sidebar">
-            <div class="sidebar-content">
-            </div>
-        </div>
-    </div>
-        </section>
-        <span>
-            </span>
-        </div>
-</div>
-        </main>
-    </div>
-
-    <footer>
-
-</footer></body></html>
+</body></html>

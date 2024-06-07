@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeoserverSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Fri Jun 07 16:56:30 CEST 2024 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 17:19:57 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -53,11 +53,11 @@ limitations under the License.
         <tbody>
         <tr>
             <td>6</td>
-            <td>1</td>
+            <td>2</td>
             <td>1</td>
             <td>0</td>
-            <td class="failure">66.67%</td>
-            <td>11.013 seconds</td>
+            <td class="failure">50.0%</td>
+            <td>43.610 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -75,7 +75,7 @@ limitations under the License.
     
     <li><a href="#-871221262" class="feature-toc-pass">I can access the geoserver about page</a></li>
     
-    <li><a href="#-598223712" class="feature-toc-pass">Being connected as an administrator, I have access to the GeoServer administration menu</a></li>
+    <li><a href="#-598223712" class="feature-toc-failure">Being connected as an administrator, I have access to the GeoServer administration menu</a></li>
     
     <li><a href="#-869432410" class="feature-toc-error">Being connected as an administrator, I can go to the style administration UI and validate a one</a></li>
     
@@ -363,9 +363,9 @@ false
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-598223712">
-        <span class="feature-name feature-name-">Being connected as an administrator, I have access to the GeoServer administration menu</span>
+<div class="feature feature-failure">
+    <div class="feature-heading feature-heading-failure" id="-598223712">
+        <span class="feature-name feature-name-failure">Being connected as an administrator, I have access to the GeoServer administration menu</span>
 
         
     </div>
@@ -429,9 +429,9 @@ false
         <tbody>
         
         <tr class="">
-            <td>GeoServerGlobalSettingsPage</td>
+            <td>failure</td>
             <td>
-                <a href="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" target="_blank"><img src="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" alt="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-failure.png" target="_blank"><img src="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-failure.png" alt="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-failure.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -440,6 +440,49 @@ false
     
 
     <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox--598223712-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox--598223712-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">geb.waiting.WaitTimeoutException: condition did not pass in 30 seconds (failed with exception)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at geb.waiting.Wait.waitFor(Wait.groovy:124)
+	at geb.waiting.DefaultWaitingSupport.doWaitFor(DefaultWaitingSupport.groovy:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.waiting.DefaultWaitingSupport.waitFor(DefaultWaitingSupport.groovy:37)
+	at geb.Page.waitFor(Page.groovy:116)
+	at GeoServerPage.click on the global settings menu(GeoserverSpec.groovy:20)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.Browser.methodMissing(Browser.groovy:226)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:1)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at GeoserverSpec.Being connected as an administrator, I have access to the GeoServer administration menu(GeoserverSpec.groovy:168)
+Caused by: java.lang.NullPointerException: Cannot get property 'displayed' on null object
+	at GeoServerPage.click_on_the_global_settings_menu_closure1(GeoserverSpec.groovy:21)
+	at GeoServerPage.click_on_the_global_settings_menu_closure1(GeoserverSpec.groovy)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at geb.waiting.Wait.waitFor(Wait.groovy:113)
+	... 15 more
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
     
 </div>
 

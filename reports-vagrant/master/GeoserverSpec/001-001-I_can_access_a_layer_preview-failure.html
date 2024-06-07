@@ -114,7 +114,7 @@ Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
 	<a rel="next" class="next" id="id11" disabled="disabled" title="Go to next page">&gt;</a>
 	<a class="last" id="id12" disabled="disabled" title="Go to last page">&gt;&gt;</a>
 </span>
-	<span>Results 1 to 1 (out of 2 items)</span>
+	<span>Results 1 to 2 (out of 3 items)</span>
 </span>
 		</div>
 		<div class="float-end">
@@ -173,22 +173,47 @@ Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
        </optgroup>
     </select>
   </span></td>
+			</tr><tr id="id15" class="odd">
+			  <!-- The select row checkbox -->
+			  
+			  <!-- This is a repeater, will generate one td for each property -->
+			  <td><span>
+    <img src="../resource/org.geoserver.web.GeoServerBasePage/img/icons/silk/shape_square_blue-ver-C260F684144799B37A8F4B2963A62684.png">
+  </span></td><td><span>automated tests import</span></td><td><span>psc:terr_communes_1</span></td><td><span>
+    <span class="text-nowrap">
+      <a target="_blank" href="http://localhost:8380/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_1&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=application/openlayers">OpenLayers</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="http://localhost:8380/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_1&amp;maxFeatures=50">GML</a>&nbsp;
+    </span><span class="text-nowrap">
+      <a target="_blank" href="http://localhost:8380/geoserver/psc/wms/kml?layers=psc%3Aterr_communes_1">KML</a>&nbsp;
+    </span>
+  </span></td><td><span>
+    <select onchange="window.open((this.options[this.selectedIndex].parentNode.label == 'WMS') ? 'http://localhost:8380/geoserver/psc/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=psc%3Aterr_communes_1&amp;bbox=706443.2000085486%2C6405353.500049313%2C817000.199968456%2C6481032.899998338&amp;width=768&amp;height=525&amp;srs=EPSG%3A2154&amp;styles=&amp;format=' + this.options[this.selectedIndex].value : 'http://localhost:8380/geoserver/psc/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=psc%3Aterr_communes_1&amp;maxFeatures=50&amp;outputFormat=' + this.options[this.selectedIndex].value);this.selectedIndex=0">
+      <option>Select one</option>
+      <optgroup label="WMS">
+          <option value="application%2Fatom%20xml">AtomPub</option><option value="application%2Fbil">BIL</option><option value="image%2Fdds">DDS</option><option value="image%2Fgif">GIF</option><option value="gpkg">GeoPackage</option><option value="rss">GeoRSS</option><option value="image%2Fgeotiff">GeoTiff</option><option value="image%2Fgeotiff8">GeoTiff 8-bits</option><option value="image%2Fjpeg">JPEG</option><option value="image%2Fvnd.jpeg-png">JPEG-PNG</option><option value="image%2Fvnd.jpeg-png8">JPEG-PNG8</option><option value="application%2Fvnd.google-earth.kmz%20xml">KML (compressed)</option><option value="application%2Fvnd.google-earth.kml%2Bxml%3Bmode%3Dnetworklink">KML (network link)</option><option value="application%2Fvnd.google-earth.kml">KML (plain)</option><option value="text%2Fhtml%3B%20subtype%3Dopenlayers">OpenLayers</option><option value="application%2Fopenlayers2">OpenLayers 2</option><option value="application%2Fopenlayers3">OpenLayers 3</option><option value="application%2Fpdf">PDF</option><option value="image%2Fpng">PNG</option><option value="image%2Fpng%3B%20mode%3D8bit">PNG 8bit</option><option value="image%2Fsvg%20xml">SVG</option><option value="image%2Ftiff">Tiff</option><option value="image%2Ftiff8">Tiff 8-bits</option><option value="application%2Fjson%3Btype%3Dutfgrid">UTFGrid</option>
+      </optgroup>
+      <optgroup label="WFS">
+           <option value="csv">CSV</option><option value="DXF-ZIP">DXF (Compressed)</option><option value="DXF">DXF (plain)</option><option value="excel">Excel (.xls)</option><option value="excel2007">Excel 2007 (.xslx)</option><option value="text%2Fxml%3B%20subtype%3Dgml%2F2.1.2">GML2</option><option value="gml3">GML3.1</option><option value="application%2Fgml%2Bxml%3B%20version%3D3.2">GML3.2</option><option value="application%2Fjson">GeoJSON</option><option value="application%2Fx-gpkg">GeoPackage</option><option value="application%2Fvnd.google-earth.kml%2Bxml">KML</option><option value="SHAPE-ZIP">Shapefile</option><option value="text%2Fcsv">text/csv</option>
+       </optgroup>
+    </select>
+  </span></td>
 			</tr>
 		</tbody>
 	</table>
 
 	<!-- the bottom pager -->
-	<span id="id15">
-	<span class="paginator" id="id16">
-	<a class="first" id="id17" disabled="disabled" title="Go to first page">&lt;&lt;</a>
-	<a rel="prev" class="prev" id="id18" disabled="disabled" title="Go to previous page">&lt;</a>
+	<span id="id16">
+	<span class="paginator" id="id17">
+	<a class="first" id="id18" disabled="disabled" title="Go to first page">&lt;&lt;</a>
+	<a rel="prev" class="prev" id="id19" disabled="disabled" title="Go to previous page">&lt;</a>
 	<span class="goto">
-		<a id="id19" disabled="disabled" title="Go to page 1"><span>1</span></a>
+		<a id="id1a" disabled="disabled" title="Go to page 1"><span>1</span></a>
 	</span>
-	<a rel="next" class="next" id="id1a" disabled="disabled" title="Go to next page">&gt;</a>
-	<a class="last" id="id1b" disabled="disabled" title="Go to last page">&gt;&gt;</a>
+	<a rel="next" class="next" id="id1b" disabled="disabled" title="Go to next page">&gt;</a>
+	<a class="last" id="id1c" disabled="disabled" title="Go to last page">&gt;&gt;</a>
 </span>
-	<span>Results 1 to 1 (out of 2 items)</span>
+	<span>Results 1 to 2 (out of 3 items)</span>
 </span>
 
 	<!-- Sortable header fragments -->

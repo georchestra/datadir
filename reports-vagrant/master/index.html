@@ -31,7 +31,7 @@ limitations under the License.
 <h1>Specification run results</h1>
 <hr>
 <span class="date-test-ran">
-Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong> geOrchestra functional tests, <strong>Version: </strong>master, <strong>Base URL: </strong>https://georchestra.example.org, <strong>Using a proxy: </strong>true
+Created on Fri Jun 07 16:58:16 CEST 2024 by pmauduit, <strong>Project: </strong> geOrchestra functional tests, <strong>Version: </strong>master, <strong>Base URL: </strong>https://georchestra.example.org, <strong>Using a proxy: </strong>true
 </span>
 
 <div>
@@ -52,13 +52,13 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>14</td>
-                    <td>9</td>
-                    <td class="">0</td>
-                    <td class="">0</td>
-                    <td class="">0</td>
-                    <td class="">100.0%</td>
-                    <td>1 minutes, 49.840 seconds</td>
+                    <td>16</td>
+                    <td>5</td>
+                    <td class="failure">3</td>
+                    <td class="failure">2</td>
+                    <td class="error">2</td>
+                    <td class="failure">62.50%</td>
+                    <td>1 minutes, 55.744 seconds</td>
                 </tr>
                 </tbody>
             </table>
@@ -93,6 +93,7 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
             <th>Features</th>
             <th>Failed</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
             <th>Status</th>
@@ -100,34 +101,37 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
         </thead>
         <tbody class="list">
         
-        <tr class="  ">
+        <tr class="error failure ">
             <td><a class="name" href="GeoserverSpec.html">GeoserverSpec</a></td>
-            <td class=" ">4</td>
-            <td class=" ">0</td>
-            <td class=" ">0</td>
-            <td class=" ">100.0%</td>
-            <td class=" ">7.601 sec</td>
-            <td class="status   passed" data-status="PASSED">PASSED</td>
+            <td class="error failure">6</td>
+            <td class="error failure">1</td>
+            <td class="error failure">1</td>
+            <td class="error failure">0</td>
+            <td class="error failure">66.67%</td>
+            <td class="error failure">11.013 sec</td>
+            <td class="status error failure " data-status="FAILED">FAILED</td>
         </tr>
         
-        <tr class="  ">
+        <tr class=" failure ">
             <td><a class="name" href="datahub.DatahubSpec.html">datahub.DatahubSpec</a></td>
-            <td class=" ">1</td>
-            <td class=" ">0</td>
-            <td class=" ">0</td>
-            <td class=" ">100.0%</td>
-            <td class=" ">1.289 sec</td>
-            <td class="status   passed" data-status="PASSED">PASSED</td>
+            <td class=" failure">2</td>
+            <td class=" failure">1</td>
+            <td class=" failure">0</td>
+            <td class=" failure">0</td>
+            <td class=" failure">50.0%</td>
+            <td class=" failure">3.444 sec</td>
+            <td class="status  failure " data-status="FAILED">FAILED</td>
         </tr>
         
-        <tr class="  ">
+        <tr class="error  ">
             <td><a class="name" href="ConsoleSpec.html">ConsoleSpec</a></td>
-            <td class=" ">5</td>
-            <td class=" ">0</td>
-            <td class=" ">0</td>
-            <td class=" ">100.0%</td>
-            <td class=" ">6.833 sec</td>
-            <td class="status   passed" data-status="PASSED">PASSED</td>
+            <td class="error ">7</td>
+            <td class="error ">0</td>
+            <td class="error ">1</td>
+            <td class="error ">0</td>
+            <td class="error ">85.71%</td>
+            <td class="error ">9.556 sec</td>
+            <td class="status error  " data-status="FAILED">FAILED</td>
         </tr>
         
         <tr class="  ">
@@ -135,28 +139,31 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
             <td class=" ">2</td>
             <td class=" ">0</td>
             <td class=" ">0</td>
+            <td class=" ">0</td>
             <td class=" ">100.0%</td>
-            <td class=" ">1.569 sec</td>
+            <td class=" ">2.094 sec</td>
             <td class="status   passed" data-status="PASSED">PASSED</td>
         </tr>
         
         <tr class="  ">
             <td><a class="name" href="GeonetworkSpec.html">GeonetworkSpec</a></td>
-            <td class=" ">4</td>
+            <td class=" ">5</td>
+            <td class=" ">0</td>
             <td class=" ">0</td>
             <td class=" ">0</td>
             <td class=" ">100.0%</td>
-            <td class=" ">47.296 sec</td>
+            <td class=" ">33.562 sec</td>
             <td class="status   passed" data-status="PASSED">PASSED</td>
         </tr>
         
         <tr class="  ">
             <td><a class="name" href="MapstoreSpec.html">MapstoreSpec</a></td>
-            <td class=" ">3</td>
+            <td class=" ">4</td>
+            <td class=" ">0</td>
             <td class=" ">0</td>
             <td class=" ">0</td>
             <td class=" ">100.0%</td>
-            <td class=" ">11.620 sec</td>
+            <td class=" ">21.744 sec</td>
             <td class="status   passed" data-status="PASSED">PASSED</td>
         </tr>
         
@@ -165,18 +172,9 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
             <td class=" ">3</td>
             <td class=" ">0</td>
             <td class=" ">0</td>
-            <td class=" ">100.0%</td>
-            <td class=" ">27.181 sec</td>
-            <td class="status   passed" data-status="PASSED">PASSED</td>
-        </tr>
-        
-        <tr class="  ">
-            <td><a class="name" href="AnalyticsSpec.html">AnalyticsSpec</a></td>
             <td class=" ">1</td>
-            <td class=" ">0</td>
-            <td class=" ">0</td>
             <td class=" ">100.0%</td>
-            <td class=" ">4.972 sec</td>
+            <td class=" ">32.175 sec</td>
             <td class="status   passed" data-status="PASSED">PASSED</td>
         </tr>
         
@@ -185,8 +183,9 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
             <td class=" ">2</td>
             <td class=" ">0</td>
             <td class=" ">0</td>
+            <td class=" ">0</td>
             <td class=" ">100.0%</td>
-            <td class=" ">1.478 sec</td>
+            <td class=" ">2.155 sec</td>
             <td class="status   passed" data-status="PASSED">PASSED</td>
         </tr>
         
@@ -248,12 +247,12 @@ Created on Wed Apr 12 11:03:55 CEST 2023 by pmauduit, <strong>Project: </strong>
     (function(document) {
         var data = {
             series: [
-                {value: 9, className: 'ct-series-passed'},
-                {value: 0, className: 'ct-series-failed'}
+                {value: 5, className: 'ct-series-passed'},
+                {value: 3, className: 'ct-series-failed'}
             ].filter(function(v) { return v.value > 0 })
         };
 
-        var sum = 14;
+        var sum = 8;
 
         new Chartist.Pie('.ct-chart', data, {
             labelInterpolationFnc: function (value) {

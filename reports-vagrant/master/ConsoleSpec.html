@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for ConsoleSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:02:19 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:56:44 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,17 +45,19 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>5</td>
+            <td>7</td>
             <td>0</td>
+            <td>1</td>
             <td>0</td>
-            <td class="passed">100.0%</td>
-            <td>6.833 seconds</td>
+            <td class="failure">85.71%</td>
+            <td>9.556 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -73,9 +75,13 @@ limitations under the License.
     
     <li><a href="#-1886279643" class="feature-toc-pass">I can use the console's 'recover my password' feature</a></li>
     
+    <li><a href="#514236382" class="feature-toc-pass">If I am using a bad token, I should be redirected to the 'recover my password' feature</a></li>
+    
     <li><a href="#1662865496" class="feature-toc-pass">Being connected as an administrator, I can visit the console admin page</a></li>
     
     <li><a href="#-1273588335" class="feature-toc-pass">Being connected on the platform, I can visit my userdetails page</a></li>
+    
+    <li><a href="#-1210687961" class="feature-toc-error">I can create a new organization, and delete it afterwards</a></li>
     
 </ul>
 
@@ -106,8 +112,7 @@ limitations under the License.
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I am not connected to the platform</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-</pre>
+                
             </td>
         </tr>
         
@@ -116,9 +121,8 @@ limitations under the License.
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to ConsoleNewAccountPage
-</pre>
+                <p>I go to the 'Create an account' page of the console</p>
+                
             </td>
         </tr>
         
@@ -127,10 +131,8 @@ limitations under the License.
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at ConsoleNewAccountPage
-report "ConsoleNewAccountPage"
-</pre>
+                <p>I am at the 'Create an account' page of the console</p>
+                
             </td>
         </tr>
         
@@ -201,7 +203,17 @@ report "ConsoleNewAccountPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I go to the 'Create an account' page of the console</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I fill in the form to create an account</p>
                 
             </td>
         </tr>
@@ -211,7 +223,7 @@ report "ConsoleNewAccountPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>The account is successfully created</p>
                 
             </td>
         </tr>
@@ -283,7 +295,17 @@ report "ConsoleNewAccountPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I go to the 'Recover my password' page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I enter a legit e-mail address</p>
                 
             </td>
         </tr>
@@ -293,7 +315,7 @@ report "ConsoleNewAccountPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am been told that a recovery e-mail should have been sent</p>
                 
             </td>
         </tr>
@@ -334,6 +356,88 @@ report "ConsoleNewAccountPage"
 
 
 <div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="514236382">
+        <span class="feature-name feature-name-">If I am using a bad token, I should be redirected to the 'recover my password' feature</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Given:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am not connected to the platform</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I visit the newPassword page with a bad token</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am redirected to the password recovery page, and an error message is displayed</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>NewPasswordBadTokenPage</td>
+            <td>
+                <a href="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" target="_blank"><img src="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" alt="./ConsoleSpec/004-001-If_I_am_using_a_bad_token__I_should_be_redirected_to_the__recover_my_password__feature-NewPasswordBadTokenPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-">
     <div class="feature-heading feature-heading-" id="1662865496">
         <span class="feature-name feature-name-">Being connected as an administrator, I can visit the console admin page</span>
 
@@ -356,9 +460,7 @@ report "ConsoleNewAccountPage"
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I connect myself as admin</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-loginAsAdmin()
-</pre>
+                
             </td>
         </tr>
         
@@ -367,9 +469,8 @@ loginAsAdmin()
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to ConsoleAdminPage
-</pre>
+                <p>I go to the 'Console admin' page</p>
+                
             </td>
         </tr>
         
@@ -378,10 +479,8 @@ loginAsAdmin()
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at ConsoleAdminPage
-report "ConsoleAdminPage"
-</pre>
+                <p>I am at the 'Console admin' page</p>
+                
             </td>
         </tr>
         
@@ -406,7 +505,7 @@ report "ConsoleAdminPage"
         <tr class="">
             <td>ConsoleAdminPage</td>
             <td>
-                <a href="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/004-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" alt="./ConsoleSpec/005-001-Being_connected_as_an_administrator__I_can_visit_the_console_admin_page-ConsoleAdminPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -443,9 +542,7 @@ report "ConsoleAdminPage"
             </td>
             <td class="code-block-text" colspan="9">
                 <p>I connect myself</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-loginAsAdmin()
-</pre>
+                
             </td>
         </tr>
         
@@ -454,9 +551,8 @@ loginAsAdmin()
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to ConsoleUserDetailsPage
-</pre>
+                <p>I go to the Console user details page</p>
+                
             </td>
         </tr>
         
@@ -465,10 +561,8 @@ loginAsAdmin()
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at ConsoleUserDetailsPage
-report "ConsoleUserDetailsPage"
-</pre>
+                <p>I am onto the Console user details page</p>
+                
             </td>
         </tr>
         
@@ -493,7 +587,7 @@ report "ConsoleUserDetailsPage"
         <tr class="">
             <td>ConsoleUserDetailsPage</td>
             <td>
-                <a href="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/005-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
+                <a href="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" target="_blank"><img src="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" alt="./ConsoleSpec/006-001-Being_connected_on_the_platform__I_can_visit_my_userdetails_page-ConsoleUserDetailsPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -502,6 +596,169 @@ report "ConsoleUserDetailsPage"
     
 
     <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-error">
+    <div class="feature-heading feature-heading-error" id="-1210687961">
+        <span class="feature-name feature-name-error">I can create a new organization, and delete it afterwards</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Given:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am connected as administrator</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I go to the 'Console admin' page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I go to the 'Organizations administration' tab</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'Organizations administration' tab</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I click on the 'new org' button and I fill in the form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I successfully created a new organization</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I can delete the organization which has just been created, via the 'Manage' tab</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am redirected to the organizations management page</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>consoleAdminPage</td>
+            <td>
+                <a href="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" target="_blank"><img src="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" alt="./ConsoleSpec/007-001-I_can_create_a_new_organization__and_delete_it_afterwards-consoleAdminPage.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td>failure</td>
+            <td>
+                <a href="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-failure.png" target="_blank"><img src="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-failure.png" alt="./ConsoleSpec/007-002-I_can_create_a_new_organization__and_delete_it_afterwards-failure.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>java.lang.UnsupportedOperationException: not supported on empty navigator objects</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox--1210687961-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox--1210687961-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">java.lang.UnsupportedOperationException: not supported on empty navigator objects
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at geb.navigator.DefaultNavigator.click(DefaultNavigator.groovy:675)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at ConsoleSpec.I can create a new organization, and delete it afterwards(ConsoleSpec.groovy:208)
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
     
 </div>
 

@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for DatafeederSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:03:48 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:58:14 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,6 +45,7 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -54,8 +55,9 @@ limitations under the License.
             <td>3</td>
             <td>0</td>
             <td>0</td>
+            <td>1</td>
             <td class="passed">100.0%</td>
-            <td>27.181 seconds</td>
+            <td>32.175 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -72,6 +74,8 @@ limitations under the License.
     <li><a href="#-1125494638" class="feature-toc-pass">Can import a dataset with no SRS defined (no PRJ)</a></li>
     
     <li><a href="#1625600889" class="feature-toc-pass">Can import a basic shapefile dataset</a></li>
+    
+    <li><a href="#116812852" class="feature-toc-ignored">Can import a CSV dataset</a></li>
     
 </ul>
 
@@ -95,29 +99,6 @@ limitations under the License.
     <!-- print given, when, then, ... blocks -->
     <h3>Code Blocks:</h3>
     <table>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>When:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to DataFeederImportPage
-</pre>
-            </td>
-        </tr>
-        
-        <tr class="">
-            <td class="code-block-kind" colspan="1">
-                <p>Then:</p>
-            </td>
-            <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at DataFeederImportPage
-report "DataFeederImportPage"
-</pre>
-            </td>
-        </tr>
         
     </table>
 
@@ -186,7 +167,17 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I visit the DataFeeder Import page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I fill in the first form</p>
                 
             </td>
         </tr>
@@ -196,7 +187,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the first page of the DataFeeder import wizard</p>
                 
             </td>
         </tr>
@@ -258,7 +249,17 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I visit the DataFeeder Import page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I fill in the first form</p>
                 
             </td>
         </tr>
@@ -268,7 +269,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the first page of the DataFeeder import wizard</p>
                 
             </td>
         </tr>
@@ -278,7 +279,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I select the spatial reference system of my dataset</p>
                 
             </td>
         </tr>
@@ -288,7 +289,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the 'data description' step of the wizard</p>
                 
             </td>
         </tr>
@@ -298,7 +299,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I describe my dataset and submit the form</p>
                 
             </td>
         </tr>
@@ -308,7 +309,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the tag selection wizard page</p>
                 
             </td>
         </tr>
@@ -318,7 +319,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I select a tag and submit the form</p>
                 
             </td>
         </tr>
@@ -328,7 +329,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the 'Creation date and scale' wizard page</p>
                 
             </td>
         </tr>
@@ -338,7 +339,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I submit the form</p>
                 
             </td>
         </tr>
@@ -348,7 +349,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the 'describe the process to gather data' wizard page</p>
                 
             </td>
         </tr>
@@ -358,7 +359,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I fill in and submit the 'describe the process to gather data' form</p>
                 
             </td>
         </tr>
@@ -368,7 +369,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the 'confirmation' wizard page</p>
                 
             </td>
         </tr>
@@ -378,7 +379,7 @@ report "DataFeederImportPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I submit the 'confirmation' wizard form</p>
                 
             </td>
         </tr>
@@ -388,7 +389,7 @@ report "DataFeederImportPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>----</p>
+                <p>I am at the 'dataset loaded successfully' wizard page</p>
                 
             </td>
         </tr>
@@ -462,6 +463,189 @@ report "DataFeederImportPage"
         
         </tbody>
     </table>
+    
+
+    <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-ignored">
+    <div class="feature-heading feature-heading-ignored" id="116812852">
+        <span class="feature-name feature-name-ignored">Can import a CSV dataset</span>
+
+        
+        <p class="ignore-reason">CSV feature branch not merged yet, skipping test (also need revisit see SHP import)</p>
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I visit the DataFeeder Import page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I fill in the first form customized for CSV import</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the first page of the DataFeeder import wizard</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I select the lat / lon columns from my CSV</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'data description' step of the wizard</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I describe my dataset and submit the form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the tag selection wizard page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I select a tag and submit the form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'Creation date and scale' wizard page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I submit the form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'describe the process to gather data' wizard page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I fill in and submit the 'describe the process to gather data' form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'confirmation' wizard page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I submit the 'confirmation' wizard form</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="ignored">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the 'dataset loaded successfully' wizard page</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
     
 
     <!-- print problems -->

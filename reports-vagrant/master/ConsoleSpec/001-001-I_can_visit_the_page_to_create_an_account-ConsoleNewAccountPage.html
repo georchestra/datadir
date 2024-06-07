@@ -22,7 +22,8 @@
 
     
     <div id="go_head">
-        <iframe src="/header/" style="width:100%;height:90px;border:none;overflow:hidden;" scrolling="no"></iframe>
+        <geor-header logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet="" legacy-header="" legacy-url="/header/" style="height:90px;" active-app="console"></geor-header>
+        <script src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
     </div>
     
 
@@ -288,7 +289,7 @@
 			
 				<select id="orgType" name="orgType" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
 					<option value="-"></option>
-					<option value="Company">Company</option><option value="Association">Association</option><option value="Individual">Individual</option><option value="NGO">NGO</option><option value="Other">Other</option>
+					<option value="Association">Association</option><option value="Company">Company</option><option value="NGO">NGO</option><option value="Individual">Individual</option><option value="Other">Other</option>
 				</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-orgType-container"><span class="select2-selection__rendered" id="select2-orgType-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
 			
 			
@@ -344,6 +345,33 @@
 		<div class="col-lg-8">
 			
 				<input id="orgUrl" name="orgUrl" class="form-control" type="text" value="" size="30" maxlength="80">
+			
+			
+		</div>
+	</div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="div-orgMail" class="form-group ">
+		<label class="control-label col-lg-4" for="orgMail">Mail</label>
+		<div class="col-lg-8">
+			
+				<input id="orgMail" name="orgMail" class="form-control" type="text" value="" size="30" maxlength="80">
 			
 			
 		</div>
@@ -423,62 +451,7 @@
 </div>
 
 </imageinput>
-                      <areas item="org" class="ng-isolate-scope"><div class="area clearfix">
-
-  <div class="col-md-8">
-    <div class="map">
-      <div class="attributions">
-        © <a href="http://openstreetmap.org" rel="noopener noreferrer" target="blank_">OpenStreetMap</a>
-        contributors.
-      </div>
-      <!-- ngIf: !area.maponly --><div class="btn-group selection ng-scope" ng-if="!area.maponly">
-        <select ng-change="area.selectBy()" ng-model="area.group" class="btn btn-default btn-sm ng-untouched ng-valid ng-empty ng-dirty ng-valid-parse">
-          <option value="" disabled="" class="glyphicon glyphicon-ok-circle ng-scope" translate="" selected="selected">Selection</option>
-          <option value="all" class="alternate ng-binding">— All —</option>
-          <!-- ngRepeat: group in area.groups -->
-          <option value="none" class="alternate ng-binding">— None —</option>
-        </select>
-        <button class="btn btn-default btn-sm ol-bbox ng-scope" title="Select by Bounding Box" ng-click="area.selectBBOX()" ng-class="{active: area.draw}" type="button" translate="">Select by Bounding Box</button>
-      </div><!-- end ngIf: !area.maponly -->
-
-      <!-- ngIf: !area.maponly --><div class="search-container ng-scope" ng-init="search=''" ng-if="!area.maponly">
-        <button class="btn btn-link btn-sm search-clear ng-hide" ng-click="search = ''" ng-show="search != ''">
-          <i class="glyphicon glyphicon-remove-sign"></i>
-        </button>
-        <input class="search form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" ng-model="search" autocomplete="off">
-      </div><!-- end ngIf: !area.maponly -->
-    <div class="ol-viewport" touch-action="none" data-view="23" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0; display: none;"></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%;"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed" style="display: none;"><ul></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
-  </div>
-
-  <!-- ngIf: !area.maponly --><div class="col-md-4 ng-scope" ng-if="!area.maponly">
-
-    <p class="alert alert-info ng-binding">
-      0 Area(s)
-      <!-- ngIf: area.item.$resolved -->
-      <!-- ngIf: !area.item.$resolved --><input type="hidden" ng-if="!area.item.$resolved" ng-value="area.ids" name="orgCities" autocomplete="off" class="ng-scope" value=""><!-- end ngIf: !area.item.$resolved -->
-    </p>
-    
-    <ul class="list">
-      <!-- ngRepeat: f in area.collection.getArray() | itemsPerPage: 20 -->
-    </ul>
-    <dir-pagination-controls max-size="7" class="ng-isolate-scope"><!-- ngIf: 1 < pages.length || !autoHide -->
-
-</dir-pagination-controls>
-
-    <!-- ngIf: area.canExport --><div class="btn-group importexport ng-scope" ng-if="area.canExport">
-      <button class="btn btn-default btn-sm ng-scope" ng-click="area.import()" translate="">CSV Import</button>
-      <button class="btn btn-default btn-sm ng-scope" ng-click="area.export()" translate="">CSV Export</button>
-    </div><!-- end ngIf: area.canExport -->
-
-  </div><!-- end ngIf: !area.maponly -->
-
-  <div class="loading" ng-show="area.loading">
-    <i class="glyphicon glyphicon-map-marker glyphicon-spin"></i>
-  </div>
-
-</div>
-
-</areas>
+                        
                     </div>
 
                 </div>
@@ -632,6 +605,22 @@
 
 
             </fieldset>
+            <fieldset class="col-12">
+                <div class="col-lg-8 col-lg-offset-4">
+                    <small>
+                        <p><strong>Password policy:</strong></p>
+                        <div style="padding-left: 15px">
+                            <p>The password must contain at least 8 characters</p>
+                            
+                            
+                            
+                            
+                        </div>
+                    </small>
+                </div>
+            </fieldset>
+
+            
 
             
 
@@ -740,6 +729,15 @@ function testPrivacyPolicyAgreed(){
     if(!$('#privacyPolicyAgreed').is(':checked')){
 	addError("privacyPolicyAgreed", "Please accept the conditions, in order to create the account");
 	return false;
+    }
+    return true;
+}
+
+function testConsentAgreed(){
+    removeError("consentAgreed");
+    if(!$('#consentAgreed').is(':checked')){
+        addError("consentAgreed", "Consent is required, in order to create the account");
+        return false;
     }
     return true;
 }
@@ -1137,6 +1135,7 @@ function emailCheck (emailStr) {
         if (testFirstname() & testSurname() & testEmail() & testUid() & testPassword() & testConfirmPassword() &
                
                
+               
                testField("phone") & testField("title") & testField("description") & testOrg()
         ) {
             return true;
@@ -1192,4 +1191,4 @@ function emailCheck (emailStr) {
     </script>
 
 
-<div class="autocomplete-suggestions "></div></body></html>
+</body></html>

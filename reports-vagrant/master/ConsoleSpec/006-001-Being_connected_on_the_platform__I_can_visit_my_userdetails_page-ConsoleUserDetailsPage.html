@@ -1,0 +1,165 @@
+<html><head>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>CAS - Central Authentication Service Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="/cas/webjars/normalize.css/8.0.1/normalize.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/bootstrap/5.2.0/css/bootstrap-grid.min.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/material-components-web/14.0.0/dist/material-components-web.min.css"><link rel="stylesheet" type="text/css" href="/cas/webjars/mdi__font/6.5.95/css/materialdesignicons.min.css"><link rel="stylesheet" type="text/css" href="/cas/themes/georchestra/css/cas.css"><link rel="shortcut icon" href="/favicon.ico"></head>
+
+<body class="login mdc-typography">
+    <script type="text/javascript" src="/cas/webjars/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="/cas/webjars/datatables/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="/cas/webjars/es5-shim/4.5.9/es5-shim.min.js"></script>
+  <script type="text/javascript" src="/cas/webjars/css-vars-ponyfill/2.4.7/dist/css-vars-ponyfill.min.js"></script>
+  <script type="text/javascript" src="/cas/webjars/material-components-web/14.0.0/dist/material-components-web.min.js"></script>
+<script type="text/javascript" src="/cas/themes/georchestra/js/cas.js"></script>
+<script>
+    if (typeof resourceLoadedSuccessfully === "function") {
+        resourceLoadedSuccessfully();
+    }
+    $(() => {
+        typeof cssVars === "function" && cssVars({onlyLegacy: true});
+    })
+    var trackGeoLocation = false;
+</script>
+
+<div>
+    <geor-header style="width:100%;height:90px;border:none;overflow:hidden;" legacy-url="/header/" legacy-header="false" logo-url="https://www.georchestra.org/public/georchestra-logo.svg"></geor-header>
+    <script src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+</div>
+
+    <div class="mdc-drawer-scrim"></div>
+
+    <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust d-flex justify-content-center">
+        <main role="main" id="main-content" class="container-lg py-4">
+            <div id="content" class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center flex-md-row flex-column mdc-card mdc-card-content card">
+        <section id="loginForm" class="login-section login-form card-body">
+            <div class="d-flex flex-column justify-content-between m-auto">
+        <div>
+            <div id="serviceui" class="mb-4">
+        <div class="d-flex align-items-center p-2">
+            <div id="servicedesc" class="ml-2">
+                <h5><i class="mdi mdi-web"></i>georchestra</h5>
+                <p></p>
+            </div>
+        </div>
+    </div>
+        </div>
+        <div class="form-wrapper">
+            <form method="post" id="fm1" action="login">
+
+                <h3 class="text-center">
+                    <i class="mdi mdi-security"></i>
+                    <span>Enter Username &amp; Password</span>
+                </h3>
+
+                <section class="cas-field my-3" id="usernameSection">
+                    <div class="d-flex">
+
+                        <label for="username" class="mdc-text-field mdc-text-field--outlined mdc-text-field--focused mdc-text-field--label-floating">
+                            <input class="mdc-text-field__input" id="username" size="25" type="text" accesskey="u" autocomplete="username" name="username" value=""><span class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch" style="width: 67.25px;">
+                                  <span class="mdc-floating-label mdc-floating-label--float-above" style=""><span class="accesskey">U</span>sername:</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                              </span>
+                        </label>
+
+                        <script type="text/javascript">
+                            /*<![CDATA[*/
+                            var username = "";
+                            var disabled = false;
+
+                            if (username != null && username !== '') {
+                                $('#username').val(username);
+                                if (disabled) {
+                                    $('#usernameSection').hide();
+                                }
+                            }
+                            /*]]>*/
+                        </script>
+                    </div>
+                </section>
+
+                <section class="cas-field my-3 mdc-input-group">
+                    <div class="mdc-input-group-field mdc-input-group-field-append">
+                        <div class="d-flex caps-check">
+
+                            <label for="password" class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+
+                                <input class="mdc-text-field__input pwd" type="password" id="password" size="25" accesskey="p" autocomplete="off" name="password" value=""><span class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                          <span class="mdc-floating-label" style=""><span class="accesskey">P</span>assword:</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+
+                            </label>
+                        </div>
+
+                        <div class="mdc-text-field-helper-line caps-warn">
+                            <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg text-danger">
+                                <span>CAPSLOCK key is turned on!</span>
+                            </p>
+                        </div>
+                    </div>
+                    <button class="reveal-password mdc-button mdc-button--raised mdc-input-group-append mdc-icon-button" type="button">
+                        <i class="mdi mdi-eye reveal-password-icon"></i>
+                        <span class="sr-only">Toggle Password</span>
+                    </button>
+                </section>
+
+                <section class="cas-field my-3">
+                    </section>
+
+                <section class="cas-field">
+
+                    <div>
+            </div>
+
+                    <input type="hidden" name="execution" value="24dbd557-7c54-4f79-9a90-7a929b13ded3_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJbVV6WW1NNFkyWmxMV1k0Wm1NdE5EUXlZeTFoWXpBMkxXRTFOV0UyT1Rsak9EaGhaaUo5Lk9GeDljN3hMLXJnQkpmMzMzQ3RZNmNRV2oxVHI1U3ZpQjZYOVQ4QjdwVUs5VHBaOUV6MDhsOFU5UUZpRWNwNEpDb3c4X3VZWkdnVjZWVDVzUG5kUFZfc01jenJIZ01xSFVEQ2NiMk01MmJ3cWp1RmdpakMxem1MWk04OEpiN2F1bmx1RWgxQlFkTE8yLWU5b1lpcmhTdzFqUVJuVUJqeF94N3l4YkdCTHFXSEpBMGRjeDRqcGpVLVRUTjFPNDJhQmVwSkVsUkROSy10UmpuckJhSTUtaDJtYXZWNmNzSHN4d01JVEVoWHJUTVU5VXpJMldqdWZCekoyOEQ5X0hqV18tdmhNajlmbVplSXYycTdJSDhHRmMzREgtMlZSdERxLTBzcnVXcllDMHdEb3YxNTkwc1F2bFJySHNCbkZScEhWSkhqQkxrYk5UMEktWjk3dExBRXJsQ3c0bG1hR2Uta1dsQ2VfUFpEeFgzdTh6LVJFMG5TSHdBaFNNRE1KQTVWYnNoOWhBT1FrZEdDUzVua1hhd0ctMnhjbDdIUVFjSU1KVFNtZk50QkZmc1dlYTRyNTRvSms1ZWNDcW9GX3JEaVhNb0NfU3pGVW5YaVJDQkpITmlPTXlvcUJVTVZxT2FwZGhnMVZMY3Jwd0h4NlJuSk5feGMzZlVCdEd4eVByN1Y3aGwtZU1EM3FZWTF5R29tb3h3R29Lek1SamdjZWxvdHJpSE9EcnFOQU8yZjlSTE5sRVc4WmpPQzFyVDZjUW5jY2x6bHFaZnh2Q0sxUUs5SXdCT2laaF85ZC1PVTJ1dHRPb3RiajRTdlp1cjRfRTFmRzRtQ2JKU1BsQ0lac25LSjhENC0zd0lkV2doZmRFLS14Y3laejktQjRDdlkyVWRCY3N1cGxIWUFhY0owNk9tUU5LaWctYWJDNFBrTEFtXzhaZHFRTVhCN1RHLVVIN2NqZElPZnJqT1lBMHdRZExwSWVWdVNidmJqZ2F3WU12QnRoMjNOLWV4allwZVRiQVdZUU1fS0REZGJvXzRBTG9qVnd0R0tKVFJFeHRjVmNZTGZNVHhKY1dUQUNBZm10RUw2MVc0UVVubjBzT1R5YkNKcFN4bV9LQXdqN2FpQ2tuMUhabzRXdzV4N0xYbGtxTXg3S1NZNHhsNk0yeGVTQmp0cmhXNUhZZkM5MWw4SlhKWGFOMGJqYmw3TXVxXzl0OVVfY1lWTi1ReHI2NnpySWVuZTNGaGxwRGFqQ0Z4MlppSHZVbW9OS0VlVDBnaXJIVTZQQV9IdHpfay1xM21xRFhkQlJ2RGI1QmhOUDJULXZCZkRwUGVvVlhJSENqQk52SFRyTnVqWlFLUXVHbEJNTXo5ZXptYWNJUzRDZ0hJS3pfdHd6dldYUnpwUlVFc09EdjhQa3NVeU95akJ6QVEwRUtpRllhYVNVOHptNVlHbnN1R2w5MHFUSE4wT0YzVDZvbWFjY2JKMGJkcTVxczNYdXkwYk1NdWpCbUF0U3N1MVU1SWNadExGQUlUNGVwZ1pOUjVYWjVfMk1mODRtTk4xa0swamV5anlMUjlpQVRfcDJzSkJobFNLWXBRMzhKSTJLYjBvWnYzOEFaMEFKeFRkMFN3QllHUkEtWXBSX2ViR2ZwVFQxNGVVaGJXYk1NZjBMX1IySFFYdmZBLThCdDh0clpQM2I1dllIVGhqUktTMW55MTE2R3p5SFVTaTVjU3ZsTC1TdWZaQ09KdmxoYWozZUp1eV9ud19KbG9vdHhOSEVoOHB3TUU4T1N4S3F1Uk9LWjQ0ZGtOdUJORGR3TTdyLXV3ZjJRbEZRdWV0alQ1cWttWVZ1aVVXMFlVbXVJZkZaN3VSR1dnbHQ0RDk4SHJpLWFiakt2ekVOb05xTVc4UkNOcWRPXy1rMUdMODZGc1hBQ0s3ZDdyLTlsR1EtRFVKbVVnVURVckFYWTFxalVzV1lpdG9oOVZaMVo2UTJmR1diNHNNbG1IQUVoLXExNDNzM2RKakoxbldaYk0ybzF6T3NtaVdYZzNtTXRLQ3RldmV5SDNHbC0yRFVqS1JqUDRnSXhwUWpoTjlLY1dteGZ0NTJCUjZkY09FLVJiYXNmUDNMa2xxQ2I3eU9jQW53YnhFZnBRSWRKajk3S2FJZU9UUUVGRk95b1AyZFgwOUxiekdXcmJFQWh5cnR5U1ZJdEJ3WkZoTXVfY2o2aU9aZDBxZ29sYVdQaU9DWDhPeGY5bWRKOHRkVnJfRU9Ib2Y1Q2Fud3BTUWZJTDBWYjJ6WkliVjNPOEpaWU8xWHRMWWgwWEpTVGZ6T09TN2FyVS1wNEg5TncwOFVaSlRnQTllcWRUaU5jS3NiTTJDY2JmcmZtZjNyVlJRX1VNSFFPZlRaYWNoSW42TVJOU2R3YlVVaFQ3bWxfWk0zUkY0aFVlUk9zRUJWQXpmVjJuQXdKa0VsSUdodkV2Mm1seVhDNFFWbVFzb2tfZEtRdThvbEE2WWVzc0kxNV8zbG1PdmhLX21XTHRobEFNbWJGYTAyb2RLdmJRNXJ4RGxnYXFSOEVoS0s4RVBULXRoWDlTS0Zwb0stSkVHSFBpSWhlT0g1cUF5WUV5aDlKTDdCQnlyWW40RFZnMndBUUNCQ21fSkNVSUo2TEh4UkhteU1CWldLcXRHWDU3T2kzMk9IM0Q0SFMzNzNiVzZSYXFOM2JPUE1TS1lFalNGQkxoOGptWWNhWDZVUVNodzdlTlpscmtuZmpHTzA0aldVU3NpR3k0U29FN1R6TDF0LTFSM0pmNUwtYVhQOTVJNW84R2VBRnBzakN0Tk9ERjJVQXJxNXdEVW9haGV6V2ljaUU4VExVSF9HeXAxb2FORUZqSWF3RGlsd2l5UXBNWngwdnY2b2NLWDFjbDdkcjlyTmp4ajZrLTZ5YUdWMTlGVzlnQU5lQ0FYTWJmZ0xLUWsxLVJGNVoxei1Ua3hTdWhkVUZTdDJTa193SXppN2dhbEVkUXY2MTJxV0RzamxjQ3dxV202c2U5ZDMxcTJDSThkVlBHX3dRNW92MTBnU0tvTFZ4QkpFTkZRcThaSEpJOC1SR29JV2ZtS0lPNFBsV3MybVJkWUstemRaYUZZUGxUTHNKOTJtUmxxeC0ydko1NnZqamRub2k1dXJEc3pFckVwOEFCV2I1N3p6NzdZbkp1WTFRQXRNX2hUVHJiRjVjQ3NJTGZlOXVyTkxyV0ZYTFprY3VOVWpjQ3R3OFFvYWFXUU1FV2VDNDVkZldOVElhX1V0SHNiT2hKalJ0cS0wSTFVVzZGNndvV0JkNk80R3JjaUU4M3o3NlFpYnNiZktON2tGU09LMk5kZDhBYVhMLXhLRGY2c1NDM3kxUm1UeVhsc0RGTW5oVWFvbGN3WEJ2aFEzNWF6N1Y1YXhyQWo2QWhOYXFjYmdQWjRlc0tyZHNwSDRQeTlCTEZQMUpuOWZ2V0oxNHNJTzk4Y25YTWllM2JJb0NfU0gxT0FjcVFHRVlPcWlHdFo1MXpSQUZpajdSbl9XY2FuaVhBakctcDN3MnYxVUZacm1LZWtDSXN5MlJKQXl1SXZ2NEoxZU5FNjJ1ZVlZX1ZPczlQZE1nbWlCQ0h6eDVZMlk5N2E5Z0t0WnVDUFZzTFF4MlhMSTV3a3VJMnAwZXlLNHl4empMeVBZWFBKTXpWNTA4MlBsV1ZWbldUbnhzbjlBWnA2bTAtNnpOMWNLUmh2VDFaNU1WWU1IcEhrVHV4a3FLZWh6dXZ4aGJzdmdjenEwWkRUUnc0WEtLMlY0VFdEQVpRLXB4cDVqbTJVUGRoakpaVFBSX1lzMEFFMlZ3eEt5UjNaTklVNmUyOWI4MXhZdnBCdVpKTGpvbkhYQ1h6V244dlNSa3RKQ2pXUzNJN2oxb19qYWcyV0k4dU5sNU56ck5iTG8teFR4NVB4SXVLb0cxZDFiZkJHblk0bUhXSnBtUENqTHRqX2FIa1N6djRDbnFwU0N4ay1VcHJxel8wWTZ1LTlOZDVHWkYtTWM2YTkwUmljVU9ORktTYkZVbVpMUVdDaGlZNWFMdWYyam1nelRjZWp5bUtDYXI2SEZPZFNIaG12eTVlUlZ0WDZPbVZTczJmdmtJWEhESDdJVXV5bUtBRmFOd3MwaTZIVlhlYTU3bVhoR0J6dTBPSG9pWUhMVHVidnNYZkZfdWRTUmtlR3pDbkhKbmVYSmlNX29nYmkzdVR4aFRMMjZreTVRb1RFWFQ4SjZlV1M1ZlZOZHQ3Z3A0blhDZnNHdDV3ektyRXdHMHBicExCbklrWVRjSXVfTnRBWHJaa21HdXgzbFlNVkhmMU80RE1oOExrb0VPbFl0bnNOalpMSHZSM1NKaUEtakNVTlhGcjRwY3g0WWEzWUJHbUQwcHc5TEVsTTB4QjJIMnJNUGdYaXU5MHYtc3MxR1FJSWVyOXR1NDJKbDF6NE9IYWgxRXl3OFJVN3lpWXhBank1N1lnd2g3Rkc4WWpBOHJzWmVvNzgtODBPaFl5QnJHRWxoNUVwY2thUEFtRnAxMTl2Rjlrb2ZEYkNlc1VnWDZyQnFNTjNRRHVGVFBRcEo1R21BMVlzUWw3aF9RYXlBYlNpWWVrRFNJNHViTElfWUdwYzhtM3Qycmp1a0R3cm1rSWxMSlRJMkNSTlRTcEFicGlNWEdRYlRRME5ad01VMUI0dG9FWkdHWC12VnZIVnVCQ0tMRkNJS2dWQ2xQUmdDRVppdldfY085NG9EbDZDUXZCb2hHNk9qU29SZ2cyUWM0MGxrcjR4ME96eFM1MjMxX0c5OFdvNW0wamdPOVYza2M2ZnBid00tQm5KZUZ5NHJlS0RsQVpNZ3JTYVdlanFMYzh1TEVLTmdYcExONGF4UEZ6Qi16enZseURyZHloSm5OdTJHV1ZQWnlxbE93cElyalk5OUxsNFdTZVVidVBqZzdROXZXbVNxb1NCenFsdGpZVlV0ajQ5dlJMMC1sV1F6dlFIY2RTOUtnQy11bDRiMFJRdU1JVTlaTkw0S1RhVXV3TjdRZ1ZXMzhTdjI4XzZvLmc1Q0FLY0NaZEF6aEVUbUktbGJmaFpnV1VkaHRraEVBRmpPOXdZSmxmZUFEZkRKWWFiYjJJRlVsdl85bUM2VVUzem9RZkNxeFNwWmFxRnJSWUI4aXhB"><input type="hidden" name="_eventId" value="submit"><input type="hidden" name="geolocation"></section>
+
+                <button class="mdc-button mdc-button--raised btn btn-primary btn-primary" name="submitBtn" accesskey="l" type="submit" value="Login">
+            <span class="mdc-button__label">Login</span>
+        </button>
+
+        </form>
+
+            <hr class="my-4"><div id="pmlinks" class="my-2">
+        <div id="resetPasswordLink">
+            <a href="/console/account/new">
+                <span>Register</span>
+            </a> -
+            <span><a href="/console/account/passwordRecovery">Forgot your password? </a></span>
+        </div>
+    <p></p></div>
+
+            <script type="text/javascript">
+                /*<![CDATA[*/
+                var i = "One moment please..."
+                var j = "Login"
+                    /*]]>*/
+                    $(window).on('pageshow', function () {
+                        $(':submit').prop('disabled', false);
+                        $(':submit').attr('value', j);
+                    });
+            </script>
+
+        </div>
+        <div id="sidebar">
+            <div class="sidebar-content">
+            </div>
+        </div>
+    </div>
+        </section>
+        <span>
+            </span>
+        </div>
+</div>
+        </main>
+    </div>
+
+    <footer>
+
+</footer></body></html>

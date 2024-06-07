@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for datahub.DatahubSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:02:12 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:56:33 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,17 +45,19 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
         </thead>
         <tbody>
         <tr>
+            <td>2</td>
             <td>1</td>
             <td>0</td>
             <td>0</td>
-            <td class="passed">100.0%</td>
-            <td>1.289 seconds</td>
+            <td class="failure">50.0%</td>
+            <td>3.444 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -68,6 +70,8 @@ limitations under the License.
 <ul id="toc">
     
     <li><a href="#-1098426290" class="feature-toc-pass">I can access the 'datahub' webapp</a></li>
+    
+    <li><a href="#288665490" class="feature-toc-failure">Being connected, I can access the 'datahub' webapp</a></li>
     
 </ul>
 
@@ -97,9 +101,8 @@ limitations under the License.
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to DatahubSearchPage
-</pre>
+                <p>I visit the Datahub search page</p>
+                
             </td>
         </tr>
         
@@ -108,10 +111,8 @@ limitations under the License.
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at DatahubSearchPage
-report "datahub.DatahubSearchPage"
-</pre>
+                <p>I am at the Datahub search page</p>
+                
             </td>
         </tr>
         
@@ -145,6 +146,118 @@ report "datahub.DatahubSearchPage"
     
 
     <!-- print problems -->
+    
+</div>
+
+
+
+<div class="feature feature-failure">
+    <div class="feature-heading feature-heading-failure" id="288665490">
+        <span class="feature-name feature-name-failure">Being connected, I can access the 'datahub' webapp</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am connected to the platform</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I visit the datahub</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>the newsfeed is visible</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>failure</td>
+            <td>
+                <a href="./datahub/DatahubSpec/002-001-Being_connected__I_can_access_the__datahub__webapp-failure.png" target="_blank"><img src="./datahub/DatahubSpec/002-001-Being_connected__I_can_access_the__datahub__webapp-failure.png" alt="./datahub/DatahubSpec/002-001-Being_connected__I_can_access_the__datahub__webapp-failure.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>Condition not satisfied:
+
+$("gn-ui-results-list gn-ui-results-list-item").size() > 0
+|                                               |      |
+[]                                              0      false
+</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox-288665490-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox-288665490-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">Condition not satisfied:
+
+$("gn-ui-results-list gn-ui-results-list-item").size() > 0
+|                                               |      |
+[]                                              0      false
+
+	at datahub.DatahubSpec.Being connected, I can access the 'datahub' webapp(Datahub.groovy:59)
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
     
 </div>
 

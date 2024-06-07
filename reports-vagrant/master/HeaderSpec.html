@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for HeaderSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:02:21 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:56:46 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,6 +45,7 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -54,8 +55,9 @@ limitations under the License.
             <td>2</td>
             <td>0</td>
             <td>0</td>
+            <td>0</td>
             <td class="passed">100.0%</td>
-            <td>1.569 seconds</td>
+            <td>2.094 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -99,9 +101,8 @@ limitations under the License.
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to HeaderPage
-</pre>
+                <p>I visit the header page</p>
+                
             </td>
         </tr>
         
@@ -110,10 +111,8 @@ limitations under the License.
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at HeaderPage
-report "HeaderPage"
-</pre>
+                <p>I am at the header page</p>
+                
             </td>
         </tr>
         
@@ -174,10 +173,8 @@ report "HeaderPage"
                 <p>Given:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p>I am not connected to the platform</p>
-                <pre class="code">browser.clearCookies("/", "/cas")
-connectAsAdmin()
-</pre>
+                <p>I am not connected to the platform, and I log in as administrator</p>
+                
             </td>
         </tr>
         
@@ -186,9 +183,8 @@ connectAsAdmin()
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to HeaderPage
-</pre>
+                <p>I visit the header page</p>
+                
             </td>
         </tr>
         
@@ -197,9 +193,8 @@ connectAsAdmin()
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">headerBanner.adminTab.click()
-</pre>
+                <p>I click on the 'administration' tab</p>
+                
             </td>
         </tr>
         
@@ -208,10 +203,8 @@ connectAsAdmin()
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">headerBanner.consoleAdmTab.displayed
-report "HeaderPage-admin"
-</pre>
+                <p>The 'administration' menu is displayed</p>
+                
             </td>
         </tr>
         

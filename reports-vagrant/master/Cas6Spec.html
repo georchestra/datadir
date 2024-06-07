@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for Cas6Spec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:03:54 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:58:16 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,6 +45,7 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
@@ -54,8 +55,9 @@ limitations under the License.
             <td>2</td>
             <td>0</td>
             <td>0</td>
+            <td>0</td>
             <td class="passed">100.0%</td>
-            <td>1.478 seconds</td>
+            <td>2.155 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -99,9 +101,8 @@ limitations under the License.
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to Cas6LoginPage
-</pre>
+                <p>I visit the CAS6 login page</p>
+                
             </td>
         </tr>
         
@@ -110,11 +111,8 @@ limitations under the License.
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">$("input#username") << username
-$("input#password") << password
-$("button[type='submit']").click()
-</pre>
+                <p>I authenticate myself using legit credentials</p>
+                
             </td>
         </tr>
         
@@ -123,10 +121,8 @@ $("button[type='submit']").click()
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at Cas6LoginSuccessFullPage // only works with CAS6.
-report "Cas6LoginSuccessfull"
-</pre>
+                <p>I am connected to CAS6</p>
+                
             </td>
         </tr>
         
@@ -187,9 +183,8 @@ report "Cas6LoginSuccessfull"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to Cas6LoginPage
-</pre>
+                <p>I visit the CAS6 login page</p>
+                
             </td>
         </tr>
         
@@ -198,11 +193,8 @@ report "Cas6LoginSuccessfull"
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">$("input#username") << "not_existing_user"
-$("input#password") << "123456"
-$("button[type='submit']").click()
-</pre>
+                <p>I try to connect using bad credentials</p>
+                
             </td>
         </tr>
         
@@ -211,10 +203,8 @@ $("button[type='submit']").click()
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at Cas6LoginPage
-report "Cas6InvalidCredentials"
-</pre>
+                <p>My credentials are refused and I stay on the login page</p>
+                
             </td>
         </tr>
         

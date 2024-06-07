@@ -132,6 +132,10 @@
         #go_head .expanded > a:after {
             content: '';
         }
+        #ldap_user_alert {
+            padding-right:50px;
+            display:inline-block;
+        }
     </style>
 
 </head>
@@ -161,7 +165,7 @@
         
             
             
-            <li><a href="/mapstore/#/home">maps</a></li>
+            <li><a href="/mapstore/#/home">apps</a></li>
             
         
 
@@ -213,16 +217,6 @@
                     
 
                     
-                        
-                        
-                            
-                            
-                        <li><a href="/extractorapp/admin/">extractor</a></li>
-                            
-                        
-                        
-                    
-
                     
                         
                         
@@ -232,6 +226,7 @@
                             
                         
                         
+                    
                     
 
                     
@@ -253,16 +248,29 @@
 
         
             
-        <p class="logged" style="visibility: hidden;">
-            <a href="/console/account/userdetails">testadmin</a><span class="light"> | </span><a href="/logout">logout</a>
-        </p>
+                <p class="logged" style="visibility: hidden;">
+                       
+                    <a href="/console/account/userdetails">testadmin</a><span class="light"> | </span><a href="/logout" onclick="logout()">logout</a>
+                </p>
             
             
         
     </div>
 
     <script>
+        function logout() {
+            localStorage.removeItem("passwordChanged");
+        }
+    </script>
+    <script>
         (function(){
+            document.addEventListener('DOMContentLoaded', function() {
+                if (localStorage.getItem("passwordChanged") === null ||
+                    localStorage.getItem("passwordChanged") === undefined ||
+                    localStorage.getItem("passwordChanged") !== "true") {
+                        document.getElementById('ldap_user_alert').style.display = 'inline';
+                }
+            }, false);
             // required to get the correct redirect after login, see https://github.com/georchestra/georchestra/issues/170
             var url,
                 a = document.getElementById("login_a"),

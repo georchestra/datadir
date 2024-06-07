@@ -31,7 +31,7 @@ limitations under the License.
 
 <h1>Report for GeoserverSpec</h1>
 <hr>
-<span class="date-test-ran">Created on Wed Apr 12 11:02:11 CEST 2023 by pmauduit</span>
+<span class="date-test-ran">Created on Fri Jun 07 16:56:30 CEST 2024 by pmauduit</span>
 <span class="back-link"><a href="index.html">Back to index</a></span>
 
 
@@ -45,17 +45,19 @@ limitations under the License.
             <th>Executed features</th>
             <th>Failures</th>
             <th>Errors</th>
+            <th>Skipped</th>
             <th>Success rate</th>
             <th>Time</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td>4</td>
+            <td>6</td>
+            <td>1</td>
+            <td>1</td>
             <td>0</td>
-            <td>0</td>
-            <td class="passed">100.0%</td>
-            <td>7.601 seconds</td>
+            <td class="failure">66.67%</td>
+            <td>11.013 seconds</td>
         </tr>
         </tbody>
     </table>
@@ -67,17 +69,153 @@ limitations under the License.
 <h2>Features</h2>
 <ul id="toc">
     
+    <li><a href="#-2808763" class="feature-toc-failure">I can access a layer preview</a></li>
+    
     <li><a href="#-1523110697" class="feature-toc-pass">I can access the 'geoserver' webapp</a></li>
     
     <li><a href="#-871221262" class="feature-toc-pass">I can access the geoserver about page</a></li>
     
     <li><a href="#-598223712" class="feature-toc-pass">Being connected as an administrator, I have access to the GeoServer administration menu</a></li>
     
-    <li><a href="#-2808763" class="feature-toc-pass">I can access a layer preview</a></li>
+    <li><a href="#-869432410" class="feature-toc-error">Being connected as an administrator, I can go to the style administration UI and validate a one</a></li>
+    
+    <li><a href="#-1415274955" class="feature-toc-pass">Being connected as admin, I can go through every 'layer preview' pages</a></li>
     
 </ul>
 
 <hr>
+
+
+
+<div class="feature feature-failure">
+    <div class="feature-heading feature-heading-failure" id="-2808763">
+        <span class="feature-name feature-name-failure">I can access a layer preview</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I visit the GeoServer main page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>And:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I click on the 'layer preview' link in the menu</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I am at the GeoServer 'layer preview' page</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>I click on a random OpenLayers preview link</p>
+                
+            </td>
+        </tr>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>Then:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>A new tab or window is opened and the GeoServer preview URL is displayed</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
+    
+
+    <h3>Geb Artifacts:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Label</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr class="">
+            <td>failure</td>
+            <td>
+                <a href="./GeoserverSpec/001-001-I_can_access_a_layer_preview-failure.png" target="_blank"><img src="./GeoserverSpec/001-001-I_can_access_a_layer_preview-failure.png" alt="./GeoserverSpec/001-001-I_can_access_a_layer_preview-failure.png" style="max-width: 120px;" /></a>
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+
+    <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>Condition not satisfied:
+
+withNewWindow({ "click on a random OpenLayers preview"() }) { title.contains("OpenLayers map preview") }
+|
+false
+</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox--2808763-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox--2808763-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">Condition not satisfied:
+
+withNewWindow({ "click on a random OpenLayers preview"() }) { title.contains("OpenLayers map preview") }
+|
+false
+
+	at GeoserverSpec.I can access a layer preview(GeoserverSpec.groovy:132)
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
+    
+</div>
 
 
 
@@ -103,9 +241,8 @@ limitations under the License.
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to GeoServerPage
-</pre>
+                <p>I visit the GeoServer main page</p>
+                
             </td>
         </tr>
         
@@ -114,10 +251,8 @@ limitations under the License.
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeoServerPage
-report "GeoServerHomePage"
-</pre>
+                <p>I am at the GeoServer main page</p>
+                
             </td>
         </tr>
         
@@ -142,7 +277,7 @@ report "GeoServerHomePage"
         <tr class="">
             <td>GeoServerHomePage</td>
             <td>
-                <a href="./GeoserverSpec/001-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" target="_blank"><img src="./GeoserverSpec/001-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" alt="./GeoserverSpec/001-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/002-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" target="_blank"><img src="./GeoserverSpec/002-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" alt="./GeoserverSpec/002-001-I_can_access_the__geoserver__webapp-GeoServerHomePage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -178,9 +313,8 @@ report "GeoServerHomePage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to GeoServerAboutPage
-</pre>
+                <p>I visit the GeoServer about page</p>
+                
             </td>
         </tr>
         
@@ -189,10 +323,8 @@ report "GeoServerHomePage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeoServerAboutPage
-report "GeoServerAboutPage"
-</pre>
+                <p>I am at the GeoServer about page</p>
+                
             </td>
         </tr>
         
@@ -217,7 +349,7 @@ report "GeoServerAboutPage"
         <tr class="">
             <td>GeoServerAboutPage</td>
             <td>
-                <a href="./GeoserverSpec/002-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" target="_blank"><img src="./GeoserverSpec/002-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" alt="./GeoserverSpec/002-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/003-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" target="_blank"><img src="./GeoserverSpec/003-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" alt="./GeoserverSpec/003-001-I_can_access_the_geoserver_about_page-GeoServerAboutPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -253,10 +385,8 @@ report "GeoServerAboutPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">browser.driver.get(browser.driver.currentUrl + "&login")
-to GeoServerPage
-</pre>
+                <p>I visit the GeoServer main page</p>
+                
             </td>
         </tr>
         
@@ -265,9 +395,8 @@ to GeoServerPage
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"click on the global settings menu"()
-</pre>
+                <p>I click on the 'global settings' link in the menu</p>
+                
             </td>
         </tr>
         
@@ -276,10 +405,8 @@ to GeoServerPage
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeoServerGlobalSettingsPage
-report "GeoServerGlobalSettingsPage"
-</pre>
+                <p>I am at the GeoServer global settings page</p>
+                
             </td>
         </tr>
         
@@ -304,7 +431,7 @@ report "GeoServerGlobalSettingsPage"
         <tr class="">
             <td>GeoServerGlobalSettingsPage</td>
             <td>
-                <a href="./GeoserverSpec/003-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" target="_blank"><img src="./GeoserverSpec/003-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" alt="./GeoserverSpec/003-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" target="_blank"><img src="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" alt="./GeoserverSpec/004-001-Being_connected_as_an_administrator__I_have_access_to_the_GeoServer_administration_menu-GeoServerGlobalSettingsPage.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
@@ -318,9 +445,9 @@ report "GeoServerGlobalSettingsPage"
 
 
 
-<div class="feature feature-">
-    <div class="feature-heading feature-heading-" id="-2808763">
-        <span class="feature-name feature-name-">I can access a layer preview</span>
+<div class="feature feature-error">
+    <div class="feature-heading feature-heading-error" id="-869432410">
+        <span class="feature-name feature-name-error">Being connected as an administrator, I can go to the style administration UI and validate a one</span>
 
         
     </div>
@@ -340,9 +467,8 @@ report "GeoServerGlobalSettingsPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">to GeoServerPage
-</pre>
+                <p>I visit the GeoServer main page</p>
+                
             </td>
         </tr>
         
@@ -351,9 +477,8 @@ report "GeoServerGlobalSettingsPage"
                 <p>And:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"click on 'layer preview'"()
-</pre>
+                <p>I click onto the 'Data > Styles' link in the menu</p>
+                
             </td>
         </tr>
         
@@ -362,9 +487,8 @@ report "GeoServerGlobalSettingsPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">at GeoServerLayerPreviewPage
-</pre>
+                <p>I am at the Geoserver styles management page</p>
+                
             </td>
         </tr>
         
@@ -373,9 +497,8 @@ report "GeoServerGlobalSettingsPage"
                 <p>When:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"click on a random OpenLayers preview"()
-</pre>
+                <p>I click on a random style from the list</p>
+                
             </td>
         </tr>
         
@@ -384,11 +507,8 @@ report "GeoServerGlobalSettingsPage"
                 <p>Then:</p>
             </td>
             <td class="code-block-text" colspan="9">
-                <p></p>
-                <pre class="code">"a new tab or window has been opened and we are on a GeoServer preview URL"()
-report "GeoServerLayerPreview"
-"the layer preview tab can be closed"()
-</pre>
+                <p>The style is validated with no error</p>
+                
             </td>
         </tr>
         
@@ -411,14 +531,80 @@ report "GeoServerLayerPreview"
         <tbody>
         
         <tr class="">
-            <td>GeoServerLayerPreview</td>
+            <td>failure</td>
             <td>
-                <a href="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" target="_blank"><img src="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" alt="./GeoserverSpec/004-001-I_can_access_a_layer_preview-GeoServerLayerPreview.png" style="max-width: 120px;" /></a>
+                <a href="./GeoserverSpec/005-001-Being_connected_as_an_administrator__I_can_go_to_the_style_administration_UI_and_validate_a_one-failure.png" target="_blank"><img src="./GeoserverSpec/005-001-Being_connected_as_an_administrator__I_can_go_to_the_style_administration_UI_and_validate_a_one-failure.png" alt="./GeoserverSpec/005-001-Being_connected_as_an_administrator__I_can_go_to_the_style_administration_UI_and_validate_a_one-failure.png" style="max-width: 120px;" /></a>
             </td>
         </tr>
         
         </tbody>
     </table>
+    
+
+    <!-- print problems -->
+    
+    <div class="problem-description">
+        <div class="problem-header">The following problems occurred:</div>
+        <div>
+            <ul>
+                
+                <li>
+    <pre>java.lang.UnsupportedOperationException: not supported on empty navigator objects</pre>
+    <input type="checkbox" id="toggle-stacktrace-checkbox--869432410-0" class="toggle-stacktrace-checkbox" checked />
+    <label for="toggle-stacktrace-checkbox--869432410-0" class="toggle-stacktrace-label" >Stacktrace</label>
+    <div>
+        <pre class="stacktrace">java.lang.UnsupportedOperationException: not supported on empty navigator objects
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at geb.navigator.DefaultNavigator.click(DefaultNavigator.groovy:675)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at GeoserverSpec.Being connected as an administrator, I can go to the style administration UI and validate a one(GeoserverSpec.groovy:183)
+</pre>
+    </div>
+</li>
+                
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+
+
+<div class="feature feature-">
+    <div class="feature-heading feature-heading-" id="-1415274955">
+        <span class="feature-name feature-name-">Being connected as admin, I can go through every 'layer preview' pages</span>
+
+        
+    </div>
+
+    <!-- print feature report info -->
+    
+
+    <!-- print name and issue/see annotation-->
+    
+
+    <!-- print given, when, then, ... blocks -->
+    <h3>Code Blocks:</h3>
+    <table>
+        
+        <tr class="">
+            <td class="code-block-kind" colspan="1">
+                <p>When:</p>
+            </td>
+            <td class="code-block-text" colspan="9">
+                <p>Being on the GeoServer main page</p>
+                
+            </td>
+        </tr>
+        
+    </table>
+
+    <!-- print data tables if feature failed -->
+    
+
+    <!-- print geb artifacts -->
     
 
     <!-- print problems -->

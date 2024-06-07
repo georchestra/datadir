@@ -1,0 +1,362 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><script type="text/javascript" src="./wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.5.1-ver-C09A105EC81DB596488CF1F95E764BF8.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-E34C6FE16C54FE3DF3591290A48A496A.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-693964C770553710C590B40E6EAFB309.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="?0";
+/*]]>*/
+</script>
+<script type="text/javascript" src="./wicket/resource/org.wicketstuff.select2.ApplicationSettings/res/js/select2.full-ver-0C1C8BE2790B7DF692432656FBF4BC9A.js"></script>
+<link rel="stylesheet" type="text/css" href="./wicket/resource/org.wicketstuff.select2.ApplicationSettings/res/css/select2-ver-3805311D5FC135A34B316E3F1A7ED1E2.css">
+<script type="text/javascript" src="./wicket/resource/org.geoserver.web.wicket.Select2DropDownChoice/js/select2/select2-keyboard-ver-96A0E3802007C5F34BB0BE2B9D344312.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>GeoServer: Welcome</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+	
+      <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/blueprint/screen-ver-5E7BA86A4C3BEA6B457AC3C7F9ADF9B4.css" type="text/css" media="screen, projection">
+      
+      
+      <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/blueprint/print-ver-BBB913C92FDF844CBAD576E7BB0B2A96.css" type="text/css" media="print">
+      
+      
+        <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/bootstrap-utilities.min-ver-645A1893E414D59190220CC91091A3B1.css" type="text/css" media="all">
+	  <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/geoserver-ver-2BEFECF600188C5A52BB47BAB8EA1140.css" type="text/css" media="screen, projection">
+	  
+      <!--[if IE]>
+      
+        <link rel="stylesheet" href="./wicket/resource/org.geoserver.web.GeoServerBasePage/css/blueprint/ie-ver-830652BCF971CCAF4FB29B4A140F9430.css" type="text/css" media="screen, projection"/>
+        
+      <![endif]-->
+      
+      <script type="text/javascript" src="./wicket/resource/org.geoserver.web.GeoServerBasePage/js/jquery.placeholder-ver-6E6E735FF3A1792243C593D1E48D6AE1.js"></script>
+      
+    
+        <script type="text/javascript" src="./wicket/resource/org.geoserver.web.GeoServerBasePage/js/jquery.fullscreen-ver-A1341414A7D106EAE077E0332CD01573.js"></script>
+    
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.geoserver.web.demo.MapPreviewPage/mappreview_keyshortcut-ver-53DBA8B7B51005F654E624BEE0441D3B.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./?0-1.IBehaviorListener.0-localeSwitcher","m":"POST","c":"id1","i":"ajaxFeedback","e":"change"});;
+$('#id2').select2({});;
+Wicket.Ajax.ajax({"u":"./?0-1.IBehaviorListener.0-form-workspace-select","m":"POST","c":"id2","i":"ajaxFeedback","e":"change"});;
+$('#id3').select2({});;
+Wicket.Ajax.ajax({"u":"./?0-1.IBehaviorListener.0-form-layer-select","m":"POST","c":"id3","i":"ajaxFeedback","e":"change"});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "load", function(event) { 
+enableSelect2Keyboard('id2');;
+enableSelect2Keyboard('id3');;
+;});
+/*]]>*/
+</script>
+</head>
+<body>
+  <div id="go_head">
+    <geor-header style="width:100%;height:90px;border:none;" active-app="geoserver" legacy-url="/header/" legacy-header="false" logo-url="https://www.georchestra.org/public/georchestra-logo.svg" stylesheet=""></geor-header>
+  </div>
+  <div id="main">
+    <div class="wrap selfclear">
+    <div id="sidebar">
+      
+      <ul id="navigation">
+        <li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>About &amp; Status</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./wicket/bookmarkable/org.geoserver.web.AboutGeoServerPage?filter=false" title="General information about GeoServer">
+                <img src="./wicket/resource/org.geoserver.web.AboutGeoServerPage/img/icons/silk/help-ver-C3812C74BC524179F4CCF5D2DB7B3CBF.png" alt="About GeoServer"><span>About GeoServer</span>
+              </a>
+            </li>
+          </ul>
+        </li><li class="navigation-tab">
+          <div class="navigation-tab-header">
+            <span>Data</span>
+          </div>
+          <ul class="navigation-tab-content plain">
+            <li class="nav-administer-service">
+              <a href="./wicket/bookmarkable/org.geoserver.web.demo.MapPreviewPage?filter=false" title="List of all layers configured in GeoServer and provides previews in various formats for each.">
+                <img src="./wicket/resource/org.geoserver.web.demo.MapPreviewPage/::/img/icons/geosilk/map-ver-3085230CE03A9A93A074669E4C194432.png" alt="Layer Preview"><span>Layer Preview</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="navigation-tab">
+          <div class="navigation-tab-single">
+             <a href="./wicket/bookmarkable/org.geoserver.web.DemoPage" title="GeoServer Demonstrations"><span>Demos</span></a>
+          </div>
+        </li>
+      </ul>
+      
+    </div><!-- /#sidebar -->
+    <div id="page" class="selfclear">
+      <div class="page-header">
+        <div id="topFeedback">
+  
+</div>
+        <h1 id="header-title">Welcome</h1>
+        <p id="header-description">GeoServer Web Service, anonymous access to 2 workspaces, with 1 layers.</p>
+        <div class="header-panel"></div>
+      </div>
+
+      <div class="page-pane selfclear" id="page-pane">
+        
+<div id="chooser">
+  <form id="id4" method="post" action="./?0-1.IFormSubmitListener-form"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden" class="hidden-fields"><input type="hidden" name="id4_hf_0" id="id4_hf_0"></div>
+    <div class="select">
+			<img class="icon" src="./wicket/resource/org.geoserver.web.GeoServerHomePage/img/icons/silk/folder-ver-FBD3929A893B147AE0940D48D533E023.png" title="Workspace">
+			<span>
+		<select onchange="document.getElementById('id4_hf_0').value='./?0-1.IOnChangeListener-form-workspace-select';document.getElementById('id4').submit();" name="workspace:select" id="id2" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option selected="selected" value=""></option>
+<option value="geor">geor</option>
+<option value="psc">psc</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 47px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-id2-container"><span class="select2-selection__rendered" id="select2-id2-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+	</span>
+	  </div>
+    <div class="select">
+		  <img class="icon" src="./wicket/resource/org.geoserver.web.GeoServerHomePage/img/icons/silk/picture_empty-ver-7C42DAE5239115350CA4F2557CF0F015.png" title="Layer">
+		  <span>
+		<select onchange="document.getElementById('id4_hf_0').value='./?0-1.IOnChangeListener-form-layer-select';document.getElementById('id4').submit();" name="layer:select" id="id3" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+<option selected="selected" value=""></option>
+<option value="psc:terr_communes">psc:terr_communes</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 137px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-id3-container"><span class="select2-selection__rendered" id="select2-id3-container" title=""></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+	</span>
+	  </div>
+    <div id="refresh">
+		  
+	  </div>
+  </form>
+</div>
+<div id="welcome">
+<p>
+	
+	<span>For more information visit <a href="http://geoserver.org">${organization}</a>.</span>
+</p>
+
+<p>
+
+</p>
+<p>
+</p><div>
+      
+</div><div>
+      
+</div>
+<p></p>
+
+</div>
+
+<div id="services">
+	<span>
+  <div>
+    <h3>My GeoServer WMS</h3>
+    <p class="serviceDescription">
+This is a description of your Web Map Server.
+     </p>
+    <div class="flex-display">
+      <div>
+        <a href="../ows?service=WMS&amp;version=1.3.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WMS</span>
+            <hr>
+            <span class="serviceVersion">1.3.0</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WMS&amp;version=1.1.1&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WMS</span>
+            <hr>
+            <span class="serviceVersion">1.1.1</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><div>
+    <h3>GeoServer Web Map Tile Service</h3>
+    <p class="serviceDescription">Predefined map tiles generated from vector data, raster data, and imagery.</p>
+    <div class="flex-display">
+      <div>
+        <a href="../gwc/service/tms/1.0.0">
+          <div class="link-bordered">
+            <span class="serviceProtocol">TMS</span>
+            <hr>
+            <span class="serviceVersion">1.0.0</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../gwc/service/wms?service=WMS&amp;version=1.1.1&amp;request=GetCapabilities&amp;tiled=true">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WMS-C</span>
+            <hr>
+            <span class="serviceVersion">1.1.1</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../gwc/service/wmts?service=WMTS&amp;version=1.1.1&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WMTS</span>
+            <hr>
+            <span class="serviceVersion">1.1.1</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><div>
+    <h3>My GeoServer WFS</h3>
+    <p class="serviceDescription">
+This is a description of your Web Feature Server.
+
+The GeoServer is a full transactional Web Feature Server, you may wish to limit
+GeoServer to a Basic service level to prevent modificaiton of your geographic
+data.
+     </p>
+    <div class="flex-display">
+      <div>
+        <a href="../ows?service=WFS&amp;acceptversions=2.0.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WFS</span>
+            <hr>
+            <span class="serviceVersion">2.0.0</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WFS&amp;version=1.1.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WFS</span>
+            <hr>
+            <span class="serviceVersion">1.1.0</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WFS&amp;version=1.0.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WFS</span>
+            <hr>
+            <span class="serviceVersion">1.0.0</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><div>
+    <h3>My GeoServer WCS</h3>
+    <p class="serviceDescription">
+This is a description of your Web Coverage Server.
+     </p>
+    <div class="flex-display">
+      <div>
+        <a href="../ows?service=WCS&amp;acceptversions=2.0.1&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WCS</span>
+            <hr>
+            <span class="serviceVersion">2.0.1</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WCS&amp;version=1.1.1&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WCS</span>
+            <hr>
+            <span class="serviceVersion">1.1.1</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WCS&amp;version=1.1.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WCS</span>
+            <hr>
+            <span class="serviceVersion">1.1.0</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WCS&amp;version=1.1&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WCS</span>
+            <hr>
+            <span class="serviceVersion">1.1</span>
+          </div>
+        </a>
+      </div><div>
+        <a href="../ows?service=WCS&amp;version=1.0.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WCS</span>
+            <hr>
+            <span class="serviceVersion">1.0.0</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><div>
+    <h3>WPS</h3>
+    <p class="serviceDescription"></p>
+    <div class="flex-display">
+      <div>
+        <a href="../ows?service=WPS&amp;version=1.0.0&amp;request=GetCapabilities">
+          <div class="link-bordered">
+            <span class="serviceProtocol">WPS</span>
+            <hr>
+            <span class="serviceVersion">1.0.0</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</span>
+</div>
+
+<div id="capabilities">
+  <h3>Service Capabilities</h3>
+
+  <div>
+    <div class="flex-display">
+  <div>
+      <a href="../ows?service=csw&amp;version=2.0.2&amp;request=GetCapabilities">
+        <div class="link-bordered">
+          <span class="serviceProtocol">csw</span>
+          <hr>
+          <span class="serviceVersion">2.0.2</span>
+        </div>
+      </a>
+      <div class="spacer"></div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+
+<p>
+	<span>This GeoServer instance is running version <strong>2.24.2-georchestra</strong>.</span> 
+</p>
+
+	
+
+	
+	
+
+      </div>
+      <div class="page-footer">
+        <div id="bottomFeedback">
+  
+</div>
+      </div>
+    </div><!-- /#page -->
+    </div><!-- /.wrap> -->
+  </div><!-- /#main -->
+  <!-- The feebdback component needs a local style so that the Wicket Ajax support can flip
+       its value to "display: true". Will not work with a class, do not use one here -->
+  <div id="ajaxFeedback" style="display: none">
+    <img alt="Loading..." src="./wicket/resource/org.geoserver.web.GeoServerBasePage/img/ajax-loader-ver-A51C5608D01ACF32DF728F299767F82B.gif">
+  </div>
+
+
+</body></html>

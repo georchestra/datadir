@@ -69,7 +69,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # Optional; specify a GeoJSON object to be used as filter: all records contained inside the geometry will be boosted on top,
 # all records which do not intersect with the geometry will be shown with lower priority; can be specified as URL or inline
 # Note: if the GeoJSON object contains multiple features, only the geometry of the first one will be kept!
-filter_geometry_url = "/console/account/areaofcompetence"
+#filter_geometry_url = "/console/account/areaofcompetence"
 # filter_geometry_data = '{ "coordinates": [...], "type": "Polygon" }'
 
 # The advanced search filters available to the user can be customized with this setting.

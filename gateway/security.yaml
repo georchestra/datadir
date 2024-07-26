@@ -1,6 +1,14 @@
 georchestra:
   gateway:
     security:
+      header-authentication:
+        # If enabled, pre-authentication is enabled and can be performed by passing
+        # true to the sec-georchestra-preauthenticated request header, and user details
+        # through the following request headers: preauth-username, preauth-firstname,
+        # preauth-lastname, preauth-org, preauth-email, preauth-roles.
+        # In such case, it is crucial for the reverse proxy in front of the gateway to
+        # sanitize the mentioned request headers to prevent external impersonation.
+        enabled: false
       createNonExistingUsersInLDAP: true
       enableRabbitmqEvents: true
       oauth2:

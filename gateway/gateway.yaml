@@ -7,7 +7,7 @@ spring.config.import: application.yaml, security.yaml, routes.yaml, roles-mappin
 georchestra:
   gateway:
     # Redirection URL after a successful logout : Defaults to /?logout
-    # logoutUrl : "/?logout" 
+    # logoutUrl : "/?logout"
     default-headers:
       # Default security headers to append to proxied requests
       proxy: true
@@ -84,3 +84,9 @@ georchestra:
           json-user: true
       geoserver:
         target: ${georchestra.gateway.services.geoserver.target}
+      geocontrib:
+        target: ${georchestra.gateway.services.geocontrib.target}
+        access-rules:
+          - intercept-url: /geocontrib/**
+            anonymous: false
+            allowed-roles: SUPERUSER,USER

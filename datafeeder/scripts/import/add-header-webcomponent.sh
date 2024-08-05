@@ -4,7 +4,7 @@
 # so you need to add it with chmod and commit/push it
 
 DATAFEEDER_DIR=${1:-/usr/share/nginx/html}
-SNIPPET="<script src='https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js'></script><geor-header active-app='import' style='height:90px'></geor-header>"
+SNIPPET="<script src='https://mel.integration.apps.gs-fr-prod.camptocamp.com/public/header-geocontrib.js'></script><geor-header active-app='import' style='height:130px'></geor-header>"
 
 if grep -q "${SNIPPET}" "${DATAFEEDER_DIR}/index.html"; then
   echo "[INFO] geOrchestra: header already present."

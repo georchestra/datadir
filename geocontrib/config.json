@@ -1,0 +1,51 @@
+{
+  "BASE_URL": "/geocontrib/",
+  "DOMAIN": "/geocontrib/",
+  "VUE_APP_LOCALE": "fr-FR",
+  "VUE_APP_APPLICATION_NAME": "GéoContrib",
+  "VUE_APP_APPLICATION_ABSTRACT": "MEL OpenData",
+  "VUE_APP_LOGO_PATH": "https://www.georchestra.org/public/georchestra-logo.svg",
+  "VUE_APP_APPLICATION_FAVICO": "https://georchestra-127-0-1-1.traefik.me/favicon.ico",
+  "VUE_APP_DJANGO_BASE": "https://georchestra-127-0-1-1.traefik.me",
+  "VUE_APP_DJANGO_API_BASE": "/geocontrib/api/",
+
+  "VUE_APP_CATALOG_NAME": "IDGO",
+  "VUE_APP_IDGO": false,
+  "VUE_APP_RELOAD_INTERVAL": 15000,
+
+  "VUE_APP_LOGIN_URL": "/login",
+  "VUE_APP_DISABLE_LOGIN_BUTTON": 1,
+
+  "VUE_APP_FONT_FAMILY": "Lato",
+  "VUE_APP_HEADER_COLOR": "#E30513",
+  "VUE_APP_PRIMARY_COLOR": "#E30513",
+  "VUE_APP_PRIMARY_HIGHLIGHT_COLOR": "#AB0107",
+
+  "DEFAULT_BASE_MAP_SCHEMA_TYPE": "wms",
+  "DEFAULT_BASE_MAP_SERVICE": "https://georchestra-127-0-1-1.traefik.me/geoserver/Raster/wms",
+  "DEFAULT_BASE_MAP_OPTIONS": {"format": "image/png", "layers": "Raster:2020_ortho_mel_5cm", "maxZoom": 20, "opacity": 1.0, "attribution": "\u00a9 les contributeurs d\u2019OpenStreetMap - MEL OpenData", "transparent": true},
+  "DEFAULT_MAP_VIEW" : {
+    "center": [50.636506,3.063984],
+    "zoom": 11
+  },
+  "MAP_PREVIEW_CENTER" : [50.636506,3.063984],
+  "GEOCODER_PROVIDERS" : {
+    "ADDOK": "addok",
+    "NOMINATIM": "nominatim",
+    "PHOTON": "photon"
+  },
+  "SELECTED_GEOCODER" : {
+    "PROVIDER": "addok"
+  },
+  "DISPLAY_FORBIDDEN_PROJECTS" : true,
+  "DISPLAY_FORBIDDEN_PROJECTS_DEFAULT" : true,
+  "GEORCHESTRA_INTEGRATION" : {
+    "HEADER": {
+      "LEGACY_HEADER": false,
+      "LEGACY_URL": "/header/",
+      "STYLE": "",
+      "STYLESHEET":  "",
+      "HEADER_SCRIPT":  "https://mel.integration.apps.gs-fr-prod.camptocamp.com/public/header-geocontrib.js"
+    }
+  }
+}

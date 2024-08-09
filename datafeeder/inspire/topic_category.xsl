@@ -1,13 +1,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exslt="http://exslt.org/common"
-  xmlns:geonet="http://www.fao.org/geonetwork" xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:dcterms="http://purl.org/dc/terms/" xmlns:gco="http://www.isotc211.org/2005/gco"
-  xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:srv="http://www.isotc211.org/2005/srv"
-  xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:util="java:org.fao.geonet.util.XslUtil" version="2.0" exclude-result-prefixes="#all">
+                xmlns:geonet="http://www.fao.org/geonetwork" xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:util="java:org.fao.geonet.util.XslUtil" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0"
+                version="2.0" exclude-result-prefixes="#all">
 
-<!-- 
-Template to add a <gmd:topicCategory> for each 
+<!--
+Template to add a <gmd:topicCategory> for each
 gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString
 matching the mappings defined here from keyword to RDF entry
 
@@ -24,12 +23,12 @@ The document must have an empty gmd:identificationInfo/gmd:MD_DataIdentification
           <xsl:variable name="topiccat_code" select="$topiccat-map/entry[@rdf:about=$rdf_about_id]/@topiccatcode"/>
           <xsl:choose>
             <xsl:when test="$topiccat_code != ''">
-              <gmd:topicCategory>
-                <gmd:MD_TopicCategoryCode>
+              <mri:topicCategory>
+                <mri:MD_TopicCategoryCode>
                   <xsl:value-of select="$topiccat_code" />
-                </gmd:MD_TopicCategoryCode>
-              </gmd:topicCategory>
-            </xsl:when> 
+                </mri:MD_TopicCategoryCode>
+              </mri:topicCategory>
+            </xsl:when>
             <xsl:otherwise>
               <xsl:comment>
                 No mapping exists for rdf:about= '<xsl:value-of select="$rdf_about_id"/>'.
@@ -44,8 +43,8 @@ The document must have an empty gmd:identificationInfo/gmd:MD_DataIdentification
       </xsl:choose>
     </xsl:for-each>
   </xsl:template>
-  
-  <!-- 
+
+  <!--
     Mapping of <rdf:Description rdf:about="<id>"> in themes.rdf to topic category codes
    -->
   <xsl:variable name="topiccat-map">

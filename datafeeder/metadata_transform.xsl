@@ -229,16 +229,18 @@
   <xsl:template
           match="//mdb:distributionInfo/mrd:MD_Distribution/mrd:transferOptions">
     <mrd:transferOptions>
-      <xsl:for-each select="$props//onlineResources//onlineResource">
-        <mrd:onLine>
-          <xsl:call-template name="onlineResource">
-            <xsl:with-param name="linkage" select="linkage" />
-            <xsl:with-param name="protocol" select="protocol" />
-            <xsl:with-param name="name" select="name" />
-            <xsl:with-param name="description" select="description" />
-          </xsl:call-template>
-        </mrd:onLine>
-      </xsl:for-each>
+        <mrd:MD_DigitalTransferOptions>
+        <xsl:for-each select="$props//onlineResources//onlineResource">
+          <mrd:onLine>
+            <xsl:call-template name="onlineResource">
+              <xsl:with-param name="linkage" select="linkage" />
+              <xsl:with-param name="protocol" select="protocol" />
+              <xsl:with-param name="name" select="name" />
+              <xsl:with-param name="description" select="description" />
+            </xsl:call-template>
+          </mrd:onLine>
+        </xsl:for-each>
+        </mrd:MD_DigitalTransferOptions>
     </mrd:transferOptions>
   </xsl:template>
 
@@ -315,15 +317,6 @@
               </cit:onlineResource>
             </cit:CI_Contact>
           </cit:contactInfo>
-          <cit:partyIdentifier>
-            <mcc:MD_Identifier>
-              <mcc:codeSpace>
-                <gco:CharacterString>
-                  <xsl:value-of select="$organizationName" />
-                </gco:CharacterString>
-              </mcc:codeSpace>
-            </mcc:MD_Identifier>
-          </cit:partyIdentifier>
         </cit:CI_Individual>
       </cit:party>
     </cit:CI_Responsibility>

@@ -43,6 +43,12 @@
     </gco:CharacterString>
   </xsl:template>
 
+  <xsl:template match="//mdb:dateInfo[1]/cit:CI_Date/cit:date/gco:DateTime">
+      <gco:DateTime>
+        <xsl:value-of select="format-dateTime(current-dateTime(), '[Y0001]/[M01]/[D01]T[h1]:[m01]:00')" />
+      </gco:DateTime>
+  </xsl:template>
+
   <xsl:template
           match="//mdb:identificationInfo/mri:MD_DataIdentification/mri:citation/cit:CI_Citation/cit:title/gco:CharacterString">
     <gco:CharacterString>

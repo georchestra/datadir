@@ -15,14 +15,6 @@ server:
 spring:
   cloud:
     gateway:
-      default-filters:
-        - SecureHeaders
-        - TokenRelay
-        - RemoveSecurityHeaders
-        # AddSecHeaders appends sec-* headers to proxied requests based on the currently authenticated user
-        - AddSecHeaders
-        - PreserveHostHeader
-        - LoginParamRedirect #redirects all request with a ?login query param to /login
       filter:
         secure-headers:
           referrer-policy: strict-origin

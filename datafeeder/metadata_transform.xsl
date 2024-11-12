@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:exslt="http://exslt.org/common" 
+                xmlns:exslt="http://exslt.org/common"
                 xmlns:geonet="http://www.fao.org/geonetwork"
                 xmlns:skos="http://www.w3.org/2004/02/skos/core#"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,12 +11,12 @@
                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:util="java:org.fao.geonet.util.XslUtil"
-                version="2.0" 
+                version="2.0"
                 exclude-result-prefixes="#all">
 
-<!-- 
-Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
- -->
+  <!--
+  Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
+   -->
 
   <xsl:strip-space elements="*" xmlns="http://www.isotc211.org/2005/gmd" />
   <xsl:output indent="yes" standalone="yes" />
@@ -45,7 +45,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString">
+          match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString">
     <gco:CharacterString>
       <xsl:value-of select="$props//title" />
     </gco:CharacterString>
@@ -68,8 +68,8 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       </xsl:for-each>
       <gmd:type>
         <gmd:MD_KeywordTypeCode
-          codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_KeywordTypeCode"
-          codeListValue="theme" />
+                codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_KeywordTypeCode"
+                codeListValue="theme" />
       </gmd:type>
       <gmd:thesaurusName>
         <gmd:CI_Citation>
@@ -83,8 +83,8 @@ Default template to apply MetadataRecordProperties.java properties to a record t
               </gmd:date>
               <gmd:dateType>
                 <gmd:CI_DateTypeCode
-                  codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_DateTypeCode"
-                  codeListValue="publication" />
+                        codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#CI_DateTypeCode"
+                        codeListValue="publication" />
               </gmd:dateType>
             </gmd:CI_Date>
           </gmd:date>
@@ -101,20 +101,20 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date[1]/gmd:CI_Date/gmd:date/gco:Date">
+          match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date[1]/gmd:CI_Date/gmd:date/gco:Date">
     <gco:Date>
       <xsl:value-of select="$props//creationDate" />
     </gco:Date>
   </xsl:template>
   <xsl:template
-    match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date[2]/gmd:CI_Date/gmd:date/gco:Date">
+          match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date[2]/gmd:CI_Date/gmd:date/gco:Date">
     <gco:Date>
       <xsl:value-of select="$props//metadataPublicationDate" />
     </gco:Date>
   </xsl:template>
 
   <xsl:template
-    match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gco:CharacterString">
+          match="//gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:MD_Identifier/gmd:code/gco:CharacterString">
     <gco:CharacterString>
       <xsl:value-of select="$props//dataIdentifier" />
     </gco:CharacterString>
@@ -122,7 +122,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
 
 
   <xsl:template
-    match="//gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox">
+          match="//gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement/gmd:EX_GeographicBoundingBox">
     <gmd:EX_GeographicBoundingBox>
       <gmd:westBoundLongitude>
         <gco:Decimal>
@@ -148,7 +148,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="//gmd:MD_DataIdentification/gmd:spatialRepresentationType/gmd:MD_SpatialRepresentationTypeCode/@codeListValue">
+          match="//gmd:MD_DataIdentification/gmd:spatialRepresentationType/gmd:MD_SpatialRepresentationTypeCode/@codeListValue">
     <xsl:attribute name="codeListValue">
       <xsl:value-of select="$props//spatialRepresentation" />
     </xsl:attribute>
@@ -175,9 +175,9 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       <xsl:call-template name="contactInfo">
         <xsl:with-param name="individualName" select="$props//datasetResponsibleParty//individualName" />
         <xsl:with-param name="organizationName"
-          select="$props//datasetResponsibleParty//organizationName" />
+                        select="$props//datasetResponsibleParty//organizationName" />
         <xsl:with-param name="deliveryPoint"
-          select="$props//datasetResponsibleParty//address//deliveryPoint" />
+                        select="$props//datasetResponsibleParty//address//deliveryPoint" />
         <xsl:with-param name="city" select="$props//datasetResponsibleParty//address//city" />
         <xsl:with-param name="postalCode" select="$props//datasetResponsibleParty//address//postalCode" />
         <xsl:with-param name="country" select="$props//datasetResponsibleParty//address//country" />
@@ -193,9 +193,9 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       <xsl:call-template name="contactInfo">
         <xsl:with-param name="individualName" select="$props//metadataResponsibleParty//individualName" />
         <xsl:with-param name="organizationName"
-          select="$props//metadataResponsibleParty//organizationName" />
+                        select="$props//metadataResponsibleParty//organizationName" />
         <xsl:with-param name="deliveryPoint"
-          select="$props//metadataResponsibleParty//address//deliveryPoint" />
+                        select="$props//metadataResponsibleParty//address//deliveryPoint" />
         <xsl:with-param name="city" select="$props//metadataResponsibleParty//address//city" />
         <xsl:with-param name="postalCode" select="$props//metadataResponsibleParty//address//postalCode" />
         <xsl:with-param name="country" select="$props//metadataResponsibleParty//address//country" />
@@ -207,7 +207,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="//gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:statement/gco:CharacterString">
+          match="//gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:lineage/gmd:LI_Lineage/gmd:statement/gco:CharacterString">
     <gco:CharacterString>
       <xsl:value-of select="$props//lineage" />
     </gco:CharacterString>
@@ -220,7 +220,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="//gmd:distributionInfo//gmd:MD_Distribution//gmd:transferOptions//gmd:MD_DigitalTransferOptions">
+          match="//gmd:distributionInfo//gmd:MD_Distribution//gmd:transferOptions//gmd:MD_DigitalTransferOptions">
     <gmd:MD_DigitalTransferOptions>
       <xsl:for-each select="$props//onlineResources//onlineResource">
         <gmd:onLine>
@@ -242,14 +242,14 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
 
   <xsl:template
-    match="gmd:referenceSystemInfo//gmd:MD_ReferenceSystem//gmd:referenceSystemIdentifier//gmd:RS_Identifier/gmd:code">
+          match="gmd:referenceSystemInfo//gmd:MD_ReferenceSystem//gmd:referenceSystemIdentifier//gmd:RS_Identifier/gmd:code">
     <gmd:code>
       <gco:CharacterString>
         <xsl:value-of select="$props//coordinateReferenceSystem" />
       </gco:CharacterString>
     </gmd:code>
   </xsl:template>
-   
+
 
   <!-- Creates a CI_ResponsibleParty -->
   <xsl:template name="contactInfo">
@@ -310,8 +310,8 @@ Default template to apply MetadataRecordProperties.java properties to a record t
       </gmd:contactInfo>
       <gmd:role>
         <gmd:CI_RoleCode
-          codeList="http://standards.iso.org/iso/19139/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
-          codeListValue="pointOfContact" />
+                codeList="http://standards.iso.org/iso/19139/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode"
+                codeListValue="pointOfContact" />
       </gmd:role>
     </gmd:CI_ResponsibleParty>
   </xsl:template>
@@ -360,7 +360,7 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   </xsl:template>
   -->
 
-  <!-- 
+  <!--
     Generate one gmd:topicCategory/gmd:MD_TopicCategoryCode for each gmd:keyword/gco:CharacterString
     that matches an entry in rdf:Description rdf:about="<id>"/skos:prefLabel[text()] in inspire/themes.rdf
   -->
@@ -368,5 +368,5 @@ Default template to apply MetadataRecordProperties.java properties to a record t
   <xsl:template match="gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory">
     <xsl:call-template name="inspire_topic_category"/>
   </xsl:template>
-  
+
 </xsl:stylesheet>

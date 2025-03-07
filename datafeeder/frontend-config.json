@@ -28,8 +28,8 @@
     {
       "uri": "/datahub/dataset/:uuid",
       "title": {
-        "default": "See data in Datahub",
-        "fr": "Voir le jeu de données dans datahub"
+        "default": "Datahub",
+        "fr": "Datahub"
       }
     }
   ]

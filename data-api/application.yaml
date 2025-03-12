@@ -1,0 +1,5 @@
+postgis:
+  schemas:
+    include:
+      - schema: "psc"
+        alias: "psc-alias"

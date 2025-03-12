@@ -1,0 +1,6 @@
+# For full config, please check https://github.com/georchestra/data-api/blob/main/postgis.md
+#postgis:
+#  schemas:
+#    include:
+#      - schema: "psc"
+#        alias: "psc-alias"

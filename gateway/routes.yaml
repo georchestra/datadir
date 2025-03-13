@@ -65,14 +65,14 @@ spring:
         - Path=/data/**
 
 georchestra.gateway.services:
-  console.target: http://${CONSOLE_HOST}:8080/console/
-  datafeeder.target: http://${DATAFEEDER_HOST}:8080/datafeeder/
-  datahub.target: http://${DATAHUB_HOST}:80/datahub/
-  geonetwork.target: http://${GEONETWORK_HOST}:8080/geonetwork/
-  geoserver.target: http://${GEOSERVER_HOST}:8080/geoserver/
-  geowebcache.target: http://${GEOWEBCACHE_HOST}:8080/geowebcache/
-  header.target: http://${HEADER_HOST}:8080/header/
-  import.target: http://${IMPORT_HOST}:80/
-  mapstore.target: http://${MAPSTORE_HOST}:8080/mapstore/
-  ogc-api-records.target: http://${OGC_API_RECORDS_HOST}:8080/ogc-api-records/
-  data-api.target: http://${DATA_API_HOST}:8080/data/
+  console.target: http://${CONSOLE_HOST:console}:8080/console/
+  datafeeder.target: http://${DATAFEEDER_HOST:datafeeder}:8080/datafeeder/
+  datahub.target: http://${DATAHUB_HOST:datahub}:80/datahub/
+  geonetwork.target: http://${GEONETWORK_HOST:geonetwork}:8080/geonetwork/
+  geoserver.target: http://${GEOSERVER_HOST:geoserver}:8080/geoserver/
+  geowebcache.target: http://${GEOWEBCACHE_HOST:geowebcache}:8080/geowebcache/
+  header.target: http://${HEADER_HOST:header}:8080/header/
+  import.target: http://${IMPORT_HOST:import}:80/
+  mapstore.target: http://${MAPSTORE_HOST:mapstore}:8080/mapstore/
+  ogc-api-records.target: http://${OGC_API_RECORDS_HOST:ogc-api-records}:8080/ogc-api-records/
+  data-api.target: http://${DATA_API_HOST:data-api}:8080/data/

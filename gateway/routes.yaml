@@ -28,11 +28,20 @@ spring:
         predicates:
         - Path=/geonetwork/**
         filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_FIRST
         - name: CookieAffinity
           args:
             name: XSRF-TOKEN
             from: /geonetwork
             to: /datahub
+        metadata:
+          cors:
+            allowedOrigins: '*'
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders: '*'
+            maxAge: 30
       - id: geoserver
         uri: ${georchestra.gateway.services.geoserver.target}
         predicates:

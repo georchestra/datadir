@@ -34,6 +34,11 @@ spring:
             name: XSRF-TOKEN
             from: /geonetwork
             to: /datahub
+        - name: CookieAffinity
+          args:
+            name: XSRF-TOKEN
+            from: /geonetwork
+            to: /metadata-editor
         metadata:
           cors:
             allowedOrigins: '*'

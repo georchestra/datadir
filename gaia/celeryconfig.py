@@ -10,6 +10,7 @@ imports = (
     "geordash.checks.ows",
     "geordash.checks.csw",
     "geordash.checks.mviewer",
+    "geordash.checks.gsd",
 )
 # worker_pool = solo
 worker_log_format = (
@@ -51,6 +52,11 @@ beat_schedule = {
         "task": "geordash.checks.ows.owsservice",
         "args": ("wfs", "/geoserver/ows"),
         "schedule": crontab(minute=30, hour=0),
+    },
+    "check-gs-datadir-every-sunday": {
+        "task": "geordash.checks.gsd.gsdatadir",
+        "args": [],
+        "schedule": crontab(day_of_week='sunday',minute=30, hour=1),
     },
     "check-gn-metadatas-every-night": {
         "task": "geordash.checks.csw.check_catalog",

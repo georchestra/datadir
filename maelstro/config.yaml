@@ -1,0 +1,37 @@
+sources:
+  geonetwork_instances:
+    # Only one geonetwork source is supported in v1
+    # This name value will be used in v2 (not financed yet), user will be able to use catalog source
+    - name: "GeonetworkMaster"
+      # api_url: https://mastergn.rennesmetropole.fr/geonetwork/srv/api
+      api_url: "https://demo.georchestra.org/geonetwork/srv/api"
+      login: "${DEMO_CRD}"
+      password: "${DEMO_CRD}"
+  geoserver_instances: 
+    - url: "https://demo.georchestra.org/geoserver/"
+      login: "testadmin"
+      password: "1234"
+  
+  
+destinations:
+  # Destination needs to be geOrchestra
+  # It only have one geonetwork and geoserver
+
+  # Instance name of geOrchestra destination will be printed in user interface of maelstro
+  "CompoLocale":
+    geonetwork:
+      api_url: "https://georchestra-127-0-0-1.nip.io/geonetwork/srv/api"
+      login: "${LOCAL_LOGIN}"
+      password: "${LOCAL_PASSWORD}"
+    geoserver:
+      url: "https://georchestra-127-0-0-1.nip.io/geoserver"
+      login: "testadmin"
+      password: "Str0ng_passW0rd"
+db_logging:
+  host: "${PGHOST}"
+  port: "${PGPORT}"
+  login: "${PGUSER}"
+  #password: georchestra
+  password: "${PGPASSWORD}"
+  database: "${PGDATABASE}"
+  schema: "maelstro"

@@ -792,13 +792,14 @@
           },
           "FeedbackMask"
         ],
-        "common": [],
+        "common": ["Easytheming"],
       "maps": [
         "Login",
         "HomeDescription", "Fork",
         "MapSearch",
         "CreateNewMap",
         "FeaturedMaps", "ContentTabs",
+        "Easytheming",
         {
           "name": "Header",
           "cfg": {
@@ -854,6 +855,7 @@
           }
         },
         "Details",
+        "Easytheming",
         "AddWidgetDashboard",
         "MapConnectionDashboard",
         {
@@ -951,6 +953,7 @@
         { "name": "FeedbackMask" }
       ],
       "geostory": [
+        "Easytheming",
         {
           "name": "OmniBar",
           "cfg": {
@@ -1052,7 +1055,9 @@
           "className": "navbar shadow navbar-home"
         }
       }, "Login", "ContextManager"],
-      "notallowed": [{
+      "notallowed": [
+        "Easytheming",
+        {
           "name": "Header",
           "cfg": {
             "page": "msadmin"
@@ -1068,6 +1073,7 @@
         "NotAllowed"
       ],
       "context-creator": [
+          "Easytheming",
           {
             "name": "Header",
             "cfg": {

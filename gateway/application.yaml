@@ -27,3 +27,17 @@ spring:
       host: ${SPRING_SESSION_REDIS_HOST:redis}
       port: ${SPRING_SESSION_REDIS_PORT:6379}
       password: ${SPRING_SESSION_REDIS_PASSWORD:password}
+
+  #####
+  # Uncomment and adapt to use UI customization.
+  # See documentation : 
+  # https://docs.georchestra.org/gateway/en/latest/user_guide/ui_customization/?h=thy#main-principles
+  #####
+  # thymeleaf:
+  #   prefix: file:${georchestra.datadir}/gateway/templates/
+  # web:
+  #   resources:
+  #     static-locations: file:${georchestra.datadir}/gateway/templates/static/
+  # webflux:
+  #   static-path-pattern: /static/**
+  #####

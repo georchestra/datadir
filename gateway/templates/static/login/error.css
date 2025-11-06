@@ -1,7 +1,8 @@
 :root {
-    --georchestra: #85127e;
-    --google: #4285F4;
+  --georchestra: var(--georchestra-primary, #85127e);
+  --google: #4285F4;
 }
+
 html, body{
     padding: 0;
     margin: 0;

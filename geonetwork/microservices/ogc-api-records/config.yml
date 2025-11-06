@@ -19,9 +19,9 @@ spring:
   rabbitmq.host: localhost
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://database:5432/georchestra?currentSchema=geonetwork
-    username: georchestra
-    password: georchestra
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${PGUSER}&currentSchema=geonetwork
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
     hikari:
       pool-name: ogc-api-records
       minimum-idle: 1
@@ -37,8 +37,8 @@ spring:
       enabled: false
 
 gn:
-  baseurl: https://georchestra-127-0-0-1.nip.io/geonetwork
-  legacy.url: https://georchestra-127-0-0-1.nip.io/geonetwork
+  baseurl: https://${FQDN}/geonetwork
+  legacy.url: https://${FQDN}/geonetwork
   language:
     default: eng
   linkToLegacyGN4: true
@@ -46,10 +46,10 @@ gn:
     name: GeoNetwork
     organization: opensource
   index:
-    url: http://elasticsearch:9200
+    url: http://${ES_HOST}:${ES_PORT}
     records: gn-records
-    username:
-    password:
+    username: ${ES_USERNAME}
+    password: ${ES_PASSWORD}
   search:
     queryFilter: '+isTemplate:n AND -indexingError:true' # only show relevant records
     trackTotalHits: true

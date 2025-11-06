@@ -3,8 +3,8 @@ body {
   height: 100%;
   font-family: Inter, sans-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
-:root {
-  --georchestra: #85127e;
+body {
+  --georchestra: var(--georchestra-primary, #85127e);
   --google: #4285F4;
 }
 /*bootstrap overwrites*/

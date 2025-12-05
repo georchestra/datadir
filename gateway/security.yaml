@@ -25,7 +25,7 @@ georchestra:
             rdn: ${ldapUsersRdn:ou=users}
             searchFilter: ${ldapUserSearchFilter:(uid={0})}
             pendingUsersSearchBaseDN: ou=pendingusers
-            protectedUsers: geoserver_privileged_user
+#            protectedUsers: geoserver_privileged_user
           roles:
             rdn: ${ldapRolesRdn:ou=roles}
             searchFilter: ${ldapRolesSearchFilter:(member={0})}

@@ -220,9 +220,9 @@ external_viewer_open_new_tab = true
 #     Welcome to <span class="text-primary">Organization</span>'s<br>
 #     wonderful <span style="font-size: 1.2em;">data catalogue</span>
 #     """
-[translations.en]
-datahub.header.title.html = '<div class="text-white">Discover all the data <br> of your platform</div>'
+#[translations.en]
+#datahub.header.title.html = '<div class="text-white">Discover all the data <br> of your platform</div>'
 
-[translations.fr]
-datahub.header.title.html = '<div class="text-white">Toutes les données <br> de votre plateforme</div>'
-results.records.hits.found = '{hits, plural, =0{Aucune correspondance.} one{1 donnée trouvée.} other{{hits} données trouvées.}}'
+#[translations.fr]
+#datahub.header.title.html = '<div class="text-white">Toutes les données <br> de votre plateforme</div>'
+#results.records.hits.found = '{hits, plural, =0{Aucune correspondance.} one{1 donnée trouvée.} other{{hits} données trouvées.}}'

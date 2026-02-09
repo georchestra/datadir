@@ -77,7 +77,7 @@
         <mri:thesaurusName>
           <cit:CI_Citation>
             <cit:title>
-              <gcx:Anchor xlink:href="https://georchestra-127-0-0-1.nip.io/thematique/categories">Catégories</gcx:Anchor>
+              <gcx:Anchor xlink:href="https://georchestra.mydomain.org/thematique/categories">Catégories</gcx:Anchor>
             </cit:title>
             <cit:date>
               <cit:CI_Date>
@@ -102,7 +102,7 @@
             <cit:identifier>
               <mcc:MD_Identifier>
                 <mcc:code>
-                  <gcx:Anchor xlink:href="https://georchestra-127-0-0-1.nip.io/geonetwork/srv/api/registries/vocabularies/external.theme.thesaurus_mot_cle_thematique_categories">geonetwork.thesaurus.external.theme.thesaurus_mot_cle_thematique_categories</gcx:Anchor>
+                  <gcx:Anchor xlink:href="https://georchestra.mydomain.org/geonetwork/srv/api/registries/vocabularies/external.theme.thesaurus_mot_cle_thematique_categories">geonetwork.thesaurus.external.theme.thesaurus_mot_cle_thematique_categories</gcx:Anchor>
                 </mcc:code>
               </mcc:MD_Identifier>
             </cit:identifier>

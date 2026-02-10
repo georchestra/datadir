@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <script th:src="${headerScript}"></script>
+    <link href="login/bootstrap5.min.css?v5.3.3" rel="stylesheet">
+    <link href="login/signin.css" rel="stylesheet"/>
+    <link th:if="${georchestraStylesheet != null and !#strings.isEmpty(georchestraStylesheet)}"
+      th:href="${georchestraStylesheet}" rel="stylesheet"/>
+</head>
+<body class="d-flex flex-column" id="georchestra-login-page">
+<header th:if="${headerEnabled}">
+    <geor-header th:stylesheet="${georchestraStylesheet}" th:legacy-header="${useLegacyHeader}" th:legacy-url="${headerUrl}" th:logo-url="${logoUrl}"
+                 th:height="${headerHeight}" th:config-file="${headerConfigFile}"></geor-header>
+</header>
+<div class="container h-100 py-4 px-3">
+    <div class="d-flex justify-content-center align-items-center rounded-5 h-100">
+        <div class="row h-100 rounded-lg w-100">
+            <div class="col p-0 d-none d-md-block" id="login-left-col">
+                <div class="bg-transparent w-100 h-100 flex align-items-center justify-content-center">
+                    <div class="h-100 w-100 text-white rounded-5" style="background: url('login/img/login.webp')" id="login-left-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-column align-items-center justify-content-between bg-white py-5">
+                <a href="/" class="d-flex align-items-center justify-content-center" th:if="${not headerEnabled}">
+                    <img th:src="${logoUrl}" alt="" width="200" height="72">
+                </a>
+                <form class="form-signin" method="post" action="/login" th:if="${ldapEnabled}">
+                    <h2 class="form-signin-heading"><span th:text="#{login_message_title}"/></h2>
+                    <h4 class="fs-6 fw-light"><span th:text="#{login_message_subtitle}"/></h4>
+                    <div class="my-4 text-danger text-center"
+                         th:if="${invalidCredentials or passwordExpired or duplicateAccount} ">
+                        <div th:if="${invalidCredentials}"><span th:text="#{invalid_credentials}"></span></div>
+                        <div th:if="${passwordExpired}"><span th:text="#{expired_password}"></span>
+                            <a href="/console/account/passwordRecovery"> <span
+                                    th:text="#{expired_password_link}"></span> </a>
+                        </div>
+                        <div th:if="${duplicateAccount}"><span th:text="#{duplicate_account}"></span></div>
+                    </div>
+                    <p class="my-4">
+                        <label for="username" class="sr-only fs-7"><span th:text="#{username}"></span></label>
+                        <input type="text" id="username" name="username" class="form-control"
+                               th:placeholder="#{username}" required autofocus>
+                    </p>
+                    <p class="my-4">
+                        <label for="password" class="sr-only fs-7"><span th:text="#{password}"></span></label>
+                        <input type="password" id="password" name="password" class="form-control"
+                               th:placeholder="#{password}" required>
+                    </p>
+                    <div class="d-flex justify-content-end my-4 fs-7">
+                        <a href="/console/account/passwordRecovery">
+                            <span th:text="#{forget_password}"></span>
+                        </a>
+                    </div>
+
+                    <button class="btn btn-primary btn-block mb-2 w-100" type="submit"><span th:text="#{login}"></span>
+                    </button>
+                    <div th:if="${oauth2LoginLinks.size() != 0}" class="container">
+                        <div class="separator" th:text="#{separator_login}"></div>
+                        <div class="d-flex align-items-center justify-content-evenly my-3">
+                            <div class="bg-light border p-2 rounded btn-oauth2" th:each="oauth2Client : ${oauth2LoginLinks}">
+                                <a th:href="${oauth2Client.key}" th:title="${oauth2Client.value.left}">
+                                    <img th:src="${oauth2Client.value.right}" th:alt="${oauth2Client.value.left}" width="24" height="24" th:class="${oauth2Client.value.left}">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <span th:text="#{register_no_account}"></span>
+                        <span>&nbsp;</span>
+                        <a href="/console/account/new">
+                            <span th:text="#{register}"></span>
+                        </a>
+
+                    </div>
+                </form>
+
+                <div class="h-auto d-flex justify-content-start w-100">
+                    <a href="/">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" style="height: 24px">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
+                        </svg>
+                        <span th:text="#{back_home}"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

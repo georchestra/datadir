@@ -18,3 +18,20 @@ spring:
       filter:
         secure-headers:
           referrer-policy: strict-origin
+
+  #####
+  # Uncomment and adapt to use UI customization.
+  # See documentation : 
+  # https://docs.georchestra.org/gateway/en/latest/user_guide/ui_customization/?h=thy#main-principles
+  #
+  # WARN : if enable, don't forget to adapt path in /templates and /static files.
+  #
+  #####
+  # thymeleaf:
+  #   prefix: file:${georchestra.datadir}/gateway/templates/
+  # web:
+  #   resources:
+  #     static-locations: file:${georchestra.datadir}/gateway/templates/static/
+  # webflux:
+  #   static-path-pattern: /static/**
+  #####

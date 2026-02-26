@@ -15,6 +15,9 @@ server:
 spring:
   cloud:
     gateway:
+      # Trust all proxies (Use with caution!)
+      trusted-proxies: .*
+      # OR better: Trust a specific IP
       filter:
         secure-headers:
           referrer-policy: strict-origin

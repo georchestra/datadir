@@ -36,7 +36,7 @@
 
      path: case insensitive regexp to match the 'path' part of the requested URL.
 
-     network: IP address with a network mask to specify a range of IP addresses. 
+     network: IP address with a network mask to specify a range of IP addresses.
             Both IPv4 and IPv6 are supported.
 
 
@@ -72,14 +72,36 @@
 
      The last urimatcher denies access to all IPv4 addresses which start with 10.42
 
+     By default, the configuration will deny access to the XHR proxy. If you need
+     to activate it, make sure it cannot reach the internal network. An example
+     of "Allowing requests to the outside world but denying local/internal access"
+     could be the following:
+
+     <permissions>
+        <allowByDefault>true</allowByDefault>
+        <denied>
+            <urimatcher>
+                <network>127.0.0.0/8</network>
+            </urimatcher>
+            <urimatcher>
+                <network>10.0.0.0/8</network>
+            </urimatcher>
+            <urimatcher>
+                <network>172.16.0.0/12</network>
+            </urimatcher>
+            <urimatcher>
+                <network>192.168.0.0/16</network>
+            </urimatcher>
+        </denied>
+    </permissions>
+
+
 -->
 <permissions>
-    <allowByDefault>true</allowByDefault>
+    <allowByDefault>false</allowByDefault>
     <denied>
         <urimatcher>
-            <!-- Note that, with the following setting,
-            all ips for local host irregardless of name will be checked -->
-            <host>localhost</host>
+            <host>.*</host>
         </urimatcher>
     </denied>
 </permissions>

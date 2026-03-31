@@ -60,13 +60,13 @@ logging:
   level:
     root: info
     org.springframework: info
-    org.georchestra.gateway: debug
-    org.georchestra.gateway.accesslog: debug
-    org.georchestra.gateway.logging: debug
+    org.georchestra.gateway: info
+    org.georchestra.gateway.accesslog: info
+    org.georchestra.gateway.logging: info
 
 ---
 spring.config.activate.on-profile: logging_debug_security
 logging:
   level:
-    org.springframework.security: debug
-    org.georchestra.gateway.security: debug
+    org.springframework.security: info
+    org.georchestra.gateway.security: info

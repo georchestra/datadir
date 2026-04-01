@@ -1,0 +1,15 @@
+Dear admin,
+
+A new OAuth 2 user signed up on {instanceName} !
+
+Name: {name}
+Email: {email}
+User ID: {uid}
+Organization: {org}
+Identity Provider: {providerName}
+ID received from provider: {providerId}
+
+Manage account on {publicUrl}/console/manager/users/{uid}/infos.
+
+---
+Sent by {instanceName} ({publicUrl}/)

@@ -33,5 +33,6 @@ spring:
   #   resources:
   #     static-locations: file:${georchestra.datadir}/gateway/templates/static/
   # webflux:
-  #   static-path-pattern: /static/**
+  #   Change this line if you want to set a "base path" to your static resources
+  #   static-path-pattern: /static/** # <- your resource will be available with a /static/ prefix
   #####

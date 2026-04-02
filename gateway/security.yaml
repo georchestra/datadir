@@ -10,7 +10,11 @@ georchestra:
         # sanitize the mentioned request headers to prevent external impersonation.
         enabled: false
       createNonExistingUsersInLDAP: true
-      enableRabbitmqEvents: true
+#      events:
+#        accountcreated:
+#          # Set this url to console's endpoint to be able to receive an email when a new user logs in
+#          #  for the first time with an IDP and is created in LDAP.
+#          url: "http://console:8080/console/internal/events/accountcreated"
       oauth2:
         enabled: false
       ldap:

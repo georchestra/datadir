@@ -21,3 +21,22 @@ spring:
       filter:
         secure-headers:
           referrer-policy: strict-origin
+
+  #####
+  # Uncomment and adapt to use UI customization.
+  # See documentation : 
+  # https://docs.georchestra.org/gateway/en/latest/user_guide/ui_customization/?h=thy#main-principles
+  #
+  # WARN : if enable, don't forget to adapt path in /templates and /static files.
+  #
+  #####
+  # thymeleaf:
+  #   prefix: file:${georchestra.datadir}/gateway/templates/
+  # web:
+  #   resources:
+  #  In order to import your resources, create a folder /etc/georchestra/gateway/static/ and put them inside. e.g. If you create /etc/georchestra/gateway/static/img/myimg.png, your resource will be available on <your domain>/img/myimg.png
+  #     static-locations: file:/etc/georchestra/gateway/static/, classpath:/static/
+  # webflux:
+  #   Change this line if you want to set a "base path" to your static resources
+  #   static-path-pattern: /static/** # <- your resource will be available with a /static/ prefix
+  #####

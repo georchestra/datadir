@@ -16,7 +16,7 @@
     "loadAfterTheme": true,
     "userSessions": {
       "enabled": true,
-      "contextOnly": true
+      "contextOnly": false
     },
     "stylesheetUri": "",
     "header": {

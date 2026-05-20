@@ -21,3 +21,9 @@ spring:
       filter:
         secure-headers:
           referrer-policy: strict-origin
+  session:
+    redis:
+      enabled: ${SPRING_SESSION_REDIS_ENABLED:false}
+      host: ${SPRING_SESSION_REDIS_HOST:redis}
+      port: ${SPRING_SESSION_REDIS_PORT:6379}
+      password: ${SPRING_SESSION_REDIS_PASSWORD:password}

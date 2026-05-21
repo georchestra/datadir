@@ -10,11 +10,17 @@ georchestra:
         # sanitize the mentioned request headers to prevent external impersonation.
         enabled: false
       createNonExistingUsersInLDAP: true
+#      Add a delay after login before being redirected.
+#      delayAfterLoginSeconds: 3
 #      events:
 #        accountcreated:
 #          # Set this url to console's endpoint to be able to receive an email when a new user logs in
 #          #  for the first time with an IDP and is created in LDAP.
 #          url: "http://console:8080/console/internal/events/accountcreated"
+#      sirene:
+#        # If enabled, the gateway will query the SIRENE API to retrieve organization name from siret if enabled in orgNameResolvers of provider.
+#        enabled: false
+#        api-key: ${SIRENE_API_KEY:}
       oauth2:
         enabled: false
       ldap:
@@ -36,6 +42,20 @@ georchestra:
           orgs:
             rdn: ${ldapOrgsRdn:ou=orgs}
             protectedRoles: ADMINISTRATOR, GN_.*, ORGADMIN, REFERENT, USER, SUPERUSER
+#      oidc:
+#        config:
+#          provider:
+#            <provider-name>:
+#              # allow to resolve org name from sirene https://github.com/orgs/georchestra/discussions/4668
+#              orgNameResolvers:
+#                - sirene  
+#                - identifier
+#                - UNKNOWN_ORG
+#        claims:
+#          provider:
+#            <provider-name>:
+#              organizationUid.path: "$.siret"
+
 # uncomment for oauth 2.0
 #spring:
 #  security:

@@ -4,84 +4,75 @@
 spring:
   cloud:
     gateway:
-      routes:
-      - id: root
-        uri: ${georchestra.gateway.services.datahub.target}
-        predicates:
-        - Path=/
-        filters:
-        - RedirectTo=308, /datahub/
-      - id: header
-        uri: ${georchestra.gateway.services.header.target}
-        predicates:
-        - Path=/header,/header/**
-      - id: console
-        uri: ${georchestra.gateway.services.console.target}
-        predicates:
-        - Path=/console/**
-      - id: geonetwork
-        uri: ${georchestra.gateway.services.geonetwork.target}
-        predicates:
-        - Path=/geonetwork/**
-        filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_FIRST
-        - name: CookieAffinity
-          args:
-            name: XSRF-TOKEN
-            from: /geonetwork
-            to: /datahub
-        metadata:
-          cors:
-            allowedOrigins: '*'
-            allowedMethods:
-              - GET
-              - POST
-            allowedHeaders: '*'
-            maxAge: 30
-      - id: geoserver
-        uri: ${georchestra.gateway.services.geoserver.target}
-        predicates:
-        - Path=/geoserver/**
-      - id: geowebcache
-        uri: ${georchestra.gateway.services.geowebcache.target}
-        predicates:
-        - Path=/geowebcache/**
-      - id: mapstore
-        uri: ${georchestra.gateway.services.mapstore.target}
-        predicates:
-        - Path=/mapstore/**
-      - id: datafeeder
-        uri: ${georchestra.gateway.services.datafeeder.target}
-        predicates:
-        - Path=/datafeeder/**
-      - id: import
-        uri: ${georchestra.gateway.services.import.target}
-        predicates:
-        - Path=/import/**
-        filters:
-        - RewritePath=/import/(?<segment>.*),/$\{segment}
-      - id: datahub
-        uri: ${georchestra.gateway.services.datahub.target}
-        predicates:
-        - Path=/datahub/**
-      - id: ogc-api-records
-        uri: ${georchestra.gateway.services.ogc-api-records.target}
-        predicates:
-        - Path=/ogc-api-records/**
-      - id: data-api
-        uri: ${georchestra.gateway.services.data-api.target}
-        predicates:
-        - Path=/data/**
+     server:
+       webflux:
+        routes:
+        - id: root
+          uri: ${georchestra.gateway.services.datahub.target}
+          predicates:
+          - Path=/
+          filters:
+          - RedirectTo=308, /datahub/
+        - id: header
+          uri: ${georchestra.gateway.services.header.target}
+          predicates:
+          - Path=/header,/header/**
+        - id: console
+          uri: ${georchestra.gateway.services.console.target}
+          predicates:
+          - Path=/console/**
+        - id: geonetwork
+          uri: ${georchestra.gateway.services.geonetwork.target}
+          predicates:
+          - Path=/geonetwork/**
+          filters:
+          - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_FIRST
+          - name: CookieAffinity
+            args:
+              name: XSRF-TOKEN
+              from: /geonetwork
+              to: /datahub
+          - name: CookieAffinity
+            args:
+              name: XSRF-TOKEN
+              from: /geonetwork
+              to: /metadata-editor
+          metadata:
+            cors:
+              allowedOrigins: '*'
+              allowedMethods:
+                - GET
+                - POST
+              allowedHeaders: '*'
+              maxAge: 30
+        - id: geoserver
+          uri: ${georchestra.gateway.services.geoserver.target}
+          predicates:
+          - Path=/geoserver/**
+        - id: geowebcache
+          uri: ${georchestra.gateway.services.geowebcache.target}
+          predicates:
+          - Path=/geowebcache/**
+        - id: mapstore
+          uri: ${georchestra.gateway.services.mapstore.target}
+          predicates:
+          - Path=/mapstore/**
+          filters:
+          - RewritePath=/import/(?<segment>.*),/$\{segment}
+        - id: datahub
+          uri: ${georchestra.gateway.services.datahub.target}
+          predicates:
+          - Path=/datahub/**
+        - id: ogc-api-records
+          uri: ${georchestra.gateway.services.ogc-api-records.target}
+          predicates:
+          - Path=/ogc-api-records/**
 
 georchestra.gateway.services:
   console.target: http://${CONSOLE_HOST:console}:8080/console/
-  datafeeder.target: http://${DATAFEEDER_HOST:datafeeder}:8080/datafeeder/
   datahub.target: http://${DATAHUB_HOST:datahub}:80/datahub/
   geonetwork.target: http://${GEONETWORK_HOST:geonetwork}:8080/geonetwork/
   geoserver.target: http://${GEOSERVER_HOST:geoserver}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST:geowebcache}:8080/geowebcache/
-  header.target: http://${HEADER_HOST:header}:8080/header/
-  import.target: http://${IMPORT_HOST:import}:80/
   mapstore.target: http://${MAPSTORE_HOST:mapstore}:8080/mapstore/
   ogc-api-records.target: http://${OGC_API_RECORDS_HOST:ogc-api-records}:8080/ogc-api-records/
-  data-api.target: http://${DATA_API_HOST:data-api}:8080/data/

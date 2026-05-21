@@ -15,14 +15,18 @@ server:
 spring:
   cloud:
     gateway:
-      # Trust all proxies (Use with caution!)
-      trusted-proxies: .*
-      # OR better: Trust a specific IP
-      filter:
-        secure-headers:
-          referrer-policy: strict-origin
+      server:
+        webflux:
+          # Trust all proxies (Use with caution!)
+          trusted-proxies: .*
+          # OR better: Trust a specific IP
+          filter:
+            secure-headers:
+              referrer-policy: strict-origin
   session:
     redis:
+      # Enable Spring Session with Redis. 
+      # Disabled by default for backward compatibility, but should be enabled in production for better session management and scalability.
       enabled: ${SPRING_SESSION_REDIS_ENABLED:false}
       host: ${SPRING_SESSION_REDIS_HOST:redis}
       port: ${SPRING_SESSION_REDIS_PORT:6379}

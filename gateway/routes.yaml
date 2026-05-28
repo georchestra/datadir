@@ -13,10 +13,6 @@ spring:
           - Path=/
           filters:
           - RedirectTo=308, /datahub/
-        - id: header
-          uri: ${georchestra.gateway.services.header.target}
-          predicates:
-          - Path=/header,/header/**
         - id: console
           uri: ${georchestra.gateway.services.console.target}
           predicates:

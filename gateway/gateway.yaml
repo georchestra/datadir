@@ -34,31 +34,6 @@ georchestra:
       - "/proxy/?url=*"
       anonymous: true
     services:
-      header:
-        target: ${georchestra.gateway.services.header.target}
-        access-rules:
-        - intercept-url: /header/**
-          anonymous: true
-      analytics:
-        target: ${georchestra.gateway.services.analytics.target}
-        access-rules:
-        - intercept-url: /analytics/**
-          allowed-roles: SUPERUSER,ORGADMIN
-      datafeeder:
-        target: ${georchestra.gateway.services.datafeeder.target}
-        headers:
-          json-user: true
-          json-organization: true
-        access-rules:
-        - intercept-url: /datafeeder/**
-          anonymous: false
-          allowed-roles: SUPERUSER,IMPORT
-      import:
-        target: ${georchestra.gateway.services.import.target}
-        access-rules:
-        - intercept-url: /import/**
-          anonymous: false
-          allowed-roles: SUPERUSER,IMPORT
       console:
         target: ${georchestra.gateway.services.console.target}
         access-rules:

@@ -13,10 +13,6 @@ spring:
           - Path=/
           filters:
           - RedirectTo=308, /datahub/
-        - id: header
-          uri: ${georchestra.gateway.services.header.target}
-          predicates:
-          - Path=/header,/header/**
         - id: console
           uri: ${georchestra.gateway.services.console.target}
           predicates:
@@ -63,6 +59,10 @@ spring:
           uri: ${georchestra.gateway.services.datahub.target}
           predicates:
           - Path=/datahub/**
+        - id: metadata-editor
+          uri: ${georchestra.gateway.services.metadata-editor.target}
+          predicates:
+          - Path=/metadata-editor/**
         - id: ogc-api-records
           uri: ${georchestra.gateway.services.ogc-api-records.target}
           predicates:
@@ -71,6 +71,7 @@ spring:
 georchestra.gateway.services:
   console.target: http://${CONSOLE_HOST:console}:8080/console/
   datahub.target: http://${DATAHUB_HOST:datahub}:80/datahub/
+  metadata-editor.target: http://{METADATA_EDITOR_HOST:metadata-editor}:80/metadata-editor/
   geonetwork.target: http://${GEONETWORK_HOST:geonetwork}:8080/geonetwork/
   geoserver.target: http://${GEOSERVER_HOST:geoserver}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST:geowebcache}:8080/geowebcache/

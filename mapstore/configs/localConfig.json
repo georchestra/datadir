@@ -869,7 +869,7 @@
           "Easytheming"
         ],
       "maps": [
-        "Easytheming"
+        "Easytheming",
         { "name": "ResourcesSearch" },
         "CreateNewMap",
         {

@@ -864,9 +864,11 @@
           },
           "Login",
           "ScrollTop",
-          "Notifications"
+          "Notifications",
+          "Easytheming"
         ],
       "maps": [
+        "Easytheming"
         { "name": "ResourcesSearch" },
         "CreateNewMap",
         {

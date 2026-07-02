@@ -71,7 +71,7 @@ spring:
 georchestra.gateway.services:
   console.target: http://${CONSOLE_HOST:console}:8080/console/
   datahub.target: http://${DATAHUB_HOST:datahub}:80/datahub/
-  metadata-editor.target: http://{METADATA_EDITOR_HOST:metadata-editor}:80/metadata-editor/
+  metadata-editor.target: http://${METADATA_EDITOR_HOST:metadata-editor}:80/metadata-editor/
   geonetwork.target: http://${GEONETWORK_HOST:geonetwork}:8080/geonetwork/
   geoserver.target: http://${GEOSERVER_HOST:geoserver}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST:geowebcache}:8080/geowebcache/

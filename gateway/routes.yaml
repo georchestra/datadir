@@ -53,8 +53,6 @@ spring:
           uri: ${georchestra.gateway.services.mapstore.target}
           predicates:
           - Path=/mapstore/**
-          filters:
-          - RewritePath=/import/(?<segment>.*),/$\{segment}
         - id: datahub
           uri: ${georchestra.gateway.services.datahub.target}
           predicates:
@@ -63,10 +61,23 @@ spring:
           uri: ${georchestra.gateway.services.metadata-editor.target}
           predicates:
           - Path=/metadata-editor/**
-        - id: ogc-api-records
-          uri: ${georchestra.gateway.services.ogc-api-records.target}
+        - id: datafeeder-backend
+          uri: ${georchestra.gateway.services.datafeeder-backend.target}
           predicates:
-          - Path=/ogc-api-records/**
+          - Path=/datafeeder-backend/**,/openapi.json
+          filters:
+            - RewritePath=/datafeeder-backend/(?<segment>.*),/$\{segment}
+        - id: datafeeder-frontend
+          uri: ${georchestra.gateway.services.datafeeder-frontend.target}
+          predicates:
+          - Path=/dataset/**
+          filters:
+          # https://github.com/spring-cloud/spring-cloud-gateway/issues/1748
+          - RewritePath=/dataset,/dataset/
+        - id: airflow
+          uri: ${georchestra.gateway.services.airflow.target}
+          predicates:
+          - Path=/airflow/**
 
 georchestra.gateway.services:
   console.target: http://localhost:8280/console/
@@ -77,3 +88,6 @@ georchestra.gateway.services:
   geowebcache.target: http://localhost:8280/geowebcache/
   mapstore.target: http://localhost:8280/mapstore/
   ogc-api-records.target: http://localhost:8480/ogc-api-records/
+  datafeeder-backend.target: http://localhost:8280/
+  datafeeder-frontend.target: http://localhost:8280/
+  airflow.target: http://localhost:8280/airflow

@@ -14,8 +14,6 @@
                 version="2.0"
                 exclude-result-prefixes="#all">
 
-  <xsl:import href="inspire/topic_category.xsl"/>
-
   <!--
   Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
    -->

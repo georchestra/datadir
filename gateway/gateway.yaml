@@ -74,3 +74,21 @@ georchestra:
           json-user: true
       geoserver:
         target: ${georchestra.gateway.services.geoserver.target}
+      datafeeder-backend:
+        target: ${georchestra.gateway.services.datafeeder-backend.target}
+        access-rules:
+        - intercept-url: /datafeeder-backend/internal/**
+          anonymous: false
+          allowed-roles: ADMINISTRATOR
+        - intercept-url: /datafeeder-backend**, /datafeeder-backend/**
+          anonymous: false
+          allowed-roles: IMPORT
+      datafeeder-frontend:
+        target: ${georchestra.gateway.services.datafeeder-frontend.target}
+        access-rules:
+        - intercept-url: /dataset**, /dataset/**
+          anonymous: false
+          allowed-roles: IMPORT
+        headers:
+          json-user: true
+          json-organization: true

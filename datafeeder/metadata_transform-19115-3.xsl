@@ -5,15 +5,9 @@
                 xmlns:util="java:org.fao.geonet.util.XslUtil" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0"
                 version="2.0" exclude-result-prefixes="#all">
 
-<!--
-Template to add a <gmd:topicCategory> for each
-gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString
-matching the mappings defined here from keyword to RDF entry
-
-The document must have an empty gmd:identificationInfo/gmd:MD_DataIdentification/gmd:topicCategory
- -->
-  <xsl:template name="inspire_topic_category">
-    <xsl:variable name="inspire-themes" select="document('themes.rdf')"/>
+  <!--
+  Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
+   -->
 
     <xsl:for-each select="$props//keywords//keyword">
       <xsl:variable name="kw" select="."/>

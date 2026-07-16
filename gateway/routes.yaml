@@ -78,6 +78,10 @@ spring:
           uri: ${georchestra.gateway.services.airflow.target}
           predicates:
           - Path=/airflow/**
+        - id: external-proxy
+          uri: ${georchestra.gateway.services.external-proxy.target}
+          predicates:
+          - Path=/proxy/**
 
 georchestra.gateway.services:
   console.target: http://${CONSOLE_HOST:console}:8080/console/
@@ -91,3 +95,4 @@ georchestra.gateway.services:
   datafeeder-backend.target: http://${DATAFEEDER_BACKEND:datafeeder-backend}:8000/
   datafeeder-frontend.target: http://${DATAFEEDER_FRONTEND:datafeeder-frontend}:8080/
   airflow.target: http://airflow-apiserver:8081/airflow
+  external-proxy.target: http://external-proxy:8080/proxy

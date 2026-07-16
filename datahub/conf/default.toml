@@ -19,7 +19,7 @@ datahub_url = "/datahub"
 # This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
 # The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`
 # This is an optional parameter: leave empty to disable proxy usage
-proxy_path = "/mapstore/proxy/?url="
+# proxy_path = "/proxy/?url="
 
 # This optional parameter defines, in which language metadata should be queried in elasticsearch.
 # Use ISO 639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format in 2 characters to indicate the language of the metadata.

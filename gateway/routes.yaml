@@ -91,7 +91,6 @@ georchestra.gateway.services:
   geoserver.target: http://${GEOSERVER_HOST:geoserver}:8080/geoserver/
   geowebcache.target: http://${GEOWEBCACHE_HOST:geowebcache}:8080/geowebcache/
   mapstore.target: http://${MAPSTORE_HOST:mapstore}:8080/mapstore/
-  ogc-api-records.target: http://${OGC_API_RECORDS_HOST:ogc-api-records}:8080/ogc-api-records/
   datafeeder-backend.target: http://${DATAFEEDER_BACKEND:datafeeder-backend}:8000/
   datafeeder-frontend.target: http://${DATAFEEDER_FRONTEND:datafeeder-frontend}:8080/
   airflow.target: http://airflow-apiserver:8081/airflow

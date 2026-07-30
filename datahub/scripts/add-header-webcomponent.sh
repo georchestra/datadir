@@ -2,8 +2,6 @@
 
 # To be properl executed by datahub initialization need the +x flag 
 # so you need to add it with chmod and commit/push it
-# To be properl executed by datahub initialization need the +x flag
-# so you need to add it with chmod and commit/push it
 function prop {
     variable=$(grep "^${1}" /etc/georchestra/default.properties)
     if  [[ -z $variable ]] || [[ $variable == \#* ]] ;

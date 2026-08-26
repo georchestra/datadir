@@ -110,4 +110,4 @@ georchestra.gateway.services:
   gaia.target: http://localhost:5002/gaia/
   maelstro-backend.target: http://localhost:8000/
   maelstro.target: http://localhost:8080/maelstro/
-  external-proxy.target: http://external-proxy:8080/proxy
+  external-proxy.target: http://localhost:8081/proxy

@@ -151,6 +151,18 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # enabled = true
 # If u want to use metadata quality widget this configuration is required
 
+### EDITING SETTINGS
+
+# This section contains settings for metadata editing behavior in the Metadata Editor application.
+[editing]
+# Optional; defines the default language assigned to newly created records (e.g. 'en', 'fr', 'de').
+# If not set, defaults to the current UI language.
+# new_record_default_language = "fr"
+
+# Optional; defines the metadata standard used when creating new records.
+# Accepted values: "iso19139" (default) or "iso19115-3".
+# new_record_standard = "iso19115-3"
+
 ### MAP SETTINGS
 
 # The map section allows to customize how maps are configured.
@@ -219,6 +231,7 @@ external_viewer_open_new_tab = true
 ### TRANSLATIONS
 
 # To override translations in a specific language, use a 'translations.xx' section where 'xx' is a language code.
+# Add ?debugTranslations=true to datahub URLs to get a nice display of translation keys.
 # Language codes are expressed in ISO 639-1 codes, see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 # Example:
 #

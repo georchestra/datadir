@@ -14,7 +14,7 @@ datahub_url = "/datahub"
 # The template must include the following placeholders, which allow applications to inject the correct values when generating the final URL:
 # ${record_id}: identifier of the record
 # Example for an integration with the Metadata-Editor:
-# edit_url_template = "/metadata-editor/edit/${record_id}"
+edit_url_template = "/metadata-editor/edit/${record_id}"
 
 # This should point to a proxy to avoid CORS errors on some requests (data preview, OGC capabilities etc.)
 # The actual URL will be appended after this path, e.g. : https://my.proxy/?url=http%3A%2F%2Fencoded.url%2Fows`
@@ -161,7 +161,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 
 # Optional; defines the metadata standard used when creating new records.
 # Accepted values: "iso19139" (default) or "iso19115-3".
-# new_record_standard = "iso19115-3"
+new_record_standard = "iso19115-3"
 
 ### MAP SETTINGS
 

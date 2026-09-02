@@ -31,6 +31,7 @@ proxy_path = "/mapstore/proxy/?url="
 # If not indicated, the default geonetwork login page is used.
 # The following three placeholders can be part of this URL:
 #  - ${current_url}: indicates where the current location should be injected in the constructed login URL (eg. start, end)
+#  - ${current_path}: indicates where the path component of the current URL (i.e. the part after the host name, starting with "/") should be injected in the constructed login URL
 #  - ${lang2}, ${lang3}: indicates if and where the current language should be part of the login URL in language 2 or 3 letter code
 # Example to use the georchestra login page:
 login_url = "${current_url}?login"
@@ -115,7 +116,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # One or several search presets visible in form of badges can be defined here; every search preset is composed of:
 # - a name (which can be a translation key)
 # - a sort criteria (prepend the field name with - to do a descending sort):
-#   - `-revisionDateForResource,-publicationDateForResource,-creationDateForResource` (resource dates)
+#   - `-resourceDate.date`
 #   - `-userSavedcount`
 #   - `-qualityScore`
 #   - `-_score`
@@ -133,7 +134,7 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 #     filters.publicationYear = ['2023', '2022']
 #     filters.isSpatial = ['yes']
 #     filters.license = ['unknown']
-#     sort = '-revisionDateForResource,-publicationDateForResource,-creationDateForResource'
+#     sort = '-resourceDate.date'
 # [[search_preset]]
 #     name = 'otherFilterName'
 #     filters.q = 'Other Full text search'
@@ -150,6 +151,18 @@ fonts_stylesheet_url = "https://fonts.googleapis.com/css2?family=Display&family=
 # By default the widget is not activated to enable it, just add this parameter.
 # enabled = true
 # If u want to use metadata quality widget this configuration is required
+
+### EDITING SETTINGS
+
+# This section contains settings for metadata editing behavior in the Metadata Editor application.
+[editing]
+# Optional; defines the default language assigned to newly created records (e.g. 'en', 'fr', 'de').
+# If not set, defaults to the current UI language.
+# new_record_default_language = "fr"
+
+# Optional; defines the metadata standard used when creating new records.
+# Accepted values: "iso19139" (default) or "iso19115-3".
+# new_record_standard = "iso19115-3"
 
 ### MAP SETTINGS
 

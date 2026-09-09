@@ -92,3 +92,15 @@ georchestra:
         headers:
           json-user: true
           json-organization: true
+      maelstro-backend:
+        target: ${georchestra.gateway.services.maelstro-backend.target}
+        access-rules:
+        - intercept-url: /maelstro-backend/**
+          anonymous: false
+          allowed-roles: SUPERUSER
+      maelstro:
+        target: ${georchestra.gateway.services.maelstro.target}
+        access-rules:
+        - intercept-url: /maelstro/**
+          anonymous: false
+          allowed-roles: SUPERUSER

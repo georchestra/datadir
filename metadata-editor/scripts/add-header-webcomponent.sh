@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# To be properl executed by datahub initialization need the +x flag 
+# To be properl executed by metadata-editor initialization need the +x flag 
 # so you need to add it with chmod and commit/push it
-# To be properl executed by datahub initialization need the +x flag
+# To be properl executed by metadata-editor initialization need the +x flag
 # so you need to add it with chmod and commit/push it
 function prop {
     variable=$(grep "^${1}" /etc/georchestra/default.properties)
@@ -23,13 +23,13 @@ LEGACY_URL=$(prop "headerUrl" "/header")
 LOGO=$(prop "logoUrl" "https://www.georchestra.org/public/georchestra-logo.svg")
 CONFIG_FILE=$(prop "headerConfigFile" "")
 
-DATAHUB_DIR=${1:-/usr/share/nginx/html/datahub}
-SNIPPET="<script src='${SCRIPT}'></script><geor-header active-app='datahub' config-file='${CONFIG_FILE}' logo-url='${LOGO}' legacy-header='${LEGACY}' legacy-url='${LEGACY_URL}' height='${HEIGHT}' stylesheet='${STYLESHEET}'></geor-header>"
+METADATA_DIR=${1:-/usr/share/nginx/html/metadata-editor}
+SNIPPET="<script src='${SCRIPT}'></script><geor-header active-app='metadata-editor' config-file='${CONFIG_FILE}' logo-url='${LOGO}' legacy-header='${LEGACY}' legacy-url='${LEGACY_URL}' height='${HEIGHT}' stylesheet='${STYLESHEET}'></geor-header>"
 
-if grep -q "${SNIPPET}" "${DATAHUB_DIR}/index.html"; then
+if grep -q "${SNIPPET}" "${METADATA_DIR}/index.html"; then
   echo "[INFO] geOrchestra: header already present."
   exit 0
 fi
 
 echo "[INFO] geOrchestra: adding header in the main page..."
-sed -i "s#<body>#<body>${SNIPPET}#" ${DATAHUB_DIR}/index.html
+sed -i "s#<body class=\"flex flex-col\">#<body class=\"flex flex-col\">${SNIPPET}#" ${METADATA_DIR}/index.html

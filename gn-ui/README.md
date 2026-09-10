@@ -1,6 +1,6 @@
 This folder contains a few customizations specific to geOrchestra for the Datahub:
 
-* `conf`: geOrchestra-specific Datahub configuration
+* `conf`: geOrchestra-specific gn-ui apps configuration
 * `assets`: custom geOrchestra assets overriding the default ones
 * `scripts/add-header.sh`: a script meant for injecting the geOrchestra header in the datahub application
 * `scripts/add-header-webcomponent.sh`: same as above, but using the new header Web Component from https://github.com/georchestra/header/

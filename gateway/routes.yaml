@@ -78,6 +78,18 @@ spring:
           uri: ${georchestra.gateway.services.airflow.target}
           predicates:
           - Path=/airflow/**
+        - id: gaia
+          uri: ${georchestra.gateway.services.gaia.target}
+          predicates:
+          - Path=/gaia/**
+        - id: maelstro-backend
+          uri: ${georchestra.gateway.services.maelstro-backend.target}
+          predicates:
+          - Path=/maelstro-backend/**
+        - id: maesltro
+          uri: ${georchestra.gateway.services.maelstro.target}
+          predicates:
+          - Path=/maelstro/**
         - id: external-proxy
           uri: ${georchestra.gateway.services.external-proxy.target}
           predicates:
@@ -95,4 +107,7 @@ georchestra.gateway.services:
   datafeeder-backend.target: http://${DATAFEEDER_BACKEND:datafeeder-backend}:8000/
   datafeeder-frontend.target: http://${DATAFEEDER_FRONTEND:datafeeder-frontend}:8080/
   airflow.target: http://airflow-apiserver:8081/airflow
+  gaia.target: http://${GAIA_BACK_HOST:gaia-back}:5002/gaia/
+  maelstro-backend.target: http://${MAELSTRO_BACKEND_HOST:maelstro-back}:8000/
+  maelstro.target: http://${MAELSTRO_FRONT_HOST:maelstro-front}:8080/maelstro/
   external-proxy.target: http://external-proxy:8080/proxy

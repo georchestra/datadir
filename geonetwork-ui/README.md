@@ -1,6 +1,6 @@
 This folder contains a few customizations specific to geOrchestra for the Datahub:
 
-* `conf`: geOrchestra-specific Datahub configuration
+* `conf`: geOrchestra-specific gn-ui apps configuration
 * `assets`: custom geOrchestra assets overriding the default ones
 
 ## How to apply customizations

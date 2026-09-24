@@ -17,7 +17,7 @@ georchestra:
     #   https://localhost/import/,
     #   https://localhost/geonetwork/
     # Redirection URL after a successful logout : Defaults to /?logout
-    # logoutUrl : "/?logout" 
+    # logoutUrl : "/?logout"
     default-headers:
       # Default security headers to append to proxied requests
       proxy: true
@@ -74,3 +74,33 @@ georchestra:
           json-user: true
       geoserver:
         target: ${georchestra.gateway.services.geoserver.target}
+      datafeeder-backend:
+        target: ${georchestra.gateway.services.datafeeder-backend.target}
+        access-rules:
+        - intercept-url: /datafeeder-backend/internal/**
+          anonymous: false
+          allowed-roles: ADMINISTRATOR
+        - intercept-url: /datafeeder-backend**, /datafeeder-backend/**
+          anonymous: false
+          allowed-roles: IMPORT
+      datafeeder-frontend:
+        target: ${georchestra.gateway.services.datafeeder-frontend.target}
+        access-rules:
+        - intercept-url: /dataset**, /dataset/**
+          anonymous: false
+          allowed-roles: IMPORT
+        headers:
+          json-user: true
+          json-organization: true
+      maelstro-backend:
+        target: ${georchestra.gateway.services.maelstro-backend.target}
+        access-rules:
+        - intercept-url: /maelstro-backend/**
+          anonymous: false
+          allowed-roles: SUPERUSER
+      maelstro:
+        target: ${georchestra.gateway.services.maelstro.target}
+        access-rules:
+        - intercept-url: /maelstro/**
+          anonymous: false
+          allowed-roles: SUPERUSER

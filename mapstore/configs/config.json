@@ -25,7 +25,7 @@
         "title": "Photographie aérienne",
         "type": "wmts",
         "group": "background",
-        "thumbURL": "/mapstore/dist/MapStore2/web/client/plugins/background/assets/img/Aerial.jpg",
+        "thumbURL": "https://data.geopf.fr/wmts?layer=ORTHOIMAGERY.ORTHOPHOTOS&style=normal&tilematrixset=PM&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image%2Fjpeg&TileMatrix=4&TileCol=8&TileRow=5",
         "url" : "https://data.geopf.fr/wmts",
         "name": "ORTHOIMAGERY.ORTHOPHOTOS",
         "format": "image/jpeg",

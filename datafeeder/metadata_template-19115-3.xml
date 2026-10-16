@@ -71,16 +71,6 @@
       </cit:dateType>
     </cit:CI_Date>
   </mdb:dateInfo>
-  <mdb:dateInfo>
-    <cit:CI_Date>
-      <cit:date>
-        <gco:DateTime>1970-01-01T02:40:00</gco:DateTime>
-      </cit:date>
-      <cit:dateType>
-        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision"/>
-      </cit:dateType>
-    </cit:CI_Date>
-  </mdb:dateInfo>
   <mdb:metadataStandard>
     <cit:CI_Citation>
       <cit:title>
@@ -162,26 +152,6 @@
           </mri:equivalentScale>
         </mri:MD_Resolution>
       </mri:spatialResolution>
-      <mri:extent>
-        <gex:EX_Extent>
-          <gex:geographicElement>
-            <gex:EX_GeographicBoundingBox>
-              <gex:westBoundLongitude>
-                <gco:Decimal>2.78913293567365</gco:Decimal>
-              </gex:westBoundLongitude>
-              <gex:eastBoundLongitude>
-                <gco:Decimal>3.272498092970729</gco:Decimal>
-              </gex:eastBoundLongitude>
-              <gex:southBoundLatitude>
-                <gco:Decimal>50.4997300394295</gco:Decimal>
-              </gex:southBoundLatitude>
-              <gex:northBoundLatitude>
-                <gco:Decimal>50.7945765614518</gco:Decimal>
-              </gex:northBoundLatitude>
-            </gex:EX_GeographicBoundingBox>
-          </gex:geographicElement>
-        </gex:EX_Extent>
-      </mri:extent>
       <mri:resourceMaintenance>
         <mmi:MD_MaintenanceInformation>
           <mmi:maintenanceAndUpdateFrequency>
@@ -200,7 +170,7 @@
           <mri:thesaurusName>
             <cit:CI_Citation>
               <cit:title>
-                <gcx:Anchor xlink:href="https://georchestra.mydomain.org/thematique/categories">Catégories</gcx:Anchor>
+                <gcx:Anchor xlink:href="https://${FQDN}/thematique/categories">Catégories</gcx:Anchor>
               </cit:title>
               <cit:date>
                 <cit:CI_Date>
@@ -215,7 +185,7 @@
               <cit:identifier>
                 <mcc:MD_Identifier>
                   <mcc:code>
-                    <gcx:Anchor xlink:href="https://georchestra.mydomain.org/geonetwork/srv/api/registries/vocabularies/external.theme.thesaurus_mot_cle_thematique_categories">geonetwork.thesaurus.external.theme.thesaurus_mot_cle_thematique_categories</gcx:Anchor>
+                    <gcx:Anchor xlink:href="https://${FQDN}/geonetwork/srv/api/registries/vocabularies/external.theme.thesaurus_mot_cle_thematique_categories">geonetwork.thesaurus.external.theme.thesaurus_mot_cle_thematique_categories</gcx:Anchor>
                   </mcc:code>
                 </mcc:MD_Identifier>
               </cit:identifier>

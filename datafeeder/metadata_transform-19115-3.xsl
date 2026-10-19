@@ -14,6 +14,8 @@
                 version="2.0"
                 exclude-result-prefixes="#all">
 
+  <xsl:import href="inspire/topic_category.xsl"/>
+
   <!--
   Default template to apply MetadataRecordProperties.java properties to a record template adhering to http://schemas.opengis.net/csw/2.0.2/profiles/apiso/1.0.0/apiso.xsd
    -->
@@ -82,28 +84,37 @@
 
   <xsl:template
           match="//mdb:identificationInfo/mri:MD_DataIdentification/mri:extent/gex:EX_Extent/gex:geographicElement/gex:EX_GeographicBoundingBox">
-    <gex:EX_GeographicBoundingBox>
-      <gex:westBoundLongitude>
-        <gco:Decimal>
-          <xsl:value-of select="$props//westBoundLongitude" />
-        </gco:Decimal>
-      </gex:westBoundLongitude>
-      <gex:eastBoundLongitude>
-        <gco:Decimal>
-          <xsl:value-of select="$props//eastBoundLongitude" />
-        </gco:Decimal>
-      </gex:eastBoundLongitude>
-      <gex:southBoundLatitude>
-        <gco:Decimal>
-          <xsl:value-of select="$props//southBoundLatitude" />
-        </gco:Decimal>
-      </gex:southBoundLatitude>
-      <gex:northBoundLatitude>
-        <gco:Decimal>
-          <xsl:value-of select="$props//northBoundLatitude" />
-        </gco:Decimal>
-      </gex:northBoundLatitude>
-    </gex:EX_GeographicBoundingBox>
+    <xsl:choose>
+      <xsl:when test="$props//westBoundLongitude != ''">
+        <gex:EX_GeographicBoundingBox>
+          <gex:westBoundLongitude>
+            <gco:Decimal>
+              <xsl:value-of select="$props//westBoundLongitude" />
+            </gco:Decimal>
+          </gex:westBoundLongitude>
+          <gex:eastBoundLongitude>
+            <gco:Decimal>
+              <xsl:value-of select="$props//eastBoundLongitude" />
+            </gco:Decimal>
+          </gex:eastBoundLongitude>
+          <gex:southBoundLatitude>
+            <gco:Decimal>
+              <xsl:value-of select="$props//southBoundLatitude" />
+            </gco:Decimal>
+          </gex:southBoundLatitude>
+          <gex:northBoundLatitude>
+            <gco:Decimal>
+              <xsl:value-of select="$props//northBoundLatitude" />
+            </gco:Decimal>
+          </gex:northBoundLatitude>
+        </gex:EX_GeographicBoundingBox>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy>
+          <xsl:apply-templates select="@*|node()" />
+        </xsl:copy>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template
@@ -190,7 +201,7 @@
   <xsl:template
           match="//mdb:distributionInfo/mrd:MD_Distribution/mrd:transferOptions">
     <mrd:transferOptions>
-      <mrd:MD_DigitalTransferOptions>
+        <mrd:MD_DigitalTransferOptions>
         <xsl:for-each select="$props//onlineResources//onlineResource">
           <mrd:onLine>
             <xsl:call-template name="onlineResource">
@@ -201,7 +212,7 @@
             </xsl:call-template>
           </mrd:onLine>
         </xsl:for-each>
-      </mrd:MD_DigitalTransferOptions>
+        </mrd:MD_DigitalTransferOptions>
     </mrd:transferOptions>
   </xsl:template>
 
@@ -335,5 +346,14 @@
     </xsl:attribute>
   </xsl:template>
   -->
+
+  <!--
+    Generate one gmd:topicCategory/gmd:MD_TopicCategoryCode for each gmd:keyword/gco:CharacterString
+    that matches an entry in rdf:Description rdf:about="<id>"/skos:prefLabel[text()] in inspire/themes.rdf
+  -->
+
+  <xsl:template match="//mdb:identificationInfo/mri:MD_DataIdentification/mri:topicCategory">
+    <xsl:call-template name="inspire_topic_category"/>
+  </xsl:template>
 
 </xsl:stylesheet>

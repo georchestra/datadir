@@ -270,6 +270,7 @@
         "mobile": ["Header", "Easytheming", {
                 "name": "Map",
                 "cfg": {
+                    "containerPosition": "background",
                     "mapOptions": {
                       "openlayers": {
                         "interactions": {
@@ -404,6 +405,7 @@
           {
             "name": "Map",
             "cfg": {
+                "containerPosition": "background",
               "mapOptions": {
                 "openlayers": {
                   "interactions": {
@@ -473,7 +475,12 @@
                     }
                 }
             },
-            "FeatureEditor",
+            {
+              "name": "FeatureEditor",
+              "cfg": {
+                "containerPosition": "bottom"
+              }
+            },
             "UserSession",
             "LayerDownload",
             {
@@ -718,6 +725,7 @@
           {
             "name": "Map",
             "cfg": {
+                "containerPosition": "background",
               "mapOptions": {
                 "openlayers": {
                   "interactions": {

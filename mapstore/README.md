@@ -2,7 +2,7 @@ MapStore configuration files
 ----------------------------
 
 - geostore.properties: MapStore specific database configuration properties (not contained in default.properties, e.g. the database schema used by MapStore for its persistence layer)
-- proxy.properties: MapStore proxy configuration (see here: https://github.com/geosolutions-it/http-proxy/wiki/Configuring-Http-Proxy for further details)
+- proxy.properties: MapStore proxy configuration (see the [MapStore proxy configuration](https://docs.mapstore.geosolutionsgroup.com/en/v2026.03.00/developer-guide/proxy-configuration/) for all the options)
 - log4j.properties: logging configuration (see here: https://logging.apache.org/log4j/2.x/manual/configuration.html#ConfigurationSyntax)
 - localConfig.json: main frontend configuration file, in JSON format (see here: https://mapstore.readthedocs.io/en/latest/developer-guide/local-config/)
 - config.json: map configuration file for initial viewer map

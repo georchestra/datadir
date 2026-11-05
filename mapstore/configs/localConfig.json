@@ -680,7 +680,12 @@
               }
             },
             "WidgetsTray",
-            "Timeline",
+            {
+              "name": "Timeline",
+              "cfg": {
+                "containerPosition": "bottom"
+              }
+            },
             "Playback",
             "FeedbackMask",
             "StyleEditor",

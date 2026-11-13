@@ -366,7 +366,8 @@
                     { "name": "3dtiles", "label": "3D Tiles" },
                     { "name": "cog", "label": "COG" },
                     { "name": "model", "label": "IFC Model" },
-                    { "name": "arcgis", "label": "ArcGIS" }
+                    { "name": "arcgis", "label": "ArcGIS" },
+                    { "name": "flatgeobuf", "label": "FlatGeobuf" }
                   ]
               }
           },
@@ -582,7 +583,8 @@
                       { "name": "3dtiles", "label": "3D Tiles" },
                       { "name": "cog", "label": "COG" },
                       { "name": "model", "label": "IFC Model" },
-                      { "name": "arcgis", "label": "ArcGIS" }
+                      { "name": "arcgis", "label": "ArcGIS" },
+                      { "name": "flatgeobuf", "label": "FlatGeobuf" }
                     ]
                 }
             }, {

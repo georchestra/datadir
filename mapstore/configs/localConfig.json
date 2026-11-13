@@ -1111,9 +1111,31 @@
           "cfg": {
             "toolsOptions": {
               "hideCrossLayer": true,
-              "hideSpatialFilter": true
+              "useEmbeddedMap": true
             },
+            "spatialPanelExpanded": false,
+            "spatialOperations": [
+              {"id": "INTERSECTS", "name": "queryform.spatialfilter.operations.intersects"},
+              {"id": "CONTAINS", "name": "queryform.spatialfilter.operations.contains"},
+              {"id": "WITHIN", "name": "queryform.spatialfilter.operations.within"}
+            ],
+            "spatialMethodOptions": [
+              {"id": "BBOX", "name": "queryform.spatialfilter.methods.box"},
+              {"id": "Circle", "name": "queryform.spatialfilter.methods.circle"},
+              {"id": "Polygon", "name": "queryform.spatialfilter.methods.poly"}
+            ],
             "containerPosition": "columns"
+          }
+        }, {
+          "name": "MapEditor",
+          "cfg": {
+            "titleMsgId": "widgets.mapWidget.mapEditorTitle",
+            "overrideDefaultPlugins": [{
+              "name": "FeatureEditor",
+              "cfg": {
+                "containerPosition": "bottom"
+              }
+            }]
           }
         }, "Dashboard", "Notifications", {
           "name": "Tutorial",
